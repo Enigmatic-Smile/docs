@@ -15,7 +15,7 @@ To add a new card, go to the **API Playground** on the dashboard, choose **Add C
 
 <h5>Create sample cards in test mode using the API Playground.</h5>
 
-![Create card](assets/images/create-card.png "Create card")
+![Create card](/assets/images/create-card.png "Create card")
 
 <br/>
 
