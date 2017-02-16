@@ -2,6 +2,7 @@
 <div class="row">
     <div class="column">
         <div class="content">
+            ![Get started](/assets/images/get-started.svg "Get started")
             <img src="assets/images/get-started.svg"/>
             <h2>Get Started</h2>
             <h3>Integrate card-linked loyalty with quickstart guide</h3>
