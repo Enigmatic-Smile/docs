@@ -9,7 +9,7 @@
     </div>
     <div class="column">
         <div class="content">
-            <img src="../assets/images/sdk-box.svg"/>
+            <img src="assets/images/sdk-box.svg"/>
             <h2>SDKs</h2>
             <h3>Learn how to install and use iOS, Android and Javascript SDKs</h3>
         </div>
@@ -18,14 +18,14 @@
 <div class="row">
     <div class="column">
         <div class="content">
-            <img src="../assets/images/playground.svg"/>
+            <img src="assets/images/playground.svg"/>
             <h2>Playground</h2>
             <h3>Test API requests in real-time and see how we format the returned data</h3>
         </div>
     </div>
     <div class="column">
         <div class="content">
-            <img src="../assets/images/api-reference.svg"/>
+            <img src="assets/images/api-reference.svg"/>
             <h2>API Reference</h2>
             <h3>See all available API requests and object attributes</h3>
         </div>
@@ -44,7 +44,7 @@ Currently the API is available for **VISA** and **Mastercard** networks in the *
 Our developers’ community in Slack is the place to get help with our API, discuss ideas, and show off what you build. Hit the button to join:
 
 <button>
-  <img src="../assets/images/slack-icon.svg" />
+  <img src="assets/images/slack-icon.svg" />
   Slack
 </button>
 
@@ -55,7 +55,7 @@ Check out the [API Reference](fidel.uk) to see all available API requests, and v
 # Demo
 The iOS, Android and Javascript SDKs provide you with simple UI to collect your user’s card details securely on the web or in your mobile apps.
 
-![Intro demo](../assets/images/intro-demo.png "Intro demo")
+![Intro demo](assets/images/intro-demo.png "Intro demo")
 
 **Swift** | Javascript  
 📝 ViewController.swift

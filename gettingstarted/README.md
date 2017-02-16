@@ -16,7 +16,7 @@ Your test API Key is available on the FIDEL dashboard on your account page. You 
 
 <h5>Your API keys are shown in your account page.</h5>
 
-![API keys](../assets/images/api-keys@2x.png "API keys")
+![API keys](assets/images/api-keys@2x.png "API keys")
 
 <br/>
 
@@ -34,14 +34,14 @@ We are working on two native SDKs for mobile, iOS and Android, that will be avai
 <div class="row">
     <div class="column">
         <div class="content">
-            <img src="../assets/images/get-started.svg"/>
+            <img src="assets/images/get-started.svg"/>
             <h2>Mobile</h2>
             <h3>Coming soon... We are working on iOS and Android native SDKs</h3>
         </div>
     </div>
     <div class="column">
         <div class="content">
-            <img src="../assets/images/sdk-box.svg"/>
+            <img src="assets/images/sdk-box.svg"/>
             <h2>Web</h2>
             <h3>Easily link cards on your website using the Javascript SDK</h3>
         </div>
