@@ -55,7 +55,7 @@ Check out the [API Reference](fidel.uk) to see all available API requests, and v
 # Demo
 The iOS, Android and Javascript SDKs provide you with simple UI to collect your user’s card details securely on the web or in your mobile apps.
 
-![Intro demo](assets/images/intro-demo.png "Intro demo")
+![Intro demo](/assets/images/intro-demo.png "Intro demo")
 
 **Swift** | Javascript  
 📝 ViewController.swift
