@@ -15,7 +15,7 @@ To add a new card, go to the **API Playground** on the dashboard, choose **Add C
 
 <h5>Create sample cards in test mode using the API Playground.</h5>
 
-<img width="100%" src="docs/cards/images/create_card.png"/>
+![Create card](https://docs.fidel.uk/assets/images/create-card.png "Create card")
 
 <br/>
 
