@@ -1,5 +1,5 @@
 ## Webhooks
-**FIDEL API** uses webhooks to send transactional data and other relevant events to your server. For example, when a customer successfully links a card through the web form or mobile SDKs, we create a `card.link.success` event that will post the created card object to a URL specified by you.
+**FIDEL API** uses webhooks to send transactional data and other relevant events to your server. For example, when a customer successfully links a card through the web form or mobile SDKs, we create a `card.link.success` event and send a POST request with the newly created card object to each of the URLs you provide.
 Currently, we have two groups of events, transaction and card related events. Under transactions events we have authorisation and clearing.
 
 <h5>Webhooks event structure.</h5>
@@ -37,6 +37,6 @@ We are looking to extend  the list of events in the future. If you require any s
 
 # Create Webhook
 
-Work in progress...
+To create a new webhook, go to **Webhooks** using the top menu of the dashboard, click **Add Webhook** and select the program, event and enter the URL where you want to receive this event's payload. From the **Webhhoks** page you can also delete and edit any of the existing webhooks.
 
-<h5>Create webhook image</h5>
+<br/>
