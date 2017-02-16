@@ -33,11 +33,3 @@ To add locations to a program, select a program from the *Programs* page, click 
 The `merchantId` is an unique identifier for a retail location that can be found on the receipt printed by any card machine in that location. It is usually referred as MID on the receipt. On an online store the `merchantId` can be requested from the payment service provider used by the e-commerce platform.
 
 In test mode, a new location is automatically approved and set to active status. On live environment, new locations added will require 1-2 weeks processing before becoming active.
-
-<br/>
-
-___
-### Help?
-If you have any questions please contact us by [email](mailto:developer@fidel.uk) or talk with our developers in the [Slack channel](fidel.uk).
-
-<br/>

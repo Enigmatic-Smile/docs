@@ -40,12 +40,3 @@ We are looking to extend  the list of events in the future. If you require any s
 Work in progress...
 
 <h5>Create webhook image</h5>
-
-<br/>
-
-___
-
-### Help?
-If you have any questions please contact us by [email](mailto:developer@fidel.uk) or talk with our developers in the [Slack channel](fidel.uk).
-
-<br/>

@@ -92,12 +92,3 @@ mastercard: [
   '5555000000000010'
 ]
 ```
-
-<br/>
-
-___
-
-### Help?
-If you have any questions please contact us by [email](mailto:developer@fidel.uk) or talk with our developers in the [Slack channel](fidel.uk).
-
-<br/>

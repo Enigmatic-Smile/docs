@@ -44,13 +44,3 @@ The FIDEL Web SDK can be customised to better fit your website. You can provide 
 
 # Handling the response
 Work in progress...
-
-
-<br/>
-
-___
-
-### Help?
-If you have any questions please contact us by [email](mailto:developer@fidel.uk) or talk with our developers in the [Slack channel](fidel.uk).
-
-<br/>

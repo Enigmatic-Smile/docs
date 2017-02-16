@@ -69,10 +69,3 @@ Fidel.presentLinkCardViewController(programId: "a32c45c1") { (success) -> Void i
     }
 }
 ```
-<br/>
-
-___
-### Help?
-If you have any questions please contact us by [email](fidel.uk) or talk with our developers in the [Slack channel](fidel.uk).
-
-<br/>

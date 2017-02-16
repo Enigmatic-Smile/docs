@@ -75,11 +75,3 @@ fileName:index.html
     data-button-text-color="#000000">
 </script>
 ```
-
-<br/>
-
-___
-### Help?
-If you have any questions please contact us by [email](mailto:developer@fidel.uk) or talk with our developers in the [Slack channel](fidel.uk).
-
-<br/>
