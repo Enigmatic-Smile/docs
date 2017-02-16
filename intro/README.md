@@ -2,7 +2,7 @@
 <div class="row">
     <div class="column">
         <div class="content">
-            <img src="../assets/images/get-started.svg"/>
+            <img src="assets/images/get-started.svg"/>
             <h2>Get Started</h2>
             <h3>Integrate card-linked loyalty with quickstart guide</h3>
         </div>
