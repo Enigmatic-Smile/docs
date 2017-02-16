@@ -4,7 +4,7 @@ Currently, we have two groups of events, transaction and card related events. Un
 
 <h5>Webhooks event structure.</h5>
 
-![Webhooks diagram](/assets/images/webhooks-diagram.png "Webhooks diagram")
+![Webhooks diagram](https://docs.fidel.uk/assets/images/webhooks-diagram.png "Webhooks diagram")
 
 <br/>
 

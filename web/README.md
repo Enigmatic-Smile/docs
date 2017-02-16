@@ -3,7 +3,7 @@
 
 <h5>Preview of FIDEL card-linking Web SDK</h5>
 
-![Web form](/assets/images/web-form.png "Web form")
+![Web form](https://docs.fidel.uk/assets/images/web-form.png "Web form")
 
 <br/>
 
