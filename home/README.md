@@ -2,14 +2,14 @@
 <div class="row">
     <div class="column">
         <div class="content">
-            <img src="./assets/svg/get-started.svg"/>
+            <img src="../assets/images/get-started.svg"/>
             <h2>Get Started</h2>
             <h3>Integrate card-linked loyalty with our quickstart guide</h3>
         </div>
     </div>
     <div class="column">
         <div class="content">
-            <img src="./assets/svg/sdk_box.svg"/>
+            <img src="../assets/images/sdk-box.svg"/>
             <h2>Mobile SDKs</h2>
             <h3>Coming soon... We are working on iOS and Android native SDKs</h3>
         </div>
@@ -18,14 +18,14 @@
 <div class="row">
     <div class="column">
         <div class="content">
-            <img src="./assets/svg/playground.svg"/>
+            <img src="../assets/images/playground.svg"/>
             <h2>Playground</h2>
             <h3>Test API requests in real-time and see how we format the returned data</h3>
         </div>
     </div>
     <div class="column">
         <div class="content">
-            <img src="./assets/svg/api_reference.svg"/>
+            <img src="../assets/images/api-reference.svg"/>
             <h2>Web SDK</h2>
             <h3>Easily link cards on your website using the Javascript SDK</h3>
         </div>
@@ -46,7 +46,7 @@ Currently the API is available for **VISA** and **Mastercard** networks in the *
 Join our developers' Slack channel for API discussions, documentation, roadmap and new features. We’re always happy to help and answer any questions. Join by clicking the button below:
 
 <button>
-  <img src="./assets/svg/slack-icon.svg" />
+  <img src="../assets/images/slack-icon.svg" />
   Slack
 </button>
 
@@ -57,7 +57,7 @@ The iOS, Android and Javascript SDKs provide you with simple UI to collect your 
 
 <h5>Preview of web and mobile FIDEL card linking iFrame.</h5>
 
-<img width="100%" src="docs/home/images/intro_demo.png"/>
+![Intro demo](../assets/images/intro-demo.png "Intro demo")
 
 <h5>Web SDK integration code</h5>
 

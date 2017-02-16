@@ -24,7 +24,7 @@ To create a test transaction you only need to submit three properties, the `card
 
 <h5>Create sample transactions in test mode using the API Playground.</h5>
 
-<img width="100%" src="docs/transactions/images/create_transaction.png"/>
+![Create transaction](../assets/images/create-transaction.png "Create transaction")
 
 <br/>
 

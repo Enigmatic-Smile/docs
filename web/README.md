@@ -3,7 +3,7 @@
 
 <h5>Preview of FIDEL card-linking Web SDK</h5>
 
-<img width="100%" src="docs/web/images/web_form.png"/>
+![Web form](../assets/images/web-form.png "Web form")
 
 <br/>
 
