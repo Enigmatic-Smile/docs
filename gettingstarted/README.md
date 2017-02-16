@@ -51,11 +51,3 @@ We are working on two native SDKs for mobile, iOS and Android, that will be avai
 <br/>
 
 Please follow the specific [Web SDK](/web) integration guide to learn how to configure and customize the web form to collect card number and expiry date on your website.
-
-<br/>
-
-___
-### Help?
-If you have any questions please contact us by [email](mailto:developer@fidel.uk) or talk with our developers in the [Slack channel](fidel.uk).
-
-<br/>
