@@ -7,9 +7,9 @@ After creating a FIDEL API account and have access to the dashboard, the next st
 ![Hierarchy diagram](https://docs.fidel.uk/assets/images/hierarchy-diagram.png "Hierarchy diagram")
 
 # Create Program
-A **Program** represents a set of locations or merchantsIds that uniquely identify an offline or online store where transactions from enrolled cards will be monitored. A new program should be created for each independent loyalty or rewards scheme.
+A **Program** represents a set of locations or merchantsIds that uniquely identify an offline or online store where transactions from linked cards will be monitored. A new program should be created for each independent loyalty or rewards scheme.
 
-To create a new program, go to **Programs** using the top menu of the dashboard, click **Create Program** and enter a name. The program will be created with the name provided without initial locations.
+To create a new program, go to **Programs** using the top menu of the dashboard, click **Create Program** and enter a name. The program will be created with the name provided without any initial locations.
 
 <h5>Go to the Programs page on the dashboard to create a new program.</h5>
 
@@ -17,12 +17,12 @@ To create a new program, go to **Programs** using the top menu of the dashboard,
 
 <br/>
 
-A `programId` will be generated and must be passed as an argument when enrolling cards on this program.  
+A `programId` will be generated and must be passed as a data property when linking cards to this program.  
 
 <br/>
 
 # Add Locations
-To add locations to a program, select a program from the *Programs* page, click *Add Location* and enter the requested info. You will need to provide `name`, `address` and `merchantId` to add a location to an existing program.
+To add locations to a program, select a program from the *Programs* page, click *Add Locations* and enter the requested info. You will need to provide `name`, `address` and `merchantId` to add a location to an existing program.
 
 <h5>After creating a program, you can add locations.</h5>
 

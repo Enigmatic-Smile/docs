@@ -27,16 +27,16 @@ Under clearing there are two separate events, `transaction.clearing.success` and
 # Card Events
 There are four card related events that you can be notified about. Two are triggered when the customer is linking the card on the web or mobile. The other two when a linked card is about to expire or is already expired.
 
-When the user links the card by sending the card number and expiry date, FIDEL API tokenises and sends this information directly to Visa or MasterCard depending on the card type. If the card is successfully linked, a `card.link.success` event is triggered and the newly created card object sent to the specified URL. If an error occurs, a `card.link.error` is sent instead.
+When the user links the card by sending the card number and expiry date, FIDEL API tokenises and sends this information directly to Visa or MasterCard depending on the card type. If the card is successfully linked, a `card.link.success` event is triggered and the newly created card object sent to the specified URL. If an error occurs, a `card.link.error` event is sent instead.
 
 You can be notified when a card is one month from expiring by creating a `card.link.expiring` webhook. Also, you can be notified of all linked card that have expired by creating a `card.link.expired` webhook. The expiry webhooks are scheduled to run daily at 12:00pm UTC.
 
-We are looking to extend  the list of events in the future. If you require any specific event that is not available yet please speak with us on the ~Slack channel~ or email us at developer@fidel.uk.
+We are looking to extend  the list of events in the future. If you require any specific event that is not available yet please speak with us on the [Slack channel](https://fidel-developers-slack-invites.herokuapp.com/) or email us at [developer@fidel.uk](mailto:developer@fidel.uk).
 
 <br/>
 
 # Create Webhook
 
-To create a new webhook, go to **Webhooks** using the top menu of the dashboard, click **Add Webhook** and select the program, event and enter the URL where you want to receive this event's payload. From the **Webhhoks** page you can also delete and edit any of the existing webhooks.
+To create a new webhook, go to **Webhooks** using the top menu of the dashboard, click **Add Webhook**, select the program, select the event and enter the URL where you want to receive this event's payload. From the **Webhhoks** page you can also delete and edit any of the existing webhooks.
 
 <br/>

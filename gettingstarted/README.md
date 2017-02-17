@@ -2,7 +2,7 @@
 
 **FIDEL API** helps you collect payment card details in minutes on iOS, Android and Web by using native SDKs. We developed customizable UI using iFrames so you don't have to handle sensitive information on your servers.
 
-Card numbers are instantly tokenized and we return to you a unique token that identify each successfully linked card on your database.
+Card numbers are instantly tokenised and we return to you a unique token that identify each successfully linked card on your database.
 
 <br/>
 
@@ -12,7 +12,7 @@ Before getting started with the integration you need to **create a FIDEL API acc
 <br/>
 
 # Step 2: Get API Key
-Your test API Key is available on the FIDEL dashboard on your account page. You should start by copying the test key that will allow you to test your integration on mobile or web code and create test transactions from the [API Playground](fidel.uk).
+Your test API Key is available on the FIDEL dashboard on your account page. You should start by copying the test key that will allow you to test your integration on mobile or web code and create test transactions from the **API Playground**.
 
 <h5>Your API keys are shown in your account page.</h5>
 
@@ -33,18 +33,18 @@ We are working on two native SDKs for mobile, iOS and Android, that will be avai
 
 <div class="row">
     <div class="column">
-        <div class="content">
+        <a href="/gettingstarted" class="content">
             <img src="https://docs.fidel.uk/assets/images/get-started.svg"/>
             <h2>Mobile</h2>
             <h3>Coming soon... We are working on iOS and Android native SDKs</h3>
-        </div>
+        </a>
     </div>
     <div class="column">
-        <div class="content">
+        <a href="/web" class="content">
             <img src="https://docs.fidel.uk/assets/images/sdk-box.svg"/>
             <h2>Web</h2>
             <h3>Easily link cards on your website using the Javascript SDK</h3>
-        </div>
+        </a>
     </div>
 </div>
 
