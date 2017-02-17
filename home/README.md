@@ -1,11 +1,11 @@
 <h2>Documentation</h2>
 <div class="row">
     <div class="column">
-        <div class="content">
+        <a href="/gettingstarted" class="content">
             <img src="https://docs.fidel.uk/assets/images/get-started.svg"/>
             <h2>Get Started</h2>
             <h3>Integrate card-linked loyalty with our quickstart guide</h3>
-        </div>
+        </a>
     </div>
     <div class="column">
         <div class="content">
