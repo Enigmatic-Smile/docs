@@ -1,9 +1,9 @@
 ## Cards
 The Card object holds information about the card details submitted by the user using the web form or the mobile SDKs. One user can link multiple cards, debit or credit under the same account.
 
-The details required to link a card are the 16-digit card number, expiry date and the programId of the Program you want to link this card to. The card number is validated using the Luhn algorithm and then tokenised before being submitted to Visa and MasterCard networks. This way, your servers are never exposed to the credit card number, removing all PCI compliance requirements from your side.
+The details required to link a card are the 16-digit card number, expiry date and the programId of the Program you want to link this card to. The card number is validated using the Luhn algorithm and then tokenised before being submitted to Visa and MasterCard networks. This way, your servers are never exposed to sensitive information, removing all PCI compliance requirements from your side.
 
-FIDEL never stores the 16-digit PAN (Primary Account Number) entered by the user. It is tokenised instantly and submitted to the card schemes. After this point only the card token is exchanged between your servers, the card schemes and FIDEL.
+FIDEL never stores the 16-digit PAN (Primary Account Number) entered by the user. It is tokenised instantly and submitted to the card schemes. After this point only the card token is exchanged between your servers, the card schemes and FIDEL API.
 
 After the card is linked successfully, we will monitor any purchase made by this card on any of the program’s locations and send the transaction object to a specified webhook.
 
@@ -11,7 +11,7 @@ After the card is linked successfully, we will monitor any purchase made by this
 
 # Add Card
 
-To add a new card, go to the **API Playground** on the dashboard, choose **Add Card** from the left menu. The method will be set to POST and the endpoint to _/cards/_. An editable sample JSON object like the following one will be used to create the card. You can add and delete sample cards in test mode by using the **API Playground**.
+To add a new card, go to the **API Playground** on the dashboard, choose **Add Card** from the left menu. The method will be set to POST and the endpoint to _/cards_. An editable sample JSON object like the following one will be used to create the card. In order to add a card from the Playground, you’ll need to use one of the available ~testing card numbers~ shown below. Also, provide an expiry date in the future and the **programId** you want to link this card to.
 
 <h5>Create sample cards in test mode using the API Playground.</h5>
 

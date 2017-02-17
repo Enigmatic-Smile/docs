@@ -24,12 +24,18 @@
         </div>
     </div>
     <div class="column">
-        <div class="content">
+        <a href="/web" class="content">
             <img src="https://docs.fidel.uk/assets/images/api-reference.svg"/>
             <h2>Web SDK</h2>
             <h3>Easily link cards on your website using the Javascript SDK</h3>
-        </div>
+        </a>
     </div>
+</div>
+
+<br/>
+
+<div class="info-box">
+FIDEL API is in closed beta under active development . Expect breaking changes and documentation updates before public release.
 </div>
 
 <br/>
@@ -45,10 +51,12 @@ Currently the API is available for **VISA** and **Mastercard** networks in the *
 
 Join our developers' Slack channel for API discussions, documentation, roadmap and new features. We’re always happy to help and answer any questions. Join by clicking the button below:
 
-<button>
-  <img src="https://docs.fidel.uk/assets/images/slack-icon.svg" />
-  Slack
-</button>
+<a href="https://fidel-developers-slack-invites.herokuapp.com/" target="blank">
+  <button>
+    <img src="https://docs.fidel.uk/assets/images/slack-icon.svg" />
+    Slack
+  </button>
+</a>
 
 <br/>
 
@@ -61,17 +69,20 @@ The iOS, Android and Javascript SDKs provide you with simple UI to collect your 
 
 <h5>Web SDK integration code</h5>
 
-```javascript
+```html
 fileName:index.html
-<script src="https://resources.fidel.uk/fidel.js"
+<script type="text/javascript" src="https://please.waitfor.release/v1/fidel.js"
     class="fidel-form"
-    data-key="pk_test_b4325e25-d261-4dc6-a56f-8f22d881e295"
-    data-title="Brand Name"
-    data-sub-title="Earn 1 point for every £1 spent online or in-store."
+    data-auto-open="false"
+    data-callback="response"
+    data-key="pk_live_5be54ed6-0c10-48a8-9db0-ca34852fbbfd"
+    data-program-id="d1e38621-6f5d-424f-be26-d6fe33d2663a"
+    data-title="Link Card"
+    data-sub-title="Earn 1 point for every £1 spent online or in-store"
     data-logo="https://brand-logo.png"
     data-lang="en"
-    data-button-color="#ffffff"
+    data-button-color="#589144"
     data-button-title="Link Card"
-    data-button-text-color="#000000">
+    data-button-title-color="#ffffff">
 </script>
 ```
