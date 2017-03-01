@@ -7,7 +7,7 @@ Card numbers are instantly tokenised and we return to you a unique token that id
 <br/>
 
 # Step 1: Create Account
-Before getting started with the integration you need to **create a FIDEL API account** that will give you access to the dashboard, card-linked program configuration, playground environment and API keys. You can create a new account by clicking [here](sign-up).
+Before getting started with the integration you need to **create a FIDEL API account** that will give you access to the dashboard, card-linked program configuration, playground environment and API keys. You can create a new account by clicking [here](https://dashboard.fidel.uk/sign-up).
 
 <br/>
 
@@ -50,4 +50,4 @@ We are working on two native SDKs for mobile, iOS and Android, that will be avai
 
 <br/>
 
-Please follow the specific [Web SDK](/web) integration guide to learn how to configure and customize the pre-built UI to collect card details securely on your website.
+Please follow the specific [Web SDK](/web) integration guide to learn how to configure and customize the pre-built UI to collect card details securely on your website. You should visit the [Programs](/programs), [Cards](/cards), [Transactions](/transactions) and [Webhooks](/webhooks) sections to get an overview of the FIDEL API object structure and description.
