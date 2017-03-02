@@ -1,5 +1,5 @@
 ## Cards
-The Card object holds information about the card details submitted by the user using the web form or the mobile SDKs. One user can link multiple cards, debit or credit under the same account.
+The Card object holds information about the card details submitted by the user using the web or mobile SDKs. One user can link multiple cards, debit or credit under the same account.
 
 The details required to link a card are the 16-digit card number, expiry date and the programId of the Program you want to link this card to. The card number is validated using the Luhn algorithm and then tokenised before being submitted to Visa and MasterCard networks. This way, your servers are never exposed to sensitive information, removing all PCI compliance requirements from your side.
 
