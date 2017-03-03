@@ -35,7 +35,7 @@
 <br/>
 
 <div class="info-box">
-FIDEL API is in closed beta under active development. Expect breaking changes and documentation updates before public release.
+FIDEL API is in public beta under active development. Expect breaking changes and documentation updates before final release.
 </div>
 
 <br/>
@@ -67,14 +67,7 @@ The iOS, Android and Web SDKs provide you with pre-built UI to collect your user
 
 ![Intro demo](https://docs.fidel.uk/assets/images/intro-demo.png "Intro demo")
 
-<script type="text/javascript" src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
-    class="fidel-form"
-    data-auto-open="false"
-    data-callback="callback"
-    data-key="pk_test_demo"
-    data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
-    data-company-name="Fidel">
-</script>
+To see the Web SDK working, please click the the 'Link Card' button below:
 
 <button style="background: #4dadea; border: none; border-radius: 3px; color: #ffffff;" type="submit" onclick="Fidel.openForm()">Link Card</button>
 

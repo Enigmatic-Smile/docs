@@ -16,7 +16,7 @@ Your test API Key is available on account page of your dashboard. You should sta
 
 <h5>Your API keys are displayed in your account page</h5>
 
-![API keys](https://docs.fidel.uk/assets/images/api-keys@2x.png "API keys")
+![API keys](https://docs.fidel.uk/assets/images/api-keys.png "API keys")
 
 <br/>
 
