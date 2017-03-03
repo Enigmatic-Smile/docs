@@ -1,7 +1,7 @@
 ## Webhooks
 **FIDEL API** uses webhooks to send transactional data and other relevant events to your server. For example, when a customer makes a payment with a linked Mastercard, a `transaction.auth` is sent in real-time to the specified webhooks linked to that program. Currently, there are two groups of events, transaction and card related events.
 
-<h5>Webhooks event structure.</h5>
+<h5>Webhooks events</h5>
 
 ![Webhooks diagram](https://docs.fidel.uk/assets/images/webhooks-diagram.png "Webhooks diagram")
 
