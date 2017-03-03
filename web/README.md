@@ -39,34 +39,56 @@ fileName:index.html
 
 <br/>
 
-To integrate **FIDEL Web SDK** in your website or mobile app, you need to add the above script in your website or mobile webview. We are working on native mobile SDKs for iOS and Android that will simplify the integration on mobile.
+To integrate **FIDEL Web SDK** in your website or mobile app, you need to add the script above in your website or mobile web view. We are working on native mobile SDKs for iOS and Android that will simplify the mobile integration.
 
 Most of the data properties in the script are self explanatory but you can check the description of each property below.
 
-|            **Key** | **Description**       |
-___
-|---------------:|:------------------|
-| data-auto-open | To connect **FIDEL Web SDK** to your **FIDEL API** account and Program you will need to add your test API Key to the `data-api-key` property and add a **programId** to the `data-program-id` property. |
-|  data-callback | left-aligned      |
-|       data-key | left-aligned      |
+<br/>
 
--data-auto-open: To connect **FIDEL Web SDK** to your **FIDEL API** account and Program you will need to add your test API Key to the `data-api-key` property and add a **programId** to the `data-program-id` property.
+- **data-auto-open**: whether the web form auto opens on page load
 
+- **data-callback**: name of the global callback function
 
-To connect **FIDEL Web SDK** to your **FIDEL API** account and Program you will need to add your test API Key to the `data-api-key` property and add a **programId** to the `data-program-id` property. When you want to go live a link real cards on Visa and Mastercard networks you will need to replace the test key for your live key.
+- **data-key**: a valid API key
 
-The FIDEL Web SDK can be customised to better fit your website. You can provide a title, subtitle and logo by using the properties `data-title`, `data-subtitle` and `data-logo`. Also, the action button can be customised by changing it's background color, title, and title color by using the properties `data-button-color`, `data-button-title` and `data-button-title-color`.
+- **data-program-id**: the id of the program to link the card to
 
-The `data-auto-open` property allows you to open the web form automatically on page load if set to _true_. To receive the callback after the form submission you must pass a Javascript global function name reference on the `data-callback` property that will return the response and error objects. Please see an example below:
+- **data-company-name**: the name of the company using card-linked services
 
-<h5>Web form callback global function example.</h5>
+- **data-title**: the title of the web form
 
-```javascript
+- **data-subtitle**: the subtitle of the web form
+
+- **data-logo**: the logo URL of the company using card-linked services. Recommended height 35px
+
+- **data-lang**: the localization language to be used
+
+- **data-button-color**: the hex color code of the button background
+
+- **data-button-title**: the button title
+
+- **data-button-title-color**: the hex color code of the button title
+
+<br/>
+
+The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
+
+```html
+<button type="submit" onclick="Fidel.openForm()">Link Card</button>
+```
+
+To receive the callback after the form submission you must pass a Javascript global function name reference on the `data-callback` property that will return the response and error objects. Please see an example below:
+
+<h5>Web SDK callback global function example.</h5>
+
+```html
 fileName:index.html
 <script>
-    function response(error, response) {
-        console.log('Card linked successfully', response)
-        console.log('Error linking card', error);
+    function callback(error, response) {
+        console.log('Card Link Error', error);
+        console.log('Card Linked Successfully', response)
     }
 </script>
 ```
+
+The FIDEL Web SDK can be customised to better fit your website. You can provide a title, subtitle and logo by using the properties `data-title`, `data-subtitle` and `data-logo`. Also, the action button can be customised by changing it's background color, title, and title color by using the properties `data-button-color`, `data-button-title` and `data-button-title-color`.
