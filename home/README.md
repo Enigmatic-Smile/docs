@@ -17,7 +17,7 @@
 </div>
 <div class="row">
     <div class="column">
-        <a href="https://dashboard.fidel.uk/sign-up" class="content">
+        <a href="https://dashboard.fidel.uk/playground" class="content">
             <img src="https://docs.fidel.uk/assets/images/playground.svg"/>
             <h2>Playground</h2>
             <h3>Test API requests in real-time and see how we format the returned data</h3>
