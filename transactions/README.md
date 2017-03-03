@@ -1,10 +1,13 @@
 ## Transactions
+The transaction object is the central piece of data of your card-linked application. When a user makes a purchase with a linked card in any of the linked program's locations, FIDEL API spots the transaction and sends it to your server as a webhook event.
 
-The transaction object is the central piece of data of your card-linked application. When a consumer makes a purchase with a linked card at a program's location, FIDEL API spots the transaction and sends it to your server using the `transaction.auth` webhook event.
+There are two types of transactions depending on the time of processing and clearing state: authorization transactions and cleared transactions. Authorization transactions are processed in real-time, when the user pays in-store (only available on MasterCard. Please email [developer@fidel.uk](mailto:developer@fidel.uk) for VISA availability). You can use the `transaction.auth` webhook event to notify or reward the user in your application in real-time.
 
-Application logic can be implemented in real-time, when the user pays in-store (only available on MasterCard. Please email [developer@fidel.uk](mailto:developer@fidel.uk) for VISA availability) or when the transaction is cleared usually 24-48 hours after the purchase.
+All transactions are cleared usually 24-48 hours after the purchase by Visa and Mastercard and for consistency, FIDEL API processes cleared transactions and triggers the `transaction.clearing` webhook events daily at 12:00 UTC.
 
-Transaction objects are sent to specified webhooks in JSON format. If you’re using MasterCard real-time transaction notifications, you will receive them as the customer pays in-store. All Visa and Mastercard settled transactions are processed and sent daily at 12:00pm UTC to your servers through `transaction.clearing.success` webhook events.
+For Mastercard linked cards you will receive both `transaction.auth` events in real-time and `transaction.clearing` events. We suggest that you use the auth event to notify the user that you registered the transaction and will fulfill the reward when the transaction clears, since the clearing is the confirmation that the transaction was successfully completed.
+
+After you received a Mastercard authorisation transaction in real-time, you will also receive the cleared transaction in the next 24-48 hours. At 12:00 UTC daily when we process the clearing transactions, we match every cleared transaction and if an authorization transaction exists we update the `cleared` property from `false` to `true`.
 
 <br/>
 
@@ -12,11 +15,11 @@ Transaction objects are sent to specified webhooks in JSON format. If you’re u
 
 For testing purposes, you can use the **API Playground** to create transactions and test your application logic.
 
-To create a transaction you will need a test program, at least one location where the transaction can be originated from and a webhook where the transaction object will be sent to at creation time. Also a test card will need to be created and linked to the test program.
+To create a transaction you will need a test program, at least one location and a webhook event to receive the transaction object. Also, you will need a test card linked to your test program.
 
-On the dashboard, go to **API Playground** and click on **Create transaction** on the left menu. The method will be set to POST and the endpoint to _/transactions/test_. An editable sample JSON object like the following one will be use to create the transaction.
+On the dashboard, go to **API Playground** and click on **Create transaction** from the endpoints menu. The method will be set to POST and the endpoint to **_/transactions/test_**. An editable sample JSON object like the following one will be use to create the transaction.
 
-To create a test transaction you only need to submit three properties, the `cardId`, `locationId` and the `amount` of the transaction you want to create.
+To create a test transaction you only need to submit three properties, the `cardId`, `locationId` and the `amount` of the transaction you want to create. You can use the dropdown menus to set these properties. If the transaction is created successfully you will see the transaction object in the response body box.
 
 <br/>
 
@@ -26,7 +29,7 @@ To create a test transaction you only need to submit three properties, the `card
 
 <br/>
 
-Click **Send** and a test transaction will be created and sent to the webhook URL created for this program with the event property set to `transaction.auth`. An example of the returned transaction object is represented below.
+Click **Send** and a test transaction will be created and sent to the webhook URL created for this program with the event property set to `transaction.auth`. An example of the returned transaction object is displayed below.
 
 <br/>
 
@@ -35,24 +38,33 @@ Click **Send** and a test transaction will be created and sent to the webhook UR
 ```json
 fileName:transaction.json
 {
-  "items": [
-    {
-      "id": "6b9d11af-cd1e-4bc9-8000-78f6bfcd3db3",
-      "accountId": "a3de60c3-849a-4faa-8447-bcd16efb148c",
-      "programId": "60b4f64e-c6f2-4c0b-a00e-b60192632dfd",
-      "cardId": "42b8eb31-3cb9-4171-8077-c6669d9aa7a2",
-      "locationId": "7398177f-e2c1-4055-b27e-ba106483c08f",
-      "amount": 133,
-      "currency": "GBP",
-      "countryCode": "GB",
-      "card": "mastercard",
-      "created": "2017-02-13T17:02:12.535Z",
-      "updated": "2017-02-13T17:17:02.833Z",
-      "metadata": {},
-    }
-  ],
-  "resource": "/v1d/transactions/test",
-  "status": 201,
-  "execution": 2803.465225
+    "items": [
+        {
+            "id": "7fdfd5d8-9589-402f-8477-4a727ad239a2",
+            "accountId": "4ed4b62b-aa4c-43a1-8064-da6d1368e17a",
+            "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba",
+            "locationId": "7a916fbd-70a0-462f-8dbc-bd7dbfbea160",
+            "cardId": "bc538b71-31c5-4699-840a-6d4a08693314",
+            "mapId": "82c5a9ed-5301-46ab-8599-6bcb0d017cc5",
+            "amount": 100,
+            "currency": "GBP",
+            "countryCode": "GBR",
+            "scheme": "visa",
+            "lastNumbers": "4001",
+            "address": "2 Soho Square",
+            "postcode": "W1D3PX",
+            "city": "London",
+            "merchantId": "12345",
+            "live": false,
+            "cleared": false,
+            "time": "2017-03-02T19:12:01.743Z",
+            "date": "2017-03-02T19:12:01.743Z",
+            "created": "2017-03-02T19:12:01.744Z",
+            "updated": "2017-03-02T19:12:01.744Z"
+        }
+    ],
+    "resource": "/v1d/transactions/test",
+    "status": 201,
+    "execution": 180.642048
 }
 ```
