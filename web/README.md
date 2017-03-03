@@ -43,12 +43,14 @@ To integrate **FIDEL Web SDK** in your website or mobile app, you need to add th
 
 Most of the data properties in the script are self explanatory but you can check the description of each property below.
 
+|            **Key** | **Description**       |
+___
+|---------------:|:------------------|
+| data-auto-open | To connect **FIDEL Web SDK** to your **FIDEL API** account and Program you will need to add your test API Key to the `data-api-key` property and add a **programId** to the `data-program-id` property. |
+|  data-callback | left-aligned      |
+|       data-key | left-aligned      |
 
-| Key                       | Description             |
-| ------------------------: |:------------------------|
-| data-auto-open            | description about       |
-| data-callback             | left-aligned            |
-| data-key                  | left-aligned            |
+-data-auto-open: To connect **FIDEL Web SDK** to your **FIDEL API** account and Program you will need to add your test API Key to the `data-api-key` property and add a **programId** to the `data-program-id` property.
 
 
 To connect **FIDEL Web SDK** to your **FIDEL API** account and Program you will need to add your test API Key to the `data-api-key` property and add a **programId** to the `data-program-id` property. When you want to go live a link real cards on Visa and Mastercard networks you will need to replace the test key for your live key.
