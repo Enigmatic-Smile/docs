@@ -45,37 +45,41 @@ Most of the data properties in the script are self explanatory but you can check
 
 <br/>
 
-- **data-auto-open**: whether the web form auto opens on page load
+- **data-auto-open**: whether the web form auto opens on page load.
 
-- **data-callback**: name of the global callback function
+- **data-callback**: name of the global callback function.
 
-- **data-key**: a valid API key
+- **data-key**: a valid API key.
 
-- **data-program-id**: the id of the program to link the card to
+- **data-program-id**: the id of the program to link the card to.
 
-- **data-company-name**: the name of the company using card-linked services
+- **data-company-name**: the name of the company using card-linked services.
 
-- **data-title**: the title of the web form
+- **data-title**: the title of the web form. _Max 25 chars._
 
-- **data-subtitle**: the subtitle of the web form
+- **data-subtitle**: the subtitle of the web form. _Max 110 chars._
 
-- **data-logo**: the logo URL of the company using card-linked services. Recommended height 35px
+- **data-logo**: the logo URL of the company using card-linked services. _Recommended height 35px. Extensions jpg, jpeg, png._
 
-- **data-lang**: the localization language to be used
+- **data-lang**: the localization language to be used.
 
-- **data-button-color**: the hex color code of the button background
+- **data-button-color**: the hex color code of the button background.
 
-- **data-button-title**: the button title
+- **data-button-title**: the button title. _Max 35 chars._
 
-- **data-button-title-color**: the hex color code of the button title
+- **data-button-title-color**: the hex color code of the button title.
 
 <br/>
 
 The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
 
+<h5>Fidel.openForm() global function.</h5>
+
 ```html
 <button type="submit" onclick="Fidel.openForm()">Link Card</button>
 ```
+
+<br/>
 
 To receive the callback after the form submission you must pass a Javascript global function name reference on the `data-callback` property that will return the response and error objects. Please see an example below:
 
@@ -90,5 +94,7 @@ fileName:index.html
     }
 </script>
 ```
+
+<br/>
 
 The FIDEL Web SDK can be customised to better fit your website. You can provide a title, subtitle and logo by using the properties `data-title`, `data-subtitle` and `data-logo`. Also, the action button can be customised by changing it's background color, title, and title color by using the properties `data-button-color`, `data-button-title` and `data-button-title-color`.
