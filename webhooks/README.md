@@ -1,6 +1,5 @@
 ## Webhooks
-**FIDEL API** uses webhooks to send transactional data and other relevant events to your server. For example, when a customer successfully links a card through the web form or mobile SDKs, we create a `card.link.success` event and send a POST request with the newly created card object to each of the URLs you provide.
-Currently, we have two groups of events, transaction and card related events. Under transactions events we have authorisation and clearing.
+**FIDEL API** uses webhooks to send transactional data and other relevant events to your server. For example, when a customer makes a payment with a linked Mastercard, a `transaction.auth` is sent in real-time to the specified webhooks linked to that program. Currently, there are two groups of events, transaction and card related events.
 
 <h5>Webhooks event structure.</h5>
 
@@ -12,24 +11,20 @@ Currently, we have two groups of events, transaction and card related events. Un
 
 #### Authorisation
 
-**Authorisation events** are triggered while the customer is making the payment in-store in real-time (currently authorisation events only available on MasterCard). When a customer makes a payment with a linked MasterCard debit/credit card in a program location, a `transaction.auth` event is triggered and the transaction object sent to your specified URL in real-time.
+**Authorisation events** are triggered while the customer is making the payment in-store in real-time (currently authorisation events are only available on MasterCard). When a customer makes a payment with a linked MasterCard debit/credit card in a program location, a `transaction.auth` event is triggered and the transaction object sent to your specified URL in real-time.
 
 <br/>
 
 #### Clearing
 
-**Clearing events** are triggered when the transaction is settled, usually happens 24-48 hours after the payment has been made.
-
-Under clearing there are two separate events, `transaction.clearing.success` and `transaction.clearing.update`. The success event is triggered when the transaction is successfully settled (e.g. an authorisation was sent to charge the card for £5 and the same amount was successfully charged from the card). On the other hand, the update event is triggered when the clearing amount does not match the authorisation amount (e.g. the card was authorised for £5 but it was only charged £2). In this case, a `transaction.clearing.update` is triggered upon receiving the settled transaction with the final amount charged.
+**Clearing events** are triggered when the transaction is settled, usually happens 24-48 hours after the payment has been made. For consistency, FIDEL API processes Visa and Mastercard cleared transactions triggering the `transaction.clearing` webhook events daily at 12:00 UTC.
 
 <br/>
 
 # Card Events
-There are four card related events that you can be notified about. Two are triggered when the customer is linking the card on the web or mobile. The other two when a linked card is about to expire or is already expired.
+In the next weeks, there will be two card related events that you will be able to use.
 
-When the user links the card by sending the card number and expiry date, FIDEL API tokenises and sends this information directly to Visa or MasterCard depending on the card type. If the card is successfully linked, a `card.link.success` event is triggered and the newly created card object sent to the specified URL. If an error occurs, a `card.link.error` event is sent instead.
-
-You can be notified when a card is one month from expiring by creating a `card.link.expiring` webhook. Also, you can be notified of all linked card that have expired by creating a `card.link.expired` webhook. The expiry webhooks are scheduled to run daily at 12:00pm UTC.
+You can be notified when a card is one month from expiring by creating a `card.link.expiring` webhook. Also, you can be notified of all expired cards by creating a `card.link.expired` webhook. These events will be triggered monthly on the first day of the month so you can notify your users to update their cards to continue to receive rewards.
 
 We are looking to extend  the list of events in the future. If you require any specific event that is not available yet please speak with us on the [Slack channel](https://fidel-developers-slack-invites.herokuapp.com/) or email us at [developer@fidel.uk](mailto:developer@fidel.uk).
 
@@ -37,6 +32,4 @@ We are looking to extend  the list of events in the future. If you require any s
 
 # Create Webhook
 
-To create a new webhook, go to **Webhooks** using the top menu of the dashboard, click **Add Webhook**, select the program, select the event and enter the URL where you want to receive this event's payload. From the **Webhhoks** page you can also delete and edit any of the existing webhooks.
-
-<br/>
+To create a new webhook, go to **Webhooks** page on the dashboard, click **Add Webhook**, enter the URL where you want to receive the event's payload, select the program and the event. From the **Webhhoks** page you can also delete and edit any of the existing webhooks.
