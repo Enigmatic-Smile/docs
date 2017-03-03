@@ -59,7 +59,7 @@ Most of the data properties in the script are self explanatory but you can check
 
 - **data-subtitle**: the subtitle of the web form. _Max 110 chars._
 
-- **data-logo**: the logo URL of the company using card-linked services. _Recommended height 35px. Extensions jpg, jpeg, png._
+- **data-logo**: the logo URL of the company. _Height 35px. Extensions jpg, jpeg, png._
 
 - **data-lang**: the localization language to be used.
 

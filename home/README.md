@@ -17,11 +17,11 @@
 </div>
 <div class="row">
     <div class="column">
-        <div class="content">
+        <a href="https://dashboard.fidel.uk/sign-up" class="content">
             <img src="https://docs.fidel.uk/assets/images/playground.svg"/>
             <h2>Playground</h2>
             <h3>Test API requests in real-time and see how we format the returned data</h3>
-        </div>
+        </a>
     </div>
     <div class="column">
         <div class="content">
@@ -71,6 +71,7 @@ To see the Web SDK working, please click the the 'Link Card' button below:
 
 <button style="background: #4dadea; border: none; border-radius: 3px; color: #ffffff;" type="submit" onclick="Fidel.openForm()">Link Card</button>
 
+Use one of the test cards, such as `4444000000004004` and enter an expiry date in the future.
 
 <h5>Web SDK integration script</h5>
 
