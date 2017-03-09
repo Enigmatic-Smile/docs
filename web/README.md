@@ -88,9 +88,9 @@ To receive the callback after the form submission you must pass a Javascript glo
 ```html
 fileName:index.html
 <script>
-    function callback(error, response) {
+    function callback(error, card) {
         console.log('Card Link Error', error);
-        console.log('Card Linked Successfully', response)
+        console.log('Card Linked Successfully', card)
     }
 </script>
 ```

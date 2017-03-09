@@ -28,27 +28,20 @@ If the card is successfully linked, the newly created card object is returned in
 ```json
 fileName:card.json
 {
-  "items": [
-    {
-      "id": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
-      "accountId": "a30e933f-cde1-4ac1-9a5e-acd329497a48",
-      "programId": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
-      "provider": "mastercard",
-      "type": "master-card",
-      "lastNumbers": "3183",
-      "expMonth": 1,
-      "expYear": 2018,
-      "expDate": "2018-01-01T00:00:00.000Z",
-      "countryCode": "GBR",
-      "mapped": true,
-      "live": true,
-      "created": "2017-02-13T17:02:12.535Z",
-      "updated": "2017-02-13T17:17:02.833Z",
-    }
-  ],
-  "resource": "/v1/cards",
-  "status": 201,
-  "execution": 2803.465225
+    "id": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
+    "accountId": "a30e933f-cde1-4ac1-9a5e-acd329497a48",
+    "programId": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
+    "provider": "mastercard",
+    "type": "master-card",
+    "lastNumbers": "3183",
+    "expMonth": 1,
+    "expYear": 2018,
+    "expDate": "2018-01-01T00:00:00.000Z",
+    "countryCode": "GBR",
+    "mapped": true,
+    "live": true,
+    "created": "2017-02-13T17:02:12.535Z",
+    "updated": "2017-02-13T17:17:02.833Z"
 }
 ```
 
