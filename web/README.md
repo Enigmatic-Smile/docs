@@ -53,7 +53,7 @@ Most of the data properties in the script are self explanatory but you can check
 
 - **data-program-id**: the id of the program to link the card to.
 
-- **data-company-name**: the name of the company using card-linked services.
+- **data-company-name**: the name of the company using card-linking. _Max 35 chars._
 
 - **data-title**: the title of the web form. _Max 25 chars._
 

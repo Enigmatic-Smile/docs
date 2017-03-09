@@ -33,7 +33,6 @@ fileName:card.json
       "id": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
       "accountId": "a30e933f-cde1-4ac1-9a5e-acd329497a48",
       "programId": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
-      "cardId": "e9784e02-6b67-428f-b321-62d9bcdcd9bf",
       "provider": "mastercard",
       "type": "master-card",
       "lastNumbers": "3183",
@@ -47,7 +46,7 @@ fileName:card.json
       "updated": "2017-02-13T17:17:02.833Z",
     }
   ],
-  "resource": "/v1d/cards",
+  "resource": "/v1/cards",
   "status": 201,
   "execution": 2803.465225
 }
