@@ -22,18 +22,23 @@ You can easily integrate FIDEL Web SDK in your website or mobile app with only a
 fileName:index.html
 <script type="text/javascript" src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
     class="fidel-form"
-    data-auto-open="false"
-    data-callback="callback"
+    data-company-name="Fidel"
     data-key="pk_test_demo"
     data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
-    data-company-name="Fidel"
-    data-title="Link Card"
-    data-subtitle="Earn 1 point for every £1 spent online or in-store"
-    data-logo="https://company.com/logo.png"
-    data-lang="en"
+    data-callback="callback"
+    data-auto-open="false"
+    data-overlay-close="false"
+    data-background-color="#ffffff"
     data-button-color="#4dadea"
     data-button-title="Link Card"
-    data-button-title-color="#ffffff">
+    data-button-title-color="#ffffff"
+    data-lang="en"
+    data-logo="https://company.com/logo.png"
+    data-subtitle="Earn 1 point for every £1 spent online or in-store"
+    data-subtitle-color="#000000"
+    data-terms-color="#000000"
+    data-title="Link Card"
+    data-title-color="#000000">
 </script>
 ```
 
@@ -45,33 +50,43 @@ Most of the data properties in the script are self explanatory but you can check
 
 <br/>
 
-- **data-auto-open**: whether the web form auto opens on page load.
+- **data-company-name**: (required) the name of the company using card-linking. _Max 35 chars._
+
+- **data-key**: (required) a valid Public Key.
+
+- **data-program-id**: (required) the id of the program to link the card to.
 
 - **data-callback**: name of the global callback function.
 
-- **data-key**: a valid API key.
+- **data-auto-open**: (default: false) whether the web form auto opens on page load.
 
-- **data-program-id**: the id of the program to link the card to.
+- **data-overlay-close**: (default: true) whether the overlay click closes the web form.
 
-- **data-company-name**: the name of the company using card-linking. _Max 35 chars._
+- **data-background-color**: CSS color code of the form background.
 
-- **data-title**: the title of the web form. _Max 25 chars._
-
-- **data-subtitle**: the subtitle of the web form. _Max 110 chars._
-
-- **data-logo**: the logo URL of the company. _Height 35px. Extensions jpg, jpeg, png._
-
-- **data-lang**: the localization language to be used.
-
-- **data-button-color**: the hex color code of the button background.
+- **data-button-color**: CSS color code of the button background.
 
 - **data-button-title**: the button title. _Max 35 chars._
 
-- **data-button-title-color**: the hex color code of the button title.
+- **data-button-title-color**: CSS color code of the button title.
+
+- **data-lang**: the localization language to be used.
+
+- **data-logo**: the logo URL of the company. _Height 35px. Extensions jpg, jpeg, png._
+
+- **data-subtitle**: the subtitle of the web form. _Max 110 chars._
+
+- **data-subtitle-color**: CSS color code of the subtitle.
+
+- **data-terms-color**: CSS color code of the terms and conditions.
+
+- **data-title**: the title of the web form. _Max 25 chars._
+
+- **data-title-color**: CSS color code of the title.
 
 <br/>
 
-The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
+The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. You can set `data-overlay-close` to `false` and the form won't be closed when clicking on the overlay background. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
 
 <h5>Fidel.openForm() global function.</h5>
 
@@ -97,4 +112,4 @@ fileName:index.html
 
 <br/>
 
-The FIDEL Web SDK can be customised to better fit your website. You can provide a title, subtitle and logo by using the properties `data-title`, `data-subtitle` and `data-logo`. Also, the action button can be customised by changing it's background color, title, and title color by using the properties `data-button-color`, `data-button-title` and `data-button-title-color`.
+The FIDEL Web SDK can be customised to better fit your website. You can provide a button title, title, subtitle and logo by using the properties `data-button-title`, `data-title`, `data-subtitle` and `data-logo`. You can customize CSS colors by using `data-background-color`, `data-button-color`, `data-button-title-color`, `data-subtitle-color`, `data-terms-color` and `data-title-color`.
