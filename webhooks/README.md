@@ -86,7 +86,7 @@ Most of the data properties in the script are self explanatory but you can check
 
 <br/>
 
-The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. You can set `data-overlay-close` to `false` and the form won't be closed when clicking in the overlay background. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
+The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. You can set `data-overlay-close` to `false` and the form won't be closed when clicking on the overlay background. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
 
 <h5>Fidel.openForm() global function.</h5>
 
