@@ -1,115 +1,35 @@
-## Web SDK
-**FIDEL Web SDK** is a secure HTML iFrame with customisable pre-built UI that allows you to easily collect credit card details, tokenise and link credit/debit cards with rewards services from your website, e-commerce platform or mobile apps. By using FIDEL Web SDK, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements for you.
+## Webhooks
+**FIDEL API** uses webhooks to send transactional data and other relevant events to your server. For example, when a customer makes a payment with a linked Mastercard, a `transaction.auth` is sent in real-time to the specified webhooks linked to that program. Currently, there are two groups of events, transaction and card related events.
 
-<h5>Preview of FIDEL card-linking Web SDK</h5>
+<h5>Webhooks events</h5>
 
-![Web form](https://docs.fidel.uk/assets/images/web-form.png "Web form")
-
-<br/>
-
-After successfully tokenising and linking the card on Visa or MasterCard networks, FIDEL API returns the created card object with a unique `id` that you must use to link each unique card and transaction to your user’s account. The `id` of each linked card is present on the transaction object as `cardId`. You can now create card-linked web and mobile applications with online and offline transactional data visibility in a matter of minutes.
-
-All modern desktop and mobile browsers are supported, including Chrome, Firefox, Safari, Microsoft IE and Edge. Please contact us at [developer@fidel.uk](mailto:developer@fidel.uk) if you experience any browser issues.
+![Webhooks diagram](https://docs.fidel.uk/assets/images/webhooks-diagram.png "Webhooks diagram")
 
 <br/>
 
-# Integrating Web SDK
-You can easily integrate FIDEL Web SDK in your website or mobile app with only a few lines (or one) of code.
+# Transaction Events
 
-<h5>FIDEL Web SDK script.</h5>
+#### Authorisation
 
-```html
-fileName:index.html
-<script type="text/javascript" src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
-    class="fidel-form"
-    data-company-name="Fidel"
-    data-key="pk_test_demo"
-    data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
-    data-callback="callback"
-    data-auto-open="false"
-    data-overlay-close="false"
-    data-background-color="#ffffff"
-    data-button-color="#4dadea"
-    data-button-title="Link Card"
-    data-button-title-color="#ffffff"
-    data-lang="en"
-    data-logo="https://company.com/logo.png"
-    data-subtitle="Earn 1 point for every £1 spent online or in-store"
-    data-subtitle-color="#000000"
-    data-terms-color="#000000"
-    data-title="Link Card"
-    data-title-color="#000000">
-</script>
-```
+**Authorisation events** are triggered while the customer is making the payment in-store in real-time (currently authorisation events are only available on MasterCard). When a customer makes a payment with a linked MasterCard debit/credit card in a program location, a `transaction.auth` event is triggered and the transaction object sent to your specified URL in real-time.
 
 <br/>
 
-To integrate **FIDEL Web SDK** in your website or mobile app, you need to add the script above in your website or mobile web view. We are working on native mobile SDKs for iOS and Android that will simplify the mobile integration.
+#### Clearing
 
-Most of the data properties in the script are self explanatory but you can check the description of each property below.
-
-<br/>
-
-- **data-company-name**: (required) the name of the company using card-linking. _Max 35 chars._
-
-- **data-key**: (required) a valid Public Key.
-
-- **data-program-id**: (required) the id of the program to link the card to.
-
-- **data-callback**: name of the global callback function.
-
-- **data-auto-open**: (default: false) whether the web form auto opens on page load.
-
-- **data-overlay-close**: (default: true) whether the overlay click closes the web form.
-
-- **data-background-color**: CSS color code of the form background.
-
-- **data-button-color**: CSS color code of the button background.
-
-- **data-button-title**: the button title. _Max 35 chars._
-
-- **data-button-title-color**: CSS color code of the button title.
-
-- **data-lang**: the localization language to be used.
-
-- **data-logo**: the logo URL of the company. _Height 35px. Extensions jpg, jpeg, png._
-
-- **data-subtitle**: the subtitle of the web form. _Max 110 chars._
-
-- **data-subtitle-color**: CSS color code of the subtitle.
-
-- **data-terms-color**: CSS color code of the terms and conditions.
-
-- **data-title**: the title of the web form. _Max 25 chars._
-
-- **data-title-color**: CSS color code of the title.
+**Clearing events** are triggered when the transaction is settled, usually happens 24-48 hours after the payment has been made. For consistency, FIDEL API processes Visa and Mastercard cleared transactions triggering the `transaction.clearing` webhook events daily at 12:00 UTC.
 
 <br/>
 
-The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. You can set `data-overlay-close` to `false` and the form won't be closed when clicking on the overlay background. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
+# Card Events
+In the next weeks, there will be two card related events that you will be able to use.
 
-<h5>Fidel.openForm() global function.</h5>
+You can be notified when a card is one month from expiring by creating a `card.link.expiring` webhook. Also, you can be notified of all expired cards by creating a `card.link.expired` webhook. These events will be triggered monthly on the first day of the month so you can notify your users to update their cards to continue to receive rewards.
 
-```html
-<button type="submit" onclick="Fidel.openForm()">Link Card</button>
-```
-
-<br/>
-
-To receive the callback after the form submission you must pass a Javascript global function name reference on the `data-callback` property that will return the response and error objects. Please see an example below:
-
-<h5>Web SDK callback global function example.</h5>
-
-```html
-fileName:index.html
-<script>
-    function callback(error, card) {
-        console.log('Card Link Error', error);
-        console.log('Card Linked Successfully', card)
-    }
-</script>
-```
+We are looking to extend  the list of events in the future. If you require any specific event that is not available yet please speak with us on the [Slack channel](https://fidel-developers-slack-invites.herokuapp.com/) or email us at [developer@fidel.uk](mailto:developer@fidel.uk).
 
 <br/>
 
-The FIDEL Web SDK can be customised to better fit your website. You can provide a button title, title, subtitle and logo by using the properties `data-button-title`, `data-title`, `data-subtitle` and `data-logo`. You can customize CSS colors by using `data-background-color`, `data-button-color`, `data-button-title-color`, `data-subtitle-color`, `data-terms-color` and `data-title-color`.
+# Create Webhook
+
+To create a new webhook, go to **Webhooks** page on the dashboard, click **Add Webhook**, enter the URL where you want to receive the event's payload, select the program and the event. From the **Webhhoks** page you can also delete and edit any of the existing webhooks.
