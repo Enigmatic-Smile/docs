@@ -60,7 +60,7 @@ Most of the data properties in the script are self explanatory but you can check
 
 - **data-auto-open**: (default: false) whether the web form auto opens on page load.
 
-- **data-overlay-close**: (default: true) whether the overlay click closes the web form.
+- **data-auto-close**: (default: true) whether the web form auto closes on successful card link.
 
 - **data-background-color**: CSS color code of the form background.
 
@@ -69,6 +69,8 @@ Most of the data properties in the script are self explanatory but you can check
 - **data-button-title**: the button title. _Max 35 chars._
 
 - **data-button-title-color**: CSS color code of the button title.
+
+- **data-close-events**: (default: true) whether close button, overlay click and escape key events are added to the form.
 
 - **data-lang**: the localization language to be used.
 
@@ -86,7 +88,7 @@ Most of the data properties in the script are self explanatory but you can check
 
 <br/>
 
-The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. You can set `data-overlay-close` to `false` and the form won't be closed when clicking on the overlay background. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
+The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. If `data-auto-close` is set to `false` the form won't be automatically closed after linking a card. You can set `data-close-events` to `false` and the form won't add the default close events. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
 
 <h5>Fidel.openForm() global function.</h5>
 
