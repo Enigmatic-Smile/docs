@@ -1,5 +1,6 @@
 [Home](/home)
 [Getting Started](/gettingstarted)
+[Brands](/brands)
 [Programs](/programs)
 [Cards](/cards)
 [Transactions](/transactions)

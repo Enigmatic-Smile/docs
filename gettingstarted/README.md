@@ -6,28 +6,33 @@ Card numbers are instantly tokenised and we return to you a unique token that id
 
 <br/>
 
-# Step 1: Create Account
+# Step 1 - Create Account
 Before getting started with the integration you need to **create a FIDEL API account** that will give you access to the dashboard, card-linked program configuration, playground environment and API keys. You can create a new account by clicking [here](https://dashboard.fidel.uk/sign-up).
 
 <br/>
 
-# Step 2: Get API Key
-Your test API Key is available on account page of your dashboard. You should start by copying the test key that will allow you to test your integration on a sandbox environment and create test transactions using the **API Playground**.
+# Step 2 - Get API Key
+After you created an account, in your account page on the dashboard, you will find two SDK keys and two API keys. The SDK keys are used to link the web and mobile SDKs to your account and the API keys to access the API endpoints directly. [See API Reference.](https://reference.fidel.uk) To access the test environment data you must use the test keys and to access the live environment data use the live keys.
 
-<h5>Your API keys are displayed in your account page</h5>
+<div class="info-box">
+To use the **Create Card** endpoint you must use the test public key. This only applies to this endpoint. Using the **Create Card** endpoint on live environment requires your company to be PCI Compliant. If you want to use it instead of the SDKs, please contact us at developer@fidel.uk.
+</div>
+
+
+<h5>Your SDK and API keys are displayed in your account page</h5>
 
 ![API keys](https://docs.fidel.uk/assets/images/api-keys.png "API keys")
 
 <br/>
 
-When you're ready to go live with your integration and test with plastic credit/debit cards on VISA and Mastercard networks you can request access to the live key by using the test-live switch on your dashboard.
+When you're ready to go live with your integration and test with plastic credit/debit cards on VISA and Mastercard networks you can request access to the live keys by using the test-live switch on your dashboard.
 
 <br/>
 
-# Step 3: Install SDKs
+# Step 3 - Install SDKs
 You can use our pre-built web UI to collect user's card number and link cards to your program without the need of additional security implementations on your server-side code.
 
-We are working on two native SDKs for mobile, iOS and Android, that will be available in the next few weeks.
+We are working on two native SDKs for mobile, iOS and Android, that will be available soon.
 
 <br/>
 

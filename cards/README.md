@@ -21,7 +21,7 @@ You can use the dropdown menus to automatically set the ids in the request body 
 
 <br/>
 
-If the card is successfully linked, the newly created card object is returned in JSON and displayed in the response body box. You can also use the [Web SDK](/web) to create cards in the test environment using your test API key. If an error occurs on the card creation, you can verify the error message in the HTTP response body.
+If the card is successfully linked, the newly created card object is returned in JSON and displayed in the response body box. You can also use the [Web SDK](/web) to create cards in the test environment using your test SDK key. If an error occurs on the card creation, you can verify the error message in the HTTP response body.
 
 <h5>JSON Card object</h5>
 
@@ -48,7 +48,7 @@ fileName:card.json
 <br/>
 
 # Testing Card Numbers
-Note that on the Playground you can only create cards in test mode. In live mode new cards can only be linked to programs using the SDKs. Use the following test card numbers to test card linking in test mode, either in the Playground or using the SDKs with the live API key.
+Note that on the Playground you can only create cards in test mode. In live mode new cards can only be linked to programs using the SDKs or the API if you are PCI compliant. Use the following test card numbers to test card linking in test mode, either in the Playground or using the SDKs with your test SDK key.
 
 <h5>Visa testing card numbers</h5>
 

@@ -34,12 +34,6 @@
 
 <br/>
 
-<div class="info-box">
-FIDEL API is in public beta under active development. Expect breaking changes and documentation updates before final release.
-</div>
-
-<br/>
-
 # Introduction
 FIDEL is a card-linked API that lets developers create web and mobile applications for linking banks cards with reward services. FIDEL API lets you connect your applications to credit and debit cards and monitor transactions in-store and online, chip & pin or contactless.
 
@@ -48,6 +42,8 @@ FIDEL is a card-linked API that lets developers create web and mobile applicatio
 FIDEL API runs on top of the global payments network so it doesn't require changes on existing merchants infrastructure. No need for new software, POS integrations, staff training or new cards. All the PCI Compliance requirements are managed by us so you don't have to.
 
 Currently the API is available for **VISA** and **Mastercard** networks in the **UK** and **Ireland**. We are working on adding support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [developer@fidel.uk](mailto:developer@fidel.uk).
+
+Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 
 Join our developers' Slack channel for API discussions, documentation, roadmap and new features. We’re always happy to help and answer any questions. Join by clicking the button below:
 
