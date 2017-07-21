@@ -22,7 +22,7 @@
 <br/>
 
 # Card Events
-In the next weeks, there will be two card related events that you will be able to use.
+We are working on a few card events to give you more data about the card lifecycle.
 
 You can be notified when a card is one month from expiring by creating a `card.link.expiring` webhook. Also, you can be notified of all expired cards by creating a `card.link.expired` webhook. These events will be triggered monthly on the first day of the month so you can notify your users to update their cards to continue to receive rewards.
 
