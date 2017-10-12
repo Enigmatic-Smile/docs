@@ -26,6 +26,7 @@ fileName:index.html
     data-key="pk_test_demo"
     data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
     data-callback="callback"
+    data-metadata="metadata"
     data-auto-open="false"
     data-overlay-close="false"
     data-background-color="#ffffff"
@@ -57,6 +58,8 @@ Most of the data properties in the script are self explanatory but you can check
 - **data-program-id**: (required) the id of the program to link the card to.
 
 - **data-callback**: name of the global callback function.
+
+- **data-metadata**: name of the global metadata object.
 
 - **data-auto-open**: (default: false) whether the web form auto opens on page load.
 
@@ -109,6 +112,23 @@ fileName:index.html
         console.log('Card Link Error', error);
         console.log('Card Linked Successfully', card)
     }
+</script>
+```
+
+<br/>
+
+To store custom data related to the card you must pass a Javascript global object name reference on the `data-metadata` property. The metadata `id` property is a *non-unique index* to that card, so you can set it to a custom UID (unique identifier). Later you can retrieve the card(s) using the same `metadata.id`, reference [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference#list-cards-from-metadata-id).
+
+<h5>Web SDK metadata global object example.</h5>
+
+```html
+fileName:index.html
+<script>
+    var metadata = {
+        id: 'this-is-the-metadata-id',
+        customKey1: 'customValue1',
+        customKey2: 'customValue2'
+    };
 </script>
 ```
 
