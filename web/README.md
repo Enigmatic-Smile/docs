@@ -114,6 +114,7 @@ fileName:index.html
     }
 </script>
 ```
+
 <br/>
 
 To store custom data related to the card you must pass a Javascript global object name reference on the `data-metadata` property. The metadata `id` property is a *non-unique index* to that card, so you can set it to a custom UID (unique identifier). Later you can retrieve the card(s) using the same `metadata.id`, reference [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference#list-cards-from-metadata-id).
