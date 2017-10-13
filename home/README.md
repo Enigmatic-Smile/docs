@@ -75,17 +75,14 @@ Use one of the test cards, such as `4444000000004004` and enter an expiry date i
 fileName:index.html
 <script type="text/javascript" src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
     class="fidel-form"
-    data-auto-open="false"
-    data-callback="callback"
-    data-key="pk_live_5be54ed6-0c10-48a8-9db0-ca34852fbbfd"
-    data-program-id="d1e38621-6f5d-424f-be26-d6fe33d2663a"
-    data-title="Link Card"
-    data-subtitle="Earn 1 point for every £1 spent online or in-store"
     data-company-name="Fidel"
-    data-logo="https://fidel.uk/logo.png"
-    data-lang="en"
-    data-button-color="#4dadea"
+    data-key="pk_test_demo"
+    data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
+    data-callback="callback"
+    data-metadata="metadata"
     data-button-title="Link Card"
-    data-button-title-color="#ffffff">
+    data-lang="en"
+    data-subtitle="Earn 1 point for every £1 spent online or in-store"
+    data-title="Link Card"
 </script>
 ```

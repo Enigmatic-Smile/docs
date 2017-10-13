@@ -31,6 +31,11 @@ fileName:card.json
     "id": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
     "accountId": "a30e933f-cde1-4ac1-9a5e-acd329497a48",
     "programId": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
+    "metadata": {
+        "id": "this-is-the-metadata-id",
+        "customKey1": "customValue1",
+        "customKey2": "customValue2"
+    },
     "provider": "mastercard",
     "type": "master-card",
     "lastNumbers": "3183",
