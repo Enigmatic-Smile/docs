@@ -46,6 +46,11 @@ fileName:transaction.json
     "locationId": "7a916fbd-70a0-462f-8dbc-bd7dbfbea160",
     "cardId": "bc538b71-31c5-4699-840a-6d4a08693314",
     "mapId": "82c5a9ed-5301-46ab-8599-6bcb0d017cc5",
+    "metadata": {
+        "id": "this-is-the-metadata-id",
+        "customKey1": "customValue1",
+        "customKey2": "customValue2"
+    },
     "amount": 100,
     "currency": "GBP",
     "countryCode": "GBR",
