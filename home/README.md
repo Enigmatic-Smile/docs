@@ -2,7 +2,7 @@
 <div class="row">
     <div class="column">
         <a href="/gettingstarted" class="content">
-            <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/get-started.svg"/>
+            <img src="https://docs.fidel.uk/assets/images/get-started.svg"/>
             <h2>Get Started</h2>
             <h3>Start building card-linked applications with our quickstart guide</h3>
         </a>
