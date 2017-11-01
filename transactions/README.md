@@ -1,13 +1,15 @@
 ## Transactions
 The transaction object is the central piece of data of your card-linked application. When a user makes a purchase with a linked card in any of the linked program's locations, FIDEL API spots the transaction and sends it to your server as a webhook event.
 
-There are two types of transactions depending on the time of processing and clearing state: authorization transactions and cleared transactions. Authorization transactions are processed in real-time, when the user pays in-store (only available on MasterCard. Please email [developer@fidel.uk](mailto:developer@fidel.uk) for VISA availability). You can use the `transaction.auth` webhook event to notify or reward the user in your application in real-time.
+There are two types of transactions depending on the time of processing and clearing state: authorization transactions and clearing transactions. Authorization transactions are processed in real-time, when the user pays in-store (only available on MasterCard. Please email [developer@fidel.uk](mailto:developer@fidel.uk) for VISA availability). You can use the `transaction.auth` webhook event to notify or reward the user in your application in real-time.
 
 All transactions are cleared usually 24-48 hours after the purchase by Visa and Mastercard and for consistency, FIDEL API processes cleared transactions and triggers the `transaction.clearing` webhook events daily at 12:00 UTC.
 
 For Mastercard linked cards you will receive both `transaction.auth` events in real-time and `transaction.clearing` events. We suggest that you use the auth event to notify the user that you registered the transaction and will fulfill the reward when the transaction clears, since the clearing is the confirmation that the transaction was successfully completed.
 
 After you received a Mastercard authorisation transaction in real-time, you will also receive the cleared transaction in the next 24-48 hours. At 12:00 UTC daily when we process the clearing transactions, we match every cleared transaction and if an authorization transaction exists we update the `cleared` property from `false` to `true`.
+
+Please allow up to 24h after card linking to start receiving Mastercard real-time authorization transactions.
 
 <br/>
 
@@ -44,6 +46,11 @@ fileName:transaction.json
     "locationId": "7a916fbd-70a0-462f-8dbc-bd7dbfbea160",
     "cardId": "bc538b71-31c5-4699-840a-6d4a08693314",
     "mapId": "82c5a9ed-5301-46ab-8599-6bcb0d017cc5",
+    "metadata": {
+        "id": "this-is-the-metadata-id",
+        "customKey1": "customValue1",
+        "customKey2": "customValue2"
+    },
     "amount": 100,
     "currency": "GBP",
     "countryCode": "GBR",

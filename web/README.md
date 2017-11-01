@@ -9,7 +9,7 @@
 
 After successfully tokenising and linking the card on Visa or MasterCard networks, FIDEL API returns the created card object with a unique `id` that you must use to link each unique card and transaction to your user’s account. The `id` of each linked card is present on the transaction object as `cardId`. You can now create card-linked web and mobile applications with online and offline transactional data visibility in a matter of minutes.
 
-All modern desktop and mobile browsers are supported, including Chrome, Firefox, Safari, Microsoft IE and Edge. Please contact us at [developer@fidel.uk](mailto:developer@fidel.uk) if you experience any browser issues.
+All modern desktop and mobile browsers are supported, including Chrome, Firefox, Safari, Microsoft IE and Edge. Please contact us at [developer@fidel.uk](mailto:developer@fidel.uk) if you experience any browser realted issues.
 
 <br/>
 
@@ -22,18 +22,25 @@ You can easily integrate FIDEL Web SDK in your website or mobile app with only a
 fileName:index.html
 <script type="text/javascript" src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
     class="fidel-form"
-    data-auto-open="false"
-    data-callback="callback"
+    data-company-name="Fidel"
     data-key="pk_test_demo"
     data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
-    data-company-name="Fidel"
-    data-title="Link Card"
-    data-subtitle="Earn 1 point for every £1 spent online or in-store"
-    data-logo="https://company.com/logo.png"
-    data-lang="en"
+    data-callback="callback"
+    data-country-code="GBR"
+    data-metadata="metadata"
+    data-auto-open="false"
+    data-overlay-close="false"
+    data-background-color="#ffffff"
     data-button-color="#4dadea"
     data-button-title="Link Card"
-    data-button-title-color="#ffffff">
+    data-button-title-color="#ffffff"
+    data-lang="en"
+    data-logo="https://company.com/logo.png"
+    data-subtitle="Earn 1 point for every £1 spent online or in-store"
+    data-subtitle-color="#000000"
+    data-terms-color="#000000"
+    data-title="Link Card"
+    data-title-color="#000000">
 </script>
 ```
 
@@ -45,33 +52,49 @@ Most of the data properties in the script are self explanatory but you can check
 
 <br/>
 
-- **data-auto-open**: whether the web form auto opens on page load.
+- **data-company-name**: (required) the name of the company using card-linking. _Max 35 chars._
+
+- **data-key**: (required) a valid Public Key.
+
+- **data-program-id**: (required) the id of the program to link the card to.
 
 - **data-callback**: name of the global callback function.
 
-- **data-key**: a valid API key.
+- **data-country-code**: (values: GBR, IRL) set card country of issue and remove the country select box.
 
-- **data-program-id**: the id of the program to link the card to.
+- **data-metadata**: name of the global metadata object.
 
-- **data-company-name**: the name of the company using card-linking. _Max 35 chars._
+- **data-auto-open**: (default: false) whether the web form auto opens on page load.
 
-- **data-title**: the title of the web form. _Max 25 chars._
+- **data-auto-close**: (default: true) whether the web form auto closes on successful card link.
 
-- **data-subtitle**: the subtitle of the web form. _Max 110 chars._
+- **data-background-color**: CSS color code of the form background.
 
-- **data-logo**: the logo URL of the company. _Height 35px. Extensions jpg, jpeg, png._
-
-- **data-lang**: the localization language to be used.
-
-- **data-button-color**: the hex color code of the button background.
+- **data-button-color**: CSS color code of the button background.
 
 - **data-button-title**: the button title. _Max 35 chars._
 
-- **data-button-title-color**: the hex color code of the button title.
+- **data-button-title-color**: CSS color code of the button title.
+
+- **data-close-events**: (default: true) whether close button, overlay click and escape key events are added to the form.
+
+- **data-lang**: (default: en) the localization language to be used.
+
+- **data-logo**: the logo URL of the company. _Height 35px. Extensions jpg, jpeg, png._
+
+- **data-subtitle**: the subtitle of the web form. _Max 110 chars._
+
+- **data-subtitle-color**: CSS color code of the subtitle.
+
+- **data-terms-color**: CSS color code of the terms and conditions.
+
+- **data-title**: the title of the web form. _Max 25 chars._
+
+- **data-title-color**: CSS color code of the title.
 
 <br/>
 
-The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
+The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. If `data-auto-close` is set to `false` the form won't be automatically closed after linking a card. You can set `data-close-events` to `false` and the form won't add the default close events. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
 
 <h5>Fidel.openForm() global function.</h5>
 
@@ -97,4 +120,21 @@ fileName:index.html
 
 <br/>
 
-The FIDEL Web SDK can be customised to better fit your website. You can provide a title, subtitle and logo by using the properties `data-title`, `data-subtitle` and `data-logo`. Also, the action button can be customised by changing it's background color, title, and title color by using the properties `data-button-color`, `data-button-title` and `data-button-title-color`.
+To store custom data related to the card you must pass a Javascript global object name reference on the `data-metadata` property. The metadata `id` property is a *non-unique index* to that card, so you can set it to a custom UID (unique identifier). Later you can retrieve the card(s) using the same `metadata.id`, reference [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference#list-cards-from-metadata-id).
+
+<h5>Web SDK metadata global object example.</h5>
+
+```html
+fileName:index.html
+<script>
+    var metadata = {
+        id: 'this-is-the-metadata-id',
+        customKey1: 'customValue1',
+        customKey2: 'customValue2'
+    };
+</script>
+```
+
+<br/>
+
+The FIDEL Web SDK can be customised to better fit your website. You can provide a button title, title, subtitle and logo by using the properties `data-button-title`, `data-title`, `data-subtitle` and `data-logo`. You can customize CSS colors by using `data-background-color`, `data-button-color`, `data-button-title-color`, `data-subtitle-color`, `data-terms-color` and `data-title-color`.

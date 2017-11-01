@@ -34,12 +34,6 @@
 
 <br/>
 
-<div class="info-box">
-FIDEL API is in public beta under active development. Expect breaking changes and documentation updates before final release.
-</div>
-
-<br/>
-
 # Introduction
 FIDEL is a card-linked API that lets developers create web and mobile applications for linking banks cards with reward services. FIDEL API lets you connect your applications to credit and debit cards and monitor transactions in-store and online, chip & pin or contactless.
 
@@ -48,6 +42,8 @@ FIDEL is a card-linked API that lets developers create web and mobile applicatio
 FIDEL API runs on top of the global payments network so it doesn't require changes on existing merchants infrastructure. No need for new software, POS integrations, staff training or new cards. All the PCI Compliance requirements are managed by us so you don't have to.
 
 Currently the API is available for **VISA** and **Mastercard** networks in the **UK** and **Ireland**. We are working on adding support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [developer@fidel.uk](mailto:developer@fidel.uk).
+
+Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 
 Join our developers' Slack channel for API discussions, documentation, roadmap and new features. We’re always happy to help and answer any questions. Join by clicking the button below:
 
@@ -79,17 +75,14 @@ Use one of the test cards, such as `4444000000004004` and enter an expiry date i
 fileName:index.html
 <script type="text/javascript" src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
     class="fidel-form"
-    data-auto-open="false"
-    data-callback="callback"
-    data-key="pk_live_5be54ed6-0c10-48a8-9db0-ca34852fbbfd"
-    data-program-id="d1e38621-6f5d-424f-be26-d6fe33d2663a"
-    data-title="Link Card"
-    data-subtitle="Earn 1 point for every £1 spent online or in-store"
     data-company-name="Fidel"
-    data-logo="https://fidel.uk/logo.png"
-    data-lang="en"
-    data-button-color="#4dadea"
+    data-key="pk_test_demo"
+    data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
+    data-callback="callback"
+    data-metadata="metadata"
     data-button-title="Link Card"
-    data-button-title-color="#ffffff">
+    data-lang="en"
+    data-subtitle="Earn 1 point for every £1 spent online or in-store"
+    data-title="Link Card"
 </script>
 ```
