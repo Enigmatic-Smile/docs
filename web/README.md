@@ -26,6 +26,7 @@ fileName:index.html
     data-key="pk_test_demo"
     data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
     data-callback="callback"
+    data-country-code="GBR"
     data-metadata="metadata"
     data-auto-open="false"
     data-overlay-close="false"
@@ -59,6 +60,8 @@ Most of the data properties in the script are self explanatory but you can check
 
 - **data-callback**: name of the global callback function.
 
+- **data-country-code**: (values: GBR, IRL) set card country of issue and remove the country select box.
+
 - **data-metadata**: name of the global metadata object.
 
 - **data-auto-open**: (default: false) whether the web form auto opens on page load.
@@ -75,7 +78,7 @@ Most of the data properties in the script are self explanatory but you can check
 
 - **data-close-events**: (default: true) whether close button, overlay click and escape key events are added to the form.
 
-- **data-lang**: the localization language to be used.
+- **data-lang**: (default: en) the localization language to be used.
 
 - **data-logo**: the logo URL of the company. _Height 35px. Extensions jpg, jpeg, png._
 
