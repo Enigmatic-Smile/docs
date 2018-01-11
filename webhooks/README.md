@@ -7,6 +7,18 @@
 
 <br/>
 
+# Brand Events
+
+`brand.consent` event is triggered when the brand consent is approved, in `test` mode it will happen immediately after brand creation and in `live` mode when Fidel verifies the merchant consent.
+
+<br/>
+
+# Program Events
+
+`program.status` event is triggered when either program becomes `active` or program `sync` status change.
+
+<br/>
+
 # Transaction Events
 
 #### Authorisation
