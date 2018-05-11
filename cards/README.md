@@ -53,37 +53,11 @@ fileName:card.json
 <br/>
 
 # Testing Card Numbers
-Note that on the Playground you can only create cards in test mode. In live mode new cards can only be linked to programs using the SDKs or the API if you are PCI compliant. Use the following test card numbers to test card linking in test mode, either in the Playground or using the SDKs with your test SDK key.
+Note that on the Playground you can only create cards in test mode. In live mode new cards can only be linked to programs using the SDKs or the API if you are PCI compliant.
 
-<h5>Visa testing card numbers</h5>
+Use the following test card number ranges to test card linking in test mode, either in the Playground or using the SDKs with your test SDK key.
 
-```json
-visa: [
-  '4444000000004001',
-  '4444000000004002',
-  '4444000000004003',
-  '4444000000004004',
-  '4444000000004005',
-  '4444000000004006',
-  '4444000000004007',
-  '4444000000004008',
-  '4444000000004009',
-  '4444000000004010'
-]
-```
-<h5>Mastercard testing card numbers</h5>
+**Visa**: `4444000000004***`  
+**Mastercard**: `5555000000005***`
 
-```json
-mastercard: [
-  '5555000000005001',
-  '5555000000005002',
-  '5555000000005003',
-  '5555000000005004',
-  '5555000000005005',
-  '5555000000005006',
-  '5555000000005007',
-  '5555000000005008',
-  '5555000000005009',
-  '5555000000005010'
-]
-```
+Where the last three digits `***` can be any number. E.g. `4444000000004278` and `5555000000005093` are both valid test card numbers.
