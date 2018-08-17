@@ -47,11 +47,9 @@ Check out the [API Reference](https://reference.fidel.uk) to see all available r
 
 Join our developers' Slack channel for API discussions, documentation, roadmap and new features. We’re always happy to help and answer any questions. Join by clicking the button below:
 
-<a href="https://fidel-developers-slack-invites.herokuapp.com/" target="blank">
-  <button class="with-icon">
-    <img src="https://docs.fidel.uk/assets/images/slack-icon.svg" />
-    <span>Slack</span>
-  </button>
+<a class="button with-icon" href="https://fidel-developers-slack-invites.herokuapp.com/" target="blank">
+  <img src="https://docs.fidel.uk/assets/images/slack-icon.svg" />
+  <span>Slack</span>
 </a>
 
 <br/>
