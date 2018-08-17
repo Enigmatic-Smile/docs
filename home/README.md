@@ -48,9 +48,9 @@ Check out the [API Reference](https://reference.fidel.uk) to see all available r
 Join our developers' Slack channel for API discussions, documentation, roadmap and new features. We’re always happy to help and answer any questions. Join by clicking the button below:
 
 <a href="https://fidel-developers-slack-invites.herokuapp.com/" target="blank">
-  <button>
+  <button class="with-icon">
     <img src="https://docs.fidel.uk/assets/images/slack-icon.svg" />
-    Slack
+    <span>Slack</span>
   </button>
 </a>
 
@@ -59,13 +59,13 @@ Join our developers' Slack channel for API discussions, documentation, roadmap a
 # Demo
 The iOS, Android and Web SDKs provide you with pre-built UI to collect your user’s card details securely on the web or in your mobile apps.
 
-<h5>Preview of web and mobile FIDEL card linking UI</h5>
+##### Preview of web and mobile FIDEL card linking UI
 
 ![Intro demo](https://docs.fidel.uk/assets/images/intro-demo.png "Intro demo")
 
 To see the Web SDK working, please click the the 'Link Card' button below:
 
-<button style="background: #4dadea; border: none; border-radius: 3px; color: #ffffff;" type="submit" onclick="Fidel.openForm()">Link Card</button>
+<button id="link-card-button" type="submit" onclick="Fidel.openForm()">Link Card</button>
 
 Use one of the test cards, such as `4444000000004004` and enter an expiry date in the future.
 
