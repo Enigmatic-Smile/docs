@@ -83,6 +83,6 @@ fileName:index.html
     data-button-title="Link Card"
     data-lang="en"
     data-subtitle="Earn 1 point for every £1 spent online or in-store"
-    data-title="Link Card"
+    data-title="Link Card">
 </script>
 ```
