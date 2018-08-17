@@ -16,7 +16,7 @@ All modern desktop and mobile browsers are supported, including Chrome, Firefox,
 # Integrating Web SDK
 You can easily integrate FIDEL Web SDK in your website or mobile app with only a few lines (or one) of code.
 
-<h5>FIDEL Web SDK script.</h5>
+##### FIDEL Web SDK script
 
 ```html
 fileName:index.html
@@ -145,7 +145,7 @@ Most of the data properties in the script are self explanatory but you can check
 
 The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. If `data-auto-close` is set to `false` the form won't be automatically closed after linking a card. You can set `data-close-events` to `false` and the form won't add the default close events. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
 
-<h5>Fidel.openForm() global function.</h5>
+##### Fidel.openForm() global function
 
 ```html
 <button type="submit" onclick="Fidel.openForm()">Link Card</button>
@@ -155,7 +155,7 @@ The `data-auto-open` property allows you to open the web form automatically on p
 
 To receive the callback after the form submission you must pass a Javascript global function name reference on the `data-callback` property that will return the response and error objects. Please see an example below:
 
-<h5>Web SDK callback global function example.</h5>
+##### Web SDK callback global function example
 
 ```html
 fileName:index.html
@@ -171,7 +171,7 @@ fileName:index.html
 
 To store custom data related to the card you must pass a Javascript global object name reference on the `data-metadata` property. The metadata `id` property is a *non-unique index* to that card, so you can set it to a custom UID (unique identifier). Later you can retrieve the card(s) using the same `metadata.id`, reference [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference#list-cards-from-metadata-id).
 
-<h5>Web SDK metadata global object example.</h5>
+##### Web SDK metadata global object example
 
 ```html
 fileName:index.html
