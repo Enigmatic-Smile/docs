@@ -50,49 +50,98 @@ To integrate **FIDEL Web SDK** in your website or mobile app, you need to add th
 
 Most of the data properties in the script are self explanatory but you can check the description of each property below.
 
-<br/>
+##### Parameters
 
-- **data-company-name**: (required) the name of the company using card-linking. _Max 35 chars._
-
-- **data-key**: (required) a valid Public Key.
-
-- **data-program-id**: (required) the id of the program to link the card to.
-
-- **data-callback**: name of the global callback function.
-
-- **data-country-code**: (values: GBR, IRL) set card country of issue and remove the country select box.
-
-- **data-metadata**: name of the global metadata object.
-
-- **data-auto-open**: (default: false) whether the web form auto opens on page load.
-
-- **data-auto-close**: (default: true) whether the web form auto closes on successful card link.
-
-- **data-background-color**: CSS color code of the form background.
-
-- **data-button-color**: CSS color code of the button background.
-
-- **data-button-title**: the button title. _Max 35 chars._
-
-- **data-button-title-color**: CSS color code of the button title.
-
-- **data-close-events**: (default: true) whether close button, overlay click and escape key events are added to the form.
-
-- **data-lang**: (default: en) the localization language to be used.
-
-- **data-logo**: the logo URL of the company. _Height 35px. Extensions jpg, jpeg, png._
-
-- **data-subtitle**: the subtitle of the web form. _Max 110 chars._
-
-- **data-subtitle-color**: CSS color code of the subtitle.
-
-- **data-terms-color**: CSS color code of the terms and conditions.
-
-- **data-title**: the title of the web form. _Max 25 chars._
-
-- **data-title-color**: CSS color code of the title.
-
-<br/>
+<dl>
+    <dt>
+        <span><code>data-company-name</code></span>
+        <strong>required</strong>
+    </dt>
+    <dd>the name of the company using card-linking. Max 35 chars</dd>
+    <dt>
+        <span><code>data-key</code></span>
+        <strong>required</strong>
+    </dt>
+    <dd>a valid Public Key</dd>
+    <dt>
+        <span><code>data-program-id</code></span>
+        <strong>required</strong>
+    </dt>
+    <dd>the id of the program to link the card to</dd>
+    <dt>
+        <span><code>data-callback</code></span>
+    </dt>
+    <dd>name of the global callback function</dd>
+    <dt>
+        <span><code>data-country-code</code></span>
+        <em>values: GBR, IRL, USA</em>
+    </dt>
+    <dd>set card country of issue and remove the country select box</dd>
+    <dt>
+        <span><code>data-metadata</code></span>
+    </dt>
+    <dd>name of the global metadata object</dd>
+    <dt>
+        <span><code>data-auto-open</code></span>
+        <em>default: false</em>
+    </dt>
+    <dd>whether the web form auto opens on page load</dd>
+    <dt>
+        <span><code>data-auto-close</code></span>
+        <em>default: true</em>
+    </dt>
+    <dd>whether the web form auto closes on successful card link</dd>
+    <dt>
+        <span><code>data-background-color</code></span>
+    </dt>
+    <dd>CSS color code of the form background</dd>
+    <dt>
+        <span><code>data-button-color</code></span>
+    </dt>
+    <dd>CSS color code of the button background</dd>
+    <dt>
+        <span><code>data-button-title</code></span>
+    </dt>
+    <dd>the button title. Max 35 chars</dd>
+    <dt>
+        <span><code>data-button-title-color</code></span>
+    </dt>
+    <dd>CSS color code of the button title</dd>
+    <dt>
+        <span><code>data-close-events</code></span>
+        <em>default: true</em>
+    </dt>
+    <dd>whether close button, overlay click and escape key events are added to the form</dd>
+    <dt>
+        <span><code>data-lang</code></span>
+        <em>default: en</em>
+    </dt>
+    <dd>the localization language to be used</dd>
+    <dt>
+        <span><code>data-logo</code></span>
+    </dt>
+    <dd>the logo URL of the company. Height 35px. Extensions jpg, jpeg, png</dd>
+    <dt>
+        <span><code>data-subtitle</code></span>
+    </dt>
+    <dd>the subtitle of the web form. Max 110 chars</dd>
+    <dt>
+        <span><code>data-subtitle-color</code></span>
+    </dt>
+    <dd>CSS color code of the subtitle</dd>
+    <dt>
+        <span><code>data-terms-color</code></span>
+    </dt>
+    <dd>CSS color code of the terms and conditions</dd>
+    <dt>
+        <span><code>data-title</code></span>
+    </dt>
+    <dd>the title of the web form. Max 25 chars</dd>
+    <dt>
+        <span><code>data-title-color</code></span>
+    </dt>
+    <dd>CSS color code of the title</dd>
+</dl>
 
 The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. If `data-auto-close` is set to `false` the form won't be automatically closed after linking a card. You can set `data-close-events` to `false` and the form won't add the default close events. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
 
