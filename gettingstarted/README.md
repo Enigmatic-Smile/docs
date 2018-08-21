@@ -16,7 +16,7 @@ After you created an account, in your account page on the dashboard, you will fi
 
 <div class="info-box">
     <small>Important note</small><br />
-To use the **Create Card** endpoint you must use the test public key. This only applies to this endpoint. Using the **Create Card** endpoint on live environment requires your company to be PCI Compliant. If you want to use it instead of the SDKs, please contact us at developer@fidel.uk.
+    To use the <strong>Create Card</strong> endpoint you must use the test public key. This only applies to this endpoint. Using the <strong>Create Card</strong> endpoint on live environment requires your company to be PCI Compliant. If you want to use it instead of the SDKs, please contact us at developer@fidel.uk.
 </div>
 
 
