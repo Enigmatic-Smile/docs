@@ -8,19 +8,19 @@
         </a>
     </div>
     <div class="column">
-      <a href="/web" class="content">
-            <img src="https://docs.fidel.uk/assets/images/icon-desktop.svg"/>
-            <h2>Web SDK</h2>
-            <h3>Use our pre-built UI to link cards on your website</h3>
+        <a href="https://dashboard.fidel.uk/playground" class="content">
+            <img src="https://docs.fidel.uk/assets/images/playground.svg"/>
+            <h2>Playground</h2>
+            <h3>Test API requests in real-time and see how we format the returned data</h3>
         </a>
     </div>
 </div>
 <div class="row">
     <div class="column">
-        <a href="https://dashboard.fidel.uk/playground" class="content">
-            <img src="https://docs.fidel.uk/assets/images/playground.svg"/>
-            <h2>Playground</h2>
-            <h3>Test API requests in real-time and see how we format the returned data</h3>
+      <a href="/web" class="content">
+            <img src="https://docs.fidel.uk/assets/images/icon-desktop.svg"/>
+            <h2>Web SDK</h2>
+            <h3>Learn to integrate our secure iframe SDK to link cards on your website</h3>
         </a>
     </div>
     <div class="column">
@@ -57,13 +57,14 @@ Join our developers' Slack channel for API discussions, documentation, roadmap a
 # Demo
 The iOS, Android and Web SDKs provide you with pre-built UI to collect your user’s card details securely on the web or in your mobile apps.
 
-##### Preview of web and mobile FIDEL card linking UI
+Card numbers are instantly tokenised and we return to you a unique token that identifies each successfully linked card on your database. You should save the `id` of the card object that is returned inside your user's object. Every transaction we will send to you will have a `cardId` that you can use to identify the user that made that transaction.
 
-![Intro demo](https://docs.fidel.uk/assets/images/intro-demo.png "Intro demo")
+![Intro demo](https://docs.fidel.uk/assets/images/intro-demo.png "Preview of the web and mobile Fidel card linking UI")
 
-To see the Web SDK working, please click the the 'Link Card' button below:
-
-<button id="link-card-button" type="submit" onclick="Fidel.openForm()">Link Card</button>
+<button id="link-card-button" class="with-icon" type="submit" onclick="Fidel.openForm()">
+  <img src="https://docs.fidel.uk/assets/images/eye.svg" />
+  <span>View demo</span>
+</button>
 
 Use one of the test cards, such as `4444000000004004` and enter an expiry date in the future.
 
@@ -72,15 +73,15 @@ Use one of the test cards, such as `4444000000004004` and enter an expiry date i
 ```html
 fileName:index.html
 <script type="text/javascript" src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
-    class="fidel-form"
-    data-company-name="Fidel"
-    data-key="pk_test_demo"
-    data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
-    data-callback="callback"
-    data-metadata="metadata"
-    data-button-title="Link Card"
-    data-lang="en"
-    data-subtitle="Earn 1 point for every £1 spent online or in-store"
-    data-title="Link Card">
+  class="fidel-form"
+  data-company-name="Fidel"
+  data-key="pk_test_demo"
+  data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
+  data-callback="callback"
+  data-metadata="metadata"
+  data-button-title="Link Card"
+  data-lang="en"
+  data-subtitle="Earn 1 point for every £1 spent online or in-store"
+  data-title="Link Card">
 </script>
 ```
