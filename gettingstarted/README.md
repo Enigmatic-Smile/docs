@@ -40,14 +40,14 @@ We are working on two native SDKs for mobile, iOS and Android, that will be avai
 <div class="row">
 <div class="column">
     <a href="/web" class="content">
-        <img src="https://docs.fidel.uk/assets/images/icon-desktop.svg"/>
+        <img src="https://docs.fidel.uk/assets/images/web_sdk.svg"/>
         <h2>Web</h2>
         <h3>Use our pre-built UI to link cards on your website</h3>
     </a>
 </div>
     <div class="column">
         <a href="/gettingstarted" class="content">
-            <img src="https://docs.fidel.uk/assets/images/icon-mobile.svg"/>
+            <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg"/>
             <h2>Mobile</h2>
             <h3>Coming soon... We are working on native SDKs for iOS and Android</h3>
         </a>
