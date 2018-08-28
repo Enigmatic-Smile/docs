@@ -2,14 +2,14 @@
 <div class="row">
     <div class="column">
         <a href="/gettingstarted" class="content">
-            <img src="https://docs.fidel.uk/assets/images/get-started.svg"/>
+            <img src="https://docs.fidel.uk/assets/images/get_started.svg"/>
             <h2>Get Started</h2>
             <h3>Start building card-linked applications with our quickstart guide</h3>
         </a>
     </div>
     <div class="column">
         <a href="https://dashboard.fidel.uk/playground" class="content">
-            <img src="https://docs.fidel.uk/assets/images/playground.svg"/>
+            <img src="https://docs.fidel.uk/assets/images/playground_icon.svg"/>
             <h2>Playground</h2>
             <h3>Test API requests in real-time and see how we format the returned data</h3>
         </a>
@@ -18,14 +18,14 @@
 <div class="row">
     <div class="column">
       <a href="/web" class="content">
-            <img src="https://docs.fidel.uk/assets/images/icon-desktop.svg"/>
+            <img src="https://docs.fidel.uk/assets/images/web_sdk.svg"/>
             <h2>Web SDK</h2>
             <h3>Learn to integrate our secure iframe SDK to link cards on your website</h3>
         </a>
     </div>
     <div class="column">
         <div class="content">
-            <img src="https://docs.fidel.uk/assets/images/icon-mobile.svg"/>
+            <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg"/>
             <h2>Mobile SDKs</h2>
             <h3>Coming soon... We are working on native SDKs for iOS and Android</h3>
         </div>
@@ -59,7 +59,7 @@ The iOS, Android and Web SDKs provide you with pre-built UI to collect your user
 
 Card numbers are instantly tokenised and we return to you a unique token that identifies each successfully linked card on your database. You should save the `id` of the card object that is returned inside your user's object. Every transaction we will send to you will have a `cardId` that you can use to identify the user that made that transaction.
 
-![Intro demo](https://docs.fidel.uk/assets/images/intro-demo.png "Preview of the web and mobile Fidel card linking UI")
+![Intro demo](https://docs.fidel.uk/assets/images/sdks_main.png "Preview of the web and mobile Fidel card linking UI")
 
 <button id="link-card-button" class="with-icon" type="submit" onclick="Fidel.openForm()">
   <img src="https://docs.fidel.uk/assets/images/eye.svg" />
