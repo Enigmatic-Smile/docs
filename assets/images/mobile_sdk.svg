@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="48px" viewBox="0 0 32 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="API-Docs-Copy-3" transform="translate(-491.000000, -471.000000)">
+            <g id="Group" transform="translate(492.000000, 472.000000)">
+                <rect id="Rectangle" fill-opacity="0.2" fill="#0076FF" x="0" y="8" width="30" height="30"></rect>
+                <path d="M30,42 C30,44.209 28.209,46 26,46 L4,46 C1.791,46 0,44.209 0,42 L0,4 C0,1.79 1.791,0 4,0 L26,0 C28.209,0 30,1.79 30,4 L30,42 L30,42 Z" id="Stroke-5611" stroke="#0076FF" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M30,8 L0,8" id="Stroke-5612" stroke="#0076FF" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M30,38 L0,38" id="Stroke-5613" stroke="#0076FF" stroke-width="2" stroke-linecap="round"></path>
+                <path d="M15,40 C13.896,40 13,40.895 13,42 C13,43.104 13.896,44 15,44 C16.105,44 17,43.104 17,42 C17,40.895 16.105,40 15,40" id="Fill-5614" fill="#0076FF"></path>
+                <path d="M10,4 L20,4" id="Stroke-5615" stroke="#0076FF" stroke-width="2" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>
