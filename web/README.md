@@ -19,26 +19,26 @@ You can easily integrate FIDEL Web SDK in your website or mobile app with only a
 ```html
 fileName:index.html
 <script type="text/javascript" src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
-    class="fidel-form"
-    data-company-name="Fidel"
-    data-key="pk_test_demo"
-    data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
-    data-callback="callback"
-    data-country-code="GBR"
-    data-metadata="metadata"
-    data-auto-open="false"
-    data-overlay-close="false"
-    data-background-color="#ffffff"
-    data-button-color="#4dadea"
-    data-button-title="Link Card"
-    data-button-title-color="#ffffff"
-    data-lang="en"
-    data-logo="https://company.com/logo.png"
-    data-subtitle="Earn 1 point for every £1 spent online or in-store"
-    data-subtitle-color="#000000"
-    data-terms-color="#000000"
-    data-title="Link Card"
-    data-title-color="#000000">
+  class="fidel-form"
+  data-company-name="Fidel"
+  data-key="pk_test_demo"
+  data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
+  data-callback="callback"
+  data-country-code="GBR"
+  data-metadata="metadata"
+  data-auto-open="false"
+  data-overlay-close="false"
+  data-background-color="#ffffff"
+  data-button-color="#4dadea"
+  data-button-title="Link Card"
+  data-button-title-color="#ffffff"
+  data-lang="en"
+  data-logo="https://company.com/logo.png"
+  data-subtitle="Earn 1 point for every £1 spent online or in-store"
+  data-subtitle-color="#000000"
+  data-terms-color="#000000"
+  data-title="Link Card"
+  data-title-color="#000000">
 </script>
 ```
 
@@ -198,10 +198,10 @@ To receive the callback after the form submission you must pass a Javascript glo
 ```html
 fileName:index.html
 <script>
-    function callback(error, card) {
-        console.log('Card Link Error', error);
-        console.log('Card Linked Successfully', card)
-    }
+  function callback(error, card) {
+    console.log('Card Link Error', error);
+    console.log('Card Linked Successfully', card)
+  }
 </script>
 ```
 
@@ -214,11 +214,11 @@ To store custom data related to the card you must pass a Javascript global objec
 ```html
 fileName:index.html
 <script>
-    var metadata = {
-        id: 'this-is-the-metadata-id',
-        customKey1: 'customValue1',
-        customKey2: 'customValue2'
-    };
+  var metadata = {
+    id: 'this-is-the-metadata-id',
+    customKey1: 'customValue1',
+    customKey2: 'customValue2'
+  };
 </script>
 ```
 
