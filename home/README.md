@@ -1,7 +1,7 @@
 <h2>Documentation</h2>
 <div class="row">
     <div class="column">
-        <a href="/gettingstarted" class="content">
+        <a href="/getting-started" class="content">
             <img src="https://docs.fidel.uk/assets/images/get_started.svg"/>
             <h2>Get Started</h2>
             <h3>Start building card-linked applications with our quickstart guide</h3>
@@ -17,7 +17,7 @@
 </div>
 <div class="row">
     <div class="column">
-      <a href="/web" class="content">
+      <a href="/web-sdk" class="content">
             <img src="https://docs.fidel.uk/assets/images/web_sdk.svg"/>
             <h2>Web SDK</h2>
             <h3>Learn to integrate our secure iframe SDK to link cards on your website</h3>
