@@ -21,7 +21,7 @@ You can use the dropdown menus to automatically set the ids in the request body 
 
 <br/>
 
-If the card is successfully linked, the newly created card object is returned in JSON and displayed in the response body box. You can also use the [Web SDK](/web) to create cards in the test environment using your test SDK key. If an error occurs on the card creation, you can verify the error message in the HTTP response body.
+If the card is successfully linked, the newly created card object is returned in JSON and displayed in the response body box. You can also use the [Web SDK](/web-sdk) to create cards in the test environment using your test SDK key. If an error occurs on the card creation, you can verify the error message in the HTTP response body.
 
 <h5>JSON Card object</h5>
 
