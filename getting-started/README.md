@@ -39,14 +39,14 @@ We are working on two native SDKs for mobile, iOS and Android, that will be avai
 
 <div class="row">
 <div class="column">
-    <a href="/web" class="content">
+    <a href="/web-sdk" class="content">
         <img src="https://docs.fidel.uk/assets/images/web_sdk.svg"/>
         <h2>Web</h2>
         <h3>Use our pre-built UI to link cards on your website</h3>
     </a>
 </div>
     <div class="column">
-        <a href="/gettingstarted" class="content">
+        <a href="/getting-started" class="content">
             <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg"/>
             <h2>Mobile</h2>
             <h3>Coming soon... We are working on native SDKs for iOS and Android</h3>
@@ -56,4 +56,4 @@ We are working on two native SDKs for mobile, iOS and Android, that will be avai
 
 <br/>
 
-Please follow the specific [Web SDK](/web) integration guide to learn how to configure and customize the pre-built UI to collect card details securely on your website. You should visit the [Programs](/programs), [Cards](/cards), [Transactions](/transactions) and [Webhooks](/webhooks) sections to get an overview of the FIDEL API object structure and description.
+Please follow the specific [Web SDK](/web-sdk) integration guide to learn how to configure and customize the pre-built UI to collect card details securely on your website. You should visit the [Programs](/programs), [Cards](/cards), [Transactions](/transactions) and [Webhooks](/webhooks) sections to get an overview of the FIDEL API object structure and description.
