@@ -11,7 +11,7 @@
         <a href="https://dashboard.fidel.uk/playground" class="content">
             <img src="https://docs.fidel.uk/assets/images/playground_icon.svg"/>
             <h2>Playground</h2>
-            <h3>Test API requests in real-time and see how we format the returned data</h3>
+            <h3>Test API requests in real-time in sandbox environment</h3>
         </a>
     </div>
 </div>
@@ -20,14 +20,14 @@
       <a href="/web-sdk" class="content">
             <img src="https://docs.fidel.uk/assets/images/web_sdk.svg"/>
             <h2>Web SDK</h2>
-            <h3>Learn to integrate our secure iframe SDK to link cards on your website</h3>
+            <h3>Learn to integrate our secure Javascript SDK to link cards on your website</h3>
         </a>
     </div>
     <div class="column">
         <div class="content">
             <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg"/>
             <h2>Mobile SDKs</h2>
-            <h3>Coming soon... We are working on native SDKs for iOS and Android</h3>
+            <h3>Customisable and PCI Compliant native SDKs for iOS and Android</h3>
         </div>
     </div>
 </div>
@@ -41,7 +41,7 @@ FIDEL is a card-linked API that lets developers create web and mobile applicatio
 
 FIDEL API runs on top of the global payments network so it doesn't require changes on existing merchants infrastructure. No need for new software, POS integrations, staff training or new cards. All the PCI Compliance requirements are managed by us so you don't have to.
 
-Currently the API is available for **VISA** and **Mastercard** networks in the **UK** and **Ireland**. We are working on adding support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [developer@fidel.uk](mailto:developer@fidel.uk).
+Currently the API is available for **VISA**, **Mastercard** and **American Express** networks in the **UK**, **Ireland**, **Sweden** and **United States**. With **Norway**, **Denmark**, **Finland**, **Canada**, **Japan**, **Australia** and **South Africa** going live soon. We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [developer@fidel.uk](mailto:developer@fidel.uk).
 
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 
@@ -55,7 +55,7 @@ Join our developers' Slack channel for API discussions, documentation, roadmap a
 <br/>
 
 # Demo
-The iOS, Android and Web SDKs provide you with pre-built UI to collect your user’s card details securely on the web or in your mobile apps.
+The iOS, Android and Web SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
 Card numbers are instantly tokenised and we return to you a unique token that identifies each successfully linked card on your database. You should save the `id` of the card object that is returned inside your user's object. Every transaction we will send to you will have a `cardId` that you can use to identify the user that made that transaction.
 
