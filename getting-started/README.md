@@ -15,7 +15,8 @@ Before getting started with the integration you need to **create a FIDEL API acc
 After you created an account, in your account page on the dashboard, you will find two SDK keys and two API keys. The SDK keys are used to link the web and mobile SDKs to your account and the API keys to access the API endpoints directly. [See API Reference.](https://reference.fidel.uk) To access the test environment data you must use the test keys and to access the live environment data use the live keys.
 
 <div class="info-box">
-To use the **Create Card** endpoint you must use the test public key. This only applies to this endpoint. Using the **Create Card** endpoint on live environment requires your company to be PCI Compliant. If you want to use it instead of the SDKs, please contact us at developer@fidel.uk.
+    <small>Important note</small><br />
+    To use the <strong>Create Card</strong> endpoint you must use the test public key. This only applies to this endpoint. Using the <strong>Create Card</strong> endpoint on live environment requires your company to be PCI Compliant. If you want to use it instead of the SDKs, please contact us at developer@fidel.uk.
 </div>
 
 
@@ -38,15 +39,15 @@ We are working on two native SDKs for mobile, iOS and Android, that will be avai
 
 <div class="row">
 <div class="column">
-    <a href="/web" class="content">
-        <img src="https://docs.fidel.uk/assets/images/icon-desktop.svg"/>
+    <a href="/web-sdk" class="content">
+        <img src="https://docs.fidel.uk/assets/images/web_sdk.svg"/>
         <h2>Web</h2>
         <h3>Use our pre-built UI to link cards on your website</h3>
     </a>
 </div>
     <div class="column">
-        <a href="/gettingstarted" class="content">
-            <img src="https://docs.fidel.uk/assets/images/icon-mobile.svg"/>
+        <a href="/getting-started" class="content">
+            <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg"/>
             <h2>Mobile</h2>
             <h3>Coming soon... We are working on native SDKs for iOS and Android</h3>
         </a>
@@ -55,4 +56,4 @@ We are working on two native SDKs for mobile, iOS and Android, that will be avai
 
 <br/>
 
-Please follow the specific [Web SDK](/web) integration guide to learn how to configure and customize the pre-built UI to collect card details securely on your website. You should visit the [Programs](/programs), [Cards](/cards), [Transactions](/transactions) and [Webhooks](/webhooks) sections to get an overview of the FIDEL API object structure and description.
+Please follow the specific [Web SDK](/web-sdk) integration guide to learn how to configure and customize the pre-built UI to collect card details securely on your website. You should visit the [Programs](/programs), [Cards](/cards), [Transactions](/transactions) and [Webhooks](/webhooks) sections to get an overview of the FIDEL API object structure and description.

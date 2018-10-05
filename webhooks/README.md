@@ -3,7 +3,7 @@
 
 <h5>Webhooks events</h5>
 
-![Webhooks diagram](https://docs.fidel.uk/assets/images/webhooks-diagram.png "Webhooks diagram")
+![Webhooks diagram](https://docs.fidel.uk/assets/images/webhooks_diagram.png "Webhooks diagram")
 
 <br/>
 

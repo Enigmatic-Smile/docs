@@ -4,7 +4,7 @@ A **Program** is a set of locations that uniquely represent an offline or online
 
 <h5>Hierarchy diagram of the FIDEL API object structure.</h5>
 
-![Hierarchy diagram](https://docs.fidel.uk/assets/images/hierarchy-diagram.png "Hierarchy diagram")
+![Programs structure diagram](https://docs.fidel.uk/assets/images/programs_diagram.png "Programs structure diagram")
 
 # Create Program
 To create a new program, go to the **Programs** page on the dashboard, click the **+** icon and enter a name. The program will be created with the name provided without any initial locations.

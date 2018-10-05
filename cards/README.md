@@ -21,32 +21,32 @@ You can use the dropdown menus to automatically set the ids in the request body 
 
 <br/>
 
-If the card is successfully linked, the newly created card object is returned in JSON and displayed in the response body box. You can also use the [Web SDK](/web) to create cards in the test environment using your test SDK key. If an error occurs on the card creation, you can verify the error message in the HTTP response body.
+If the card is successfully linked, the newly created card object is returned in JSON and displayed in the response body box. You can also use the [Web SDK](/web-sdk) to create cards in the test environment using your test SDK key. If an error occurs on the card creation, you can verify the error message in the HTTP response body.
 
 <h5>JSON Card object</h5>
 
 ```json
 fileName:card.json
 {
-    "id": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
-    "accountId": "a30e933f-cde1-4ac1-9a5e-acd329497a48",
-    "programId": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
-    "metadata": {
-        "id": "this-is-the-metadata-id",
-        "customKey1": "customValue1",
-        "customKey2": "customValue2"
-    },
-    "provider": "mastercard",
-    "type": "master-card",
-    "lastNumbers": "3183",
-    "expMonth": 1,
-    "expYear": 2018,
-    "expDate": "2018-01-01T00:00:00.000Z",
-    "countryCode": "GBR",
-    "mapped": true,
-    "live": true,
-    "created": "2017-02-13T17:02:12.535Z",
-    "updated": "2017-02-13T17:17:02.833Z"
+  "id": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
+  "accountId": "a30e933f-cde1-4ac1-9a5e-acd329497a48",
+  "programId": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
+  "metadata": {
+    "id": "this-is-the-metadata-id",
+    "customKey1": "customValue1",
+    "customKey2": "customValue2"
+  },
+  "provider": "mastercard",
+  "type": "master-card",
+  "lastNumbers": "3183",
+  "expMonth": 1,
+  "expYear": 2018,
+  "expDate": "2018-01-01T00:00:00.000Z",
+  "countryCode": "GBR",
+  "mapped": true,
+  "live": true,
+  "created": "2017-02-13T17:02:12.535Z",
+  "updated": "2017-02-13T17:17:02.833Z"
 }
 ```
 
