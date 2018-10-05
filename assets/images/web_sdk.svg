@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48px" height="44px" viewBox="0 0 48 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="API-Docs-Copy-3" transform="translate(-912.000000, -473.000000)">
+            <g id="Group" transform="translate(913.000000, 474.000000)">
+                <rect id="Rectangle-3" fill-opacity="0.2" fill="#0076FF" x="4" y="4" width="38" height="24"></rect>
+                <path d="M46,33 C46,34.657 44.657,36 43,36 L3,36 C1.343,36 0,34.657 0,33 L0,3 C0,1.343 1.343,0 3,0 L43,0 C44.657,0 46,1.343 46,3 L46,33 L46,33 Z" id="Stroke-5583" stroke="#0076FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <path d="M9,42 L37,42" id="Stroke-5584" stroke="#0076FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                <polygon id="Stroke-5585" stroke="#0076FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="30 42 16 42 18 36 28 36"></polygon>
+                <polygon id="Stroke-5586" stroke="#0076FF" stroke-width="2" stroke-linecap="round" points="42 28 4 28 4 4 42 4"></polygon>
+                <path d="M24,32 C24,32.552 23.552,33 23,33 C22.447,33 22,32.552 22,32 C22,31.447 22.447,31 23,31 C23.552,31 24,31.447 24,32 L24,32 Z" id="Stroke-5587" stroke="#0076FF" stroke-width="2" stroke-linecap="round"></path>
+            </g>
+        </g>
+    </g>
+</svg>
