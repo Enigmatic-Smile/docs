@@ -20,7 +20,7 @@
       <a href="/web-sdk" class="content">
             <img src="https://docs.fidel.uk/assets/images/web_sdk.svg"/>
             <h2>Web SDK</h2>
-            <h3>Learn to integrate our secure Javascript SDK to link cards on your website</h3>
+            <h3>Learn to integrate a secure Javascript SDK to link cards on your website</h3>
         </a>
     </div>
     <div class="column">
@@ -41,7 +41,7 @@ FIDEL is a card-linked API that lets developers create web and mobile applicatio
 
 FIDEL API runs on top of the global payments network so it doesn't require changes on existing merchants infrastructure. No need for new software, POS integrations, staff training or new cards. All the PCI Compliance requirements are managed by us so you don't have to.
 
-Currently the API is available for **VISA**, **Mastercard** and **American Express** networks in the **UK**, **Ireland**, **Sweden** and **United States**. With **Norway**, **Denmark**, **Finland**, **Canada**, **Japan**, **Australia** and **South Africa** going live soon. We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [developer@fidel.uk](mailto:developer@fidel.uk).
+Currently, the API is available for **VISA**, **Mastercard** and **American Express** networks in the **UK**, **Ireland**, **Sweden** and **United States**. With **Norway**, **Denmark**, **Finland**, **Canada**, **Japan**, **Australia** and **South Africa** going live soon. We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [developer@fidel.uk](mailto:developer@fidel.uk).
 
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 
@@ -57,7 +57,7 @@ Join our developers' Slack channel for API discussions, documentation, roadmap a
 # Demo
 The iOS, Android and Web SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
-Card numbers are instantly tokenised and we return to you a unique token that identifies each successfully linked card on your database. You should save the `id` of the card object that is returned inside your user's object. Every transaction we will send to you will have a `cardId` that you can use to identify the user that made that transaction.
+Card numbers are instantly tokenised and we return to you a unique token that identifies each successfully linked card on your database. You should save the `id` of the card object and save it in your users' object in your database. Every transaction we send to you has a `cardId` that you can use to identify the user that made that transaction.
 
 ![Intro demo](https://docs.fidel.uk/assets/images/sdks_main.png "Preview of the web and mobile Fidel card linking UI")
 
@@ -74,14 +74,19 @@ Use one of the test cards, such as `4444000000004004` and enter an expiry date i
 fileName:index.html
 <script type="text/javascript" src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
   class="fidel-form"
-  data-company-name="Fidel"
+  data-company-name="Your Company"
   data-key="pk_test_demo"
   data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
   data-callback="callback"
   data-metadata="metadata"
-  data-button-title="Link Card"
+  data-country-code="GBR"
   data-lang="en"
+  data-title="Link Card"
   data-subtitle="Earn 1 point for every £1 spent online or in-store"
-  data-title="Link Card">
+  data-privacy-url="https://yourcompany.com/privacy"
+  data-delete-instructions="taping remove in your settings page."
+  data-button-title="Link Card">
 </script>
 ```
+Check the [Web SDK documentation](https://docs.fidel.uk/web-sdk) section for more information about all available parameters, customisation options, and the metadata nested object.
+
