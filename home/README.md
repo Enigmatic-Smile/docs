@@ -24,10 +24,10 @@
         </a>
     </div>
     <div class="column">
-        <div class="content">
+        <a href="/mobile-sdk" class="content">
             <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg"/>
             <h2>Mobile SDKs</h2>
-            <h3>Customisable and PCI Compliant native SDKs for iOS and Android</h3>
+            <h3>PCI Compliant native SDKs for iOS and Android</h3>
         </div>
     </div>
 </div>
@@ -37,7 +37,7 @@
 # Introduction
 FIDEL is a card-linked API that lets developers create web and mobile applications for linking banks cards with reward services. FIDEL API lets you connect your applications to credit and debit cards and monitor transactions in-store and online, chip & pin or contactless.
 
-**When a consumer makes a purchase at a specified store with a linked card, FIDEL API spots that transaction and sends it to you in real-time through webhooks.**
+**When a consumer makes a purchase at a participating store with a linked card, FIDEL API spots that transaction and sends it to your server in real-time through webhooks.** 💳⚡️
 
 FIDEL API runs on top of the global payments network so it doesn't require changes on existing merchants infrastructure. No need for new software, POS integrations, staff training or new cards. All the PCI Compliance requirements are managed by us so you don't have to.
 
