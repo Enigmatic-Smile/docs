@@ -5,7 +5,7 @@
 Card numbers are instantly tokenised and we return to you a unique token that identifies each successfully linked card on your database. You should save the `id` of the card object that is returned inside your user's object. Every transaction we will send to you will have a `cardId` that you can use to identify the user that made that transaction.
 
 # 1. Create an account 👨🏻‍💻
-First step is to **create a Fidel API developer account** that will give you access to the developers' dashboard, card-linked program configuration, sandbox environment and test API keys. You can create a new account [here](https://dashboard.fidel.uk/sign-up).
+First step is to [create a Fidel API developer account](https://dashboard.fidel.uk/sign-up) that will give you access to the developers' dashboard, card-linked program configuration, sandbox environment and test API keys.
 
 <br/>
 
@@ -13,12 +13,12 @@ First step is to **create a Fidel API developer account** that will give you acc
 After you created an account, in your account page on the dashboard, you will find two SDK keys and two API keys. The SDK keys are used to link the web and mobile SDKs to your account and the API keys to access the API endpoints directly. [See API Reference.](https://reference.fidel.uk) To access the test environment data you must use the test keys and to access the live environment data use the live keys.
 
 <div class="info-box">
-    <small>Important note</small><br />
+    <small>Important note</small><br/>
     To use the <strong>Create Card</strong> endpoint you must use the test public key. This only applies to this endpoint. Using the <strong>Create Card</strong> endpoint on live environment requires your company to be PCI Compliant. If you want to use it instead of the SDKs, please contact us at developer@fidel.uk.
 </div>
 
 
-Your SDK and API keys are displayed in your account page
+<h5>Your SDK and API keys are displayed in your account page</h5>
 
 ![API keys](https://docs.fidel.uk/assets/images/api-keys.png "API keys")
 
@@ -44,7 +44,7 @@ Click on the links below to  on how to use the web and mobile SDKs in your appli
     </a>
 </div>
     <div class="column">
-        <a href="/getting-started" class="content">
+        <a href="/mobile-sdk" class="content">
             <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg"/>
             <h2>Mobile</h2>
             <h3>PCI Compliant native SDKs for iOS and Android</h3>

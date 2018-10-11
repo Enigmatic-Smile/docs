@@ -53,6 +53,7 @@ Join our developers' Slack channel for API discussions, documentation, roadmap a
 </a>
 
 <br/>
+<br/>
 
 # Card Linking
 The iOS, Android and Web SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
@@ -82,9 +83,7 @@ fileName:index.html
   data-key="pk_test_demo"
   data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
   data-callback="callback"
-  data-metadata="metadata"
   data-country-code="GBR"
-  data-lang="en"
   data-title="Link Card"
   data-subtitle="Earn 1 point for every £1 spent online or in-store"
   data-privacy-url="https://yourcompany.com/privacy"
