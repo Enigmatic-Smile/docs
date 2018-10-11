@@ -21,14 +21,14 @@
             <img src="https://docs.fidel.uk/assets/images/web_sdk.svg"/>
             <h2>Web SDK</h2>
             <h3>Learn to integrate a secure Javascript SDK to link cards on your website</h3>
-        </a>
+      </a>
     </div>
     <div class="column">
         <a href="/mobile-sdk" class="content">
             <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg"/>
             <h2>Mobile SDKs</h2>
             <h3>PCI Compliant native SDKs for iOS and Android</h3>
-        </div>
+        </a>
     </div>
 </div>
 
