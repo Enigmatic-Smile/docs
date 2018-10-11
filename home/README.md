@@ -35,11 +35,11 @@
 <br/>
 
 # Introduction
-FIDEL is a card-linked API that lets developers create web and mobile applications for linking banks cards with reward services. FIDEL API lets you connect your applications to credit and debit cards and monitor transactions in-store and online, chip & pin or contactless.
+Fidel is a card-linked API that lets developers create web and mobile applications for linking bank cards with reward services. FIDEL API lets you connect your applications to credit and debit cards and monitor transactions in-store and online, chip & pin or contactless.
 
-**When a consumer makes a purchase at a participating store with a linked card, FIDEL API spots that transaction and sends it to your server in real-time through webhooks.** 💳⚡️
+**When a consumer makes a purchase at a participating store with a linked card, Fidel API spots that transaction and sends it to your server in real-time through webhooks.** 💳⚡️
 
-FIDEL API runs on top of the global payments network so it doesn't require changes on existing merchants infrastructure. No need for new software, POS integrations, staff training or new cards. All the PCI Compliance requirements are managed by us so you don't have to.
+Fidel API runs on top of global payment networks, so it doesn't require changes to existing merchant infrastructures. No need for new software, POS integrations, staff training or new cards. All the PCI compliance requirements are managed by us so you don't have to.
 
 Currently, the API is available for **VISA**, **Mastercard** and **American Express** networks in the **UK**, **Ireland**, **Sweden** and **United States**. With **Norway**, **Denmark**, **Finland**, **Canada**, **Japan**, **Australia** and **South Africa** going live soon. We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [developer@fidel.uk](mailto:developer@fidel.uk).
 
@@ -54,10 +54,14 @@ Join our developers' Slack channel for API discussions, documentation, roadmap a
 
 <br/>
 
-# Demo
+# Card Linking
 The iOS, Android and Web SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
-Card numbers are instantly tokenised and we return to you a unique token that identifies each successfully linked card on your database. You should save the `id` of the card object and save it in your users' object in your database. Every transaction we send to you has a `cardId` that you can use to identify the user that made that transaction.
+By using Fidel SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements.
+
+Your apps will receive an `id` back that identifies the card in each transaction.
+
+<br/>
 
 ![Intro demo](https://docs.fidel.uk/assets/images/sdks_main.png "Preview of the web and mobile Fidel card linking UI")
 

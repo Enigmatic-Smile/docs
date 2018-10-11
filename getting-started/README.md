@@ -4,8 +4,8 @@
 
 Card numbers are instantly tokenised and we return to you a unique token that identifies each successfully linked card on your database. You should save the `id` of the card object that is returned inside your user's object. Every transaction we will send to you will have a `cardId` that you can use to identify the user that made that transaction.
 
-# 1. Create a developer account 👨🏻‍💻
-First step is to **create a FIDEL API developer account** that will give you access to the developers' dashboard, card-linked program configuration, sandbox environment and test API keys. You can create a new account [here](https://dashboard.fidel.uk/sign-up).
+# 1. Create an account 👨🏻‍💻
+First step is to **create a Fidel API developer account** that will give you access to the developers' dashboard, card-linked program configuration, sandbox environment and test API keys. You can create a new account [here](https://dashboard.fidel.uk/sign-up).
 
 <br/>
 
