@@ -4,36 +4,9 @@ The Offer object holds the details about a card linked offer. Offers can be crea
 
 A card linked offer specifies a set of parameters that will be used to qualify a card transaction made at a participating Brand’s online or offline store.
 
-To create an offer you should use the **Create Offer** API endpoint and specify the parameters for the card liked offer. 
-
-See below an example on how to create an offer using the Create Offer endpoint:
-
-```
-curl --request POST \
-     --url 'https://api.fidel.uk/v1/brands/4ed4b62b-aa4c-43a1-8064-da6d1368e17b/offers' \
-     --header 'Content-Type: application/json' \
-     --header 'Fidel-Key: sk_live_demo' \
-     --data '{
-         "countryCode": "GBR",
-         "name":"20% Off Everything",
-         "publisherId":"4ed4b62b-aa4c-43a1-8064-nb7d1368e17a",
-         "startDate":"2018-10-20T12:12:00.000Z",
-         "type":{
-            "name":"amount",
-            "value":10
-         }
-     }'
-```
-
-You should pass the `brandId` of the Brand you wish to submit the offer to in the URL path and the offer parameters in the payload.
-
-As required parameters, you need to set an offer `name`, your `accountId` as the `publisherId`, a `startDate` at least three weeks from today, the type of offer between `amount` or `discount`, an offer `value`, and the `countryCode` where the offer will be available. The `value` is a percentage id the offer `type` is `discount` or a fixed amount in the local currency of the `countryCode` specified.
-
-Check the **API Reference** for a more detailed description of all parameters, requests and response payloads of the Offer API.
-
 <br/>
 
-<h5>Offer object</h5>
+# Offer object
 
 ```json
 fileName:offer.json
@@ -52,8 +25,9 @@ fileName:offer.json
   "locationsFile": "./all_locations.csv",
   "locationsTotal": 240,
   "maxRedemption": 1000,
+  "maxRedemptionCounter": 730,
   "minTransactionAmount": 150,
-  "name": "10% Off Everything",
+  "name": "20% Off Everything",
   "performanceFee": 4,
   "priority": 1,
   "programId": "f446d575-d8c2-4a9e-8e12-ffd970d1a6t",
@@ -68,14 +42,14 @@ fileName:offer.json
   "status": "20",
   "type": {
     "name": "discount",
-    "value": 10
+    "value": 20
   },
   "updated": "2018-10-19T12:12:00.000Z",
   "userId": "82c5a9ed-5301-46ab-8599-6bcb0d017cc6"
 }
 ```
-
-See below the description of each parameter of the offer.
+<br/>
+<strong>Parameters</strong>>
 
 <dl>
     <div>
@@ -120,7 +94,7 @@ See below the description of each parameter of the offer.
         </dt>
         <dd>ISO 3166-1 alpha-3 country code where the offer is active.</dd>
     </div>
-        <div>
+    <div>
         <dt>
             <span><code>created</code></span>
             <em>date</em>
@@ -169,107 +143,311 @@ See below the description of each parameter of the offer.
         </dt>
         <dd>Total number of locations in locations file.</dd>
     </div>
+    <div>
+        <dt>
+            <span><code>maxRedemption</code></span>
+            <em>number</em>
+        </dt>
+        <dd>Maximum number of qualified transactions available for the offer.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>maxRedemptionCounter</code></span>
+            <em>number</em>
+        </dt>
+        <dd>Current number of qualified transactions for the offer.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>minTransactionAmount</code></span>
+            <em>number</em>
+        </dt>
+        <dd>Minimum transaction amount to qualify for offer.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>name</code></span>
+            <em>string</em>
+        </dt>
+        <dd>Name of the offer.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>performanceFee</code></span>
+            <em>number</em>
+        </dt>
+        <dd>Percentage of the net transaction amount charged to Brand for qualifying transactions.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>priority</code></span>
+            <em>number</em>
+        </dt>
+        <dd>Number starting in 1, representing stacking priority for publisher. By default, publisher that invites Brand gets top priority = 1.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>programId</code></span>
+            <em>string</em>
+        </dt>
+        <dd>Id of the Pogram the offer will be activate on. Set when publisher accepts offer and selects Program. Participating locations will be added to this Program and synced with the schemes.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>publisherId</code></span>
+            <em>string</em>
+        </dt>
+        <dd>Id of the publisher. Refers to accountId.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>returnPeriod</code></span>
+            <em>number</em>
+        </dt>
+        <dd>Number of days before a transaction qualifies for the offer.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>returnPeriod</code></span>
+            <em>number</em>
+        </dt>
+        <dd>Id of the publisher. Refers to accountId.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>schemes</code></span>
+            <em>array: string</em>
+        </dt>
+        <dd>Schemes where the offer is valid. Possible values are  `visa`, `mastercard` and `amex`.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>startDate</code></span>
+            <em>date</em>
+        </dt>
+        <dd>Date and time when the offer gets activated and starts qualifying transactions.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>status</code></span>
+            <em>number</em>
+        </dt>
+        <dd>Current status of the offer such as `draft`, `active` or `expired`. See more detailed documentation below about offer status.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>type</code></span>
+            <em>object</em>
+        </dt>
+        <dd>An offer can be a fixed amount off or a percentage discount of the transactions amount. `type: {name: string, value: number}`. The `name` property can have two values: `amount` and `discount`. The `value` property saves the fixed amount of curency to be rewarded or the percentage value in case of a discount offer.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>updated</code></span>
+            <em>date</em>
+        </dt>
+        <dd>ISO 8601 date and time in UTC representing when the object was last updated.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>userId</code></span>
+            <em>string</em>
+        </dt>
+        <dd>Id of the User that created the offer.</dd>
+    </div>
 </dl>
 
+<br/>
+
+# Create Offer
+
+To create an offer you should use the **Create Offer** API endpoint and specify the parameters for the card liked offer. 
+See below an example on how to create an offer using the Create Offer endpoint:
+
 ```
-  /** Optional - Additional offer terms */
-  additionalTerms: string,
-
-  /** Id of the Brand */
-  brandId: string,
-
-  /** Name of the Brand */
-  brandName: string,
-
-  /** Logo URL of the Brand */
-  brandLogoURL: string | null,
-
-  /** Country code where the offer is active */
-  countryCode: string,
-
-  /** Currency of the selected country */
-  currency: Currency,
-
-  /** Days of the week when transactions qualify for offer */
-  /** Using Days of the week according to JavaScript  */
-  /** https://www.w3schools.com/jsref/jsref_getday.asp */
-  /* 0 = Sunday, 1 = Monday, ect ect */
-  /* Optional: empty array means no limitation */
-  daysOfWeek: Array<number>,
-
-  /** Optional - End date of the offer */
-  /** If null, offer runs continuously */
-  endDate: string | null,
-
-  /** Fee split for the publisher payout.
-   *  If non present, it should be taken from the account object
-   *  at the time in which the offer is accepted by publisher
-   */
-  feeSplit: ?number,
-
-  /** File with the list of locations where offer is active */
-  locationsFile: string | null,
-
-  /** Number of locations in locations file */
-  locationsTotal: number,
-
-  /** Optional - counter of redeemable offers */
-  maxRedemptionCounter: number | null,
-
-  /** Optional - total number of redeemable offers */
-  maxRedemptionTotal: number | null,
-
-  /** Optional - Minimum amount for a transaction to be valid for the offer */
-  minTransactionAmount: number,
-
-  /** Name of the offer */
-  name: string,
-
-  /** Fee charged to brand. Between 0 and 100. Inherits from brand */
-  performanceFee: number,
-
-  /** Id of the Program where the offer is running */
-  programId: string | null,
-
-  /** Optional - number of days before a transaction qualifies for the offer */
-  returnPeriod: number | null,
-
-  /** Stacking priority */
-  /** By default, publisher that invites Brand gets top priority */
-  priority: number,
-
-  /** Id of the publisher (Refers to accountId) */
-  publisherId: string | null,
-
-  /** Schemes where the offer is valid */
-  schemes: Array<SchemeName>,
-
-  /** Date when the offer will be activated */
-  startDate: string,
-
-  /** Status of the offer (See OfferStatusName type) */
-  status: OfferStatusName,
-
-  /** Type of the offer (can be of type 'AMOUNT', 'DISCOUNT') */
-  type: IOfferType,
-
-  /** Composite string used as sort key in Offer table indexes */
-  statusUpdated: string,
-
-  /** Id of the user that creates the offer */
-  userId: string,
+curl -X POST \
+  https://api.fidel.uk/v1/brands/4ed4b62b-aa4c-43a1-8064-da6d1368e17b/offers \
+  -H 'content-type: application/json' \
+  -H 'fidel-key: sk_live_demo' \
+  -d '{
+        "countryCode": "GBR",
+        "name":"20% Off Everything",
+        "publisherId":"4ed4b62b-aa4c-43a1-8064-nb7d1368e17a",
+        "startDate":"2018-10-20T12:12:00.000Z",
+        "type":{
+            "name":"discount",
+            "value":20
+         }
+     }'
 ```
 
+You should pass the `brandId` of the Brand you wish to submit the offer to in the URL path and the offer parameters in the payload.
+
+As required parameters, you need to set an offer `name`, your `accountId` as the `publisherId`, a `startDate` at least three weeks from today, the type of offer between `amount` or `discount`, an offer `value`, and the `countryCode` where the offer will be available. The `value` is a percentage id the offer `type` is `discount` or a fixed amount in the local currency of the `countryCode` specified.
+
+Two more API calls are necessary to complete the offer object and submit to the publisher for aproval. These are the **Add locations** endpoint and after the **Submit offer** endpoint. After the offer has been submitted, the publisher can use the dashboard or the review endpoints to accept or reject the offer.
+
+## Add Locations
+
+Using the Add locations endpoint you can upload a valid csv file with the pipe | symbol as delimiter. All locations must be from the same country. If you want to make your offer available in several countries, you should create one offer per country. See below the format of the locations file and an example on how to add locations to an offer using the submit offer API endpoint:
 
 
-### Offer Status
+```csv
+fileName:locations.csv
+address|city|postcode|country|currency
+10 Downing Street|London|W1T 4RT|GBR|GBP
+```
 
-* Draft
-* Submitted
-* Syncing
-* Active
-* Rejected
---
-* Add locations
-* Submit
-* Webhooks
+```
+curl -X PUT \
+  https://api.fidel.uk/v1/offers/locations \
+  -H 'content-type: multipart/form-data' \
+  -H 'fidel-key: sk_live_demo' \
+  -d '{
+        "locations": "address|city|postcode|country|currency
+                      10 Downing Street|London|W1T 4RT|GBR|GBP",
+        "offerId": "4eb6562b-bb4c-76a1-8064-uj7d196e17n",
+        "brandId":"6t84b67b-aa4c-43a1-0734-nb7d1348e19a"
+     }'
+```
+
+## Submit Offer
+
+After creating a offer and adding locations, the offer is ready to be submitted to a publisher. To complete this process it is necessary to select the payment method required for the offer. You can select between manual and automatic payment.
+
+Fidel CLO platform runs on a 30 day billing cycle. If manual payment is selected, every 30 days an invoice will be generated with total cashback and performace fee amounts to be charged to the Brand. You can enter an additional email address where invoices will be automatically forwarded and you also can download them from your billing section in the dashboard account page.
+
+If you select automatic payment, the Brand will receive an email to complete offer with payment card details. Invoices will be generated every 30 days and Brand will be charged automatically for the cashback amount and performace fee.
+
+```
+curl -X POST \
+  'https://api.fidel.uk/v1d/offers/4eb6562b-bb4c-76a1-8064-uj7d196e17n/submit' \
+  -H 'content-type: application/json' \
+  -H 'fidel-key: sk_live_demo' \
+  -d '{
+        "type": "send_invoice",
+        "email": "billing@starbucks.com"
+}'
+```
+
+If there is a performance fee split in place, you will need to enter your bank card details in the billing section of your account page so you can receive payouts based on your share of the performance fee collected by Fidel.
+
+## Review Offer
+
+
+
+
+
+Check the [**API Reference**](https://reference.fidel.uk) for a more detailed description of all parameters, requests and response payloads of the Offer API.
+
+<br/>
+
+# Offer Lifecycle
+
+### Draft
+First status of an offer after creation. The offer has not been submitted to a publisher and has no locations linked.
+
+### Submitted
+Offer has been submitted to a publisher for acceptance.
+
+### Syncing
+Offer has been accepted by the publisher and participating locations are now being onboarded with the schemes.  This stage takes between 1 and 10 business days.
+
+### Active
+Offer goes active on `startDate` and starts qualifying transactions at the participating locations.
+  
+### Rejected
+If an offer is rejected by a publisher, you receive a notification email with the rejection reason and you can to edit the offer parameters and resubmit the offer. 
+
+### Pending
+Offer was created with no publisher. These offers are advertised to publishers on the Fidel CLO marketplace.
+
+### Expired
+Offer was not accepted or rejected by publisher in 14 days after it was submitted.
+
+### Completed
+Offer status will update to completed from active when the end date or the maximum number of qualified transactions is reached. The one that comes first.
+
+<br/>
+
+# Qualification
+
+## Qualified transaction object
+
+```json
+fileName:qualified-transaction.json
+{
+  "id": "ce86c82c-fd7b-4ca4-84cf-88e070dcb40f",
+  "accountId": "38599064-f4e9-4cba-88b0-bac11d02a8f5",
+  "brandId": "ce6ca867-53ed-4744-8262-fb53c515be1b",
+  "cardId": "2826d007-ce92-418c-8c99-3c503e764e81",
+  "locationId": "f9a14399-8f6a-4bbc-8f3e-80547ba5534f",
+  "merchantId": "TEST_MID_ccf00f5b-3ab8-4a2b-8a42-5dc03e399667",
+  "midId": "0615387e-b5a3-4ff8-83e8-60bb289833fc",
+  "programId": "daf5a825-1124-4212-bbb7-51b6a519c4ac",
+  "address": "10 Downing Street",
+  "amount": 100,
+  "auth": 1,
+  "city": "London",
+  "cleared": true,
+  "countryCode": "GBR",
+  "created": "2018-10-19T12:12:00.000Z",
+  "currency": "GBP",
+  "date": "2018-10-17T10:10:00.000Z",
+  "firstNumbers": "444400",
+  "lastNumbers": "4010",
+  "live": true,
+  "postcode": "W1 90OL",
+  "scheme": "mastercard",
+  "time": "2018-10-17T10:10:00.000Z",
+  "type": "mastercard",
+  "updated": "2018-10-19T12:12:00.000Z",
+  "wallet": "undefined",
+  "offer": {
+    "id": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
+    "cashback": 20,
+    "message": [],
+    "performanceFee": 3.2,
+    "qualified": true,
+    "qualificationDate": null
+  }
+}
+```
+
+## Non-qualified transaction object
+
+```json
+fileName:non-qualified-transaction.json
+{
+  ...
+  "updated": "2018-10-19T12:12:00.000Z",
+  "wallet": "undefined",
+  "offer": {
+    "id": "7e55efae-99d6-4daf-b8c4-ac9ca660e864",
+    "cashback": 0,
+    "performanceFee": 0,
+    "qualified": false,
+    "qualificationDate": null,
+    "message": [
+        "Transaction amount of GBP100 is lower than offer's minimum transaction amount of GBP150"
+    ]
+  }
+}
+```
+
+
+
+# Webhooks
+
+transaction.auth.qualified
+transaction.clearing.qualified
+
+
+
+
+
+
+
+
+
+
