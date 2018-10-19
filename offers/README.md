@@ -49,7 +49,8 @@ fileName:offer.json
 }
 ```
 <br/>
-<strong>Parameters</strong>>
+<strong>Parameters</strong>
+<br/>
 
 <dl>
     <div>
@@ -287,7 +288,7 @@ As required parameters, you need to set an offer `name`, your `accountId` as the
 
 Two more API calls are necessary to complete the offer object and submit to the publisher for aproval. These are the **Add locations** endpoint and after the **Submit offer** endpoint. After the offer has been submitted, the publisher can use the dashboard or the review endpoints to accept or reject the offer.
 
-## Add Locations
+### Submit Locations
 
 Using the Add locations endpoint you can upload a valid csv file with the pipe | symbol as delimiter. All locations must be from the same country. If you want to make your offer available in several countries, you should create one offer per country. See below the format of the locations file and an example on how to add locations to an offer using the submit offer API endpoint:
 
@@ -297,6 +298,9 @@ fileName:locations.csv
 address|city|postcode|country|currency
 10 Downing Street|London|W1T 4RT|GBR|GBP
 ```
+
+<br/>
+
 
 ```
 curl -X PUT \
@@ -311,7 +315,7 @@ curl -X PUT \
      }'
 ```
 
-## Submit Offer
+### Submit Offer
 
 After creating a offer and adding locations, the offer is ready to be submitted to a publisher. To complete this process it is necessary to select the payment method required for the offer. You can select between manual and automatic payment.
 
@@ -332,10 +336,7 @@ curl -X POST \
 
 If there is a performance fee split in place, you will need to enter your bank card details in the billing section of your account page so you can receive payouts based on your share of the performance fee collected by Fidel.
 
-## Review Offer
-
-
-
+### Review Offer
 
 
 Check the [**API Reference**](https://reference.fidel.uk) for a more detailed description of all parameters, requests and response payloads of the Offer API.
@@ -372,7 +373,7 @@ Offer status will update to completed from active when the end date or the maxim
 
 # Qualification
 
-## Qualified transaction object
+### Qualified transaction object
 
 ```json
 fileName:qualified-transaction.json
@@ -414,7 +415,7 @@ fileName:qualified-transaction.json
 }
 ```
 
-## Non-qualified transaction object
+### Non-qualified transaction object
 
 ```json
 fileName:non-qualified-transaction.json
