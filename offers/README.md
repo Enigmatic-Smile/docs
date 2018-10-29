@@ -39,7 +39,7 @@ fileName:offer.json
     "visa"
   ],
   "startDate": "2018-10-19T00:00:00.000Z",
-  "status": "20",
+  "status": "ACTIVE",
   "type": {
     "name": "discount",
     "value": 20
@@ -231,9 +231,9 @@ fileName:offer.json
     <div>
         <dt>
             <span><code>status</code></span>
-            <em>number</em>
+            <em>string</em>
         </dt>
-        <dd>Current status of the offer such as `draft`, `active` or `expired`. See more detailed documentation below about offer status.</dd>
+        <dd>Current status of the offer such as `DRAFT`, `ACTIVE` or `EXPIRED`. See more detailed documentation below about offer status.</dd>
     </div>
     <div>
         <dt>
@@ -262,7 +262,7 @@ fileName:offer.json
 
 # Create Offer
 
-To create an offer you should use the **Create Offer** API endpoint and specify the parameters for the card liked offer. 
+To create an offer you should use the **Create Offer** API endpoint and specify the parameters for the card linked offer. 
 See below an example on how to create an offer using the Create Offer endpoint:
 
 ```
@@ -282,17 +282,30 @@ curl -X POST \
      }'
 ```
 
+## Requirements
+Before creating an offer, the merchant should have completed the CLO registration process by:
+
+- Confirming account
+- Giving consent to publisher
+- Filling in all the required business details
+
+Merchants can complete this process using [Fidel CLO web application](https://clo.fidel.uk/) after they receive an invitation from a publisher.
+
+## Request
+
 You should pass the `brandId` of the Brand you wish to submit the offer to in the URL path and the offer parameters in the payload.
 
 As required parameters, you need to set an offer `name`, your `accountId` as the `publisherId`, a `startDate` at least three weeks from today, the type of offer between `amount` or `discount`, an offer `value`, and the `countryCode` where the offer will be available. The `value` is a percentage id the offer `type` is `discount` or a fixed amount in the local currency of the `countryCode` specified.
 
 Two more API calls are necessary to complete the offer object and submit to the publisher for aproval. These are the **Add locations** endpoint and after the **Submit offer** endpoint. After the offer has been submitted, the publisher can use the dashboard or the review endpoints to accept or reject the offer.
 
+All new offers will have a status of `DRAFT`.
+
 <br/>
 
 ### Submit Locations
 
-Using the Add locations endpoint you can upload a valid csv file with the pipe | symbol as delimiter. All locations must be from the same country. If you want to make your offer available in several countries, you should create one offer per country. See below the format of the locations file and an example on how to add locations to an offer using the submit offer API endpoint:
+Using the Add locations endpoint you can upload a valid csv file with the pipe `|` symbol as delimiter. All locations must be from the same country. If you want to make your offer available in several countries, you should create one offer per country. See below the format of the locations file and an example on how to add locations to an offer using the submit offer API endpoint:
 
 
 ```csv
@@ -307,25 +320,38 @@ address|city|postcode|country|currency
 ```
 curl -X PUT \
   https://api.fidel.uk/v1/offers/locations \
-  -H 'content-type: multipart/form-data' \
-  -H 'fidel-key: sk_live_demo' \
-  -d '{
-        "locations": "address|city|postcode|country|currency
-                      10 Downing Street|London|W1T 4RT|GBR|GBP",
-        "offerId": "4eb6562b-bb4c-76a1-8064-uj7d196e17n",
-        "brandId":"6t84b67b-aa4c-43a1-0734-nb7d1348e19a"
-     }'
+  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
+  -F locations=@/home/user/offer-location-upload.csv \
+  -F brandId=6t84b67b-aa4c-43a1-0734-nb7d1348e19a \
+  -F offerId=4eb6562b-bb4c-76a1-8064-uj7d196e17n
 ```
+
+#### Locations file format
+
+In order to pass validation, the csv file should have been produced following these rules:
+
+- Unix pipe symbol `|` as field delimiter
+- No empty lines
+- CSV headers are optional. If provided, they should be lowercase
+- Fields should not include the following special characters: `/`, `\`, `<`, `>`. `[`, `]`, `{`, `}`, `(`, and `)`.
+- Additionally, the publisher account must be using the latest API version.
 
 <br/>
 
 ### Submit Offer
 
-After creating a offer and adding locations, the offer is ready to be submitted to a publisher. To complete this process it is necessary to select the payment method required for the offer. You can select between manual and automatic payment.
 
-Fidel CLO platform runs on a 30 day billing cycle. If manual payment is selected, every 30 days an invoice will be generated with total cashback and performace fee amounts to be charged to the Brand. You can enter an additional email address where invoices will be automatically forwarded and you also can download them from your billing section in the dashboard account page.
+> *BETA RELEASE NOTE*
+> 
+> This endpoint is currently closed for public API usage. We will be releasing a revised endpoint for the offer submission soon.
+>
+> In order to complete this step, please use [Fidel CLO web application](https://clo.fidel.uk/).
 
-If you select automatic payment, the Brand will receive an email to complete offer with payment card details. Invoices will be generated every 30 days and Brand will be charged automatically for the cashback amount and performace fee.
+After creating an offer and adding locations, the offer is ready to be submitted to a publisher. To complete this process it is necessary to select the payment method required for the offer. You can select between manual and automatic payment.
+
+Fidel CLO platform runs on a 30 day billing cycle. If manual payment is selected, every 30 days an invoice will be generated with total cashback and performance fee amounts to be charged to the Brand. You can enter an additional email address where invoices will be automatically forwarded and you also can download them from your billing section in the dashboard account page.
+
+If you select automatic payment, the Brand will receive an email to complete offer with payment card details. Invoices will be generated every 30 days and Brand will be charged automatically for the cashback amount and performance fee.
 
 ```
 curl -X POST \
@@ -352,7 +378,7 @@ Check the [**API Reference**](https://reference.fidel.uk) for a more detailed de
 # Offer Lifecycle
 
 ### Draft
-First status of an offer after creation. The offer has not been submitted to a publisher and has no locations linked.
+First status of an offer after creation. The offer has not been submitted to a publisher. A locations file may have been uploaded for the offer, but no locations would be linked at this stage.
 
 ### Submitted
 Offer has been submitted to a publisher for acceptance.
