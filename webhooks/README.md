@@ -76,7 +76,7 @@ fileName:card.linked
 fileName:card.failed
 {
   "card": {
-  	"id": "c3730d4d-9915-4c51-831f-14b8aeeb56b7",
+    "id": "c3730d4d-9915-4c51-831f-14b8aeeb56b7",
     "accountId": "d346c574-d5c2-4a0e-8e02-ffd713fd1a8d",
     "cardId": "07c74d71-0e44-45fd-8311-f4e4c41e9e91",
     "countryCode": "GBR",
