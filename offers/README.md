@@ -14,8 +14,8 @@ fileName:offer.json
   "id": "49b407ef-508a-432b-900c-a04e5e6ac86c",
   "additionalTerms": "none",
   "brandId": "e4928475-6a39-41e6-8484-951202d43de9",
-  "brandName": "Dipp",
-  "brandLogoURL": "https://dipp.com/logo.png",
+  "brandName": "Starbucks",
+  "brandLogoURL": "https://starbucks.com/logo.png",
   "countryCode": "USA",
   "created": "2018-10-19T12:12:00.000Z",
   "currency": "USD",
@@ -206,13 +206,6 @@ fileName:offer.json
             <em>number</em>
         </dt>
         <dd>Number of days before a transaction qualifies for the offer.</dd>
-    </div>
-    <div>
-        <dt>
-            <span><code>returnPeriod</code></span>
-            <em>number</em>
-        </dt>
-        <dd>Id of the publisher. Refers to accountId.</dd>
     </div>
     <div>
         <dt>
