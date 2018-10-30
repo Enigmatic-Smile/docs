@@ -263,9 +263,14 @@ fileName:offer.json
 # Create Offer
 
 To create an offer you should use the **Create Offer** API endpoint and specify the parameters for the card linked offer. 
+Before creating an offer, the Brand User must complete the sign up process at [http://clo.fidel.uk](http://clo.fidel.uk) after they receive an invitation from a publisher:
+
+1. Select password and complete sign up
+2. Enter business details
+
 See below an example on how to create an offer using the Create Offer endpoint:
 
-```
+```json
 curl -X POST \
   https://api.fidel.uk/v1/brands/4ed4b62b-aa4c-43a1-8064-da6d1368e17b/offers \
   -H 'content-type: application/json' \
@@ -282,96 +287,11 @@ curl -X POST \
      }'
 ```
 
-## Requirements
-Before creating an offer, the merchant should have completed the CLO registration process by:
-
-- Confirming account
-- Giving consent to publisher
-- Filling in all the required business details
-
-Merchants can complete this process using [Fidel CLO web application](https://clo.fidel.uk/) after they receive an invitation from a publisher.
-
-## Request
-
 You should pass the `brandId` of the Brand you wish to submit the offer to in the URL path and the offer parameters in the payload.
 
-As required parameters, you need to set an offer `name`, your `accountId` as the `publisherId`, a `startDate` at least three weeks from today, the type of offer between `amount` or `discount`, an offer `value`, and the `countryCode` where the offer will be available. The `value` is a percentage id the offer `type` is `discount` or a fixed amount in the local currency of the `countryCode` specified.
+As required parameters, you need to set an offer `name`, your `accountId` as the `publisherId`, a `startDate` at least three weeks from today, the type of offer between `amount` or `discount`, an offer `value`, and the `countryCode` where the offer will be available. The `value` is a percentage if the offer `type` is `discount` or a fixed amount in the local currency of the `countryCode` specified.
 
 Two more API calls are necessary to complete the offer object and submit to the publisher for aproval. These are the **Add locations** endpoint and after the **Submit offer** endpoint. After the offer has been submitted, the publisher can use the dashboard or the review endpoints to accept or reject the offer.
-
-All new offers will have a status of `DRAFT`.
-
-<br/>
-
-### Submit Locations
-
-Using the Add locations endpoint you can upload a valid csv file with the pipe `|` symbol as delimiter. All locations must be from the same country. If you want to make your offer available in several countries, you should create one offer per country. See below the format of the locations file and an example on how to add locations to an offer using the submit offer API endpoint:
-
-
-```csv
-fileName:locations.csv
-address|city|postcode|country|currency
-10 Downing Street|London|W1T 4RT|GBR|GBP
-```
-
-<br/>
-
-
-```
-curl -X PUT \
-  https://api.fidel.uk/v1/offers/locations \
-  -H 'content-type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW' \
-  -F locations=@/home/user/offer-location-upload.csv \
-  -F brandId=6t84b67b-aa4c-43a1-0734-nb7d1348e19a \
-  -F offerId=4eb6562b-bb4c-76a1-8064-uj7d196e17n
-```
-
-#### Locations file format
-
-In order to pass validation, the csv file should have been produced following these rules:
-
-- Unix pipe symbol `|` as field delimiter
-- No empty lines
-- CSV headers are optional. If provided, they should be lowercase
-- Fields should not include the following special characters: `/`, `\`, `<`, `>`. `[`, `]`, `{`, `}`, `(`, and `)`.
-- Additionally, the publisher account must be using the latest API version.
-
-<br/>
-
-### Submit Offer
-
-
-> *BETA RELEASE NOTE*
-> 
-> This endpoint is currently closed for public API usage. We will be releasing a revised endpoint for the offer submission soon.
->
-> In order to complete this step, please use [Fidel CLO web application](https://clo.fidel.uk/).
-
-After creating an offer and adding locations, the offer is ready to be submitted to a publisher. To complete this process it is necessary to select the payment method required for the offer. You can select between manual and automatic payment.
-
-Fidel CLO platform runs on a 30 day billing cycle. If manual payment is selected, every 30 days an invoice will be generated with total cashback and performance fee amounts to be charged to the Brand. You can enter an additional email address where invoices will be automatically forwarded and you also can download them from your billing section in the dashboard account page.
-
-If you select automatic payment, the Brand will receive an email to complete offer with payment card details. Invoices will be generated every 30 days and Brand will be charged automatically for the cashback amount and performance fee.
-
-```
-curl -X POST \
-  'https://api.fidel.uk/v1d/offers/4eb6562b-bb4c-76a1-8064-uj7d196e17n/submit' \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_live_demo' \
-  -d '{
-        "type": "send_invoice",
-        "email": "billing@starbucks.com"
-}'
-```
-
-If there is a performance fee split in place, you will need to enter your bank card details in the billing section of your account page so you can receive payouts based on your share of the performance fee collected by Fidel.
-
-<br/>
-
-### Review Offer
-
-
-Check the [**API Reference**](https://reference.fidel.uk) for a more detailed description of all parameters, requests and response payloads of the Offer API.
 
 <br/>
 
@@ -404,6 +324,10 @@ Offer status will update to completed from active when the end date or the maxim
 <br/>
 
 # Qualification
+
+When an offer is `Active`, the transaction qualification will start. Every transaction made a by a linked card on a location where an offer is ative will be analysed considering the offer parameters and can qualify or not qualify for the offer.
+In both cases, an offer object is appended to the original transaction object containing all the qualification offer data. In case the transaction qualifies, `cashback` and `performanceFee` amounts are automatically calculated and the `qualified` property is set to `true`. If the transactions does not qualify, `cashback` and `performanceFee` amounts will be `0` and `qualified` property `null`.
+
 
 ```json
 fileName:qualified-transaction.json
@@ -465,21 +389,4 @@ fileName:non-qualified-transaction.json
   }
 }
 ```
-
-
-
-# Webhooks
-
-transaction.auth.qualified
-<br/>
-transaction.clearing.qualified
-
-
-
-
-
-
-
-
-
 

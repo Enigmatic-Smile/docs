@@ -136,6 +136,7 @@ fileName:transaction.auth
   "wallet": "undefined"
 }
 ```
+<br/>
 
 We are working to extend the list of events. If you require any specific event that is not available yet please get in touch on [Slack channel](https://fidel-developers-slack-invites.herokuapp.com/) or email at [developer@fidel.uk](mailto:developer@fidel.uk).
 
