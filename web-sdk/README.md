@@ -18,7 +18,9 @@ You can easily integrate FIDEL Web SDK in your website or mobile app with only a
 
 ```html
 fileName:index.html
-<script type="text/javascript" src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
+<script
+  type="text/javascript"
+  src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
   class="fidel-form"
   data-company-name="Fidel"
   data-key="pk_test_demo"
