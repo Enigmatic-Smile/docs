@@ -1,9 +1,9 @@
 ## Webhooks
 Webhooks are used to send transactional data and other relevant events to your server. For example, when a customer makes a payment with a linked Mastercard, a `transaction.auth` is sent in real-time to the specified webhooks linked to that program. Check below the webhook events available.
 
-<h5>Webhooks events</h5>
+# Create Webhook
 
-![Webhooks diagram](https://docs.fidel.uk/assets/images/webhooks_diagram.png "Webhooks diagram")
+To create a new webhook, go to **Webhooks** page on the dashboard, click **Add Webhook**, enter the URL where you want to receive the event's payload, select the program and the event. From the **Webhhoks** page you can also delete and edit any of the existing webhooks.
 
 <br/>
 
@@ -46,6 +46,7 @@ fileName:program.status
 # Card
 There are two webhooks for card linking if you want to receive the response in your server side instead of client side when using the SDK callbacks.
 
+`card.linked` event is triggered when a card is successfully linked.
 ```json
 fileName:card.linked
 {
@@ -66,6 +67,10 @@ fileName:card.linked
 	"updated": "2018-10-29T17:01:05.013Z",
 }
 ```
+
+<br/>
+
+`card.failed` event is triggered when card linking fails. This payload includes the event name and error message.
 
 ```json
 fileName:card.failed
@@ -92,23 +97,48 @@ fileName:card.failed
 }
 ```
 
-
 # Transaction
 
 **Authorisation** transaction events are triggered while the customer is making the payment in-store in real-time (available on MasterCard and American Express). When a customer makes a payment with a linked MasterCard debit/credit card in an auth-enabled location, a `transaction.auth` event is triggered and the transaction object sent to your specified URL in real-time.
-
 
 <br/>
 
 **Clearing** events are triggered when the transaction is settled, usually happens 24-48 hours after the payment has been made. For consistency, FIDEL API processes clearing transactions triggering the `transaction.clearing` webhook events daily at 12:00 UTC. Only one transaction is sent per event.
 
+```json
+fileName:transaction.auth
+{
+  "id": "ce86c82c-fd7b-4ca4-84cf-88e070dcb40f",
+  "accountId": "38599064-f4e9-4cba-88b0-bac11d02a8f5",
+  "address": "53 Frith Street",
+  "amount": 100,
+  "auth": 1,
+  "brandId": "ce6ca867-53ed-4744-8262-fb53c515be1b",
+  "cardId": "2826d007-ce92-418c-8c99-3c503e764e81",
+  "city": "London",
+  "cleared": false,
+  "countryCode": "GBR",
+  "created": "2018-10-19T12:12:00.000Z",
+  "currency": "GBP",
+  "date": "2018-10-17T10:10:00.000Z",
+  "firstNumbers": "444400",
+  "lastNumbers": "4010",
+  "live": true,
+  "locationId": "f9a14399-8f6a-4bbc-8f3e-80547ba5534f",
+  "merchantId": "TEST_MID_ccf00f5b-3ab8-4a2b-8a42-5dc03e399667",
+  "offer": null,
+  "postcode": "W1D 4SN",
+  "programId": "daf5a825-1124-4212-bbb7-51b6a519c4ac",
+  "scheme": "mastercard",
+  "time": "2018-10-17T10:10:00.000Z",
+  "type": "mastercard",
+  "updated": "2018-10-19T12:12:00.000Z",
+  "wallet": "undefined"
+}
+```
+
+We are working to extend the list of events. If you require any specific event that is not available yet please get in touch on [Slack channel](https://fidel-developers-slack-invites.herokuapp.com/) or email at [developer@fidel.uk](mailto:developer@fidel.uk).
+
 <br/>
 
-We are looking to extend  the list of events in the future. If you require any specific event that is not available yet please speak with us on the [Slack channel](https://fidel-developers-slack-invites.herokuapp.com/) or email us at [developer@fidel.uk](mailto:developer@fidel.uk).
-
-<br/>
-
-# Create Webhook
-
-To create a new webhook, go to **Webhooks** page on the dashboard, click **Add Webhook**, enter the URL where you want to receive the event's payload, select the program and the event. From the **Webhhoks** page you can also delete and edit any of the existing webhooks.
 
