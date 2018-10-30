@@ -19,7 +19,7 @@ fileName:brand.consent
 	"created": "2018-10-19T13:29:40.922Z",
 	"live": true,
 	"name": "Starbucks",
-	"updated": "2018-01-20T13:29:40.922Z",
+	"updated": "2018-01-20T13:29:40.922Z"
 }
 ```
 
@@ -64,7 +64,7 @@ fileName:card.linked
 	"programId": "cc67a36a-bae5-4b91-80f0-1ba9a0851eb5",
 	"scheme": "visa",
 	"type": "visa",
-	"updated": "2018-10-29T17:01:05.013Z",
+	"updated": "2018-10-29T17:01:05.013Z"
 }
 ```
 
@@ -76,7 +76,7 @@ fileName:card.linked
 fileName:card.failed
 {
   "card": {
-  	"id": "c3730d4d-9915-4c51-831f-14b8aeeb56b7",
+    "id": "c3730d4d-9915-4c51-831f-14b8aeeb56b7",
     "accountId": "d346c574-d5c2-4a0e-8e02-ffd713fd1a8d",
     "cardId": "07c74d71-0e44-45fd-8311-f4e4c41e9e91",
     "countryCode": "GBR",
@@ -90,7 +90,7 @@ fileName:card.failed
     "programId": "ca9885fc-1f31-4120-8cfe-4c28c3b6cfdb",
     "scheme": "mastercard",
     "type": "mastercard",
-    "updated": "2018-10-29T17:34:56.380Z",
+    "updated": "2018-10-29T17:34:56.380Z"
   },
   "event": "card.failed",
   "message": "Error linking card."

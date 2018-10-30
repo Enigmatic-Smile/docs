@@ -47,7 +47,7 @@ Check out the [API Reference](https://reference.fidel.uk) to see all available r
 
 Join our developers' Slack channel for API discussions, documentation, roadmap and new features. We’re always happy to help and answer any questions. Join by clicking the button below:
 
-<a class="button with-icon" href="https://fidel-developers-slack-invites.herokuapp.com/" target="blank">
+<a class="button with-icon" href="https://fidel.uk/join-us-on-slack" target="blank">
   <img src="https://docs.fidel.uk/assets/images/slack-icon.svg" />
   <span>Slack</span>
 </a>
@@ -77,7 +77,9 @@ Use one of the test cards, such as `4444000000004004` and enter an expiry date i
 
 ```html
 fileName:index.html
-<script type="text/javascript" src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
+<script
+  type="text/javascript"
+  src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
   class="fidel-form"
   data-company-name="Your Company"
   data-key="pk_test_demo"
