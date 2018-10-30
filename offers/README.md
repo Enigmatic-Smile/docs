@@ -263,7 +263,7 @@ Before creating an offer, the Brand User must complete the sign up process at [h
 
 See below an example on how to create an offer using the Create Offer endpoint:
 
-```json
+```sh
 curl -X POST \
   https://api.fidel.uk/v1/brands/4ed4b62b-aa4c-43a1-8064-da6d1368e17b/offers \
   -H 'content-type: application/json' \
