@@ -12,12 +12,6 @@ First step is to [create a Fidel API developer account](https://dashboard.fidel.
 # 2. Get API keys 🔑
 After you created an account, in your account page on the dashboard, you will find two SDK keys and two API keys. The SDK keys are used to link the web and mobile SDKs to your account and the API keys to access the API endpoints directly. [See API Reference.](https://reference.fidel.uk) To access the test environment data you must use the test keys and to access the live environment data use the live keys.
 
-<div class="info-box">
-    <small>Important note</small><br/>
-    To use the <strong>Create Card</strong> endpoint you must use the test public key. This only applies to this endpoint. Using the <strong>Create Card</strong> endpoint on live environment requires your company to be PCI Compliant. If you want to use it instead of the SDKs, please contact us at developer@fidel.uk.
-</div>
-
-
 <h5>Your SDK and API keys are displayed in your account page</h5>
 
 ![API keys](https://docs.fidel.uk/assets/images/api-keys.png "API keys")

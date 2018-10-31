@@ -15,6 +15,11 @@ To add a new card, go to the **API Playground** on the dashboard, choose **Add C
 
 You can use the dropdown menus to automatically set the ids in the request body or copy them to use in your application code without leaving the playground.
 
+<div class="info-box">
+    <small>Important note</small><br/>
+    To use the <strong>Create Card</strong> endpoint you must use the test public key. This only applies to this endpoint. Using the <strong>Create Card</strong> endpoint on live environment requires your company to be PCI Compliant. If you want to use it instead of the SDKs, please contact us at developer@fidel.uk.
+</div>
+
 <h5>Create sample cards in test mode using the API Playground.</h5>
 
 ![Create card](https://docs.fidel.uk/assets/images/create-card.png "Create card")
