@@ -7,7 +7,7 @@
 
 After successfully tokenising and linking the card on Visa or MasterCard networks, FIDEL API returns the created card object with a unique `id` that you must use to link each unique card and transaction to your user’s account. The `id` of each linked card is present on the transaction object as `cardId`. You can now create card-linked web and mobile applications with online and offline transactional data visibility in a matter of minutes.
 
-All modern desktop and mobile browsers are supported, including Chrome, Firefox, Safari, Microsoft IE and Edge. Please contact us at [developer@fidel.uk](mailto:developer@fidel.uk) if you experience any browser realted issues.
+All modern desktop and mobile browsers are supported, including Chrome, Firefox, Safari, Microsoft IE and Edge. Please contact us at [developer@fidel.uk](mailto:developer@fidel.uk) if you experience any browser related issues.
 
 <br/>
 
@@ -18,9 +18,11 @@ You can easily integrate FIDEL Web SDK in your website or mobile app with only a
 
 ```html
 fileName:index.html
-<script type="text/javascript" src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
+<script
+  type="text/javascript"
+  src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
   class="fidel-form"
-  data-company-name="Fidel"
+  data-company-name="Your company"
   data-key="pk_test_demo"
   data-program-id="bca59bd9-171b-4d1f-92af-4b2b7305268a"
   data-callback="callback"
@@ -33,9 +35,11 @@ fileName:index.html
   data-button-title="Link Card"
   data-button-title-color="#ffffff"
   data-lang="en"
-  data-logo="https://company.com/logo.png"
+  data-logo="https://yourcompany.com/logo.png"
   data-subtitle="Earn 1 point for every £1 spent online or in-store"
   data-subtitle-color="#000000"
+  data-privacy-url="https://yourcompany.com/privacy"
+  data-delete-instructions="taping remove in your settings page."
   data-terms-color="#000000"
   data-title="Link Card"
   data-title-color="#000000">
@@ -81,7 +85,7 @@ Most of the data properties in the script are self explanatory but you can check
     <div>
         <dt>
             <span><code>data-country-code</code></span>
-            <em>values: GBR, IRL, USA</em>
+            <em>values: GBR, IRL, USA, SWE</em>
         </dt>
         <dd>set card country of issue and remove the country select box</dd>
     </div>
@@ -160,6 +164,18 @@ Most of the data properties in the script are self explanatory but you can check
             <span><code>data-subtitle-color</code></span>
         </dt>
         <dd>CSS color code of the subtitle</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>data-privacy-url</code></span>
+        </dt>
+        <dd>URL of your company's privacy policy</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>data-delete-instructions</code></span>
+        </dt>
+        <dd>user instructions to unlink card in your application</dd>
     </div>
     <div>
         <dt>

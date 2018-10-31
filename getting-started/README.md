@@ -4,21 +4,13 @@
 
 Card numbers are instantly tokenised and we return to you a unique token that identifies each successfully linked card on your database. You should save the `id` of the card object that is returned inside your user's object. Every transaction we will send to you will have a `cardId` that you can use to identify the user that made that transaction.
 
-<br/>
-
-# Step 1 - Create Account
-Before getting started with the integration you need to **create a FIDEL API account** that will give you access to the dashboard, card-linked program configuration, playground environment and API keys. You can create a new account by clicking [here](https://dashboard.fidel.uk/sign-up).
+# 1. Create an account 👨🏻‍💻
+First step is to [create a Fidel API developer account](https://dashboard.fidel.uk/sign-up) that will give you access to the developers' dashboard, card-linked program configuration, sandbox environment and test API keys.
 
 <br/>
 
-# Step 2 - Get API Key
+# 2. Get API keys 🔑
 After you created an account, in your account page on the dashboard, you will find two SDK keys and two API keys. The SDK keys are used to link the web and mobile SDKs to your account and the API keys to access the API endpoints directly. [See API Reference.](https://reference.fidel.uk) To access the test environment data you must use the test keys and to access the live environment data use the live keys.
-
-<div class="info-box">
-    <small>Important note</small><br />
-    To use the <strong>Create Card</strong> endpoint you must use the test public key. This only applies to this endpoint. Using the <strong>Create Card</strong> endpoint on live environment requires your company to be PCI Compliant. If you want to use it instead of the SDKs, please contact us at developer@fidel.uk.
-</div>
-
 
 <h5>Your SDK and API keys are displayed in your account page</h5>
 
@@ -26,14 +18,14 @@ After you created an account, in your account page on the dashboard, you will fi
 
 <br/>
 
-When you're ready to go live with your integration and test with plastic credit/debit cards on VISA and Mastercard networks you can request access to the live keys by using the test-live switch on your dashboard.
+When you're ready to go live with your integration and test with plastic credit/debit cards on VISA, Mastercard and American Express networks you can request access to the live keys by using the test-live switch on your dashboard.
 
 <br/>
 
-# Step 3 - Install SDKs
-You can use our pre-built web UI to collect user's card number and link cards to your program without the need of additional security implementations on your server-side code.
+# 3. Install SDKs 📱
+You can use the web and mobile SDKs to capture your user's card number and link cards to your program without the need of additional security implementations on your server-side code.
 
-We are working on two native SDKs for mobile, iOS and Android, that will be available soon.
+Click on the links below to see how to use the web and mobile SDKs in your applications.
 
 <br/>
 
@@ -42,18 +34,20 @@ We are working on two native SDKs for mobile, iOS and Android, that will be avai
     <a href="/web-sdk" class="content">
         <img src="https://docs.fidel.uk/assets/images/web_sdk.svg"/>
         <h2>Web</h2>
-        <h3>Use our pre-built UI to link cards on your website</h3>
+        <h3>Customisable and secure iFrame to link cards on your website</h3>
     </a>
 </div>
     <div class="column">
-        <a href="/getting-started" class="content">
+        <a href="/mobile-sdk" class="content">
             <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg"/>
             <h2>Mobile</h2>
-            <h3>Coming soon... We are working on native SDKs for iOS and Android</h3>
+            <h3>PCI Compliant native SDKs for iOS and Android</h3>
         </a>
     </div>
 </div>
 
 <br/>
 
-Please follow the specific [Web SDK](/web-sdk) integration guide to learn how to configure and customize the pre-built UI to collect card details securely on your website. You should visit the [Programs](/programs), [Cards](/cards), [Transactions](/transactions) and [Webhooks](/webhooks) sections to get an overview of the FIDEL API object structure and description.
+Follow the links above to access more detailed documentation and integration instructions for the [Web SDK](/web-sdk) and [mobile SDKs](/mobile-sdk), learn how to customise the UI and capture card details securely on your website or mobile applications. Check [Brands](/brands), [Programs](/programs), [Cards](/cards), [Transactions](/transactions) and [Webhooks](/webhooks) sections to get an overview of the FIDEL API object structure.
+
+Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
