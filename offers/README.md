@@ -289,7 +289,7 @@ As required parameters, you need to set an offer `name`, your `accountId` as the
 Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#create-offer) for more detailed documentation about available Offer API endpoints.
 
 <br/>
----
+___
 
 # Offer Lifecycle
 
