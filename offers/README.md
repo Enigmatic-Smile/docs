@@ -267,7 +267,7 @@ See below an example on how to create an offer using the Create Offer endpoint:
 curl -X POST \
   https://api.fidel.uk/v1/brands/4ed4b62b-aa4c-43a1-8064-da6d1368e17b/offers \
   -H 'content-type: application/json' \
-  -H 'fidel-key: sk_live_demo' \
+  -H 'fidel-key: sk_live_152c2c3c-3bc1-49af-84e2-82646f303c13' \
   -d '{
         "countryCode": "GBR",
         "name":"20% Off Everything",
@@ -284,7 +284,7 @@ You should pass the `brandId` of the Brand you wish to submit the offer to in th
 
 As required parameters, you need to set an offer `name`, your `accountId` as the `publisherId`, a `startDate` at least three weeks from today, the type of offer between `amount` or `discount`, an offer `value`, and the `countryCode` where the offer will be available. The `value` is a percentage if the offer `type` is `discount` or a fixed amount in the local currency of the `countryCode` specified.
 
-Two more API calls are necessary to complete the offer object and submit to the publisher for aproval. These are the **Add locations** endpoint and after the **Submit offer** endpoint. After the offer has been submitted, the publisher can use the dashboard or the review endpoints to accept or reject the offer.
+Check out the [API Reference](https://reference.fidel.uk/v1/reference#create-offer) for more detailed documentation about available Offer API endpoints.
 
 <br/>
 
