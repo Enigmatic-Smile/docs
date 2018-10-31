@@ -5,10 +5,8 @@ A card linked offer specifies a set of parameters that will be used to qualify a
 
 <div class="info-box">
     <small>Important note</small><br/>
-    Currently, this functionality is in private beta only available to a selected group of Brands. Final public release planned for Q1 2019. Please mail us at developer@fidel.uk to request access.
+    This functionality is in private beta only available to a selected group of Brands. Final public release planned for Q1 2019. Please mail us at developer@fidel.uk to request access.
 </div>
-
-<br/>
 
 # Offer object
 
