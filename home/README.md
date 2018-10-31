@@ -93,5 +93,5 @@ fileName:index.html
   data-button-title="Link Card">
 </script>
 ```
-Check the [Web SDK documentation](https://docs.fidel.uk/web-sdk) section for more information about all available parameters, customisation options, and the metadata nested object.
+Check the [Web SDK documentation](/web-sdk) section for more information about all available parameters, customisation options, and the metadata nested object.
 
