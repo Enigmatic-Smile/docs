@@ -1,8 +1,12 @@
 ## Offers
 
-The Offer object holds the details about a card linked offer. Offers can be created by developers using the Offer API or by Brands/Merchants using the CLO dashboard at [clo.fidel.uk](https://clo.fidel.uk). Currently, this functionality is in private beta only available to a selected group of Brands. We expect the private beta testing to take 3 to 4 weeks before opening to the public.
-
+The Offer object holds the details about a card linked offer. Offers can be created by developers using the [Offer API](https://reference.fidel.uk/v1/reference#create-offer) or by Brands/Merchants using the CLO dashboard at [clo.fidel.uk](https://clo.fidel.uk). 
 A card linked offer specifies a set of parameters that will be used to qualify a card transaction made at a participating Brand’s online or offline store.
+
+<div class="info-box">
+    <small>Important note</small><br/>
+    Currently, this functionality is in private beta only available to a selected group of Brands. Final public release planned for Q1 2019. Please mail us at developer@fidel.uk to request access.
+</div>
 
 <br/>
 
@@ -284,7 +288,7 @@ You should pass the `brandId` of the Brand you wish to submit the offer to in th
 
 As required parameters, you need to set an offer `name`, your `accountId` as the `publisherId`, a `startDate` at least three weeks from today, the type of offer between `amount` or `discount`, an offer `value`, and the `countryCode` where the offer will be available. The `value` is a percentage if the offer `type` is `discount` or a fixed amount in the local currency of the `countryCode` specified.
 
-Check out the [API Reference](https://reference.fidel.uk/v1/reference#create-offer) for more detailed documentation about available Offer API endpoints.
+Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#create-offer) for more detailed documentation about available Offer API endpoints.
 
 <br/>
 
