@@ -58,9 +58,9 @@ Fidel.country = .unitedKingdom // If set, country picker UI will not show
 Present the SDK view:
 ```swift
 Fidel.present(self, onCardLinkedCallback: { (card: LinkResult) in
-	print(card.id)
+  print(card.id)
 }, onCardLinkFailedCallback: { (err: LinkError) in
-	print(err.message)
+  print(err.message)
 })
 ```
 <br/>
@@ -76,10 +76,10 @@ For more detailed documentation about any class in the SDKs and available custom
 Add [jitpack.io](https://www.jitpack.io) to your root `build.gradle` at the end of repositories:
 ```sh
 allprojects {
-	repositories {
-		...
-		maven { url 'https://jitpack.io' }
-	}
+  repositories {
+    ...
+    maven { url 'https://jitpack.io' }
+  }
 }
 ```
 <br/>
@@ -87,7 +87,7 @@ allprojects {
 Add Fidel SDK as a dependency:
 ```sh
 dependencies {
-    compile 'com.github.FidelLimited:android-sdk:1.2.0'
+  compile 'com.github.FidelLimited:android-sdk:1.2.0'
 }
 ```
 <br/>
@@ -95,14 +95,14 @@ dependencies {
 ### Usage
 
 Set your public SDK key (`pk_test` or `pk_live`) and the `programId` you want to link cards to:
-```java
-Fidel.apiKey 	= "pk_test_6e94da6f-145a-47db-b56b-f1314e74aa2e"
+```swift
+Fidel.apiKey    = "pk_test_6e94da6f-145a-47db-b56b-f1314e74aa2e"
 Fidel.programId = "f8d6890e-145d-46ea-b66f-afacfd954580"
 ```
 <br/>
 
 Set cardholder consent variables:
-```java
+```swift
 Fidel.companyName = "Your Company Name" // default: "Company Name".
 Fidel.privacyURL = "https://yourcompany.com/privacyURL"
 Fidel.deleteInstructions = "Your delete instructions" // Maximum 60 characters, default: "going to your account settings."
@@ -110,13 +110,13 @@ Fidel.deleteInstructions = "Your delete instructions" // Maximum 60 characters, 
 <br/>
 
 Set a default card country:
-```java
+```swift
 Fidel.country = Fidel.Country.UNITED_KINGDOM; // If set, country picker UI will not show
 ```
 <br/>
 
 Present the activity:
-```java
+```swift
 Fidel.present(YourActivityClass.this);
 ```
 <br/>
@@ -125,14 +125,14 @@ Get the resulting card object:
 ```java
 @Override
 protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
+  super.onActivityResult(requestCode, resultCode, data);
 
-    if(requestCode == Fidel.FIDEL_LINK_CARD_REQUEST_CODE) {
-        if(data != null && data.hasExtra(Fidel.FIDEL_LINK_CARD_RESULT_CARD)) {
-            LinkResult card = (LinkResult)data.getParcelableExtra(Fidel.FIDEL_LINK_CARD_RESULT_CARD);
-            Log.d("d", "CARD ID = " + card.id);
-        }
+  if(requestCode == Fidel.FIDEL_LINK_CARD_REQUEST_CODE) {
+    if(data != null && data.hasExtra(Fidel.FIDEL_LINK_CARD_RESULT_CARD)) {
+      LinkResult card = (LinkResult)data.getParcelableExtra(Fidel.FIDEL_LINK_CARD_RESULT_CARD);
+      Log.d("d", "CARD ID = " + card.id);
     }
+  }
 }
 ```
 
