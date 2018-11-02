@@ -290,6 +290,8 @@ Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#crea
 
 <br/>
 
+<hr>
+
 # Offer Lifecycle
 
 ### Draft
