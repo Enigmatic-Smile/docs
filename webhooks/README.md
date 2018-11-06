@@ -76,7 +76,7 @@ fileName:brand.consent
   "updated": "2018-01-20T13:29:40.922Z"
 }
 ```
-<hr>
+<br/>
 
 ### Program
 `program.status` event is triggered when the program status is updated.
@@ -97,7 +97,7 @@ fileName:program.status
 	"updated": "2018-10-30T16: 12: 15.604Z"
 }
 ```
-<hr>
+<br/>
 
 ### Card
 There are two webhooks for card linking if you want to receive the response in your server side instead of client side when using the SDK callbacks.
@@ -152,7 +152,7 @@ fileName:card.failed
   "message": "Error linking card."
 }
 ```
-<hr>
+<br/>
 
 ### Transaction
 
@@ -198,5 +198,5 @@ fileName:transaction.auth
 We are working to extend the list of events. If you require any specific event that is not available yet please get in touch on our [Slack channel](https://fidel.uk/join-us-on-slack/) or email at [developer@fidel.uk](mailto:developer@fidel.uk).
 
 <br/>
-
+<hr>
 

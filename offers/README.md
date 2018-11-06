@@ -319,12 +319,13 @@ Offer was not accepted or rejected by publisher in 14 days after it was submitte
 Offer status will update to completed from active when the end date or the maximum number of qualified transactions is reached. The one that comes first.
 
 <br/>
+<hr>
 
 # Qualification
 
 When an offer is `Active`, the transaction qualification will start. Every transaction made a by a linked card on a location where an offer is ative will be analysed considering the offer parameters and can qualify or not qualify for the offer.
 In both cases, an offer object is appended to the original transaction object containing all the qualification offer data. In case the transaction qualifies, `cashback` and `performanceFee` amounts are automatically calculated and the `qualified` property is set to `true`. If the transactions does not qualify, `cashback` and `performanceFee` amounts will be `0` and `qualified` property `null`.
-
+<br/>
 
 ```json
 fileName:qualified-transaction.json
@@ -370,8 +371,8 @@ fileName:qualified-transaction.json
 
 ```json
 fileName:non-qualified-transaction.json
-{
-  ...
+{ 
+  "...": "...",
   "updated": "2018-10-19T12:12:00.000Z",
   "wallet": "undefined",
   "offer": {
@@ -386,4 +387,5 @@ fileName:non-qualified-transaction.json
   }
 }
 ```
-
+<br/>
+<hr>

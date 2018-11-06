@@ -197,9 +197,11 @@ Most of the data properties in the script are self explanatory but you can check
     </div>
 </dl>
 
+<br/>
+
 The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. If `data-auto-close` is set to `false` the form won't be automatically closed after linking a card. You can set `data-close-events` to `false` and the form won't add the default close events. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
 
-##### Fidel.openForm() global function
+<h5>Fidel.openForm() global function</h5>
 
 ```html
 <button type="submit" onclick="Fidel.openForm()">Link Card</button>
@@ -209,7 +211,7 @@ The `data-auto-open` property allows you to open the web form automatically on p
 
 To receive the callback after the form submission you must pass a Javascript global function name reference on the `data-callback` property that will return the response and error objects. Please see an example below:
 
-##### Web SDK callback global function example
+<h5>Web SDK callback global function example</h5>
 
 ```html
 fileName:index.html
