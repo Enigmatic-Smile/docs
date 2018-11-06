@@ -1,29 +1,84 @@
 ## Webhooks
-Webhooks are used to send transactional data and other relevant events to your server. For example, when a customer makes a payment with a linked Mastercard, a `transaction.auth` is sent in real-time to the specified webhooks linked to that program. Check below the webhook events available.
+Fidel uses webhooks to notify your application when relevant events happen in your account. This functionality can be used to receive data from events not triggered by direct API requests or to receive the data in a service that is not responsible for making the API request but needs to consume the response.
 
-# Create Webhook
+We will notify your registered webhook URLs as the event happens. For example, when a customer makes a payment with a linked Mastercard on a participating location, a `transaction.auth` event is sent in real-time to the specified webhook URL with the transactional data in the request payload.
 
-To create a new webhook, go to **Webhooks** page on the dashboard, click **Add Webhook**, enter the URL where you want to receive the event's payload, select the program and the event. From the **Webhhoks** page you can also delete and edit any of the existing webhooks.
+### Creating webhooks
+Webhooks can be created in the dashboard's webhooks page or by using the [Webhooks API](https://reference.fidel.uk/v1/reference#create-webhook-brand).
+You can create up to five webhook URLs for the same event in the same Program. Fidel sends the data via HTTP POST request and will send test or live events depending on your dashboard's environment setting or if you are using test or live API keys. 
+
+Fidel only accepts HTTPS URLs for webhooks endpoints. In order to create webhooks and receive event data, your server must be configured to support HTTPS with a valid certificate.
+
+<div class="info-box">
+    <small>Important note</small><br/>
+    To confirm receipt of a webhook event, your server endpoint should return a `200` HTTP status code. Any other response will be treated as a failure and we retry the request three times over the next hour with exponential back off.
+</div>
+
+<hr>
+
+# Authentication
+To confirm that received events are being sent from Fidel we recommend verifying webhook signatures. That can be done by using the `x-fidel-signature` and `x-fidel-timestamp` HTTP headers. This isn't required, but offers an additional layer of security.
+
+A unique secret key is generated for each webhook. The key is returned in the response's `secretKey` property if you are using the Webhooks API. You can also copy the key from the dashboard's webhooks page by clicking in the **Show Key** button next to your webhook endpoint. To verify a webhook request, generate a signature using the same key that Fidel uses and compare that to the value of the `x-fidel-signature` header.
+
+1. Create a string concatenating the body of the request, the webhook URL and the timestamp value from the `x-fidel-timestamp` header.
+2. Double hash the resulting string using the webhook key with HMAC-SHA256 and encode it in Base-64.
+3. Compare the signature you generated with the signature provided in the `x-fidel-signature` header.
+
+<br/>
+<h5>Example Javascript implementation</h5>
+
+```javascript
+/**
+  fidelHeaders - x-fidel-signature and x-fidel-timestamp headers
+  payload - request payload (body)
+  secret - webhook secretKey
+  url - webhook URL
+*/
+function isSignatureValid(fidelHeaders, payload, secret, url) {
+  function base64Digest(s) {
+    return crypto.createHmac('sha256', secret)
+      .update(s)
+      .digest('base64');
+  }
+
+  /** You might also want to check how much time has passed since the request has been sent */
+  /** timestamp - UTC Unix Timestamp (milliseconds) */
+  const timestamp = fidelHeaders['x-fidel-timestamp'];
+  const content = JSON.stringify(payload) + url + timestamp;
+
+  const signature = base64Digest(base64Digest(content));
+  return fidelHeaders['x-fidel-signature'] === signature;
+}
+```
 
 <br/>
 
-# Brand
+To prevent replay attacks where a valid payload and it's signature is intercepted and re-transmitted, you can use the `x-fidel-timestamp` header and confirm that the timestamp is not too old. We recommend you validate the requests in a 5 minute gap. In case of retries, a new signature and timestamp are generated for each new request.
+
+<br/>
+<hr>
+
+# Events
+
+### Brand
 `brand.consent` event is triggered when the brand consent is approved, in `test` mode it will happen immediately after brand creation and in `live` mode when the Brand User approves the consent.
 
 ```json
 fileName:brand.consent
 {
-	"id": "e44a9220-5b46-42cf-a944-31f0674bf8f8",
-	"accountId": "1a269963-de11-4ab5-b82d-638a324ff09e",
-	"consent": true,
-	"created": "2018-10-19T13:29:40.922Z",
-	"live": true,
-	"name": "Starbucks",
-	"updated": "2018-01-20T13:29:40.922Z"
+  "id": "e44a9220-5b46-42cf-a944-31f0674bf8f8",
+  "accountId": "1a269963-de11-4ab5-b82d-638a324ff09e",
+  "consent": true,
+  "created": "2018-10-19T13:29:40.922Z",
+  "live": true,
+  "name": "Starbucks",
+  "updated": "2018-01-20T13:29:40.922Z"
 }
 ```
+<br/>
 
-# Program
+### Program
 `program.status` event is triggered when the program status is updated.
 
 ```json
@@ -42,8 +97,9 @@ fileName:program.status
 	"updated": "2018-10-30T16: 12: 15.604Z"
 }
 ```
+<br/>
 
-# Card
+### Card
 There are two webhooks for card linking if you want to receive the response in your server side instead of client side when using the SDK callbacks.
 
 `card.linked` event is triggered when a card is successfully linked.
@@ -96,8 +152,9 @@ fileName:card.failed
   "message": "Error linking card."
 }
 ```
+<br/>
 
-# Transaction
+### Transaction
 
 **Authorisation** transaction events are triggered while the customer is making the payment in-store in real-time (available on MasterCard and American Express). When a customer makes a payment with a linked MasterCard debit/credit card in an auth-enabled location, a `transaction.auth` event is triggered and the transaction object sent to your specified URL in real-time.
 
@@ -141,5 +198,5 @@ fileName:transaction.auth
 We are working to extend the list of events. If you require any specific event that is not available yet please get in touch on our [Slack channel](https://fidel.uk/join-us-on-slack/) or email at [developer@fidel.uk](mailto:developer@fidel.uk).
 
 <br/>
-
+<hr>
 
