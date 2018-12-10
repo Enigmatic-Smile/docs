@@ -64,7 +64,12 @@ Your apps will receive an `id` back that identifies the card in each transaction
 
 <br/>
 
-![Intro demo](https://docs.fidel.uk/assets/images/sdks_main.png "Preview of the web and mobile Fidel card linking UI")
+
+<img
+  src="https://docs.fidel.uk/assets/images/sdks_main.png"
+  srcset="https://docs.fidel.uk/assets/images/sdks_main.png, https://docs.fidel.uk/assets/images/sdks_main@2x.png 2x"
+  alt="Preview of the web and mobile Fidel card linking UI"
+/>
 
 <button id="link-card-button" class="with-icon" type="submit" onclick="Fidel.openForm()">
   <img src="https://docs.fidel.uk/assets/images/eye.svg" />
