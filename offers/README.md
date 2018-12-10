@@ -258,7 +258,7 @@ fileName:offer.json
 # Create Offer
 
 To create an offer you should use the **Create Offer** API endpoint and specify the parameters for the card linked offer. 
-Before creating an offer, the Brand User must complete the sign up process at [http://clo.fidel.uk](http://clo.fidel.uk) after they receive an invitation from a publisher:
+Before creating an offer, the Brand User must complete the sign up process at [clo.fidel.uk](https://clo.fidel.uk) after they receive an invitation from a publisher:
 
 1. Select password and complete sign up
 2. Enter business details
