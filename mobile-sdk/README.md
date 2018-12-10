@@ -6,7 +6,14 @@ For more detailed documentation about any class in the SDKs and available custom
 
 # iOS 📱
 
-### Install
+<img
+  src="https://docs.fidel.uk/assets/images/iossdk.png"
+  srcset="https://docs.fidel.uk/assets/images/iossdk.png, https://docs.fidel.uk/assets/images/iossdk@2x.png 2x"
+  alt="Preview of the iOS SDK"
+/>
+
+### Install
+
 We recommend using CocoaPods to integrate Fidel iOS SDK with your project.
 Add a `Podfile` (if you don't have one already), by running the following command: `pod init`.
 
@@ -71,7 +78,13 @@ For more detailed documentation about any class in the SDKs and available custom
 
 # Android 📲
 
-### Install
+<img
+  src="https://docs.fidel.uk/assets/images/androidsdk.png"
+  srcset="https://docs.fidel.uk/assets/images/androidsdk.png, https://docs.fidel.uk/assets/images/androidsdk@2x.png 2x"
+  alt="Preview of the Android SDK"
+/>
+
+### Install
 
 Add [jitpack.io](https://www.jitpack.io) to your root `build.gradle` at the end of repositories:
 ```sh
