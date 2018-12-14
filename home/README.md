@@ -8,10 +8,10 @@
         </a>
     </div>
     <div class="column">
-        <a href="https://dashboard.fidel.uk/playground" class="content">
-            <img src="https://docs.fidel.uk/assets/images/playground_icon.svg"/>
-            <h2>Playground</h2>
-            <h3>Test API requests in real-time in sandbox environment</h3>
+        <a href="https://intercom.help/fidelapi" class="content">
+            <img src="https://docs.fidel.uk/assets/images/help_center.svg"/>
+            <h2>Help Centre</h2>
+            <h3>Find information and answers to frequently asked questions</h3>
         </a>
     </div>
 </div>
