@@ -63,6 +63,7 @@ Note that on the Playground you can only create cards in test mode. In live mode
 Use the following test card number ranges to test card linking in test mode, either in the Playground or using the SDKs with your test SDK key.
 
 **Visa**: `4444000000004***`  
-**Mastercard**: `5555000000005***`
+**Mastercard**: `5555000000005***`  
+**Amex**: `3400000000003**` and `3700000000003**`
 
-Where the last three digits `***` can be any number. E.g. `4444000000004278` and `5555000000005093` are both valid test card numbers.
+Where `*` can be any number. E.g. `4444000000004278`, `5555000000005093` and `370000000000388` are all valid test card numbers.
