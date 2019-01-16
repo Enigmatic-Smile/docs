@@ -34,7 +34,7 @@ fileName:index.html
   data-country-code="GBR"
   data-metadata="metadata"
   data-auto-open="false"
-  data-overlay-close="false"
+  data-auto-close="false"
   data-background-color="#ffffff"
   data-button-color="#4dadea"
   data-button-title="Link Card"
