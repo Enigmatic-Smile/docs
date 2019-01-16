@@ -108,7 +108,6 @@ fileName:card.linked
 {
 	"id": "556f8179-bfdb-4274-852e-ba6e43559590",
 	"accountId": "d346d574-d5c2-4a0e-8e02-ffd813fd1a8d",
-	"cardId": "c600972a-5ee5-42c4-8f42-f1a42a14a289",
 	"countryCode": "GBR",
 	"created": "2018-10-29T17:01:05.013Z",
 	"expDate": "2019-10-01T00:00:00.000Z",
@@ -134,7 +133,6 @@ fileName:card.failed
   "card": {
     "id": "c3730d4d-9915-4c51-831f-14b8aeeb56b7",
     "accountId": "d346c574-d5c2-4a0e-8e02-ffd713fd1a8d",
-    "cardId": "07c74d71-0e44-45fd-8311-f4e4c41e9e91",
     "countryCode": "GBR",
     "created": "2018-10-29T17:34:54.693Z",
     "expDate": "2020-10-01T00:00:00.000Z",
