@@ -200,6 +200,13 @@ Most of the data properties in the script are self explanatory but you can check
         </dt>
         <dd>CSS color code of the title</dd>
     </div>
+    <div>
+        <dt>
+            <span><code>data-scheme-*</code></span>
+            <em>amex or visa: <code>false</code></em>
+        </dt>
+        <dd>disables Amex or Visa. Both can be specified</dd>
+    </div>
 </dl>
 
 <br/>
