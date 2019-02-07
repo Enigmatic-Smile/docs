@@ -190,11 +190,7 @@ fileName:transaction.auth
   "time": "2018-10-17T10:10:00.000Z",
   "type": "mastercard",
   "updated": "2018-10-19T12:12:00.000Z",
-  "wallet": "undefined",
-  "medatada": {
-    "id": "your-unique-id",
-    "property": "value"
-  }
+  "wallet": "undefined"
 }
 ```
 <br/>
