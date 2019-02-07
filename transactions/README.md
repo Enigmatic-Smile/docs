@@ -30,7 +30,11 @@ fileName:transaction.json
   "time": "2017-03-02T19:12:01.743Z",
   "date": "2017-03-02T19:12:01.743Z",
   "created": "2017-03-02T19:12:01.744Z",
-  "updated": "2017-03-02T19:12:01.744Z"
+  "updated": "2017-03-02T19:12:01.744Z",
+  "medatada": {
+    "id": "your-unique-id",
+    "property": "value"
+  }
 }
 ```
 
