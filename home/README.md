@@ -41,7 +41,7 @@ Fidel is a card-linked API that lets developers create web and mobile applicatio
 
 Fidel API runs on top of global payment networks, so it doesn't require changes to existing merchant infrastructures. No need for new software, POS integrations, staff training or new cards. All the PCI compliance requirements are managed by us so you don't have to.
 
-Currently, the API is available for **VISA**, **Mastercard** and **American Express** networks in the **UK**, **Ireland**, **Sweden** and **United States**. With **Norway**, **Denmark**, **Finland**, **Canada**, **Japan**, **Australia** and **South Africa** going live soon. We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [developer@fidel.uk](mailto:developer@fidel.uk).
+Currently, the API is available in the **UK**, **Ireland**, **Sweden**, **Canada** and the **United States**, with **Norway**, **Denmark**, **Finland**, **Japan**, **Australia** and **South Africa** going live soon. Please refer to the up to date list of countries and schemes on [fidel.uk](https://fidel.uk/). We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [developer@fidel.uk](mailto:developer@fidel.uk).
 
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 
