@@ -3,7 +3,60 @@ The transaction object is the central piece of data of your card-linked applicat
 
 <br/>
 
-<h5>Transaction object</h5>
+### Transaction object
+
+##### API version later than `2019-*`
+
+```json
+fileName:transaction.json
+{
+  "id": "7fdfd5d8-9589-402f-8477-4a727ad239a2",
+  "accountId": "4ed4b62b-aa4c-43a1-8064-da6d1368e17a",
+  "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba",
+  "datetime": "2019-03-12T19:12:01",
+  "created": "2019-03-12T19:12:01.744Z",
+  "updated": "2019-03-12T19:12:01.744Z",
+  "auth": true,
+  "clered": false,
+  "amount": 100,
+  "currency": "GBP",
+  "wallet": "undefined",
+  "offer": null,
+  "card": {
+    "id": "bc538b71-31c5-4699-840a-6d4a08693314",
+    "firstNumbers": "555500",
+    "lastNumbers": "5001",
+    "scheme": "visa",
+    "metadata": {
+      "name": "fancy card",
+      "id": "card-id"
+    }
+  },
+  "brand": {
+    "id": "9d136f2e-df99-4a08-a0a5-3bc1534b7db9",
+    "name": "Bob's Cafe",
+    "logoUrl": null
+  },
+  "location": {
+    "id": "7a916fbd-70a0-462f-8dbc-bd7dbfbea160",
+    "address": "2 Soho Square",
+    "city": "London",
+    "postcode": "W1D3PX",
+    "countryCode": "GBR",
+    "timezone": "Europe/London",
+    "geolocation": {
+      "latitude": 51.5152346,
+      "longitude": -0.1310718
+    },
+    "metadata": {
+      "name": "nice place",
+      "id": "private-location-id"
+    }
+  }
+}
+```
+
+##### API version up to `2018-08-16`
 
 ```json
 fileName:transaction.json
