@@ -1,11 +1,11 @@
 ## Transactions
 The transaction object is the central piece of data of your card-linked application. When a user makes a purchase with a linked card in any of the linked program's locations, FIDEL API spots the transaction and sends it to your server through webhooks.
 
-<br/>
+<br />
 
 ### Transaction object
 
-##### API version later than `2019-*`
+##### API version including & later than `2019-03-05`
 
 ```json
 fileName:transaction.json
@@ -17,11 +17,10 @@ fileName:transaction.json
   "created": "2019-03-12T19:12:01.744Z",
   "updated": "2019-03-12T19:12:01.744Z",
   "auth": true,
-  "clered": false,
+  "cleared": false,
   "amount": 100,
   "currency": "GBP",
   "wallet": "undefined",
-  "offer": null,
   "card": {
     "id": "bc538b71-31c5-4699-840a-6d4a08693314",
     "firstNumbers": "555500",
@@ -47,6 +46,14 @@ fileName:transaction.json
     "geolocation": {
       "latitude": 51.5152346,
       "longitude": -0.1310718
+    },
+    "offer": {
+      "id": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
+      "cashback": 20,
+      "message": [],
+      "performanceFee": 3.2,
+      "qualified": true,
+      "qualificationDate": null
     },
     "metadata": {
       "name": "nice place",
