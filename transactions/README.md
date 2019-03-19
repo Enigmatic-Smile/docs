@@ -47,14 +47,7 @@ fileName:transaction.json
       "latitude": 51.5152346,
       "longitude": -0.1310718
     },
-    "offer": {
-      "id": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
-      "cashback": 20,
-      "message": [],
-      "performanceFee": 3.2,
-      "qualified": true,
-      "qualificationDate": null
-    },
+    "offer": null,
     "metadata": {
       "name": "nice place",
       "id": "private-location-id"
