@@ -163,35 +163,48 @@ fileName:card.failed
 ```json
 fileName:transaction.auth
 {
-  "id": "ce86c82c-fd7b-4ca4-84cf-88e070dcb40f",
-  "accountId": "38599064-f4e9-4cba-88b0-bac11d02a8f5",
-  "address": "53 Frith Street",
-  "amount": 100,
-  "auth": 1,
-  "brandId": "ce6ca867-53ed-4744-8262-fb53c515be1b",
-  "cardId": "2826d007-ce92-418c-8c99-3c503e764e81",
-  "city": "London",
-  "cleared": false,
-  "countryCode": "GBR",
-  "created": "2018-10-19T12:12:00.000Z",
-  "currency": "GBP",
-  "date": "2018-10-17T10:10:00.000Z",
-  "firstNumbers": "444400",
-  "lastNumbers": "4010",
-  "live": true,
-  "locationId": "f9a14399-8f6a-4bbc-8f3e-80547ba5534f",
-  "merchantId": "TEST_MID_ccf00f5b-3ab8-4a2b-8a42-5dc03e399667",
+  "id": "7fdfd5d8-9589-402f-8477-4a727ad239a2",
+  "accountId": "4ed4b62b-aa4c-43a1-8064-da6d1368e17a",
+  "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba",
+  "datetime": "2019-03-12T19:12:01",
+  "created": "2019-03-12T19:12:01.744Z",
+  "updated": "2019-03-12T19:12:01.744Z",
   "offer": null,
-  "postcode": "W1D 4SN",
-  "programId": "daf5a825-1124-4212-bbb7-51b6a519c4ac",
-  "scheme": "mastercard",
-  "time": "2018-10-17T10:10:00.000Z",
-  "type": "mastercard",
-  "updated": "2018-10-19T12:12:00.000Z",
-  "wallet": "undefined",
-  "medatada": {
-    "id": "your-unique-id",
-    "property": "value"
+  "auth": true,
+  "cleared": false,
+  "amount": 100,
+  "currency": "GBP",
+  "wallet": null,
+  "card": {
+    "id": "bc538b71-31c5-4699-840a-6d4a08693314",
+    "firstNumbers": "555500",
+    "lastNumbers": "5001",
+    "scheme": "visa",
+    "metadata": {
+      "name": "fancy card",
+      "id": "card-id"
+    }
+  },
+  "brand": {
+    "id": "9d136f2e-df99-4a08-a0a5-3bc1534b7db9",
+    "name": "Bob's Cafe",
+    "logoUrl": null
+  },
+  "location": {
+    "id": "7a916fbd-70a0-462f-8dbc-bd7dbfbea160",
+    "address": "2 Soho Square",
+    "city": "London",
+    "postcode": "W1D3PX",
+    "countryCode": "GBR",
+    "timezone": "Europe/London",
+    "geolocation": {
+      "latitude": 51.5152346,
+      "longitude": -0.1310718
+    },
+    "metadata": {
+      "name": "nice place",
+      "id": "private-location-id"
+    }
   }
 }
 ```

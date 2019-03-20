@@ -20,7 +20,8 @@ fileName:transaction.json
   "cleared": false,
   "amount": 100,
   "currency": "GBP",
-  "wallet": "undefined",
+  "wallet": null,
+  "offer": null,
   "card": {
     "id": "bc538b71-31c5-4699-840a-6d4a08693314",
     "firstNumbers": "555500",
@@ -47,7 +48,6 @@ fileName:transaction.json
       "latitude": 51.5152346,
       "longitude": -0.1310718
     },
-    "offer": null,
     "metadata": {
       "name": "nice place",
       "id": "private-location-id"
@@ -84,6 +84,7 @@ fileName:transaction.json
   "date": "2017-03-02T19:12:01.743Z",
   "created": "2017-03-02T19:12:01.744Z",
   "updated": "2017-03-02T19:12:01.744Z",
+  "offer": null,
   "medatada": {
     "id": "your-unique-id",
     "property": "value"
