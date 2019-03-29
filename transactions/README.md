@@ -20,7 +20,7 @@ fileName:transaction.json
   "cleared": false,
   "amount": 100,
   "currency": "GBP",
-  "wallet": null, // One of: "apple-pay"|"norton-pay"|"samsung-pay"|"garmin-pay"
+  "wallet": null,
   "offer": null,
   "card": {
     "id": "bc538b71-31c5-4699-840a-6d4a08693314",
@@ -51,14 +51,14 @@ fileName:transaction.json
     "metadata": {
       "name": "nice place",
       "id": "private-location-id"
-    },
-    "identifiers": {
-      "MID": "merchant ID",
-      "mastercardTransactionSequenceNumber": "0000000000000",
-      "mastercardRefNumber": "AABBCCDDE",
-      "amexApprovalCode": "AA00BB",
-      "visaAuthCode": "000000"
     }
+  },
+  "identifiers": {
+    "MID": "merchant ID",
+    "mastercardTransactionSequenceNumber": "0000000000000",
+    "mastercardRefNumber": "AABBCCDDE",
+    "amexApprovalCode": "AA00BB",
+    "visaAuthCode": "000000"
   }
 }
 ```
@@ -110,6 +110,8 @@ For Mastercard linked cards you will receive both `transaction.auth` events in r
 After you received a Mastercard authorisation transaction in real-time, you will also receive the cleared transaction in the next 24-48 hours. At 12:00 UTC daily when we process the clearing transactions, we match every cleared transaction and if an authorization transaction exists we update the `cleared` property from `false` to `true`.
 
 Please allow up to 24h after card linking to start receiving Mastercard and American Express real-time authorization transactions.
+
+The wallet property could be one of: `"apple-pay" | "norton-pay" | "samsung-pay" | "garmin-pay"`
 
 <br/>
 
