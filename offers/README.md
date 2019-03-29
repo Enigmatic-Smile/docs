@@ -330,32 +330,44 @@ In both cases, an offer object is appended to the original transaction object co
 ```json
 fileName:qualified-transaction.json
 {
-  "id": "ce86c82c-fd7b-4ca4-84cf-88e070dcb40f",
-  "accountId": "38599064-f4e9-4cba-88b0-bac11d02a8f5",
-  "brandId": "ce6ca867-53ed-4744-8262-fb53c515be1b",
-  "cardId": "2826d007-ce92-418c-8c99-3c503e764e81",
-  "locationId": "f9a14399-8f6a-4bbc-8f3e-80547ba5534f",
-  "merchantId": "TEST_MID_ccf00f5b-3ab8-4a2b-8a42-5dc03e399667",
-  "midId": "0615387e-b5a3-4ff8-83e8-60bb289833fc",
-  "programId": "daf5a825-1124-4212-bbb7-51b6a519c4ac",
-  "address": "10 Downing Street",
+  "id": "7fdfd5d8-9589-402f-8477-4a727ad239a2",
+  "accountId": "4ed4b62b-aa4c-43a1-8064-da6d1368e17a",
+  "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba",
+  "datetime": "2019-03-12T19:12:01",
+  "created": "2019-03-12T19:12:01.744Z",
+  "updated": "2019-03-12T19:12:01.744Z",
+  "auth": true,
+  "cleared": false,
   "amount": 100,
-  "auth": 1,
-  "city": "London",
-  "cleared": true,
-  "countryCode": "GBR",
-  "created": "2018-10-19T12:12:00.000Z",
   "currency": "GBP",
-  "date": "2018-10-17T10:10:00.000Z",
-  "firstNumbers": "444400",
-  "lastNumbers": "4010",
-  "live": true,
-  "postcode": "W1 90OL",
-  "scheme": "mastercard",
-  "time": "2018-10-17T10:10:00.000Z",
-  "type": "mastercard",
-  "updated": "2018-10-19T12:12:00.000Z",
-  "wallet": "undefined",
+  "wallet": null,
+  "card": {
+    "id": "bc538b71-31c5-4699-840a-6d4a08693314",
+    "firstNumbers": "555500",
+    "lastNumbers": "5001",
+    "scheme": "visa",
+    "metadata": {
+      "name": "fancy card",
+      "id": "card-id"
+    }
+  },
+  "brand": {
+    "id": "9d136f2e-df99-4a08-a0a5-3bc1534b7db9",
+    "name": "Bob's Cafe",
+    "logoUrl": null
+  },
+  "location": {
+    "id": "7a916fbd-70a0-462f-8dbc-bd7dbfbea160",
+    "address": "2 Soho Square",
+    "city": "London",
+    "postcode": "W1D3PX",
+    "countryCode": "GBR",
+    "timezone": "Europe/London",
+    "geolocation": {
+      "latitude": 51.5152346,
+      "longitude": -0.1310718
+    },
+  },
   "offer": {
     "id": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
     "cashback": 20,
@@ -363,6 +375,10 @@ fileName:qualified-transaction.json
     "performanceFee": 3.2,
     "qualified": true,
     "qualificationDate": null
+  },
+  "medatada": {
+    "id": "your-unique-id",
+    "property": "value"
   }
 }
 ```
@@ -374,7 +390,7 @@ fileName:non-qualified-transaction.json
 { 
   "...": "...",
   "updated": "2018-10-19T12:12:00.000Z",
-  "wallet": "undefined",
+  "wallet": null,
   "offer": {
     "id": "7e55efae-99d6-4daf-b8c4-ac9ca660e864",
     "cashback": 0,
