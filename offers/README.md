@@ -367,6 +367,10 @@ fileName:qualified-transaction.json
       "latitude": 51.5152346,
       "longitude": -0.1310718
     },
+    "medatada": {
+      "id": "your-unique-id",
+      "property": "value"
+    }
   },
   "offer": {
     "id": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
@@ -376,9 +380,12 @@ fileName:qualified-transaction.json
     "qualified": true,
     "qualificationDate": null
   },
-  "medatada": {
-    "id": "your-unique-id",
-    "property": "value"
+  "identifiers": {
+    "MID": "merchant ID",
+    "mastercardTransactionSequenceNumber": "0000000000000",
+    "mastercardRefNumber": "AABBCCDDE",
+    "amexApprovalCode": "AA00BB",
+    "visaAuthCode": "000000"
   }
 }
 ```

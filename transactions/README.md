@@ -20,7 +20,7 @@ fileName:transaction.json
   "cleared": false,
   "amount": 100,
   "currency": "GBP",
-  "wallet": null,
+  "wallet": null, // One of: "apple-pay"|"norton-pay"|"samsung-pay"|"garmin-pay"
   "offer": null,
   "card": {
     "id": "bc538b71-31c5-4699-840a-6d4a08693314",
@@ -51,6 +51,13 @@ fileName:transaction.json
     "metadata": {
       "name": "nice place",
       "id": "private-location-id"
+    },
+    "identifiers": {
+      "MID": "merchant ID",
+      "mastercardTransactionSequenceNumber": "0000000000000",
+      "mastercardRefNumber": "AABBCCDDE",
+      "amexApprovalCode": "AA00BB",
+      "visaAuthCode": "000000"
     }
   }
 }

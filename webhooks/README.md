@@ -205,6 +205,13 @@ fileName:transaction.auth
       "name": "nice place",
       "id": "private-location-id"
     }
+  },
+  "identifiers": {
+    "MID": "merchant ID",
+    "mastercardTransactionSequenceNumber": "0000000000000",
+    "mastercardRefNumber": "AABBCCDDE",
+    "amexApprovalCode": "AA00BB",
+    "visaAuthCode": "000000"
   }
 }
 ```
