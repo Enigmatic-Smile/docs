@@ -205,7 +205,7 @@ Most of the data properties in the script are self explanatory but you can check
             <span><code>data-scheme-*</code></span>
             <em>amex / visa / mastercard: <code>false</code></em>
         </dt>
-        <dd>disables Amex or Visa. Both can be specified</dd>
+        <dd>disables Amex, Visa or Mastercard. Multiple can be specified, e.g. `data-scheme-mastercard: false`, `data-scheme-amex: false`</dd>
     </div>
 </dl>
 
