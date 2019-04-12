@@ -10,55 +10,55 @@ The transaction object is the central piece of data of your card-linked applicat
 ```json
 fileName:transaction.json
 {
-  "id": "7fdfd5d8-9589-402f-8477-4a727ad239a2",
-  "accountId": "4ed4b62b-aa4c-43a1-8064-da6d1368e17a",
-  "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba",
-  "datetime": "2019-03-12T19:12:01",
-  "created": "2019-03-12T19:12:01.744Z",
-  "updated": "2019-03-12T19:12:01.744Z",
+  "id": "7fdfd5d8-9589-402f-8477-4a727ad138a2",
+  "accountId": "4ed4b72b-aa4c-43a1-8054-da6d1368e17a",
+  "amount": 100,
   "auth": true,
   "cleared": false,
-  "amount": 100,
+  "created": "2019-04-09T16:00:00.644Z",
   "currency": "GBP",
-  "wallet": null,
+  "datetime": "2019-04-10T15:59:30",
   "offer": null,
+  "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c647d9cba",
+  "updated": "2019-04-09T16:00:00.644Z",
+  "wallet": "apple-pay",
+  "brand": {
+    "id": "9d136f2e-df99-4a08-a0a5-3bc1534b7db8",
+    "logoUrl": "https://coffeebrand.com/logo.png",
+    "name": "Coffee Brand"
+  },
   "card": {
-    "id": "bc538b71-31c5-4699-840a-6d4a08693314",
+    "id": "bc538b71-31c5-4699-820a-6d4a08693314",
     "firstNumbers": "555500",
     "lastNumbers": "5001",
     "scheme": "visa",
     "metadata": {
-      "name": "fancy card",
-      "id": "card-id"
-    }
-  },
-  "brand": {
-    "id": "9d136f2e-df99-4a08-a0a5-3bc1534b7db9",
-    "name": "Bob's Cafe",
-    "logoUrl": null
-  },
-  "location": {
-    "id": "7a916fbd-70a0-462f-8dbc-bd7dbfbea160",
-    "address": "2 Soho Square",
-    "city": "London",
-    "postcode": "W1D3PX",
-    "countryCode": "GBR",
-    "timezone": "Europe/London",
-    "geolocation": {
-      "latitude": 51.5152346,
-      "longitude": -0.1310718
-    },
-    "metadata": {
-      "name": "nice place",
-      "id": "private-location-id"
+      "id": "00012345",
+      "name": "Joseph Cooper"
     }
   },
   "identifiers": {
-    "MID": "merchant ID",
-    "mastercardTransactionSequenceNumber": "0000000000000",
-    "mastercardRefNumber": "AABBCCDDE",
     "amexApprovalCode": "AA00BB",
-    "visaAuthCode": "000000"
+    "mastercardRefNumber": "AABBCCDDE",
+    "mastercardTransactionSequenceNumber": "0000001234567",
+    "MID": "8552067328",
+    "visaAuthCode": "A73H890"
+  },
+  "location": {
+    "id": "7a916fbd-70a0-462f-8dbc-bd7dbfbea140",
+    "address": "53 Frith Street",
+    "city": "London",
+    "countryCode": "GBR",
+    "postcode": "W1D 4SN",
+    "timezone": "Europe/London",
+    "geolocation": {
+      "latitude": 51.513716,
+      "longitude": -0.13202
+    },
+    "metadata": {
+      "id": "0001234567",
+      "name": "Coffee Brand HQ"
+    }
   }
 }
 ```
@@ -111,7 +111,7 @@ After you received a Mastercard authorisation transaction in real-time, you will
 
 Please allow up to 24h after card linking to start receiving Mastercard and American Express real-time authorization transactions.
 
-The wallet property could be one of: `"apple-pay" | "norton-pay" | "samsung-pay" | "garmin-pay"`
+The wallet property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
 
 <br/>
 
