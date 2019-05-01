@@ -4,7 +4,7 @@ The native mobile SDKs allow you to integrate card linkign technology in your mo
 
 For more detailed documentation about any class in the SDKs and available customisation options, check the Github repositories for [iOS](https://github.com/FidelLimited/fidel-ios) and [Android](https://github.com/FidelLimited/fidel-android).
 
-# iOS 📱
+# iOS
 
 <img
   src="https://docs.fidel.uk/assets/images/iossdk.png"
@@ -76,7 +76,7 @@ For more detailed documentation about any class in the SDKs and available custom
 <br/>
 
 
-# Android 📲
+# Android
 
 <img
   src="https://docs.fidel.uk/assets/images/androidsdk.png"
