@@ -44,7 +44,7 @@ fileName:index.html
   data-subtitle="Earn 1 point for every £1 spent online or in-store"
   data-subtitle-color="#000000"
   data-privacy-url="https://yourcompany.com/privacy"
-  data-delete-instructions="taping remove in your settings page."
+  data-delete-instructions="tapping remove in your settings page."
   data-terms-color="#000000"
   data-title="Link Card"
   data-title-color="#000000">
