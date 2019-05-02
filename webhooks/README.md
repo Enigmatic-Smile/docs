@@ -158,7 +158,7 @@ fileName:card.failed
 
 <br/>
 
-**Clearing** events are triggered when the transaction is settled, usually happens 24-48 hours after the payment has been made. For consistency, FIDEL API processes clearing transactions triggering the `transaction.clearing` webhook events daily at 12:00 UTC. Only one transaction is sent per event.
+**Clearing** events are triggered when the transaction is settled, usually happens 24-48 hours after the payment has been made. For consistency, Fidel processes clearing transactions triggering the `transaction.clearing` webhook events daily at 12:00 UTC. Only one transaction is sent per event.
 
 ```json
 fileName:transaction.auth
