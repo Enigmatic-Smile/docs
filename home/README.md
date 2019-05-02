@@ -35,7 +35,7 @@
 <br/>
 
 # Introduction
-Fidel is a card-linked API that lets developers create web and mobile applications for linking bank cards with reward services. FIDEL API lets you connect your applications to credit and debit cards and monitor transactions in-store and online, chip & pin or contactless.
+Fidel is a card-linked API that lets developers create web and mobile applications for linking bank cards with reward services. Fidel API lets you connect your applications to credit and debit cards and monitor transactions in-store and online, chip & pin or contactless.
 
 **When a consumer makes a purchase at a participating store with a linked card, Fidel API spots that transaction and sends it to your server in real-time through webhooks.** 💳⚡️
 

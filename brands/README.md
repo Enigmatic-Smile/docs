@@ -1,6 +1,6 @@
 ## Brands
 
-After creating a FIDEL API account and have access to the dashboard, the next step is to create a test **Brand** so you can create locations and add them to a Program in order to start tracking transactions.
+After creating an account and having access to the dashboard, the next step is to create a test **Brand** so you can create locations and add them to a Program in order to start tracking transactions.
 
 The **Brand** (Merchant) object is used to aggregate locations and keep the status of the Brand consent. One of the requirements, when creating a Brand and before adding locations, is to obtain Brand consent from an authorized personnel (Brand User) and to provide the Brand with access to view the transactional data that is being shared.
 

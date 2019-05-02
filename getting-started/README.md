@@ -1,6 +1,6 @@
 ## Getting Started
 
-**FIDEL API** helps you collect payment card details in minutes on iOS, Android and Web with the help of native SDKs. We developed customizable UI using an iFrame so you don't have to handle sensitive information on your servers.
+**Fidel API** helps you collect payment card details in minutes on iOS, Android and Web with the help of native SDKs. We developed customizable UI using an iFrame so you don't have to handle sensitive information on your servers.
 
 Card numbers are instantly tokenised and we return to you a unique token that identifies each successfully linked card on your database. You should save the `id` of the card object that is returned inside your user's object. Every transaction we will send to you will have a `cardId` that you can use to identify the user that made that transaction.
 
@@ -48,6 +48,6 @@ Click on the links below to see how to use the web and mobile SDKs in your appli
 
 <br/>
 
-Follow the links above to access more detailed documentation and integration instructions for the [Web SDK](/web-sdk) and [mobile SDKs](/mobile-sdk), learn how to customise the UI and capture card details securely on your website or mobile applications. Check [Brands](/brands), [Programs](/programs), [Cards](/cards), [Transactions](/transactions) and [Webhooks](/webhooks) sections to get an overview of the FIDEL API object structure.
+Follow the links above to access more detailed documentation and integration instructions for the [Web SDK](/web-sdk) and [mobile SDKs](/mobile-sdk), learn how to customise the UI and capture card details securely on your website or mobile applications. Check [Brands](/brands), [Programs](/programs), [Cards](/cards), [Transactions](/transactions) and [Webhooks](/webhooks) sections to get an overview of the Fidel API object structure.
 
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
