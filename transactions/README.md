@@ -1,5 +1,5 @@
 ## Transactions
-The transaction object is the central piece of data of your card-linked application. When a user makes a purchase with a linked card in any of the linked program's locations, Fidel API spots the transaction and sends it to your server through webhooks.
+The transaction object is the central piece of data of your card-linked application. When a user makes a purchase with a linked card in any of the linked program’s locations, Fidel API spots the transaction and sends it to your server through webhooks.
 
 <br />
 
