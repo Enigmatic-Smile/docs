@@ -23,7 +23,7 @@ pod 'Fidel'
 ```
 
 ### Camera 
-In order to allow scanning cards with the camera, make sure to add the key `NSCameraUsageDescription` to your app's Info.plist and set the value to a string describing why your app needs to use the camera (e.g. "Used for scanning credit cards."). 
+In order to allow scanning cards with the camera, make sure to add the key `NSCameraUsageDescription` to your app’s Info.plist and set the value to a string describing why your app needs to use the camera (e.g. “Used for scanning credit cards”). 
 <br/>
 
 ### Objective-C (skip for Swift projects)
