@@ -39,13 +39,13 @@ Fidel is a card-linked API that lets developers create web and mobile applicatio
 
 **When a consumer makes a purchase at a participating store with a linked card, Fidel API spots that transaction and sends it to your server in real-time through webhooks.** 💳⚡️
 
-Fidel API runs on top of global payment networks, so it doesn't require changes to existing merchant infrastructures. No need for new software, POS integrations, staff training or new cards. All the PCI compliance requirements are managed by us so you don't have to.
+Fidel API runs on top of global payment networks, so it doesn’t require changes to existing merchant infrastructures. No need for new software, POS integrations, staff training or new cards. All the PCI compliance requirements are managed by us so you don’t have to.
 
 Currently, the API is available in the **UK**, **Ireland**, **Sweden**, **Canada** and the **United States**, with **Norway**, **Denmark**, **Finland**, **Japan**, **Australia** and **South Africa** going live soon. Please refer to the up to date list of countries and schemes on [fidel.uk](https://fidel.uk/). We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [developer@fidel.uk](mailto:developer@fidel.uk).
 
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 
-Join our developers' Slack channel for API discussions, documentation, roadmap and new features. We’re always happy to help and answer any questions. Join by clicking the button below:
+Join our developers’ Slack channel for API discussions, documentation, roadmap and new features. We’re always happy to help and answer any questions. Join by clicking the button below:
 
 <a class="button with-icon" href="https://fidel.uk/join-us-on-slack" target="blank">
   <img src="https://docs.fidel.uk/assets/images/slack-icon.svg" />
