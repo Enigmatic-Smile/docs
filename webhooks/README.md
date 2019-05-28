@@ -17,7 +17,7 @@ Fidel only accepts HTTPS URLs for webhooks endpoints. In order to create webhook
 <hr>
 
 # Authentication
-To confirm that received events are being sent from Fidel we recommend verifying webhook signatures. That can be done by using the `x-fidel-signature` and `x-fidel-timestamp` HTTP headers. This isn't required, but offers an additional layer of security.
+To confirm that received events are being sent from Fidel we recommend verifying webhook signatures. That can be done by using the `x-fidel-signature` and `x-fidel-timestamp` HTTP headers. This isn’t required, but offers an additional layer of security.
 
 A unique secret key is generated for each webhook. The key is returned in the response's `secretKey` property if you are using the Webhooks API. You can also copy the key from the dashboard's webhooks page by clicking in the **Show Key** button next to your webhook endpoint. To verify a webhook request, generate a signature using the same key that Fidel uses and compare that to the value of the `x-fidel-signature` header.
 
