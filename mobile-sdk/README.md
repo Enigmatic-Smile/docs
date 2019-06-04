@@ -100,7 +100,7 @@ allprojects {
 Add Fidel SDK as a dependency:
 ```sh
 dependencies {
-  compile 'com.github.FidelLimited:android-sdk:1.2.0'
+  implementation 'com.github.FidelLimited:android-sdk:1.3.1'
 }
 ```
 <br/>
