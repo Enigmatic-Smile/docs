@@ -128,6 +128,22 @@ Fidel.country = Fidel.Country.UNITED_KINGDOM; // If set, country picker UI will 
 ```
 <br/>
 
+You can pass additional data with [org.json.JSONObject](https://stleary.github.io/JSON-java/org/json/JSONObject.html):
+
+```java
+JSONObject jsonMeta = new JSONObject();
+try {
+    jsonMeta.put("id", "this-is-the-metadata-id");
+    jsonMeta.put("customKey1", "customValue1");
+    jsonMeta.put("customKey2", "customValue2");
+}
+    catch(JSONException e) {
+    Log.e(Fidel.FIDEL_DEBUG_TAG, e.getLocalizedMessage());
+}
+
+Fidel.metaData = jsonMeta;
+```
+
 Present the activity:
 ```swift
 Fidel.present(YourActivityClass.this);
@@ -151,5 +167,3 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 For more detailed documentation about any class in the SDKs and available customisation options, check the [Android repository on Github](https://github.com/FidelLimited/fidel-android).
 <br/>
-
-
