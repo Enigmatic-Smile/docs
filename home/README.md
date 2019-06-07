@@ -94,7 +94,7 @@ fileName:index.html
   data-title="Link Card"
   data-subtitle="Earn 1 point for every £1 spent online or in-store"
   data-privacy-url="https://yourcompany.com/privacy"
-  data-delete-instructions="taping remove in your settings page."
+  data-delete-instructions="tapping remove in your settings page."
   data-button-title="Link Card">
 </script>
 ```
