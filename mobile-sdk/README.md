@@ -468,5 +468,5 @@ American Express: _3400000000003**_ or _3700000000003**_ (the last 2 numbers can
 
 The React Native SDK is in active development, we welcome your feedback!
 
-[GitHub Issues](https://github.com/fidellimited/rn-sdk/issues) — For SDK issues and feedback
+[GitHub Issues](https://github.com/fidellimited/rn-sdk/issues) — For SDK issues and feedback  
 [Developers Slack Channel](https://fidel-developers-slack-invites.herokuapp.com) — for personal & community support at any phase of integration.
