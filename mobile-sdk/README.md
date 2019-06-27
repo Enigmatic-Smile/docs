@@ -218,6 +218,8 @@ If you use an older Swift version, please check our [iOS SDK README](https://git
 
 3. Make sure to use the new `.xcworkspace` created by Cocoapods when you run your iOS app. React Native should use it by default.
 
+In order to allow scanning cards with the camera, make sure to add the key `NSCameraUsageDescription` to your iOS app `Info.plist` and set the value to a string describing why your app needs to use the camera (e.g. "To scan credit cards."). This string will be displayed when the app initially requests permission to access the camera.
+
 ### Android
 
 1. Append the following lines to `android/settings.gradle`:
