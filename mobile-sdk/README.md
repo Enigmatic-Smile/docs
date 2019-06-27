@@ -133,12 +133,12 @@ You can pass additional data with [org.json.JSONObject](https://stleary.github.i
 ```java
 JSONObject jsonMeta = new JSONObject();
 try {
-    jsonMeta.put("id", "this-is-the-metadata-id");
-    jsonMeta.put("customKey1", "customValue1");
-    jsonMeta.put("customKey2", "customValue2");
+  jsonMeta.put("id", "this-is-the-metadata-id");
+  jsonMeta.put("customKey1", "customValue1");
+  jsonMeta.put("customKey2", "customValue2");
 }
-    catch(JSONException e) {
-    Log.e(Fidel.FIDEL_DEBUG_TAG, e.getLocalizedMessage());
+  catch(JSONException e) {
+  Log.e(Fidel.FIDEL_DEBUG_TAG, e.getLocalizedMessage());
 }
 
 Fidel.metaData = jsonMeta;
@@ -207,8 +207,8 @@ platform :ios, '9.1'
 workspace 'example'
 
 target 'example' do
-    use_frameworks!
-    pod 'Fidel'
+  use_frameworks!
+  pod 'Fidel'
 end
 ```
 
@@ -241,10 +241,10 @@ implementation project(':fidel-react-native')
 ```java
 protected List <ReactPackage> getPackages() {
   return Arrays.<ReactPackage>asList(
-          new MainReactPackage(),
-          new FidelPackage(),
-          //you might have other Packages here as well.
-      );
+    new MainReactPackage(),
+    new FidelPackage(),
+    // you might have other packages here as well.
+  );
 }
 ```
 
@@ -299,18 +299,9 @@ const myImage = require('./images/fdl_test_banner.png');
 const resolveAssetSource = require('react-native/Libraries/Image/resolveAssetSource');
 const resolvedImage = resolveAssetSource(myImage);
 
-//this is the default value for supported card schemes,
-//but you can remove the support for some of the card schemes if you want to
-const cardSchemes = new Set([
-  Fidel.CardScheme.visa,
-  Fidel.CardScheme.mastercard,
-  Fidel.CardScheme.americanExpress
-]);
-
 Fidel.setOptions ({
   bannerImage: resolvedImage,
   country: Fidel.Country.sweden,
-  supportedCardSchemes: Array.from(cardSchemes),
   autoScan: false,
   metaData: {'meta-data-1': 'value1'}, //additional data to pass with the card
   companyName: 'My RN Company', //the company name displayed in our 
@@ -473,9 +464,9 @@ Mastercard: _5555000000005***_ (the last 3 numbers can be anything)
 
 American Express: _3400000000003**_ or _3700000000003**_ (the last 2 numbers can be anything)
 
-## Feedback
+### Feedback
 
-The Fidel SDK is in active development, we welcome your feedback!
+The React Native SDK is in active development, we welcome your feedback!
 
 [GitHub Issues](https://github.com/fidellimited/rn-sdk/issues) — For SDK issues and feedback
 [Developers Slack Channel](https://fidel-developers-slack-invites.herokuapp.com) — for personal & community support at any phase of integration.
