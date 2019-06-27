@@ -220,20 +220,20 @@ If you use an older Swift version, please check our [iOS SDK README](https://git
 
 ### Android
 
-1. **Append the following lines to `android/settings.gradle`:
+1. Append the following lines to `android/settings.gradle`:
 
 ```java
 include ':fidel-react-native'
 project(':fidel-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/fidel-react-native/android')
 ```
 
-2. **Insert the following lines inside the dependencies block in `android/app/build.gradle`:
+2. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
 
 ```java
 implementation project(':fidel-react-native')
 ```
 
-3. **Open up `android/app/src/main/java/[...]/MainApplication.java`
+3. Open up `android/app/src/main/java/[...]/MainApplication.java`
 
 - Add `import com.fidelreactlibrary.FidelPackage;` to the imports at the top of the file
 - Add `new FidelPackage()` to the list returned by the `getPackages()` method:
@@ -248,7 +248,7 @@ protected List <ReactPackage> getPackages() {
 }
 ```
 
-4. **Append Jitpack to `android/build.gradle`:
+4. Append Jitpack to `android/build.gradle`:
 
 ```java
 allprojects {
@@ -259,7 +259,7 @@ allprojects {
 }
 ```
 
-5. **Make sure that the `minSdkVersion` is the same or higher than the `minSdkVersion` of our native Android SDK:
+5. Make sure that the `minSdkVersion` is the same or higher than the `minSdkVersion` of our native Android SDK:
 
 ```java
 buildscript {
@@ -271,7 +271,7 @@ buildscript {
 }
 ```
 
-6. **Ensure that you have *Google Play Services* installed.
+6. Ensure that you have *Google Play Services* installed.
 
 For a physical device you need to search on Google for *Google Play Services*. There will be a link that takes you to the Play Store and from there you will see a button to update it (*do not* search within the Play Store).
 
