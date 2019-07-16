@@ -64,7 +64,6 @@ Your apps will receive an `id` back that identifies the card in each transaction
 
 <br/>
 
-
 <img
   src="https://docs.fidel.uk/assets/images/sdks_main.png"
   srcset="https://docs.fidel.uk/assets/images/sdks_main.png, https://docs.fidel.uk/assets/images/sdks_main@2x.png 2x"
@@ -98,5 +97,5 @@ fileName:index.html
   data-button-title="Link Card">
 </script>
 ```
-Check the [Web SDK documentation](/web-sdk) section for more information about all available parameters, customisation options, and the metadata nested object.
 
+Check the [Web SDK documentation](/web-sdk) section for more information about all available parameters, customisation options, and the metadata nested object.
