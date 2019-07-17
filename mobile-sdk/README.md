@@ -1,10 +1,10 @@
-## Mobile SDKs
+# Mobile SDKs
 
 The native mobile SDKs allow you to integrate card linkign technology in your mobile apps in minutes. Card details are collected securely, removing any PCI compliance requirements from your side. See below code examples on how to integrate the SDKs in your apps. 
 
 For more detailed documentation about any class in the SDKs and available customisation options, check the Github repositories for [iOS](https://github.com/FidelLimited/fidel-ios) and [Android](https://github.com/FidelLimited/fidel-android).
 
-# iOS
+## iOS
 
 <img
   src="https://docs.fidel.uk/assets/images/iossdk.png"
@@ -23,30 +23,29 @@ pod 'Fidel'
 ```
 
 ### Camera 
+
 In order to allow scanning cards with the camera, make sure to add the key `NSCameraUsageDescription` to your app's Info.plist and set the value to a string describing why your app needs to use the camera (e.g. "Used for scanning credit cards."). 
-<br/>
 
 ### Objective-C (skip for Swift projects)
+
 If you have an Objective-C project and did not add any Swift code yet, please set the `Always Embed Swift Standard Libraries` flag in Build Settings to `YES`.
-<br/>
 
 ### Troubleshooting
+
 In case Cocoapods doesn't find the Fidel specs or it finds older specs, try updating with `pod update`. After updating, run `pod install`.
-<br/>
 
 ### Usage
+
 Import the SDK:
 ```swift
 import Fidel
 ```
-<br/>
 
 Set your public SDK key (`pk_test` or `pk_live`) and the `programId` you want to link cards to:
 ```swift
 Fidel.apiKey 	= "pk_test_6e94da6f-145a-47db-b56b-f1314e74aa2e"
 Fidel.programId = "f8d6890e-145d-46ea-b66f-afacfd954580"
 ```
-<br/>
 
 Set cardholder consent variables:
 ```swift
@@ -54,13 +53,11 @@ Fidel.companyName = "Your Company Name" // default: "Company Name".
 Fidel.privacyURL = "https://yourcompany.com/privacyURL"
 Fidel.deleteInstructions = "Your delete instructions" // Maximum 60 characters, default: "going to your account settings."
 ```
-<br/>
 
 Set a default card country:
 ```swift
 Fidel.country = .unitedKingdom // If set, country picker UI will not show
 ```
-<br/>
 
 Present the SDK view:
 ```swift
@@ -70,13 +67,10 @@ Fidel.present(self, onCardLinkedCallback: { (card: LinkResult) in
   print(err.message)
 })
 ```
-<br/>
 
 For more detailed documentation about any class in the SDKs and available customisation options, check the [iOS repository on Github](https://github.com/FidelLimited/fidel-ios).
-<br/>
 
-
-# Android
+## Android
 
 <img
   src="https://docs.fidel.uk/assets/images/androidsdk.png"
@@ -95,7 +89,6 @@ allprojects {
   }
 }
 ```
-<br/>
 
 Add Fidel SDK as a dependency:
 ```sh
@@ -103,7 +96,6 @@ dependencies {
   compile 'com.github.FidelLimited:android-sdk:1.2.0'
 }
 ```
-<br/>
 
 ### Usage
 
@@ -112,7 +104,6 @@ Set your public SDK key (`pk_test` or `pk_live`) and the `programId` you want to
 Fidel.apiKey    = "pk_test_6e94da6f-145a-47db-b56b-f1314e74aa2e"
 Fidel.programId = "f8d6890e-145d-46ea-b66f-afacfd954580"
 ```
-<br/>
 
 Set cardholder consent variables:
 ```swift
@@ -120,19 +111,16 @@ Fidel.companyName = "Your Company Name" // default: "Company Name".
 Fidel.privacyURL = "https://yourcompany.com/privacyURL"
 Fidel.deleteInstructions = "Your delete instructions" // Maximum 60 characters, default: "going to your account settings."
 ```
-<br/>
 
 Set a default card country:
 ```swift
 Fidel.country = Fidel.Country.UNITED_KINGDOM; // If set, country picker UI will not show
 ```
-<br/>
 
 Present the activity:
 ```swift
 Fidel.present(YourActivityClass.this);
 ```
-<br/>
 
 Get the resulting card object:
 ```java
@@ -150,6 +138,3 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 ```
 
 For more detailed documentation about any class in the SDKs and available customisation options, check the [Android repository on Github](https://github.com/FidelLimited/fidel-android).
-<br/>
-
-

@@ -1,4 +1,5 @@
-<h2>Documentation</h2>
+# Documentation
+
 <div class="row">
     <div class="column">
         <a href="/getting-started" class="content">
@@ -34,7 +35,7 @@
 
 <br/>
 
-# Introduction
+## Introduction
 Fidel is a card-linked API that lets developers create web and mobile applications for linking bank cards with reward services. FIDEL API lets you connect your applications to credit and debit cards and monitor transactions in-store and online, chip & pin or contactless.
 
 **When a consumer makes a purchase at a participating store with a linked card, Fidel API spots that transaction and sends it to your server in real-time through webhooks.** 💳⚡️
@@ -52,18 +53,12 @@ Join our developers' Slack channel for API discussions, documentation, roadmap a
   <span>Slack</span>
 </a>
 
-<br/>
-<br/>
-
-# Card Linking
+## Card Linking
 The iOS, Android and Web SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
 By using Fidel SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements.
 
 Your apps will receive an `id` back that identifies the card in each transaction.
-
-<br/>
-
 
 <img
   src="https://docs.fidel.uk/assets/images/sdks_main.png"
@@ -78,7 +73,7 @@ Your apps will receive an `id` back that identifies the card in each transaction
 
 Use one of the test cards, such as `4444000000004004` and enter an expiry date in the future.
 
-<h5>Web SDK integration script</h5>
+##### Web SDK integration script
 
 ```html
 fileName:index.html
@@ -99,4 +94,3 @@ fileName:index.html
 </script>
 ```
 Check the [Web SDK documentation](/web-sdk) section for more information about all available parameters, customisation options, and the metadata nested object.
-
