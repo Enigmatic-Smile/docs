@@ -28,7 +28,7 @@
         <a href="/mobile-sdks" class="content">
             <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg"/>
             <h2>Mobile SDKs</h2>
-            <h3>PCI Compliant native SDKs for iOS and Android</h3>
+            <h3>PCI Compliant native SDKs for iOS, Android and React Native</h3>
         </a>
     </div>
 </div>
