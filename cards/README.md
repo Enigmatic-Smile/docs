@@ -3,7 +3,7 @@ The Card object holds information about the card details submitted by the user u
 
 The details required to link a card to a program are the 16-digit card number, expiry date, country code and the `programId` of the Program you want to link this card to. The card number is tokenised and transmitted directly from our secure pre-built iFrame to the API. This way, your servers are never exposed to sensitive information, removing all PCI compliance requirements from your side.
 
-We never store the 16-digit PAN (Primary Account Number). To identify the user in a transaction object you should the use the `cardId` property. After this point only the `cardId` is exchanged between your servers, the card schemes and FIDEL API.
+We never store the 16-digit PAN (Primary Account Number). To identify the user in a transaction object you should the use the `cardId` property. After this point only the `cardId` is exchanged between your servers, the card schemes and Fidel API.
 
 After the card is linked successfully, we will monitor any purchase made by this card on any of the program’s physical or online locations and send the transaction object to a webhook URL specified by you.
 

@@ -15,7 +15,10 @@ Fidel only accepts HTTPS URLs for webhooks endpoints. In order to create webhook
 </div>
 
 ## Authentication
+
 To confirm that received events are being sent from Fidel we recommend verifying webhook signatures. That can be done by using the `x-fidel-signature` and `x-fidel-timestamp` HTTP headers. This isn't required, but offers an additional layer of security.
+
+<hr />
 
 A unique secret key is generated for each webhook. The key is returned in the response's `secretKey` property if you are using the Webhooks API. You can also copy the key from the dashboard's webhooks page by clicking in the **Show Key** button next to your webhook endpoint. To verify a webhook request, generate a signature using the same key that Fidel uses and compare that to the value of the `x-fidel-signature` header.
 
@@ -143,9 +146,9 @@ fileName:card.failed
 
 ### Transaction
 
-**Authorisation** transaction events are triggered while the customer is making the payment in-store in real-time (available on MasterCard and American Express). When a customer makes a payment with a linked MasterCard debit/credit card in an auth-enabled location, a `transaction.auth` event is triggered and the transaction object sent to your specified URL in real-time.
+**Authorisation** transaction events are triggered while the customer is making the payment in-store in real-time (available on MasterCard and American Express). When a customer makes a payment with a linked Mastercard debit/credit card in an auth-enabled location, a `transaction.auth` event is triggered and the transaction object sent to your specified URL in real-time.
 
-**Clearing** events are triggered when the transaction is settled, usually happens 24-48 hours after the payment has been made. For consistency, FIDEL API processes clearing transactions triggering the `transaction.clearing` webhook events daily at 12:00 UTC. Only one transaction is sent per event.
+**Clearing** events are triggered when the transaction is settled, usually happens 24-48 hours after the payment has been made. For consistency, Fidel processes clearing transactions triggering the `transaction.clearing` webhook events daily at 12:00 UTC. Only one transaction is sent per event.
 
 ```json
 fileName:transaction.auth

@@ -1,5 +1,6 @@
 # Web SDK
-**FIDEL Web SDK** is a secure HTML iFrame with customisable pre-built UI that allows you to easily collect credit card details, tokenise and link credit/debit cards with rewards services from your website, e-commerce platform or mobile apps. By using FIDEL Web SDK, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements for you.
+
+**The Fidel Web SDK** is a secure HTML iFrame with customisable pre-built UI that allows you to easily collect credit card details, tokenise and link credit/debit cards with rewards services from your website, e-commerce platform or mobile apps. By using FIDEL Web SDK, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements for you.
 
 <img
   src="https://docs.fidel.uk/assets/images/sdk_web.png"
@@ -7,14 +8,15 @@
   alt="Preview of the web SDK"
 />
 
-After successfully tokenising and linking the card on Visa or MasterCard networks, FIDEL API returns the created card object with a unique `id` that you must use to link each unique card and transaction to your user’s account. The `id` of each linked card is present on the transaction object as `cardId`. You can now create card-linked web and mobile applications with online and offline transactional data visibility in a matter of minutes.
+After successfully tokenising and linking the card on Visa or MasterCard networks, Fidel API returns the created card object with a unique `id` that you must use to link each unique card and transaction to your user’s account. The `id` of each linked card is present on the transaction object as `cardId`. You can now create card-linked web and mobile applications with online and offline transactional data visibility in a matter of minutes.
 
 All modern desktop and mobile browsers are supported, including Chrome, Firefox, Safari, Microsoft IE and Edge. Please contact us at [developer@fidel.uk](mailto:developer@fidel.uk) if you experience any browser related issues.
 
 ## Integrating Web SDK
-You can easily integrate FIDEL Web SDK in your website or mobile app with only a few lines (or one) of code.
 
-##### FIDEL Web SDK script
+You can easily integrate the Web SDK in your website or mobile app with only a few lines of code.
+
+##### Fidel Web SDK script
 
 ```html
 fileName:index.html
@@ -46,11 +48,9 @@ fileName:index.html
 </script>
 ```
 
-To integrate **FIDEL Web SDK** in your website or mobile app, you need to add the script above in your website or mobile web view. We are working on native mobile SDKs for iOS and Android that will simplify the mobile integration.
+To integrate **Fidel Web SDK** in your website or mobile app, you need to add the script above in your website or mobile web view. For mobile apps, however, we recommend using the [mobile SDKs](/mobile-sdk).
 
-Most of the data properties in the script are self explanatory but you can check the description of each property below.
-
-##### Parameters
+##### Web SDK parameters
 
 <dl>
     <div>

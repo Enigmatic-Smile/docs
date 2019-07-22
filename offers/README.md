@@ -87,7 +87,7 @@ fileName:offer.json
             <span><code>brandLogoURL</code></span>
             <em>string</em>
         </dt>
-        <dd>Logo URL of the Brand. `null` if no URL is provided.</dd>
+        <dd>Logo URL of the Brand. <code>null</code> if no URL is provided.</dd>
     </div>
     <div>
         <dt>
@@ -115,7 +115,7 @@ fileName:offer.json
             <span><code>daysOfWeek</code></span>
             <em>array: number</em>
         </dt>
-        <dd>Array of numbers between 0 and 6 representing the days of the week. Starting on Sunday. </dd>
+        <dd>Array of numbers between 0 and 6 representing the days of the week. Starting on Sunday.</dd>
     </div>
     <div>
         <dt>
@@ -213,7 +213,7 @@ fileName:offer.json
             <span><code>schemes</code></span>
             <em>array: string</em>
         </dt>
-        <dd>Schemes where the offer is valid. Possible values are  `visa`, `mastercard` and `amex`.</dd>
+        <dd>Schemes where the offer is valid. Possible values are <code>visa</code>, <code>mastercard</code> and <code>amex</code>.</dd>
     </div>
     <div>
         <dt>
@@ -227,14 +227,14 @@ fileName:offer.json
             <span><code>status</code></span>
             <em>string</em>
         </dt>
-        <dd>Current status of the offer such as `DRAFT`, `ACTIVE` or `EXPIRED`. See more detailed documentation below about offer status.</dd>
+        <dd>Current status of the offer such as <code>DRAFT</code>, <code>ACTIVE</code> or <code>EXPIRED</code>. See more detailed documentation below about offer status.</dd>
     </div>
     <div>
         <dt>
             <span><code>type</code></span>
             <em>object</em>
         </dt>
-        <dd>An offer can be a fixed amount off or a percentage discount of the transactions amount. `type: {name: string, value: number}`. The `name` property can have two values: `amount` and `discount`. The `value` property saves the fixed amount of curency to be rewarded or the percentage value in case of a discount offer.</dd>
+        <dd>An offer can be a fixed amount off or a percentage discount of the transactions amount. <code>type: {name: string, value: number}</code>. The <code>name</code> property can have two values: <code>amount</code> and <code>discount</code>. The <code>value</code> property saves the fixed amount of curency to be rewarded or the percentage value in case of a discount offer.</dd>
     </div>
     <div>
         <dt>
