@@ -22,22 +22,22 @@ You can use the web and mobile SDKs to capture your user’s card number and lin
 Click on the links below to see how to use the web and mobile SDKs in your applications.
 
 <div class="row">
-<div class="column">
-    <a href="/web-sdk" class="content">
-        <img src="https://docs.fidel.uk/assets/images/web_sdk.svg"/>
-        <h2>Web</h2>
-        <h3>Customisable and secure iFrame to link cards on your website</h3>
+  <div class="column">
+    <a href="/web-sdk" data-path="/web-sdk" class="content">
+      <img src="https://docs.fidel.uk/assets/images/web_sdk.svg" />
+      <h2>Web</h2>
+      <h3>Customisable and secure iFrame to link cards on your website</h3>
     </a>
-</div>
-    <div class="column">
-        <a href="/mobile-sdk" class="content">
-            <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg"/>
-            <h2>Mobile</h2>
-            <h3>PCI Compliant native SDKs for iOS and Android</h3>
-        </a>
-    </div>
+  </div>
+  <div class="column">
+    <a href="/mobile-sdks" data-path="/mobile-sdks" class="content">
+      <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg" />
+      <h2>Mobile</h2>
+      <h3>PCI compliant SDKs for iOS, Android and React Native</h3>
+    </a>
+  </div>
 </div>
 
-Follow the links above to access more detailed documentation and integration instructions for the [Web SDK](/web-sdk) and [mobile SDKs](/mobile-sdk), learn how to customise the UI and capture card details securely on your website or mobile applications. Check [Brands](/brands), [Programs](/programs), [Cards](/cards), [Transactions](/transactions) and [Webhooks](/webhooks) sections to get an overview of the Fidel API object structure.
+Follow the links above to access more detailed documentation and integration instructions for the [Web SDK](/web-sdk) and [mobile SDKs](/mobile-sdks), learn how to customise the UI and capture card details securely on your website or mobile applications. Check [Brands](/brands), [Programs](/programs), [Cards](/cards), [Transactions](/transactions) and [Webhooks](/webhooks) sections to get an overview of the Fidel API object structure.
 
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.

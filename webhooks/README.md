@@ -58,7 +58,8 @@ To prevent replay attacks where a valid payload and it's signature is intercepte
 
 ## Events
 
-### Brand
+### Brand
+
 `brand.consent` event is triggered when the brand consent is approved, in `test` mode it will happen immediately after brand creation and in `live` mode when the Brand User approves the consent.
 
 ```json

@@ -1,41 +1,39 @@
 # Documentation
 
 <div class="row">
-    <div class="column">
-        <a href="/getting-started" class="content">
-            <img src="https://docs.fidel.uk/assets/images/get_started.svg"/>
-            <h2>Get Started</h2>
-            <h3>Start building card-linked applications with our quickstart guide</h3>
-        </a>
-    </div>
-    <div class="column">
-        <a href="https://intercom.help/fidelapi" class="content">
-            <img src="https://docs.fidel.uk/assets/images/help_center.svg"/>
-            <h2>Help Centre</h2>
-            <h3>Find information and answers to frequently asked questions</h3>
-        </a>
-    </div>
+  <div class="column">
+    <a href="/getting-started" class="content" data-path="/getting-started">
+      <img src="https://docs.fidel.uk/assets/images/get_started.svg" />
+      <h2>Get Started</h2>
+      <h3>Start building card-linked applications with our quickstart guide</h3>
+    </a>
+  </div>
+  <div class="column">
+    <a href="https://intercom.help/fidelapi" class="content">
+      <img src="https://docs.fidel.uk/assets/images/help_center.svg" />
+      <h2>Help Centre</h2>
+      <h3>Find information and answers to frequently asked questions</h3>
+    </a>
+  </div>
 </div>
 <div class="row">
-    <div class="column">
-      <a href="/web-sdk" class="content">
-            <img src="https://docs.fidel.uk/assets/images/web_sdk.svg"/>
-            <h2>Web SDK</h2>
-            <h3>Learn to integrate a secure Javascript SDK to link cards on your website</h3>
-      </a>
-    </div>
-    <div class="column">
-        <a href="/mobile-sdk" class="content">
-            <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg"/>
-            <h2>Mobile SDKs</h2>
-            <h3>PCI Compliant native SDKs for iOS and Android</h3>
-        </a>
-    </div>
+  <div class="column">
+    <a href="/web-sdk" data-path="/web-sdk" class="content">
+      <img src="https://docs.fidel.uk/assets/images/web_sdk.svg" />
+      <h2>Web SDK</h2>
+      <h3>Learn to integrate a secure Javascript SDK to link cards on your website</h3>
+    </a>
+  </div>
+  <div class="column">
+    <a href="/mobile-sdks" class="content" data-path="/mobile-sdks">
+      <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg" />
+      <h2>Mobile SDKs</h2>
+      <h3>PCI Compliant native SDKs for iOS, Android and React Native</h3>
+    </a>
+  </div>
 </div>
 
-<br/>
-
-# Introduction
+## Introduction
 Fidel is a card-linked API that lets developers create web and mobile applications for linking bank cards with reward services. Fidel API lets you connect your applications to credit and debit cards and monitor transactions in-store and online, chip & pin or contactless.
 
 **When a consumer makes a purchase at a participating store with a linked card, Fidel API spots that transaction and sends it to your server in real-time through webhooks.** 💳⚡️
