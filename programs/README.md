@@ -2,7 +2,7 @@
 
 A **Program** is a set of locations that uniquely represent an offline or online store where transactions from linked cards will be monitored. The Program is the parent object of your card linked structure. Other objects such as Cards, Locations, Webhooks and Transactions will always be linked to a Program. Brands are shared across Programs. They are unique and independent of each other allowing you to have several independent loyalty or rewards schemes inside your account.
 
-##### Hierarchy diagram of the FIDEL API object structure.
+##### Hierarchy diagram of the Fidel API object structure.
 
 ![Programs structure diagram](https://docs.fidel.uk/assets/images/programs_diagram.png "Programs structure diagram")
 
