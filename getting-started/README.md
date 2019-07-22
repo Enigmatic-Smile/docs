@@ -16,7 +16,7 @@ After you created an account, in your account page on the dashboard, you will fi
 
 When you're ready to go live with your integration and test with plastic credit/debit cards on VISA, Mastercard and American Express networks you can request access to the live keys by using the test-live switch on your dashboard.
 
-# 3. Install SDKs
+## 3. Install SDKs
 You can use the web and mobile SDKs to capture your user’s card number and link cards to your program without the need of additional security implementations on your server-side code.
 
 Click on the links below to see how to use the web and mobile SDKs in your applications.
