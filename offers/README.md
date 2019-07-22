@@ -1,4 +1,4 @@
-## Offers
+# Offers
 
 The Offer object holds the details about a card linked offer. Offers can be created by developers using the [Offer API](https://reference.fidel.uk/v1/reference#create-offer) or by Brands/Merchants using the CLO dashboard at [clo.fidel.uk](https://clo.fidel.uk). 
 A card linked offer specifies a set of parameters that will be used to qualify a card transaction made at a participating Brand’s online or offline store.
@@ -8,7 +8,7 @@ A card linked offer specifies a set of parameters that will be used to qualify a
     This functionality is in private beta only available to a selected group of Brands. Final public release planned for Q1 2019. Please mail us at developer@fidel.uk to request access.
 </div>
 
-# Offer object
+## Offer object
 
 ```json
 fileName:offer.json
@@ -50,9 +50,8 @@ fileName:offer.json
   "userId": "82c5a9ed-5301-46ab-8599-6bcb0d017cc6"
 }
 ```
-<br/>
-<strong>Parameters</strong>
-<br/>
+
+### Parameters
 
 <dl>
     <div>
@@ -253,9 +252,7 @@ fileName:offer.json
     </div>
 </dl>
 
-<br/>
-
-# Create Offer
+## Create Offer
 
 To create an offer you should use the **Create Offer** API endpoint and specify the parameters for the card linked offer. 
 Before creating an offer, the Brand User must complete the sign up process at [clo.fidel.uk](https://clo.fidel.uk) after they receive an invitation from a publisher:
@@ -288,11 +285,9 @@ As required parameters, you need to set an offer `name`, your `accountId` as the
 
 Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#create-offer) for more detailed documentation about available Offer API endpoints.
 
-<br/>
-
 <hr>
 
-# Offer Lifecycle
+## Offer Lifecycle
 
 ### Draft
 First status of an offer after creation. The offer has not been submitted to a publisher. A locations file may have been uploaded for the offer, but no locations would be linked at this stage.
@@ -318,14 +313,12 @@ Offer was not accepted or rejected by publisher in 14 days after it was submitte
 ### Completed
 Offer status will update to completed from active when the end date or the maximum number of qualified transactions is reached. The one that comes first.
 
-<br/>
 <hr>
 
-# Qualification
+## Qualification
 
 When an offer is `Active`, the transaction qualification will start. Every transaction made a by a linked card on a location where an offer is ative will be analysed considering the offer parameters and can qualify or not qualify for the offer.
 In both cases, an offer object is appended to the original transaction object containing all the qualification offer data. In case the transaction qualifies, `cashback` and `performanceFee` amounts are automatically calculated and the `qualified` property is set to `true`. If the transactions does not qualify, `cashback` and `performanceFee` amounts will be `0` and `qualified` property `null`.
-<br/>
 
 ```json
 fileName:qualified-transaction.json
@@ -390,8 +383,6 @@ fileName:qualified-transaction.json
 }
 ```
 
-<br/>
-
 ```json
 fileName:non-qualified-transaction.json
 { 
@@ -410,5 +401,3 @@ fileName:non-qualified-transaction.json
   }
 }
 ```
-<br/>
-<hr>

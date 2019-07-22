@@ -1,4 +1,4 @@
-[Home](/home)
+[Home](/)
 [Getting Started](/getting-started)
 [Brands](/brands)
 [Programs](/programs)

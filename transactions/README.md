@@ -1,9 +1,7 @@
-## Transactions
-The transaction object is the central piece of data of your card-linked application. When a user makes a purchase with a linked card in any of the linked program’s locations, Fidel API spots the transaction and sends it to your server through webhooks.
+# Transactions
+The transaction object is the central piece of data of your card-linked application. When a user makes a purchase with a linked card in any of the linked program's locations, FIDEL API spots the transaction and sends it to your server through webhooks.
 
-<br />
-
-### Transaction object
+## Transaction object
 
 ##### API version including & later than `2019-03-05`
 
@@ -99,8 +97,6 @@ fileName:transaction.json
 }
 ```
 
-<br/>
-
 There are two types of transactions depending on the time of processing and clearing state: authorization transactions and clearing transactions. Authorization transactions are processed in real-time, when the user pays in-store (only available on MasterCard and American Express. Please email [developer@fidel.uk](mailto:developer@fidel.uk) for VISA availability). You can use the `transaction.auth` webhook event to notify or reward the user in your application in real-time.
 
 All transactions are cleared usually 24-48 hours after the purchase by Visa, Mastercard and American Express and for consistency, Fidel API processes cleared transactions and triggers the `transaction.clearing` webhook events daily at 12:00 UTC.
@@ -113,9 +109,7 @@ Please allow up to 24h after card linking to start receiving Mastercard and Amer
 
 The wallet property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
 
-<br/>
-
-# Create Transaction
+## Create Transaction
 
 For testing purposes, you can use the **API Playground** to create transactions and test your application logic.
 
@@ -125,9 +119,7 @@ On the dashboard, go to **API Playground** and click on **Create transaction** f
 
 To create a test transaction you only need to submit three properties, the `cardId`, `locationId` and the `amount` of the transaction you want to create. You can use the dropdown menus to set these properties. If the transaction is created successfully you will see the transaction object in the response body box.
 
-<br/>
-
-<h5>Create sample transactions in test mode using the API Playground.</h5>
+##### Create sample transactions in test mode using the API Playground.
 
 ![Create transaction](https://docs.fidel.uk/assets/images/create-transaction.png "Create transaction")
 

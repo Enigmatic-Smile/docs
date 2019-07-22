@@ -1,5 +1,6 @@
-## Web SDK
-**The Fidel Web SDK** is a secure HTML iFrame with customisable pre-built UI that allows you to easily collect credit card details, tokenise and link credit/debit cards with rewards services from your website, e-commerce platform or mobile apps. By using the Web SDK, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements for you.
+# Web SDK
+
+**The Fidel Web SDK** is a secure HTML iFrame with customisable pre-built UI that allows you to easily collect credit card details, tokenise and link credit/debit cards with rewards services from your website, e-commerce platform or mobile apps. By using FIDEL Web SDK, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements for you.
 
 <img
   src="https://docs.fidel.uk/assets/images/sdk_web.png"
@@ -7,15 +8,12 @@
   alt="Preview of the web SDK"
 />
 
-<br/>
-
 After successfully tokenising and linking the card on Visa or MasterCard networks, Fidel API returns the created card object with a unique `id` that you must use to link each unique card and transaction to your user’s account. The `id` of each linked card is present on the transaction object as `cardId`. You can now create card-linked web and mobile applications with online and offline transactional data visibility in a matter of minutes.
 
 All modern desktop and mobile browsers are supported, including Chrome, Firefox, Safari, Microsoft IE and Edge. Please contact us at [developer@fidel.uk](mailto:developer@fidel.uk) if you experience any browser related issues.
 
-<br/>
+## Integrating Web SDK
 
-# Integrating Web SDK
 You can easily integrate the Web SDK in your website or mobile app with only a few lines of code.
 
 ##### Fidel Web SDK script
@@ -50,9 +48,7 @@ fileName:index.html
 </script>
 ```
 
-<br/>
-
-To integrate **Fidel Web SDK** in your website or mobile app, you need to add the script above in your website or mobile web view. For mobile apps, however, we recommend using the [mobile SDKs](https://docs.fidel.uk/mobile-sdk).
+To integrate **Fidel Web SDK** in your website or mobile app, you need to add the script above in your website or mobile web view. For mobile apps, however, we recommend using the [mobile SDKs](/mobile-sdk).
 
 ##### Web SDK parameters
 
@@ -206,21 +202,17 @@ To integrate **Fidel Web SDK** in your website or mobile app, you need to add th
     </div>
 </dl>
 
-<br/>
-
 The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. If `data-auto-close` is set to `false` the form won't be automatically closed after linking a card. You can set `data-close-events` to `false` and the form won't add the default close events. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
 
-<h5>Fidel.openForm() global function</h5>
+##### Fidel.openForm() global function
 
 ```html
 <button type="submit" onclick="Fidel.openForm()">Link Card</button>
 ```
 
-<br/>
-
 To receive the callback after the form submission you must pass a Javascript global function name reference on the `data-callback` property that will return the response and error objects. Please see an example below:
 
-<h5>Web SDK callback global function example</h5>
+##### Web SDK callback global function example
 
 ```html
 fileName:index.html
@@ -231,8 +223,6 @@ fileName:index.html
   }
 </script>
 ```
-
-<br/>
 
 To store custom data related to the card you must pass a Javascript global object name reference on the `data-metadata` property. The metadata `id` property is a *non-unique index* to that card, so you can set it to a custom UID (unique identifier). Later you can retrieve the card(s) using the same `metadata.id`, reference [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference#list-cards-from-metadata-id).
 
@@ -249,6 +239,4 @@ fileName:index.html
 </script>
 ```
 
-<br/>
-
-The FIDEL Web SDK can be customised to better fit your website. You can provide a button title, title, subtitle and logo by using the properties `data-button-title`, `data-title`, `data-subtitle` and `data-logo`. You can customize CSS colors by using `data-background-color`, `data-button-color`, `data-button-title-color`, `data-subtitle-color`, `data-terms-color` and `data-title-color`.
+The Fidel Web SDK can be customised to better fit your website. You can provide a button title, title, subtitle and logo by using the properties `data-button-title`, `data-title`, `data-subtitle` and `data-logo`. You can customize CSS colors by using `data-background-color`, `data-button-color`, `data-button-title-color`, `data-subtitle-color`, `data-terms-color` and `data-title-color`.
