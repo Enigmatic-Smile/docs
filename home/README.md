@@ -58,11 +58,13 @@ By using Fidel SDKs, card details are sent directly to Fidel API through a secur
 
 Your apps will receive an `id` back that identifies the card in each transaction.
 
-<img
-  src="https://docs.fidel.uk/assets/images/sdks_main.png"
-  srcset="https://docs.fidel.uk/assets/images/sdks_main.png, https://docs.fidel.uk/assets/images/sdks_main@2x.png 2x"
-  alt="Preview of the web and mobile Fidel card linking UI"
-/>
+<div>
+  <img
+    src="https://docs.fidel.uk/assets/images/sdks_main.png"
+    srcset="https://docs.fidel.uk/assets/images/sdks_main.png, https://docs.fidel.uk/assets/images/sdks_main@2x.png 2x"
+    alt="Preview of the web and mobile Fidel card linking UI"
+  />
+</div>
 
 <button id="link-card-button" class="with-icon" type="submit" onclick="Fidel.openForm()">
   <img src="https://docs.fidel.uk/assets/images/eye.svg" />
