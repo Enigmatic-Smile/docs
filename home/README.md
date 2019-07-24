@@ -79,7 +79,7 @@ Use one of the test cards, such as `4444000000004004` and enter an expiry date i
 fileName:index.html
 <script
   type="text/javascript"
-  src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
+  src="https://resources.fidel.uk/sdk/js/v2/fidel.js"
   class="fidel-form"
   data-company-name="Your Company"
   data-key="pk_test_demo"
