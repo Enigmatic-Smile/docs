@@ -7,4 +7,4 @@
 [Webhooks](/webhooks)
 [Offers](/offers)
 [Web SDK](/web-sdk)
-[Mobile SDKs](/mobile-sdk)
+[Mobile SDKs](/mobile-sdks)

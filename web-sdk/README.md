@@ -1,6 +1,6 @@
 # Web SDK
 
-**The Fidel Web SDK** is a secure HTML iFrame with customisable pre-built UI that allows you to easily collect credit card details, tokenise and link credit/debit cards with rewards services from your website, e-commerce platform or mobile apps. By using FIDEL Web SDK, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements for you.
+**The Fidel Web SDK** is a secure HTML iFrame with customisable pre-built UI that allows you to easily collect credit card details, tokenise and link credit/debit cards with rewards services from your website, e-commerce platform or mobile apps. By using the Fidel Web SDK, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements for you.
 
 <img
   src="https://docs.fidel.uk/assets/images/sdk_web.png"
@@ -18,11 +18,13 @@ You can easily integrate the Web SDK in your website or mobile app with only a f
 
 ##### Fidel Web SDK script
 
+*Note: You can still use v1, by setting the script `src` to `https://resources.fidel.uk/sdk/js/v1/fidel.js`.*
+
 ```html
 fileName:index.html
 <script
   type="text/javascript"
-  src="https://resources.fidel.uk/sdk/js/v1/fidel.js"
+  src="https://resources.fidel.uk/sdk/js/v2/fidel.js"
   class="fidel-form"
   data-company-name="Your company"
   data-key="pk_test_demo"

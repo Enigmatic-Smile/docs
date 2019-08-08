@@ -155,17 +155,17 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 For more detailed documentation about any class in the SDKs and available customisation options, check the [Android repository on Github](https://github.com/FidelLimited/fidel-android).
 
-# React Native
+## React Native
 
-## Getting started
+### Getting started
 
 `$ npm install fidel-react-native --save`
 
-## Project setup
+### Project setup
 
-### iOS
+#### iOS
 
-#### Step 1: Add the Fidel React Native iOS project as a dependency
+##### Step 1: Add the Fidel React Native iOS project as a dependency
 
 1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
 
@@ -175,7 +175,7 @@ For more detailed documentation about any class in the SDKs and available custom
 
 4. Under your target's `Build Settings`, make sure to set `YES` for `Always Embed Swift Standard Libraries`. That's because, by default, your project might not need it. It needs to be `YES` because otherwise the project will not find the Swift libraries to be able to run our native iOS SDK.
 
-#### Step 2: Add the Native iOS SDK as a dependency
+##### Step 2: Add the Native iOS SDK as a dependency
 
 You can use Cocoapods or install the library as a dynamic library.
 
@@ -264,7 +264,7 @@ buildscript {
 
 For a physical device you need to search on Google for *Google Play Services*. There will be a link that takes you to the Play Store and from there you will see a button to update it (*do not* search within the Play Store).
 
-## Usage
+### Usage
 
 Import Fidel in your RN project:
 
@@ -313,7 +313,7 @@ Fidel.openForm((error, result) => {
 
 Both `result` and `error` are objects that look like in the following examples:
 
-### Result
+#### Result
 
 ```javascript
 {
@@ -335,7 +335,7 @@ Both `result` and `error` are objects that look like in the following examples:
 }
 ```
 
-### Error
+#### Error
 
 ```javascript
 {
@@ -345,9 +345,9 @@ Both `result` and `error` are objects that look like in the following examples:
 }
 ```
 
-## SDK options
+### SDK options
 
-### bannerImage
+#### bannerImage
 Use this option to customize the topmost banner image with the Fidel UI. Your custom asset needs to be resolved in order to be passed to our native module:
 
 ```javascript
@@ -359,7 +359,7 @@ Fidel.setOptions({
 })
 ```
 
-### country
+#### country
 
 Set a default country the SDK should use with:
 
@@ -371,7 +371,7 @@ Fidel.setOptions({
 
 When you set a default country, the card linking screen will not show the country picker UI. The other options, for now, are: `.unitedStates`, `.ireland`, `.sweden`, `.japan`, `.canada`.
 
-### supportedCardSchemes
+#### supportedCardSchemes
 
 We currently support _Visa_, _Mastercard_ and _AmericanExpress_. You can choose to support only one, two or all three. By default the SDK is configured to support all three. (Geographical limitations exist, please [ask on Slack](https://fidel.uk/join-us-on-slack) or [via email](mailto:support@fidel.uk) if you have questions). 
 
@@ -393,7 +393,7 @@ Fidel.setOptions({
 });
 ```
 
-### autoScan
+#### autoScan
 
 Set this property to `true`, if you want to open the card scanning UI immediately after executing `Fidel.openForm`. The default value is `false`.
 
@@ -403,7 +403,7 @@ Fidel.setOptions({
 });
 ```
 
-### metaData
+#### metaData
 
 Use this option to pass any other data with the card data:
 
@@ -413,7 +413,7 @@ Fidel.setOptions({
 });
 ```
 
-### companyName
+#### companyName
 
 Set your company name as it will appear in our consent checkbox text. Please set it to a maximum of 60 characters.
 
@@ -423,7 +423,7 @@ Fidel.setOptions({
 });
 ```
 
-### deleteInstructions
+#### deleteInstructions
 
 Write your custom opt-out instructions for your users. They will be displayed in the consent checkbox text as well.
 
@@ -433,7 +433,7 @@ Fidel.setOptions({
 });
 ```
 
-### privacyUrl
+#### privacyUrl
 
 This is the privacy policy URL that you can set for the consent checkbox text.
 
@@ -443,7 +443,7 @@ Fidel.setOptions({
 });
 ```
 
-### Test card numbers
+#### Test card numbers
 
 In the test environment, you can use the following Visa, Mastercard or American Express test card numbers. You must use a test API Key for them to work.
 
