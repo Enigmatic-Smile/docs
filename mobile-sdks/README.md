@@ -199,7 +199,7 @@ target 'example' do
 end
 ```
 
-If you use an older Swift version, please check our [iOS SDK README](https://github.com/FidelLimited/fidel-ios#readme). You'll find a suitable version you should set for your Cocoapods dependency.
+If you use an older Swift version, you should install a different `Fidel` pod version. If your project uses Swift `4.2.1`, for example, your Podfile should include `pod Fidel, '~>1.4`, *not* `pod 'Fidel'` (which installs the latest version of the latest Swift supported version). Please check our [iOS SDK docs](/mobile-sdks/ios). You’ll find a suitable version you should set for our Fidel iOS SDK.
 
 2. Run `pod install` in your terminal.
 
