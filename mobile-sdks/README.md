@@ -157,6 +157,8 @@ For more detailed documentation about any class in the SDKs and available custom
 
 ## React Native
 
+**Note:** `fidel-react-native` does not support `react-native 0.60`, so please make sure you bootstrap your projects using `react-native init --version="react-native@0.59.0" yourProject`.
+
 ### Getting started
 
 `$ npm install fidel-react-native --save`
