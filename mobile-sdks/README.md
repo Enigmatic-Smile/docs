@@ -157,15 +157,54 @@ For more detailed documentation about any class in the SDKs and available custom
 
 ## React Native
 
-**Note:** `fidel-react-native` does not support `react-native 0.60`, so please make sure you bootstrap your projects using `react-native init --version="react-native@0.59.0" yourProject`.
-
 ### Getting started
 
 `$ npm install fidel-react-native --save`
 
-### Project setup
+### (Almost) Automatic linking (for RN >= 0.60)
+
+`$ react-native link fidel-react-native`
 
 #### iOS
+
+1. Go to the `ios` folder. Please check that in your `Podfile` you have the following line:
+
+`pod 'fidel-react-native', :path => '../node_modules/fidel-react-native'`
+
+2. Please make sure that the minimum platform is set to 9.1 in your Podfile: `platform :ios, '9.1'`.
+
+3. Run `pod install`.
+
+#### Android
+
+1. Append Jitpack to `android/build.gradle`:
+
+```java
+allprojects {
+  repositories {
+    ...
+    maven { url "https://jitpack.io" }
+  }
+}
+```
+
+2. Make sure that the `minSdkVersion` is the same or higher than the `minSdkVersion` of our native Android SDK:
+
+```java
+buildscript {
+  ext {
+    ...
+    minSdkVersion = 19
+    ...
+  }
+}
+```
+
+---
+
+### Manual linking
+
+#### iOS manual linking
 
 ##### Step 1: Add the Fidel React Native iOS project as a dependency
 
@@ -209,7 +248,7 @@ If you use an older Swift version, you should install a different `Fidel` pod ve
 
 In order to allow scanning cards with the camera, make sure to add the key `NSCameraUsageDescription` to your iOS app `Info.plist` and set the value to a string describing why your app needs to use the camera (e.g. "To scan credit cards."). This string will be displayed when the app initially requests permission to access the camera.
 
-### Android
+#### Android manual linking
 
 1. Append the following lines to `android/settings.gradle`:
 
@@ -224,22 +263,7 @@ project(':fidel-react-native').projectDir = new File(rootProject.projectDir, '..
 implementation project(':fidel-react-native')
 ```
 
-3. Open up `android/app/src/main/java/[...]/MainApplication.java`
-
-- Add `import com.fidelreactlibrary.FidelPackage;` to the imports at the top of the file
-- Add `new FidelPackage()` to the list returned by the `getPackages()` method:
-
-```java
-protected List <ReactPackage> getPackages() {
-  return Arrays.<ReactPackage>asList(
-    new MainReactPackage(),
-    new FidelPackage(),
-    // you might have other packages here as well.
-  );
-}
-```
-
-4. Append Jitpack to `android/build.gradle`:
+3. Append Jitpack to `android/build.gradle`:
 
 ```java
 allprojects {
@@ -250,7 +274,7 @@ allprojects {
 }
 ```
 
-5. Make sure that the `minSdkVersion` is the same or higher than the `minSdkVersion` of our native Android SDK:
+4. Make sure that the `minSdkVersion` is the same or higher than the `minSdkVersion` of our native Android SDK:
 
 ```java
 buildscript {
@@ -259,6 +283,21 @@ buildscript {
     minSdkVersion = 19
     ...
   }
+}
+```
+
+5. Only for projects initialized with **RN <= 0.59**: Open up `android/app/src/main/java/[...]/MainApplication.java`
+
+- Add `import com.fidelreactlibrary.FidelPackage;` to the imports at the top of the file
+- Add `new FidelPackage()` to the list returned by the `getPackages()` method:
+
+```java
+protected List <ReactPackage> getPackages() {
+  return Arrays.<ReactPackage>asList(
+    new MainReactPackage(),
+    new FidelPackage(),
+    // you might have other Packages here as well.
+  );
 }
 ```
 
