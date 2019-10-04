@@ -145,7 +145,7 @@ To integrate **Fidel Web SDK** in your website or mobile app, you need to add th
             <span><code>data-lang</code></span>
             <em>default: en</em>
         </dt>
-        <dd>the localization language to be used</dd>
+        <dd>the localization language to be used. Available additional language: sv (Swedish)</dd>
     </div>
     <div>
         <dt>
