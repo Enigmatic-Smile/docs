@@ -192,7 +192,7 @@ fileName:offer.json
             <span><code>programId</code></span>
             <em>string</em>
         </dt>
-        <dd>Id of the Pogram the offer will be activate on. Set when publisher accepts offer and selects Program. Participating locations will be added to this Program and synced with the schemes.</dd>
+        <dd>Id of the Program the offer will be activate on. Set when publisher accepts offer and selects Program. Participating locations will be added to this Program and synced with the schemes.</dd>
     </div>
     <div>
         <dt>
