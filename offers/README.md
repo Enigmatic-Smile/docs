@@ -3,11 +3,6 @@
 The Offer object holds the details about a card linked offer. Offers can be created by developers using the [Offer API](https://reference.fidel.uk/v1/reference#create-offer) or by Brands/Merchants using the CLO dashboard at [clo.fidel.uk](https://clo.fidel.uk). 
 A card linked offer specifies a set of parameters that will be used to qualify a card transaction made at a participating Brand’s online or offline store.
 
-<div class="info-box">
-    <small>Important note</small><br/>
-    This functionality is in private beta only available to a selected group of Brands. Final public release planned for Q1 2019. Please mail us at developer@fidel.uk to request access.
-</div>
-
 ## Offer object
 
 ```json
@@ -192,7 +187,7 @@ fileName:offer.json
             <span><code>programId</code></span>
             <em>string</em>
         </dt>
-        <dd>Id of the Pogram the offer will be activate on. Set when publisher accepts offer and selects Program. Participating locations will be added to this Program and synced with the schemes.</dd>
+        <dd>Id of the Program the offer will be activate on. Set when publisher accepts offer and selects Program. Participating locations will be added to this Program and synced with the schemes.</dd>
     </div>
     <div>
         <dt>
