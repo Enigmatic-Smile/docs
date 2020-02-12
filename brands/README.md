@@ -4,7 +4,7 @@ After creating an account and having access to the dashboard, the next step is t
 
 The **Brand** (Merchant) object is used to aggregate locations and keep the status of the Brand consent. One of the requirements, when creating a Brand and before adding locations, is to obtain Brand consent from an authorized personnel (Brand User) and to provide the Brand with access to view the transactional data that is being shared.
 
-You can only create new locations on live environment from Brands that you have invited to create an account, and that have authorized you to access their card linked transactions. On test environment, the consent status is automatically approved so you can continue testing.
+You can only create new locations on live environment from Brands that you have invited to create an account, and that have authorised you to access their card linked transactions. On test environment, the consent status is automatically approved so you can continue testing.
 
 ## Create Brand
 
