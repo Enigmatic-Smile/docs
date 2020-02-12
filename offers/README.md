@@ -229,7 +229,7 @@ fileName:offer.json
             <span><code>type</code></span>
             <em>object</em>
         </dt>
-        <dd>An offer can be a fixed amount off or a percentage discount of the transactions amount. <code>type: {name: string, value: number}</code>. The <code>name</code> property can have two values: <code>amount</code> and <code>discount</code>. The <code>value</code> property saves the fixed amount of curency to be rewarded or the percentage value in case of a discount offer.</dd>
+        <dd>An offer can be a fixed amount off or a percentage discount of the transactions amount. <code>type: {name: string, value: number}</code>. The <code>name</code> property can have one of the following two values: <code>amount</code> and <code>discount</code>. The <code>value</code> property saves the fixed amount of currency to be rewarded or the percentage value in case of a discount offer.</dd>
     </div>
     <div>
         <dt>
@@ -312,7 +312,7 @@ Offer status will update to completed from active when the end date or the maxim
 
 ## Qualification
 
-When an offer is `Active`, the transaction qualification will start. Every transaction made a by a linked card on a location where an offer is ative will be analysed considering the offer parameters and can qualify or not qualify for the offer.
+When an offer is `Active`, the transaction qualification will start. Every transaction made a by a linked card on a location where an offer is active will be analysed considering the offer parameters and can qualify or not qualify for the offer.
 In both cases, an offer object is appended to the original transaction object containing all the qualification offer data. In case the transaction qualifies, `cashback` and `performanceFee` amounts are automatically calculated and the `qualified` property is set to `true`. If the transactions does not qualify, `cashback` and `performanceFee` amounts will be `0` and `qualified` property `null`.
 
 ```json
