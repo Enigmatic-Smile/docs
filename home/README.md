@@ -9,7 +9,7 @@
     </a>
   </div>
   <div class="column">
-    <a href="https://intercom.help/fidelapi" class="content">
+    <a href="https://fidellimited.zendesk.com/hc/en-gb" class="content">
       <img src="https://docs.fidel.uk/assets/images/help_center.svg" />
       <h2>Help Centre</h2>
       <h3>Find information and answers to frequently asked questions</h3>
