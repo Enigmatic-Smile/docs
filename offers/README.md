@@ -129,6 +129,13 @@ fileName:offer.json
     </div>
     <div>
         <dt>
+            <span><code>live</code></span>
+            <em>boolean</em>
+        </dt>
+        <dd>Whether the offer should be created in live or test environment.</dd>
+    </div>
+    <div>
+        <dt>
             <span><code>locationsFile</code></span>
             <em>string</em>
         </dt>
