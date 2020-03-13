@@ -19,6 +19,7 @@ fileName:offer.json
   "daysOfWeek": [0,1,2,3,4,5,6],
   "endDate": "2019-06-24T13:13:00.000Z",
   "feeSplit": 70,
+  "live": true,
   "locationsFile": "./all_locations.csv",
   "locationsTotal": 240,
   "maxRedemption": 1000,
