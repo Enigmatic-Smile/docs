@@ -19,6 +19,7 @@ fileName:offer.json
   "daysOfWeek": [0,1,2,3,4,5,6],
   "endDate": "2019-06-24T13:13:00.000Z",
   "feeSplit": 70,
+  "live": true,
   "locationsFile": "./all_locations.csv",
   "locationsTotal": 240,
   "maxRedemption": 1000,
@@ -125,6 +126,13 @@ fileName:offer.json
             <em>number</em>
         </dt>
         <dd>Percentage of the performance fee to be charged by Fidel to the Brand.</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>live</code></span>
+            <em>boolean</em>
+        </dt>
+        <dd>Whether the offer should be created in live or test environment.</dd>
     </div>
     <div>
         <dt>
