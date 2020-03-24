@@ -9,44 +9,46 @@ After the card is linked successfully, we will monitor any purchase made by this
 
 ## Add Card
 
-### Testing Card Addition
+### Testing Card Addition: Playground
 To test the addition of a new card to a program, go to the [**API Playground**](https://dashboard.fidel.uk/playground), and choose **Add Card** from the left menu endpoints.  The method is set to POST and the endpoint to **_/cards_**.  When you choose the program that you would like to connect the card to from the dropdown, the POST url will change to show the program ID.  In the edit field of the playground is the JSON object that will be used to add the card. To add a card, use one of the e available testing card numbers displayed below, an expiry date in the future, the three letter `countryCode`. You must set `termsOfUse` to `true` to define that the user agreed to the terms of use and opt-in. 
 
-<div class="info-box">
-    <small>Important note</small><br/>
-    To use the <strong>Create Card</strong> endpoint with the SDKs, you must use the test public key. Using the <strong>Create Card</strong> API endpoint on live environment requires your company to be PCI Compliant (and will use the secret key. If you want to use it instead of the SDKs, please contact us at developer@fidel.uk.
-</div>
+>
+>    <small>Important note</small><br/>
+>    To use the <strong>Create Card</strong> endpoint, you must use the test public key. Using the <strong>Create Card</strong> API endpoint on live environment requires your company to be PCI Compliant (and will use the secret key. If you want to use it instead of the SDKs, please contact us at developer@fidel.uk.
 
 ##### Create sample cards in test mode using the API Playground.
 
 ![Create card](https://docs.fidel.uk/assets/images/create-card.png "Create card")
 
-If the card is successfully linked, the newly created card object is returned in JSON and displayed in the response body box. You can also use the [Web SDK](/web-sdk) to create cards in test environment using your SDK test key. If an error occurs on card creation, you receive the error message in the HTTP response body.
+When the card is successfully linked, the newly created card object is returned in JSON and displayed in the response body box. IF the card lining fails, the failure object will be delivered instead.  
+### Testing Card Addition: Web SDK
+You can also use the [Web SDK](/web-sdk) to create cards in test environment using your public test key. If an error occurs on card creation, you receive the error message in the HTTP response body.
 
-##### JSON Card object
+##### JSON Card Response Object
 
 ```json
-fileName:card.json
+fileName:cardResponse.json
 {
-  "id": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
-  "accountId": "a30e933f-cde1-4ac1-9a5e-acd329497a48",
-  "programId": "e3fff00f-ab85-4a0a-b572-08b464ebf67a",
-  "metadata": {
-    "id": "this-is-the-metadata-id",
-    "customKey1": "customValue1",
-    "customKey2": "customValue2"
-  },
-  "provider": "mastercard",
-  "type": "master-card",
-  "lastNumbers": "3183",
-  "expMonth": 1,
-  "expYear": 2018,
-  "expDate": "2018-01-01T00:00:00.000Z",
-  "countryCode": "GBR",
-  "mapped": true,
-  "live": true,
-  "created": "2017-02-13T17:02:12.535Z",
-  "updated": "2017-02-13T17:17:02.833Z"
+    "items":[
+        {
+            "accountId":"a3de60c3-849a-4faa-8447-bcd16efb148c",
+            "countryCode":"GBR",
+            "expDate":"2022-01-31T23:59:59.999Z",
+            "expMonth":1,
+            "expYear":2022,
+            "firstNumbers":"444400",
+            "lastNumbers":"4898",
+            "live":true,
+            "programId":"bca59bd9-171b-4d1f-92af-4b2b7305268a",
+            "scheme":"visa",
+            "type":"visa",
+            "updated":"2020-03-24T14:10:19.597Z",
+            "created":"2020-03-24T14:10:19.597Z",
+            "id":"68cb2b1c-ad78-44bc-8abc-d93277667240"
+        }],
+    "resource":"/v1/programs/bca59bd9-171b-4d1f-92af-4b2b7305268a/cards",
+    "status":201,
+    "execution":34.24295
 }
 ```
 
