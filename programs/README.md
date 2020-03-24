@@ -4,7 +4,7 @@ A **Program** is a set of locations that uniquely represent an offline or online
 
 ##### Hierarchy diagram of the Fidel API object structure.
 
-![Programs structure diagram](https://docs.fidel.uk/assets/images/programs_diagram.png "Programs structure diagram")
+![Programs structure diagram](https://docs.fidel.uk/assets/images/programs_diagram_2020.png "Programs structure diagram")
 
 ## Create Program
 To create a new program, go to the **Programs** page on the dashboard, click the **+** icon and enter a name. The program will be created with the name provided without any initial locations.
@@ -13,25 +13,25 @@ To create a new program, go to the **Programs** page on the dashboard, click the
 
 ![Create program](https://docs.fidel.uk/assets/images/create-program.png "Create program")
 
-A `programId` will be generated and must be passed as a data property when using the SDKs to link cards to this program. Cards are linked to Programs and consequently to Locations.
+A `programId` will be generated and is used as a data property when using the SDKs to link cards to this program. Cards are linked to Programs and consequently to Locations.
 
 ## Add Locations
-To add locations to a program, first you will need to create a Brand. Every Location is linked to a Brand.
+Every Location is linked to a Brand, and the Brand is linked to the Program.
 
-Once you have a Brand, select a program from the **Programs** page, click the **+** icon and enter the requested info. To add a location you need to select the Brand with approved consent, enter address, postcode, city and select the country for this location.
+Once you have a Brand, select a Program from the **Programs** page, click the **+** icon and enter the requested info. To add a location you need to select the Brand with approved consent, enter address, postcode, city and select the country for this location.  If your location has been assigned Merchant IDs (MIDs) from the card processors, you may add them now.  Creating locations with MID makes identifying merchant locations more accurate and faster to onboard.
 
-##### After creating a program, you can add locations.
+##### After creating a Program, you can add Locations.
 
 ![Add locations](https://docs.fidel.uk/assets/images/add-locations.png "Add locations")
 
-To start tracking credit/debit card transactions on specific locations, we need to have the address of each location, submit them for onboarding with VISA, Mastercard and American Express, and keep track of the status of each location. 
+To start tracking credit/debit card transactions on specific Locations, we need to have the address of each Location, submit them for onboarding with VISA, Mastercard and American Express, and keep track of the status of each location. 
 We call this process Program Sync ⚡️.
 
-We do not require you to send us merchant IDs, we only need the addresses of the merchant locations you want to track and we do the rest.
+Location status is reported separately for each card scheme.  Each location/scheme combination can have one of four statuses: **Inactive, Syncing, Active, or Failed**. 
+In the test environment, every added Location skips the Program Sync processand is automatically set to *Active*.
+In the live environment, the location begins in an *Inactive* state. The Location status is updated to *Syncing* after it is  submitted to the card schemes. It then moves to *Active* when we receive confirmation from the schemes that the location has been successfully on-boarded to your program. If the schemes have an issue with a specific location, the status is set to *Failed* and a case is opened to resolve the issue.
 
-Location status is saved by scheme. You can also access more information about each location, such as whether the location is real-time enabled and whether a transaction has ever been recorded at the location. Each location can have one of four status: **Inactive, Syncing, Active, or Failed** for each scheme. Prior to syncing the location is ‘Inactive’. The location status is updated to ‘Syncing’ after we submit it to the schemes. It then moves to ‘Active’ when we receive confirmation from the schemes that the location has been successfully on-boarded to your program. If the schemes have an issue with a specific location, the status is set to ‘Failed’ and a case is opened to resolve the issue.
-
-You can track your location status on the dashboard. A green check ✅ means we have received at least one transaction from this location confirming the active onboarding status. On Mastercard and Amex an **RT** icon will show where we can track real-time authorisation transaction and the **RT** will turn green when we receive the first auth transaction from this location.
+For Live Locations, yyou can track your location status on the dashboard. A green check ✅ means we have received at least one transaction from this location confirming the active onboarding status. A **RT** icon will show where we can track real-time authorisation transaction and the **RT** will turn green when we receive the first auth transaction from this location.
 
 While your Program is syncing you have a progress bar to follow the current status and estimated finish time.
 
