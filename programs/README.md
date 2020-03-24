@@ -32,8 +32,8 @@ Location status is reported separately for each card scheme.  Each location/sche
 
 In the live environment, the location begins in an *Inactive* state. The Location status is updated to *Syncing* after it is  submitted to the card schemes. It then moves to *Active* when we receive confirmation from the schemes that the location has been successfully on-boarded to your program. If the schemes have an issue with a specific location, the status is set to *Failed* and a case is opened to resolve the issue.
 
-For Locations in the Live environment, yyou can track your location status on the dashboard. A green check ✅ means we have received at least one transaction from this location confirming the active onboarding status. A **RT** icon will show where we can track real-time authorisation transaction and the **RT** will turn green when we receive the first auth transaction from this location.
+For Locations in the Live environment, you can track your Location status on the dashboard. A green check ✅ means we have received at least one transaction from this Location confirming the active onboarding status. A **RT** icon will show where we can track real-time authorisation transaction and the **RT** will turn green when we receive the first auth transaction from this Location.
 
 While your Program is syncing you have a progress bar to follow the current status and estimated finish time.
 
-In test mode, a new location is automatically synced and set to active status. In a live environment, new locations added will require 1-2 weeks to be synced with the card schemes before becoming active. During that time they will have a pending status.
+In test mode, a new Location is automatically synced and set to active status. In a live environment, new Locations added will require 1-2 weeks to be synced with the card schemes before becoming active. During that time they will have a pending status.
