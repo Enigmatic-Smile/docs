@@ -7,13 +7,13 @@ A **Program** is a set of locations that uniquely represent an offline or online
 ![Programs structure diagram](../assets/images/programs_diagram_2020.png "Programs structure diagram")
 
 ## Create Program
-To create a new program, go to the **Programs** page on the dashboard, click the **+** icon and enter a name. The program will be created with the name provided without any initial locations.
+To create a new program, go to the **Programs** page on the dashboard, click the **+** icon and enter a name. The Program will be created with the name provided without any initial locations.
 
 ##### Go to the Programs page on the dashboard to create a new program.
 
 ![Create program](https://docs.fidel.uk/assets/images/create-program.png "Create program")
 
-A `programId` will be generated and is used as a data property when using the SDKs to link cards to this program. Cards are linked to Programs and consequently to Locations.
+A `programId` will be generated and is used as a data property when using the SDKs to link Cards to this Program. Cards are linked to Programs and consequently to Locations.
 
 ## Add Locations
 Every Location is linked to a Brand, and the Brand is linked to the Program.
@@ -28,10 +28,10 @@ To start tracking credit/debit card transactions on specific Locations, we need 
 We call this process Program Sync ⚡️.
 
 Location status is reported separately for each card scheme.  Each location/scheme combination can have one of four statuses: **Inactive, Syncing, Active, or Failed**. 
-In the test environment, every added Location skips the Program Sync processand is automatically set to *Active*.
+> In the test environment, every added Location skips the Program Sync processand is automatically set to *Active*.
 In the live environment, the location begins in an *Inactive* state. The Location status is updated to *Syncing* after it is  submitted to the card schemes. It then moves to *Active* when we receive confirmation from the schemes that the location has been successfully on-boarded to your program. If the schemes have an issue with a specific location, the status is set to *Failed* and a case is opened to resolve the issue.
 
-For Live Locations, yyou can track your location status on the dashboard. A green check ✅ means we have received at least one transaction from this location confirming the active onboarding status. A **RT** icon will show where we can track real-time authorisation transaction and the **RT** will turn green when we receive the first auth transaction from this location.
+For Locations in the Live environment, yyou can track your location status on the dashboard. A green check ✅ means we have received at least one transaction from this location confirming the active onboarding status. A **RT** icon will show where we can track real-time authorisation transaction and the **RT** will turn green when we receive the first auth transaction from this location.
 
 While your Program is syncing you have a progress bar to follow the current status and estimated finish time.
 
