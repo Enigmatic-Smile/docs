@@ -8,7 +8,7 @@
   alt="Preview of the web SDK"
 />
 
-After successfully tokenising and linking the card on Visa or MasterCard networks, Fidel API returns the created card object with a unique `id` that you must use to link each unique card and transaction to your user’s account. The `id` of each linked card is present on the transaction object as `cardId`. You can now create card-linked web and mobile applications with online and offline transactional data visibility in a matter of minutes.
+After successfully tokenising and linking the card on American Express, Visa or MasterCard networks, Fidel API returns the created card object with a unique `id` that you must use to link each unique card and transaction to your user’s account. The `id` of each linked card is present on the transaction object as `cardId`. You can now create card-linked web and mobile applications with online and offline transactional data visibility in a matter of minutes.
 
 All modern desktop and mobile browsers are supported, including Chrome, Firefox, Safari, Microsoft IE and Edge. Please contact us at [developer@fidel.uk](mailto:developer@fidel.uk) if you experience any browser related issues.
 
@@ -19,6 +19,9 @@ You can easily integrate the Web SDK in your website or mobile app with only a f
 ##### Fidel Web SDK script
 
 *Note: You can still use v1, by setting the script `src` to `https://resources.fidel.uk/sdk/js/v1/fidel.js`.*
+
+
+Here are the parameters that must be defined in your JavaScript.  All of the parameters that begin with `data-` can be customised for your application, but `data-program-id`, `data-key`, `data-country-code` are the absolute minimum to have reports arrive back your Fidel Dashboard.  The full parameter description is found below the code.
 
 ```html
 fileName:index.html
@@ -49,8 +52,6 @@ fileName:index.html
   data-title-color="#000000">
 </script>
 ```
-
-To integrate **Fidel Web SDK** in your website or mobile app, you need to add the script above in your website or mobile web view. For mobile apps, however, we recommend using the [mobile SDKs](/mobile-sdk).
 
 ##### Web SDK parameters
 
@@ -207,6 +208,7 @@ To integrate **Fidel Web SDK** in your website or mobile app, you need to add th
 The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. If `data-auto-close` is set to `false` the form won't be automatically closed after linking a card. You can set `data-close-events` to `false` and the form won't add the default close events. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
 
 ##### Fidel.openForm() global function
+To open the iframe Form with a button, you could use this example:
 
 ```html
 <button type="submit" onclick="Fidel.openForm()">Link Card</button>
@@ -242,3 +244,5 @@ fileName:index.html
 ```
 
 The Fidel Web SDK can be customised to better fit your website. You can provide a button title, title, subtitle and logo by using the properties `data-button-title`, `data-title`, `data-subtitle` and `data-logo`. You can customize CSS colors by using `data-background-color`, `data-button-color`, `data-button-title-color`, `data-subtitle-color`, `data-terms-color` and `data-title-color`.
+
+A working example implementation of the WebSDK is available on [Glitch](https://glitch.com/~luminous-fire-opera)
