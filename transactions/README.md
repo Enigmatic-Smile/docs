@@ -3,7 +3,7 @@ The transaction object is the central piece of data of your card-linked applicat
 
 ## Transaction object
 
-##### API version including & later than `2019-03-05`
+##### JSON Response: API version from `2019-03-05`
 
 ```json
 fileName:transaction.json
@@ -63,8 +63,8 @@ fileName:transaction.json
 > The wallet property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
 
 <details>
-  <summary style="margin-bottom: 30px;"><h5 style="display: inline-block;">API versions up to 2018-08-16</h5></summary>
-<div class="code-box"><div class="code-block-header"><svg width="16px" height="20px" viewBox="0 0 16 20" version="1.1"><title>Fill 64</title><desc>Created with Sketch.</desc><defs></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="API-Docs-Copy-3" transform="translate(-490.000000, -6818.000000)" fill="#003650"><g id="Group-2-Copy-2" transform="translate(450.000000, 6790.000000)"><g id="Fill-64" transform="translate(40.000000, 28.000000)"><path d="M14.001,18.0005 L2,18.0005 L2,2.0005 L10,2.0005 L10,6.0005 L14,6.0005 L14.001,18.0005 Z M11.414,0.0005 L2,0.0005 C0.897,0.0005 0,0.8985 0,2.0005 L0,18.0005 C0,19.1025 0.897,20.0005 2,20.0005 L14,20.0005 C15.103,20.0005 16,19.1025 16,18.0005 L16,4.5865 L11.414,0.0005 Z"></path></g></g></g></g></svg>transaction.json</div><pre><code class="language-json hljs">{
+  <summary style="margin-bottom: 30px;">JSON Response on API versions to 2018-08-16</summary>
+<div class="code-box"><div class="code-block-header"><svg width="16px" height="20px" viewBox="0 0 16 20" version="1.1"><defs></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="API-Docs-Copy-3" transform="translate(-490.000000, -6818.000000)" fill="#003650"><g id="Group-2-Copy-2" transform="translate(450.000000, 6790.000000)"><g id="Fill-64" transform="translate(40.000000, 28.000000)"><path d="M14.001,18.0005 L2,18.0005 L2,2.0005 L10,2.0005 L10,6.0005 L14,6.0005 L14.001,18.0005 Z M11.414,0.0005 L2,0.0005 C0.897,0.0005 0,0.8985 0,2.0005 L0,18.0005 C0,19.1025 0.897,20.0005 2,20.0005 L14,20.0005 C15.103,20.0005 16,19.1025 16,18.0005 L16,4.5865 L11.414,0.0005 Z"></path></g></g></g></g></svg>transaction.json</div><pre><code class="language-json hljs">{
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"7fdfd5d8-9589-402f-8477-4a727ad239a2"</span>,
   <span class="hljs-attr">"accountId"</span>: <span class="hljs-string">"4ed4b62b-aa4c-43a1-8064-da6d1368e17a"</span>,
   <span class="hljs-attr">"programId"</span>: <span class="hljs-string">"6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba"</span>,
@@ -111,11 +111,11 @@ Please allow up to 24h after card linking to start receiving real-time authoriza
 
 For testing purposes, you can use the **API Playground** to create transactions and test your application logic.
 
-To create a transaction you will need a test program, brand, location and a test card linked to the program.  
+To create a transaction you will need a test Program, Location and a test Card linked to the Program.  
 
 On the dashboard, go to **API Playground** and click on **Create transaction** from the endpoints menu. The method will be set to POST and the endpoint to **_/transactions/test_**. An editable sample JSON object like the following one will be use to create the transaction.
 
-To create a test transaction you only need to submit three properties, the `cardId`, `locationId` and the `amount` of the transaction you want to create. You can use the dropdown menus to set these properties. If the transaction is created successfully you will see the transaction object in the response body box.
+To create a test transaction, use the dropdown menus to select the Program, Location and Card for the transaction.  These selections will be used to populate the `cardId`, `locationId` and the `amount` in the JSON submission.  You can modify any of the terms in the JSON file (including the amount). If the transaction is created successfully you will see the transaction object in the response body box.
 
 ##### Create sample transactions in test mode using the API Playground.
 
