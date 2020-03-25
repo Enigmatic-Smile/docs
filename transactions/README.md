@@ -96,7 +96,7 @@ fileName:transaction.json
 }</code><span class="line-numbers-rows" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 </details>
 
-There are two types of Transactions depending on the time of processing and clearing state: authorization Transactions and clearing Transactions. Authorization Transactions are processed in real-time. You can use the `transaction.auth` webhook event to notify or reward the user in your application in real-time.
+There are two types of Transactions depending on the time of processing and clearing state: authorization Transactions and clearing Transactions. You can use the `transaction.auth` webhook event to notify or reward the user in your application in real-time.
 
 All Transactions are cleared usually 24-48 hours after the purchase and for consistency, Fidel API processes cleared Transactions and triggers the `transaction.clearing` webhook events daily at 12:00 UTC.
 
@@ -115,7 +115,7 @@ To create a transaction you will need a test Program, Location and a test Card l
 
 On the dashboard, go to **API Playground** and click on **Create transaction** from the endpoints menu. The method will be set to POST and the endpoint to **_/transactions/test_**. An editable sample JSON object like the following one will be use to create the transaction.
 
-To create a test transaction, use the dropdown menus to select the Program, Location and Card for the transaction.  These selections will be used to populate the `cardId`, `locationId` and the `amount` in the JSON submission.  You can modify any of the terms in the JSON file (including the amount). If the transaction is created successfully you will see the transaction object in the response body box.
+To create a test transaction, use the dropdown menus to select the Program, Location and Card for the transaction.  These selections will be used to populate the `cardId`, `locationId` and the `amount` in the JSON submission.  You can modify any of the properties in the JSON file (including the amount). If the transaction is created successfully you will see the transaction object in the response body box.
 
 ##### Create sample transactions in test mode using the API Playground.
 
