@@ -9,10 +9,9 @@ You can create up to five webhook URLs for the same event in the same Program. F
 
 Fidel only accepts HTTPS URLs for webhooks endpoints. In order to create webhooks and receive event data, your server must be configured to support HTTPS with a valid certificate.
 
-<div class="info-box">
-    <small>Important note</small><br/>
-    To confirm receipt of a webhook event, your server endpoint should return a `200` HTTP status code. Any other response will be treated as a failure and we retry the request three times over the next hour with exponential back off.
-</div>
+
+> ***Important Note:***   To confirm receipt of a webhook event, your server endpoint should return a `200` HTTP status code. Any other response will be treated as a failure and we retry the request three times over the next hour with exponential back off.
+
 
 ## Authentication
 
@@ -147,7 +146,7 @@ fileName:card.failed
 
 ### Transaction
 
-**Authorisation** transaction events are triggered while the customer is making the payment in-store in real-time (available on MasterCard and American Express). When a customer makes a payment with a linked Mastercard debit/credit card in an auth-enabled location, a `transaction.auth` event is triggered and the transaction object sent to your specified URL in real-time.
+**Authorisation** transaction events are triggered while the customer is making the payment in-store in real-time. When a customer makes a payment with a linked debit/credit card in an auth-enabled location, a `transaction.auth` event is triggered and the transaction object sent to your specified URL in real-time.
 
 **Clearing** events are triggered when the transaction is settled, usually happens 24-48 hours after the payment has been made. For consistency, Fidel processes clearing transactions triggering the `transaction.clearing` webhook events daily at 12:00 UTC. Only one transaction is sent per event.
 
