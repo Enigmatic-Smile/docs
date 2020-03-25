@@ -10,8 +10,10 @@ You can create up to five webhook URLs for the same event in the same Program. F
 Fidel only accepts HTTPS URLs for webhooks endpoints. In order to create webhooks and receive event data, your server must be configured to support HTTPS with a valid certificate.
 
 
-> ***Important Note:***   To confirm receipt of a webhook event, your server endpoint should return a `200` HTTP status code. Any other response will be treated as a failure and we retry the request three times over the next hour with exponential back off.
-
+<div class="info-box">
+    <small>Important note</small><br/>
+    To confirm receipt of a webhook event, your server endpoint should return a `200` HTTP status code. Any other response will be treated as a failure and we retry the request three times over the next hour with exponential back off.
+</div>
 
 ## Authentication
 
