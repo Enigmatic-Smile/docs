@@ -9,10 +9,10 @@
     </a>
   </div>
   <div class="column">
-    <a href="https://fidellimited.zendesk.com/hc/en-gb" class="content">
+    <a href="https://community.fidel.uk/c/Frequently-Asked-Questions" class="content">
       <img src="https://docs.fidel.uk/assets/images/help_center.svg" />
       <h2>Help Centre</h2>
-      <h3>Find information and answers to frequently asked questions</h3>
+      <h3>Find information and answers to frequently asked questions in our Community FAQ.</h3>
     </a>
   </div>
 </div>
@@ -44,12 +44,7 @@ Currently, the API is available in the **United States**, **UK**, **Ireland**, *
 
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 
-Join our developers’ Slack channel for API discussions, documentation, roadmap and new features. We’re always happy to help and answer any questions. Join by clicking the button below:
-
-<a class="button with-icon" href="https://fidel.uk/join-us-on-slack" target="blank">
-  <img src="https://docs.fidel.uk/assets/images/slack-icon.svg" />
-  <span>Slack</span>
-</a>
+Join our [Developer Community](https://community.fidel.uk/) for API discussions, documentation, frequently asked questions,  roadmap and new features. We’re always happy to help and answer any questions. 
 
 ## Card Linking
 The iOS, Android and Web SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
