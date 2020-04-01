@@ -14,7 +14,7 @@ To test adding cards to a program, go to the [**API Playground**](https://dashbo
 
 <div class="info-box">
     <small>Important note</small><br/>
-    To use the <strong>Create Card</strong> endpoint, you must use the test public key. Using the <strong>Create Card</strong> API endpoint on live environment requires your company to be PCI Compliant (and will use the secret key. If you want to use it instead of the SDKs, please contact us at developer@fidel.uk.
+    To use the <strong>Create Card</strong> endpoint, you must use the test public key. Using the <strong>Create Card</strong> API endpoint on live environment requires your company to be PCI Compliant. If you want to use the API instead of the SDKs, please contact us at developer@fidel.uk.
 </div>
 ##### Create sample cards in test mode using the API Playground.
 
