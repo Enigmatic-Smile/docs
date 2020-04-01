@@ -208,4 +208,4 @@ fileName:transaction.auth
 }
 ```
 
-We are working to extend the list of events. If you require any specific event that is not available yet please get in touch on our [Slack channel](https://fidel.uk/join-us-on-slack/) or email at [developer@fidel.uk](mailto:developer@fidel.uk).
+We are working to extend the list of events. If you require any specific event that is not available yet please reach out on our [community](https://community.fidel.uk/) or email at [developer@fidel.uk](mailto:developer@fidel.uk).
