@@ -20,7 +20,7 @@ To test adding cards to a program, go to the [**API Playground**](https://dashbo
 
 ![Create card](https://docs.fidel.uk/assets/images/create-card.png "Create card")
 
-When the card is successfully linked, the newly created card object is returned in JSON and displayed in the response body box. If the card lining fails, the failure object will be delivered instead.  
+When the card is successfully linked, the newly created card object is returned in JSON and displayed in the response body box. If the card linking fails, the failure object will be delivered instead.  
 ### Testing Card Linking with the Web SDK
 You can also use the [Web SDK](/web-sdk) to create cards in test environment using your public test key. If an error occurs on card creation, you receive the error message in the HTTP response body.
 
