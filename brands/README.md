@@ -4,7 +4,8 @@ After creating an account and having access to the dashboard, the next step is t
 
 
   
-The **Brand** object is used to aggregate locations and keep track of the Brand consent. 
+The **Brand** object is used to aggregate locations and keep track of the Brand consent. To track real-time transactions at a Brand's locations, you need to obtain consent from authorised personnel (Brand User), and provide the Brand with access to view transactional data. You can do this when creating the Brand (see below).
+
 Once you create a **Brand**, it cannot be deleted.
 
 ## Create Brand
