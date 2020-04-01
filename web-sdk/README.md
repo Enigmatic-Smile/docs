@@ -208,7 +208,7 @@ fileName:index.html
 The `data-auto-open` property allows you to open the web form automatically on page load if set to `true`. If `data-auto-close` is set to `false` the form won't be automatically closed after linking a card. You can set `data-close-events` to `false` and the form won't add the default close events. After adding the Web SDK script on your website a global variable `Fidel` is created with two methods that you can use to open and close the web form manually, `Fidel.openForm()` and `Fidel.closeForm()`. See an example below:
 
 ##### Fidel.openForm() global function
-To open the iframe Form with a button, you could use this example:
+To open the iframe form with a button, you could use this example:
 
 ```html
 <button type="submit" onclick="Fidel.openForm()">Link Card</button>
