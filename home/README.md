@@ -44,7 +44,7 @@ Currently, the API is available in the **United States**, **UK**, **Ireland**, *
 
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 
-Join our [Developer Community](https://community.fidel.uk/) for API discussions, documentation, frequently asked questions,  roadmap and new features. We’re always happy to help and answer any questions. 
+Join our [Developer Community](https://community.fidel.uk/) for API discussions, documentation, frequently asked questions, roadmap and new features. We’re always happy to help and answer any questions. 
 
 ## Card Linking
 The iOS, Android and Web SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
