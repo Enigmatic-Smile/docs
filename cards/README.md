@@ -34,6 +34,11 @@ fileName:cardResponse.json
             "accountId": "a3de60c3-849a-4faa-8447-bcd16efb148c",
             "countryCode": "GBR",
             "expDate": "2022-01-31T23:59:59.999Z",
+            "metadata": {
+                "id": "this-is-the-metadata-id",
+                "customKey1": "customValue1",
+                "customKey2": "customValue2"
+            },
             "expMonth": 1,
             "expYear": 2022,
             "firstNumbers": "444400",
