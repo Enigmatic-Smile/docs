@@ -104,7 +104,7 @@ You will receive both `transaction.auth` events in real-time and `transaction.cl
 
 We suggest that you use the auth event to notify the user that you registered the Transaction and will fulfill the reward when the Transaction clears, since the clearing is the confirmation that the Transaction was successfully completed.
 
-Please allow up to 24h after card linking to start receiving real-time authorization Transactions.
+Please allow up to 24h after card-linking to start receiving real-time authorization Transactions.
 
 
 ## Create Transaction
