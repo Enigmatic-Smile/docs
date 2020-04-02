@@ -98,7 +98,7 @@ fileName:transaction.json
 
 There are two types of Transactions depending on the time of processing and clearing state: authorization Transactions and clearing Transactions. You can use the `transaction.auth` webhook event to notify or reward the user in your application in real-time.
 
-All Transactions are cleared usually 24-48 hours after the purchase and for consistency, Fidel API processes cleared Transactions and triggers the `transaction.clearing` webhook events daily at 12:00 UTC.
+Transactions are usually cleared 24-48 hours after the purchase. For consistency, Fidel API processes cleared Transactions and triggers the `transaction.clearing` webhook events daily at 12:00 UTC.
 
 You will receive both `transaction.auth` events in real-time and `transaction.clearing` events (in the next 24-48 hours). At 12:00 UTC daily when we process the clearing transactions, we match every cleared transaction and if an authorization transaction exists we update the `cleared` property from `false` to `true`.  
 
