@@ -1,6 +1,6 @@
 # Brands
 
-After creating an account and having access to the dashboard, the next step is to create a test **Brand** (Merchant) so you can create locations and add them to a Program in order to start tracking transactions. 
+After creating an account and getting access to the dashboard, the next step is to create a test **Brand** (Merchant). This lets you create locations and add them to a Program so you can start tracking transactions. 
 
 
   
@@ -12,7 +12,7 @@ Once you create a **Brand**, it cannot be deleted.
 
 To create a new Brand, go to the **Brands** page on the dashboard, click the **+** icon and enter a name. Optionally, you can add a link to the brand logo.
 
-To automatically request Brand consent, enter the name and email of the Brand User and Fidel will send an email inviting the Brand User to create a Brand account at [clo.fidel.uk](https://clo.fidel.uk). By creating an account the Brand User provides consent and will have access to transactions made by cardholders at their participating locations.
+To automatically request Brand consent, enter the name and email of the Brand User and Fidel will send an email inviting the Brand User to create a Brand account at [clo.fidel.uk](https://clo.fidel.uk). By creating an account the Brand User provides consent and will have access to transactions made by cardholders at participating locations.
 
 If you're funding your own offers, or you've received direct authorisation from a brand, you can now auto-approve the brand's consent – [see here](https://releasenotes.fidel.uk/auto-approve-brand-consent-92004) for more information.
 
