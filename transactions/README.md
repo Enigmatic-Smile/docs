@@ -3,7 +3,7 @@ The transaction object is the central piece of data of your card-linked applicat
 
 ## Transaction object
 
-##### API version including & later than `2019-03-05`
+##### JSON Response: API version from `2019-03-05`
 
 ```json
 fileName:transaction.json
@@ -60,64 +60,62 @@ fileName:transaction.json
   }
 }
 ```
+> The wallet property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
 
-##### API version up to `2018-08-16`
-
-```json
-fileName:transaction.json
-{
-  "id": "7fdfd5d8-9589-402f-8477-4a727ad239a2",
-  "accountId": "4ed4b62b-aa4c-43a1-8064-da6d1368e17a",
-  "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba",
-  "brandId": "9d136f2e-df99-4a08-a0a5-3bc1534b7db9",
-  "locationId": "7a916fbd-70a0-462f-8dbc-bd7dbfbea160",
-  "cardId": "bc538b71-31c5-4699-840a-6d4a08693314",
-  "amount": 100,
-  "currency": "GBP",
-  "countryCode": "GBR",
-  "scheme": "visa",
-  "firstNumbers": "555500",
-  "lastNumbers": "5001",
-  "address": "2 Soho Square",
-  "postcode": "W1D3PX",
-  "city": "London",
-  "merchantId": "12345",
-  "live": false,
-  "auth": true,
-  "cleared": true,
-  "time": "2017-03-02T19:12:01.743Z",
-  "date": "2017-03-02T19:12:01.743Z",
-  "created": "2017-03-02T19:12:01.744Z",
-  "updated": "2017-03-02T19:12:01.744Z",
-  "offer": null,
-  "medatada": {
-    "id": "your-unique-id",
-    "property": "value"
+<details>
+  <summary style="margin-bottom: 30px;">JSON Response on API versions to 2018-08-16</summary>
+<div class="code-box"><div class="code-block-header"><svg width="16px" height="20px" viewBox="0 0 16 20" version="1.1"><defs></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="API-Docs-Copy-3" transform="translate(-490.000000, -6818.000000)" fill="#003650"><g id="Group-2-Copy-2" transform="translate(450.000000, 6790.000000)"><g id="Fill-64" transform="translate(40.000000, 28.000000)"><path d="M14.001,18.0005 L2,18.0005 L2,2.0005 L10,2.0005 L10,6.0005 L14,6.0005 L14.001,18.0005 Z M11.414,0.0005 L2,0.0005 C0.897,0.0005 0,0.8985 0,2.0005 L0,18.0005 C0,19.1025 0.897,20.0005 2,20.0005 L14,20.0005 C15.103,20.0005 16,19.1025 16,18.0005 L16,4.5865 L11.414,0.0005 Z"></path></g></g></g></g></svg>transaction.json</div><pre><code class="language-json hljs">{
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"7fdfd5d8-9589-402f-8477-4a727ad239a2"</span>,
+  <span class="hljs-attr">"accountId"</span>: <span class="hljs-string">"4ed4b62b-aa4c-43a1-8064-da6d1368e17a"</span>,
+  <span class="hljs-attr">"programId"</span>: <span class="hljs-string">"6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba"</span>,
+  <span class="hljs-attr">"brandId"</span>: <span class="hljs-string">"9d136f2e-df99-4a08-a0a5-3bc1534b7db9"</span>,
+  <span class="hljs-attr">"locationId"</span>: <span class="hljs-string">"7a916fbd-70a0-462f-8dbc-bd7dbfbea160"</span>,
+  <span class="hljs-attr">"cardId"</span>: <span class="hljs-string">"bc538b71-31c5-4699-840a-6d4a08693314"</span>,
+  <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100</span>,
+  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"GBP"</span>,
+  <span class="hljs-attr">"countryCode"</span>: <span class="hljs-string">"GBR"</span>,
+  <span class="hljs-attr">"scheme"</span>: <span class="hljs-string">"visa"</span>,
+  <span class="hljs-attr">"firstNumbers"</span>: <span class="hljs-string">"555500"</span>,
+  <span class="hljs-attr">"lastNumbers"</span>: <span class="hljs-string">"5001"</span>,
+  <span class="hljs-attr">"address"</span>: <span class="hljs-string">"2 Soho Square"</span>,
+  <span class="hljs-attr">"postcode"</span>: <span class="hljs-string">"W1D3PX"</span>,
+  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"London"</span>,
+  <span class="hljs-attr">"merchantId"</span>: <span class="hljs-string">"12345"</span>,
+  <span class="hljs-attr">"live"</span>: <span class="hljs-literal">false</span>,
+  <span class="hljs-attr">"auth"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"cleared"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-attr">"time"</span>: <span class="hljs-string">"2017-03-02T19:12:01.743Z"</span>,
+  <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2017-03-02T19:12:01.743Z"</span>,
+  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2017-03-02T19:12:01.744Z"</span>,
+  <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2017-03-02T19:12:01.744Z"</span>,
+  <span class="hljs-attr">"offer"</span>: <span class="hljs-literal">null</span>,
+  <span class="hljs-attr">"medatada"</span>: {
+    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"your-unique-id"</span>,
+    <span class="hljs-attr">"property"</span>: <span class="hljs-string">"value"</span>
   }
-}
-```
+}</code><span class="line-numbers-rows" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
+</details>
 
-There are two types of transactions depending on the time of processing and clearing state: authorization transactions and clearing transactions. Authorization transactions are processed in real-time, when the user pays in-store (only available on MasterCard and American Express. Please email [developer@fidel.uk](mailto:developer@fidel.uk) for VISA availability). You can use the `transaction.auth` webhook event to notify or reward the user in your application in real-time.
+There are two types of Transactions depending on the time of processing and clearing state: authorization Transactions and clearing Transactions. You can use the `transaction.auth` webhook event to notify or reward the user in your application in real-time.
 
-All transactions are cleared usually 24-48 hours after the purchase by Visa, Mastercard and American Express and for consistency, Fidel API processes cleared transactions and triggers the `transaction.clearing` webhook events daily at 12:00 UTC.
+Transactions are usually cleared 24-48 hours after the purchase. For consistency, Fidel API processes cleared Transactions and triggers the `transaction.clearing` webhook events daily at 12:00 UTC.
 
-For Mastercard linked cards you will receive both `transaction.auth` events in real-time and `transaction.clearing` events. We suggest that you use the auth event to notify the user that you registered the transaction and will fulfill the reward when the transaction clears, since the clearing is the confirmation that the transaction was successfully completed.
+You will receive both `transaction.auth` events in real-time and `transaction.clearing` events (in the next 24-48 hours). At 12:00 UTC daily when we process the clearing transactions, we match every cleared transaction and if an authorization transaction exists we update the `cleared` property from `false` to `true`.  
 
-After you received a Mastercard authorisation transaction in real-time, you will also receive the cleared transaction in the next 24-48 hours. At 12:00 UTC daily when we process the clearing transactions, we match every cleared transaction and if an authorization transaction exists we update the `cleared` property from `false` to `true`.
+We suggest that you use the auth event to notify the user that you registered the Transaction and will fulfill the reward when the Transaction clears, since the clearing is the confirmation that the Transaction was successfully completed.
 
-Please allow up to 24h after card linking to start receiving Mastercard and American Express real-time authorization transactions.
+Please allow up to 24h after card-linking to start receiving real-time authorization Transactions.
 
-The wallet property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
 
 ## Create Transaction
 
 For testing purposes, you can use the **API Playground** to create transactions and test your application logic.
 
-To create a transaction you will need a test program, at least one location and a webhook event to receive the transaction object. Also, you will need a test card linked to your test program.
+To create a transaction you will need a test Program, Location and a test Card linked to the Program.  
 
 On the dashboard, go to **API Playground** and click on **Create transaction** from the endpoints menu. The method will be set to POST and the endpoint to **_/transactions/test_**. An editable sample JSON object like the following one will be use to create the transaction.
 
-To create a test transaction you only need to submit three properties, the `cardId`, `locationId` and the `amount` of the transaction you want to create. You can use the dropdown menus to set these properties. If the transaction is created successfully you will see the transaction object in the response body box.
+To create a test transaction, use the dropdown menus to select the Program, Location and Card for the transaction.  These selections will be used to populate the `cardId`, `locationId` and the `amount` in the JSON submission.  You can modify any of the properties in the JSON file (including the amount). If the transaction is created successfully you will see the transaction object in the response body box.
 
 ##### Create sample transactions in test mode using the API Playground.
 
