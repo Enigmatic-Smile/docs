@@ -414,7 +414,7 @@ When you set a default country, the card linking screen will not show the countr
 
 #### supportedCardSchemes
 
-We currently support _Visa_, _Mastercard_ and _AmericanExpress_. You can choose to support only one, two or all three. By default the SDK is configured to support all three. (Geographical limitations exist, please [ask on Slack](https://fidel.uk/join-us-on-slack) or [via email](mailto:support@fidel.uk) if you have questions). 
+We currently support _Visa_, _Mastercard_ and _AmericanExpress_. You can choose to support only one, two or all three. By default the SDK is configured to support all three. (Geographical limitations exist, please [see available countries](https://fidel.uk/products) or [via email](mailto:support@fidel.uk) if you have questions). 
 
 If you set this option to an empty array or to `null`, of course, you will not be able to open the Fidel UI. You must support at least one of our supported card schemes.
 
@@ -499,4 +499,4 @@ American Express: _3400000000003**_ or _3700000000003**_ (the last 2 numbers can
 The React Native SDK is in active development, we welcome your feedback!
 
 [GitHub Issues](https://github.com/fidellimited/rn-sdk/issues) — For SDK issues and feedback  
-[Developers Slack Channel](https://fidel-developers-slack-invites.herokuapp.com) — for personal & community support at any phase of integration.
+[Developers Community](https://community.fidel.uk/) — for personal & community support at any phase of integration.

@@ -147,7 +147,7 @@ fileName:card.failed
 
 ### Transaction
 
-**Authorisation** transaction events are triggered while the customer is making the payment in-store in real-time (available on MasterCard and American Express). When a customer makes a payment with a linked Mastercard debit/credit card in an auth-enabled location, a `transaction.auth` event is triggered and the transaction object sent to your specified URL in real-time.
+**Authorisation** transaction events are triggered while the customer is making the payment in-store in real-time. When a customer makes a payment with a linked debit/credit card in an auth-enabled location, a `transaction.auth` event is triggered and the transaction object sent to your specified URL in real-time.
 
 **Clearing** events are triggered when the transaction is settled, usually happens 24-48 hours after the payment has been made. For consistency, Fidel processes clearing transactions triggering the `transaction.clearing` webhook events daily at 12:00 UTC. Only one transaction is sent per event.
 
@@ -207,4 +207,4 @@ fileName:transaction.auth
 }
 ```
 
-We are working to extend the list of events. If you require any specific event that is not available yet please get in touch on our [Slack channel](https://fidel.uk/join-us-on-slack/) or email at [developer@fidel.uk](mailto:developer@fidel.uk).
+We are working to extend the list of events. If you require any specific event that is not available yet please reach out on our [community](https://community.fidel.uk/) or email at [developer@fidel.uk](mailto:developer@fidel.uk).

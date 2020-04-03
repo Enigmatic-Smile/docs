@@ -9,10 +9,10 @@
     </a>
   </div>
   <div class="column">
-    <a href="https://fidellimited.zendesk.com/hc/en-gb" class="content">
+    <a href="https://community.fidel.uk/c/Frequently-Asked-Questions" class="content">
       <img src="https://docs.fidel.uk/assets/images/help_center.svg" />
       <h2>Help Centre</h2>
-      <h3>Find information and answers to frequently asked questions</h3>
+      <h3>Find information and answers to frequently asked questions in our Community FAQ.</h3>
     </a>
   </div>
 </div>
@@ -40,16 +40,11 @@ Fidel is a card-linked API that lets developers create web and mobile applicatio
 
 Fidel API runs on top of global payment networks, so it doesn’t require changes to existing merchant infrastructures. No need for new software, POS integrations, staff training or new cards. All the PCI compliance requirements are managed by us so you don’t have to.
 
-Currently, the API is available in the **UK**, **Ireland**, **Sweden**, **Canada** and the **United States**, with **Norway**, **Denmark**, **Finland**, **Japan**, **Australia** and **South Africa** going live soon. Please refer to the up to date list of countries and schemes on [fidel.uk](https://fidel.uk/). We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [developer@fidel.uk](mailto:developer@fidel.uk).
+Currently, the API is available in the **United States**, **UK**, **Ireland**, **Canada**, **Sweden**, **Norway** and **Finland**, with **Australia**, **Japan** and **South Africa** going live soon. Please refer to the up-to-date [list of countries and schemes](https://fidel.uk/products). We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [developer@fidel.uk](mailto:developer@fidel.uk).
 
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 
-Join our developers’ Slack channel for API discussions, documentation, roadmap and new features. We’re always happy to help and answer any questions. Join by clicking the button below:
-
-<a class="button with-icon" href="https://fidel.uk/join-us-on-slack" target="blank">
-  <img src="https://docs.fidel.uk/assets/images/slack-icon.svg" />
-  <span>Slack</span>
-</a>
+Join our [Developer Community](https://community.fidel.uk/) for API discussions, documentation, frequently asked questions, roadmap and new features. We’re always happy to help and answer any questions. 
 
 ## Card Linking
 The iOS, Android and Web SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
@@ -71,7 +66,7 @@ Your apps will receive an `id` back that identifies the card in each transaction
   <span>View demo</span>
 </button>
 
-Use one of the test cards, such as `4444000000004004` and enter an expiry date in the future.
+Use one of our [test card](https://docs.fidel.uk/cards/testing-card-numbers) numbers (for example `4444000000004004`) and enter an expiry date in the future.
 
 ##### Web SDK integration script
 
