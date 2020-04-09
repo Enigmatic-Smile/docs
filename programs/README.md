@@ -27,10 +27,18 @@ Once you have a Brand, select a Program from the **Programs** page, click the **
 To start tracking credit/debit card transactions at specific Locations, we need the address of each Location so we can submit them for onboarding with VISA, Mastercard and American Express, and keep track of the status of each location. 
 We call this process Program Sync ⚡️.
 
+### Program Sync
+
 Location status is reported separately for each card scheme.  Each location/scheme combination can have one of four statuses: **Inactive, Syncing, Active, or Failed**. 
 > In the test environment, every added Location skips the Program Sync processand is automatically set to *Active*.
 
-In the live environment, the location begins in an *Inactive* state. The Location status is updated to *Syncing* after it is  submitted to the card schemes. It then moves to *Active* when we receive confirmation from the schemes that the location has been successfully on-boarded to your program. If the schemes have an issue with a specific location, the status is set to *Failed* and a case is opened to resolve the issue.
+In the live environment, the location begins in an *Inactive* state. In order initiate a change in status of your location, you must initiate the syncing process by pressing the sync button on the dashboard. 
+
+>Program Sync can take 1-2 weeks, and only one sync per program can be run at a time, so ensure that you are ready to run this process.
+
+![Sync button](https://docs.fidel.uk/assets/images/programsync_button.png "Add locations")
+
+Once the sync process is initaited, the Location status is updated to *Syncing*. It then moves to *Active* when we receive confirmation from the schemes that the location has been successfully on-boarded to your program. If the schemes have an issue with a specific location, the status is set to *Failed* and a case is opened to resolve the issue.
 
 For Locations in the live environment, status can be tracked on the dashboard. A green check ✅ means we have received at least one transaction from this Location confirming the active onboarding status. A **RT** icon will show where we can track real-time authorisation transaction and the **RT** will turn green when we receive the first auth transaction from this Location.
 
