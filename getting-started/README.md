@@ -26,7 +26,7 @@ Click on the links below to see how to use the web and mobile SDKs in your appli
     <a href="/web-sdk" data-path="/web-sdk" class="content">
       <img src="https://docs.fidel.uk/assets/images/web_sdk.svg" />
       <h2>Web</h2>
-      <h3>Customisable and secure iFrame to link cards on your website</h3>
+      <h3>Customisable and secure iframe to link cards on your website</h3>
     </a>
   </div>
   <div class="column">
