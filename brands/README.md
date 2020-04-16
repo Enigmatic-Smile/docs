@@ -10,7 +10,7 @@ Once you create a **Brand**, it cannot be deleted.
 
 ## Create Brand
 
-To create a new Brand, go to the **Brands** page on the dashboard, click the **+** icon and enter a name. Optionally, you can add a link to the brand logo.
+To create a new Brand, go to the **Brands** page on the dashboard, click the **+** icon and enter a name. Optionally, you can add a link to the brand logo (Note: the logo cannot be added later).
 
 To automatically request Brand consent, enter the name and email of the Brand User and Fidel will send an email inviting the Brand User to create a Brand account at [clo.fidel.uk](https://clo.fidel.uk). By creating an account the Brand User provides consent and will have access to transactions made by cardholders at participating locations.
 
