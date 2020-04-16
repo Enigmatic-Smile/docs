@@ -1,7 +1,7 @@
 ## Add Locations
 Every Location is linked to a Brand, and the Brand is linked to the Program.
 
-Once you have a Brand, select a Program from the **Programs** page, click the **+** icon and enter the requested info. To add a location, you need to select the Brand with approved consent, enter address, postcode, city and select the country for this location.  If your location has been assigned Merchant IDs (MIDs) from the card processors, you may add them now. Creating locations with MIDs means we can identify merchant locations more accurately and onboard them faster.
+To add a location, select a Program from the **Programs** page, click the **+** icon and enter the requested info about the location. To add a location, you need to select the Brand (with approved consent), enter address, postcode, city and select the country for this location.  If your location has been assigned Merchant IDs (MIDs) from the card processors, you may add them now. Creating locations with MIDs means we can identify merchant locations more accurately and onboard them faster.
 
 ##### After creating a Program, you can add Locations.
 
