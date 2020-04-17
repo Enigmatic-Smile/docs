@@ -66,7 +66,7 @@ fileName:cardResponse.json
 
 ## Testing Card Numbers
 
-Use the following test card number ranges to test card linking in test mode, either in the Playground or using the SDKs aor APIs with your test SDK key.
+Use the following test card number ranges to test card linking in test mode, either in the Playground or using the SDKs or APIs with your test public API key.
 
 **Visa**: `4444000000004***`  
 **Mastercard**: `5555000000005***`  
