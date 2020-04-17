@@ -33,13 +33,11 @@ All brands must be approved by the authorised Brand User. To automatically reque
 Brand Consent is only required in the Live environment. Test Brands are automatically given Brand consent.
 </div>
 
-### Auto approve Consent 
+You can monitor consent status on the dashboard and also set up a `brand.consent` webhook to be notified when the status changes.
+
+### Auto Approve Consent 
 
 If you're funding your own offers, or you've received direct authorisation from a brand, you can auto-approve the brand's consent: 
 ![Auto approve Brand](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/autoapproveConsent.png "auto approve brand")
 
 Using the Brand Consent API, you can auto approve your Brand by adding  ```skipInvite: true``` to the JSON request with the brand owner information.
-
-
-You can monitor consent status on the dashboard and also set up a `brand.consent` webhook to be notified when the status changes.
-
