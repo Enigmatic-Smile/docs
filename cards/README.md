@@ -6,8 +6,8 @@ The Card object holds information about the card details submitted by the user u
 In order to link a card to a program, we recommend that you use our secure and PCI compliant SDKs. These require the user to enter their 16-digit card number and expiry date.  The SDK will be prepopulated with the country code and the `programId` of the Program you want to link their card to. On submission, the card number is tokenised and transmitted directly from our secure pre-built iframe to the API. This way, your servers are never exposed to sensitive information, removing all PCI compliance requirements from your side.
 
 <div class="info-box">
-    <small>linking Multiple Cards</small><br/>
-To facilitate users linking multiple cards, add identication key:value pairs from your system in the metadata field.
+  <small>Linking Multiple Cards</small><br/>
+  To facilitate users linking multiple cards, add identication key:value pairs from your system in the metadata field.
 </div> 
 
 We never store users' 16-digit card numbers. To identify the user in a transaction object you should use the `cardId` property. After this point only the `cardId` is exchanged between your servers, the card networks and Fidel's API.
