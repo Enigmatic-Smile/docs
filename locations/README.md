@@ -3,13 +3,15 @@ Every Location is linked to a Brand, and the Brand is linked to the Program.
 
 To add a location, select a Program from the **Programs** page, click the **+** icon and enter the requested info about the location. 
 
-The information required for each location is the Brand (with approved consent), address, postcode, city and country.  If your location has been assigned Merchant IDs (MIDs) from the card networks, you may add them now. Creating locations with MIDs means they can be identified onboarded faster.
+The information required for each location is the Brand (with approved consent), address, postcode, city and country.  If your location has been assigned Merchant IDs (MIDs) from the card networks, you may add them now. Adding MIDs during Location creation will speed the onboarding process.
+
+>Note: If you you use a Payment facilitiator, you may be using a [shared MID](https://community.fidel.uk/t/what-is-a-shared-merchant-id-mid/41) that affects how transactions are monitored.  Reach out to Fidel if you use a paymant faclititaor and you believe you might have a shared MID.
 
 ##### After creating a Program, you can add Locations.
 
 ![Add locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/add-locations.png "Add locations")
 
-Once you have added your locations to Fidel, we can beging the process of Location Sync ⚡️. This step requires submitting all of the locations for onboarding with VISA, Mastercard and American Express, do that we may track credit/debit card transactions at each Locations. During this process, you can monitor and keep track of the status of each location. 
+Once you have added your locations to Fidel, we can begin the process of Location Sync ⚡️. This step requires submitting all of the locations for onboarding with VISA, Mastercard and American Express, so that we may track credit/debit card transactions at each location. During this process, you can monitor and keep track of the status of each location. 
 
 ### Location Sync
 
@@ -18,7 +20,7 @@ Location status is reported separately for each card scheme.  Each location/sche
 
 In the live environment, the location begins in an *Inactive* state. In order initiate a change in status of your location, you must start the syncing process by pressing the sync button on the dashboard. 
 
->Location Sync can take 1-2 weeks, and only one sync per program can be run at a time, so ensure that you are ready to run this process.
+>Location Sync can take 1-2 weeks. Only one sync per program can be run at a time, so ensure that you are ready to run this process.
 
 ![Sync button](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programsync_button.png "Add locations")
 
