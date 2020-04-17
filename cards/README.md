@@ -1,5 +1,5 @@
 # Cards
-The Card object holds information about the card details submitted by the user using the web or mobile SDKs. One user can link multiple cards, debit or credit under the same account.
+The Card object holds information about the card details submitted by the user using the web or mobile SDKs. One user may link multiple debit or credit cards, which can then be aggregated to one user in your system.
 
 ## Add Card with SDK (preferred)
 
@@ -29,7 +29,7 @@ When the card is successfully linked, the newly created card object is returned 
 
 ### Testing Card Linking with the Web SDK
 
-You can also use the [Web SDK](/web-sdk) to create cards in test environment using your public test key. If an error occurs on card creation, you receive the error message in the HTTP response body.
+You can also use the [Web SDK](/web-sdk) to create cards in test environment using your test public key. If an error occurs on card creation, you receive the error message in the HTTP response body.
 
 #### JSON Card Response Object
 
@@ -66,9 +66,7 @@ fileName:cardResponse.json
 
 ## Testing Card Numbers
 
-Note that on the Playground you can only create cards in test mode. In live mode new cards can only be linked to programs using the SDKs or the API if you are PCI compliant.
-
-Use the following test card number ranges to test card linking in test mode, either in the Playground or using the SDKs with your test SDK key.
+Use the following test card number ranges to test card linking in test mode, either in the Playground or using the SDKs aor APIs with your test SDK key.
 
 **Visa**: `4444000000004***`  
 **Mastercard**: `5555000000005***`  
