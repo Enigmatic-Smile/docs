@@ -1,7 +1,7 @@
 [Home](/home)  
 [Getting Started](/getting-started)  
-[Brands](/brands)  
 [Programs](/programs)  
+[Brands](/brands)  
 [Locations](/Locations)  
 [Cards](/cards)  
 [Transactions](/transactions)  
