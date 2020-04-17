@@ -26,7 +26,8 @@ curl -X POST \
 
 All brands must be approved by the authorised Brand User. To automatically request Brand consent in the dashboard, enter the name and email of the Brand User and Fidel will send an email inviting the Brand User to create a Brand account at [clo.fidel.uk](https://clo.fidel.uk). To request Brand Consent with the APi, use the [Brand Consent Endpoint](https://reference.fidel.uk/reference#create-brand-user). By creating an account the Brand User provides consent and will have access to transactions made by cardholders at participating locations.
 
-If you're funding your own offers, or you've received direct authorisation from a brand, you can auto-approve the brand's consent – ![Auto approve Brand](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/autoapproveConsent.png "auto approve brand).
+If you're funding your own offers, or you've received direct authorisation from a brand, you can auto-approve the brand's consent – 
+![Auto approve Brand](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/autoapproveConsent.png "auto approve brand")
 
 Using the Brand Consent API, you can auto approve your Brand by adding  ```skipInvite: true``` to the JSON request with the brand owner information.
 
