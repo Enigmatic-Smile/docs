@@ -4,7 +4,7 @@ After creating an account and getting access to the dashboard, the next step is 
 
 
   
-The **Brand** object is used to aggregate locations and keep track of the Brand consent. To track real-time transactions at a Brand's locations, you need to obtain consent from authorised personnel (Brand User), and provide the Brand with access to view transactional data. You can do this when creating the Brand (see below).
+The **Brand** object is used to aggregate locations and keep track of the Brand consent. To track real-time transactions at a Brand's locations, you need to obtain consent from authorised personnel (Brand Contact), and provide the Brand with access to view transactional data. You can do this when creating the Brand (see below).
 
 Once you create a **Brand**, it cannot be deleted.
 
@@ -27,7 +27,7 @@ curl -X POST \
 
 ## Brand Consent
 
-All brands must be approved by the authorised Brand User. To automatically request Brand consent in the dashboard, enter the name and email of the Brand User and Fidel will send an email inviting the Brand User to create a Brand account at [clo.fidel.uk](https://clo.fidel.uk). To request Brand Consent with the APi, use the [Brand Consent Endpoint](https://reference.fidel.uk/reference#create-brand-user). By creating an account the Brand User provides consent and will have access to transactions made by cardholders at participating locations.
+All brands must be approved by the authorised Brand Contact. To automatically request Brand consent in the dashboard, enter the name and email of the Brand Contact and Fidel will send an email inviting them to create a Brand account at [clo.fidel.uk](https://clo.fidel.uk). To request Brand Consent with the APi, use the [Brand Consent Endpoint](https://reference.fidel.uk/reference#create-brand-user). By creating an account the Brand User provides consent and will have access to transactions made by cardholders at participating locations.
 
 <div class="info-box">
 Brand Consent is only required in the Live environment. Test Brands are automatically given Brand consent.
