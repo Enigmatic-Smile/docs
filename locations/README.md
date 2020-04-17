@@ -1,11 +1,11 @@
 ## Add Locations
 Every Location is linked to a Brand, and the Brand is linked to the Program.
 
-To add a location, select a Program from the **Programs** page, click the **+** icon and enter the requested info about the location. 
+To add a location, select a Program from the **Programs** page, click the **+** icon and enter the requested info about the location. You can also use the [API to add and modify locations](https://reference.fidel.uk/reference#create-location).
 
 The information required for each location is the Brand (with approved consent), address, postcode, city and country.  If your location has been assigned Merchant IDs (MIDs) from the card networks, you may add them now. Adding MIDs during Location creation will speed the onboarding process.
 
->Note: If you you use a Payment facilitiator, you may be using a [shared MID](https://community.fidel.uk/t/what-is-a-shared-merchant-id-mid/41) that affects how transactions are monitored.  Reach out to Fidel if you use a paymant faclititaor and you believe you might have a shared MID.
+>Note: If you you use a Payment facilitator, you may be using a [shared MID](https://community.fidel.uk/t/what-is-a-shared-merchant-id-mid/41) that affects how transactions are monitored.  Reach out to Fidel if you use a paymant facilitator and you believe you might have a shared MID.
 
 ##### After creating a Program, you can add Locations.
 
