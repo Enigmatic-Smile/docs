@@ -1,5 +1,5 @@
 # Transactions
-The transaction object is the central piece of data of your card-linked application. When a user makes a purchase with a linked card in any of the linked program's locations, FIDEL API spots the transaction and sends it to your server through webhooks.
+The transaction object is the central piece of data of your card-linked application. When a user makes a purchase with a linked card in any of the linked program's locations, Fidel collects the data and sends to your server through [webhooks](https://docs.fidel.uk/webhooks).
 
 ## Transaction object
 
@@ -102,7 +102,7 @@ Transactions are usually cleared 24-48 hours after the purchase. For consistency
 
 You will receive both `transaction.auth` events in real-time and `transaction.clearing` events (in the next 24-48 hours). At 12:00 UTC daily when we process the clearing transactions, we match every cleared transaction and if an authorization transaction exists we update the `cleared` property from `false` to `true`.  
 
-We suggest that you use the auth event to notify the user that you registered the Transaction and will fulfill the reward when the Transaction clears, since the clearing is the confirmation that the Transaction was successfully completed.
+We suggest that you use the auth event to notify the user that you registered the transaction and will fulfill the reward when the Transaction clears, since the clearing is the confirmation that the transaction was successfully completed.
 
 Please allow up to 24h after card-linking to start receiving real-time authorization Transactions.
 
@@ -111,7 +111,7 @@ Please allow up to 24h after card-linking to start receiving real-time authoriza
 
 For testing purposes, you can use the **API Playground** to create transactions and test your application logic.
 
-To create a transaction you will need a test Program, Location and a test Card linked to the Program.  
+To create a transaction you will need a test program, location and a test Card linked to the program.  
 
 On the dashboard, go to **API Playground** and click on **Create transaction** from the endpoints menu. The method will be set to POST and the endpoint to **_/transactions/test_**. An editable sample JSON object like the following one will be use to create the transaction.
 
@@ -121,4 +121,4 @@ To create a test transaction, use the dropdown menus to select the Program, Loca
 
 ![Create transaction](https://docs.fidel.uk/assets/images/create-transaction.png "Create transaction")
 
-Click **Send** and a test transaction will be created and sent to the webhook URL created for this program with the event property set to `transaction.auth`.
+Click **Send** and a test transaction will be created.  If you have created a webhook for this program with the event property set to `transaction.auth', the webhook will also receive this JSON data.
