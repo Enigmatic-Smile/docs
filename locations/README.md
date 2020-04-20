@@ -7,11 +7,11 @@ The information required for each location is the Brand (with approved consent),
 
 >Note: If you you use a Payment facilitator, you may be using a [shared MID](https://community.fidel.uk/t/what-is-a-shared-merchant-id-mid/41) that affects how transactions are monitored.  Reach out to Fidel if you use a paymant facilitator and you believe you might have a shared MID.
 
-##### After creating a Program, you can add Locations.
+##### After creating a Program and a Brand, you can add Locations.
 
 ![Add locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/add-locations.png "Add locations")
 
-Once you have added your locations to Fidel, we can begin the process of Location Sync ⚡️. This step requires submitting all of the locations for onboarding with VISA, Mastercard and American Express, so that we may track credit/debit card transactions at each location. During this process, you can monitor and keep track of the status of each location. 
+Once you have added your locations to Fidel, we can begin the process of Location Sync ⚡️. This step requires submitting all of the locations for onboarding with Visa, Mastercard and American Express, so that we may track credit/debit card transactions at each location. During this process, you can monitor and keep track of the status of each location. 
 
 ### Location Sync
 
