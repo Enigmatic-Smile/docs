@@ -1,5 +1,4 @@
 ## Add Locations
-Every Location is linked to a Brand, and the Brand is linked to the Program.
 
 To add a location, select a Program from the **Programs** page, click the **+** icon and enter the requested info about the location. You can also use the [API to add and modify locations](https://reference.fidel.uk/reference#create-location).
 
