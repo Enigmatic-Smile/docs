@@ -81,7 +81,7 @@ For more detailed documentation about any class in the SDKs and available custom
 ### Install
 
 Add [jitpack.io](https://www.jitpack.io) to your root `build.gradle` at the end of repositories:
-```sh
+```java
 allprojects {
   repositories {
     ...
@@ -91,7 +91,7 @@ allprojects {
 ```
 
 Add Fidel SDK as a dependency:
-```sh
+```java
 dependencies {
   implementation 'com.github.FidelLimited:android-sdk:1.3.1'
 }
