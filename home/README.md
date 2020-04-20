@@ -47,7 +47,7 @@ Check out the [API Reference](https://reference.fidel.uk) to see all available r
 Join our [Developer Community](https://community.fidel.uk/) for API discussions, documentation, frequently asked questions, roadmap and new features. We’re always happy to help and answer any questions. 
 
 ## Card Linking
-The iOS, Android and Web SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
+The [iOS](https://docs.fidel.uk/mobile-sdks/ios), [Android](https://docs.fidel.uk/mobile-sdks/android) and [Web](https://docs.fidel.uk/web-sdk) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
 By using Fidel SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements.
 
