@@ -53,7 +53,7 @@ fileName:index.html
 ```
 To integrate **Fidel Web SDK** in your website or mobile app, you need to add the script above in your website or mobile web view. For mobile apps, however, we recommend using the [mobile SDKs](/mobile-sdk).
 
->Hint: Adding user data in the metadata as key:value pairs can reconcile the cardId to a user account in your system.
+>Hint: Adding user data in the metadata as key:value pairs can simplify reconciliation with your system. For example, adding 'myUserId':'123' will help you match the the added car to your user '123'.
 
 ##### Web SDK parameters
 
