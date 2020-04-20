@@ -28,6 +28,6 @@ curl -X POST https://api.fidel.uk/v1/programs \
   ```
 
 
-A `programId` will be generated and is used as a data property when using the SDKs to link Cards to this Program. Cards are linked to Programs and consequently to Locations.
+A `programId` will be generated and is used as a data property when using the SDKs to link Cards to this Program. Cards are linked to Programs and consequently are able to track all purchases at locations in the program.
 
 
