@@ -16,7 +16,7 @@ After the card is linked successfully, we will monitor any purchase made by this
 
 ## Add Card with API
 
-To add a card using the API, you must be PCI Compliant.  Reach out to your Fidel contact for more information.
+To add a card using the API, you must be PCI Compliant. Contact us at developer@fidel.uk for more information.
 
 ### Card Linking in Test
 
