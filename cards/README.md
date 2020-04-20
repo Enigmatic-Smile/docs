@@ -1,5 +1,5 @@
 # Cards
-The Card object holds information about the card details submitted by the user using the web or mobile SDKs. One user may link multiple debit or credit cards using Fidel. 
+The Card object holds information about the card details submitted by the user using the web or mobile SDKs. One user may link multiple debit or credit cards. 
 
 ## Add Card with SDK (preferred)
 
