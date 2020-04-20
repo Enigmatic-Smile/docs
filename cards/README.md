@@ -3,14 +3,14 @@ The Card object holds information about the card details submitted by the user u
 
 ## Add Card with SDK (preferred)
 
-In order to link a card to a program, we recommend that you use our secure and PCI compliant SDKs. These require the user to enter their 16-digit card number and expiry date.  The SDK will be prepopulated with the country code and the `programId` of the Program you want to link their card to. On submission, the card number is tokenised and transmitted directly from our secure pre-built iframe to the API. This way, your servers are never exposed to sensitive information, removing all PCI compliance requirements from your side.
+In order to link a card to a program, we recommend that you use our secure and PCI compliant SDKs. These require the user to enter their card number and expiry date. The SDK will be prepopulated with the country code and the `programId` of the Program you want to link their card to. On submission, the card number is tokenised and transmitted directly from our secure pre-built iframe to the API. This way, your servers are never exposed to sensitive information, removing all PCI compliance requirements from your side.
 
 <div class="info-box">
   <small>Linking Multiple Cards</small><br/>
   To facilitate users linking multiple cards, add identication key:value pairs from your system in the metadata field.
 </div> 
 
-We never store users' 16-digit card numbers. To identify the user in a transaction object you should use the `cardId` property. After this point only the `cardId` is exchanged between your servers, the card networks and Fidel's API.
+We never store card numbers. To identify the user in a transaction object you can use the `cardId` property. After this point only the `cardId` is exchanged between your servers, the card networks and Fidel's API.
 
 After the card is linked successfully, we will monitor any purchase made by this card at any of the program’s physical or online locations. The transaction object will be sent to a webhook URL specified by you.
 
