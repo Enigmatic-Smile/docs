@@ -2,7 +2,7 @@
 [Getting Started](/getting-started)  
 [Programs](/programs)  
 [Brands](/brands)  
-[Locations](/Locations)  
+[Locations](/locations)  
 [Cards](/cards)  
 [Transactions](/transactions)  
 [Webhooks](/webhooks)  
