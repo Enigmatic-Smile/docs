@@ -5,7 +5,7 @@ We will notify your registered webhook URLs as the event happens. For example, w
 
 ## Creating webhooks
 Webhooks can be created in the dashboard's webhooks page or by using the [Webhooks API](https://reference.fidel.uk/v1/reference#create-webhook-brand).
-You can create up to five webhook URLs for the same event in the same Program. Fidel sends the data via HTTP POST request and will send test or live events depending on your dashboard's environment setting or if you are using test or live API keys. 
+You can create up to five webhook URLs for the same event in the same Program. Fidel sends the data via HTTP POST request and will send test or live events depending on your dashboard's environment setting or if you are using test or live API keys.
 
 Fidel only accepts HTTPS URLs for webhooks endpoints. In order to create webhooks and receive event data, your server must be configured to support HTTPS with a valid certificate.
 
@@ -151,6 +151,11 @@ fileName:card.failed
 
 **Clearing** events are triggered when the transaction is settled, usually happens 24-48 hours after the payment has been made. For consistency, Fidel processes clearing transactions triggering the `transaction.clearing` webhook events daily at 12:00 UTC. Only one transaction is sent per event.
 
+<div class="info-box">
+    <small>Qualification events</small><br/>
+    In live environment there are two additional transaction webhook events: `transaction.auth.qualified` and `transaction.clearing.qualified`. They are triggered when an auth or a clearing transaction is qualified for an offer.
+</div>
+
 ```json
 fileName:transaction.auth
 {
@@ -193,12 +198,12 @@ fileName:transaction.auth
       "longitude": -0.1310718
     },
     "metadata": {
-      "name": "nice place",
-      "id": "private-location-id"
+      "id": "your-user-id",
+      "name": "username"
     }
   },
   "identifiers": {
-    "MID": "merchant ID",
+    "MID": "12345678",
     "mastercardTransactionSequenceNumber": "0000000000000",
     "mastercardRefNumber": "AABBCCDDE",
     "amexApprovalCode": "AA00BB",
