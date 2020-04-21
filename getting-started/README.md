@@ -1,6 +1,6 @@
 # Getting Started
 
-**Fidel API** helps you collect payment card details in minutes on iOS, Android and React Native with the help of native SDKs. On the web, we have developed a customizable UI using an iframe so you don't have to handle sensitive information on your servers.
+**Fidel API** provides a developer-friendly, secure and reliable API for businesses to link payment cards with mobile and web applications. Through a single API, developers can securely access data from the three major card networks and build their applications on top of the powerful payments infrastructure.
 
 Card numbers are instantly tokenised and we return to you a unique token that identifies each successfully linked card on your database. You should save the `id` of the card object that is returned inside your user's object. Every transaction we will send to you will have a `cardId` that you can use to identify the user that made that transaction.
 
