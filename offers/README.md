@@ -15,7 +15,7 @@ fileName:offer.json
   "brandName": "Starbucks",
   "brandLogoURL": "https://starbucks.com/logo.png",
   "countryCode": "USA",
-  "created": "2018-10-19T12:12:00.000Z",
+  "created": "2020-04-18T12:12:00.000Z",
   "currency": "USD",
   "daysOfWeek": [0,1,2,3,4,5,6],
   "endDate": "2020-06-20T13:13:00.000Z",
@@ -42,7 +42,7 @@ fileName:offer.json
     "name": "discount",
     "value": 20
   },
-  "updated": "2018-10-19T12:12:00.000Z"
+  "updated": "2020-04-18T12:12:00.000Z"
 }
 ```
 
@@ -253,10 +253,10 @@ Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#crea
 
 An offer qualifies transactions depending on a combination of three properties: `startDate, endDate` and `locationsTotal`. On the dashboard offers are grouped between pending, all-set, live and expired.
 
-If the offer is labeled as pending it means that the `startDate` is in the future. When an offer has at least one location linked to it and the `startDate` is set in the future, the offer is placed in the all-set group. An offer is live when today's date is between the offer's `startDate` and `endDate` and `locationsTotal` is greater than `0`.
+If the offer is labeled as pending it means that the `startDate` is in the future or it has no linked locations. When an offer has at least one location linked to it and the `startDate` is set in the future, the offer is placed in the all-set group. An offer is live when today's date is between the offer's `startDate` and `endDate` and `locationsTotal` is greater than `0`.
 
 ### Pending
-Offer `startDate` is set in the future. Offer will start qualifying transactions made at locations linked to the offer after the `startDate`.
+Offer `startDate` is set in the future. Offer will start qualifying when transactions are made at locations linked to the offer after the `startDate`.
 
 ### Live
 Current day is between `startDate` and `endDate` and offer is qualifying transactions at the locations linked to it.
@@ -268,7 +268,7 @@ Current day is after the `endDate`. The offer has stopped qualifying transaction
 
 ## Qualification
 
-When an offer is live, each transaction made a by a linked card on a location linked to the offer will be analysed against the offer parameters and can qualify or not qualify for the offer.
+When an offer is live, each transaction made by a linked card on a location linked to the offer will be analysed against the offer parameters and can qualify or not qualify for the offer.
 
 In both cases, an offer object is appended to the original transaction object containing the qualification result data. In case the transaction qualifies, `cashback` and `performanceFee` amounts are calculated and the `qualified` property is set to `true`. If the transactions does not qualify, `cashback` and `performanceFee` amounts will be `0`, the `qualified` property set to `null` and a message explaining why the offer did not qualify is set in the `message` property. You can see examples for qualified and non-qualified transactions below.
 
