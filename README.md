@@ -6,5 +6,6 @@
 [Cards](/cards)  
 [Transactions](/transactions)  
 [Webhooks](/webhooks)  
+[Offers](/offers)
 [Web SDK](/web-sdk)  
 [Mobile SDKs](/mobile-sdks)
