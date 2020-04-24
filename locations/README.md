@@ -1,11 +1,11 @@
-## Locations
+# Locations
 
 To add a location, select a Program from the **Programs** page, click the **+** icon and enter the requested info about the location. You can also use the [API](https://reference.fidel.uk/reference#create-location) to create and update locations.
 
 ##### You can add Locations after creating a Program and a Brand.
 ![Add locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/add-locations.png "Add locations")
 
-The information required for each location is the Brand (with approved consent), address, postcode, city and country. If your location has been assigned Merchant IDs (MIDs) from the card networks, you may add them now. Adding MIDs during Location creation will speed the onboarding process.
+The information required for each location is the Brand (with approved consent), address, postcode, city and country. If your location has been assigned Merchant IDs (MIDs) from the card networks, you may add them now. Adding MIDs during Location creation will speed up the onboarding process.
 
 <div class="info-box">
     <small>Payment Facilitators</small><br/>
