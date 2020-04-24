@@ -52,7 +52,7 @@ function isSignatureValid(fidelHeaders, payload, secret, url) {
 }
 ```
 
-To prevent replay attacks where a valid payload and it's signature is intercepted and re-transmitted, you can use the `x-fidel-timestamp` header and confirm that the timestamp is not too old. We recommend you validate the requests in a 5 minute gap. In case of retries, a new signature and timestamp are generated for each new request.
+To prevent replay attacks where a valid payload and its signature is intercepted and re-transmitted, you can use the `x-fidel-timestamp` header and confirm that the timestamp is not too old. We recommend you validate the requests in a 5 minute gap. In case of retries, a new signature and timestamp are generated for each new request.
 
 <hr>
 
