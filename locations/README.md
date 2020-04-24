@@ -9,9 +9,10 @@ The information required for each location is the Brand (with approved consent),
 
 <div class="info-box">
     <small>Payment Facilitators</small><br/>
-    If you need to onboard payment facilitators (Square, iZettle, SumUp, etc.), they may be using [shared merchant IDs](https://community.fidel.uk/t/what-is-a-shared-merchant-id-mid/41) that have an impact on how transactions are monitored. Reach out to Fidel if you work with merchants that use payment facilitators.
+    If you need to onboard payment facilitators (Square, iZettle, SumUp, etc.), they may be using shared merchant IDs that have an impact on how transactions are monitored. Reach out to Fidel if you work with merchants that use payment facilitators.
 </div>
 
+You can read more about [shared MIDs in this article](https://community.fidel.uk/t/what-is-a-shared-merchant-id-mid/41).
 Once you have added your locations to Fidel, we can begin the process of Location Sync ⚡️. This step requires submitting all of the locations for onboarding with Visa, Mastercard and American Express, so that we may track credit/debit card transactions at each location. During this process, you can monitor and keep track of the status of each location.
 
 ## Location Sync
@@ -19,15 +20,13 @@ Once you have added your locations to Fidel, we can begin the process of Locatio
 Location status is reported separately for each card scheme. Each location/scheme combination can have one of four statuses: **Inactive, Syncing, Active, or Failed**.
 
 <div class="info-box">
-In the test environment, every added Location skips the Location Sync process and is automatically set to *Active*.
+In the test environment, every added Location skips the Location Sync process and is automatically set to Active.
 </div>
 
 In the live environment, the location begins in an *Inactive* state. In order initiate a change in status of your location, you must start the syncing process by pressing the sync button on the dashboard. Location Sync can take 1-2 weeks. Only one sync per program can be run at a time, so ensure that you are ready to run this process.
 
 ![Sync button](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programsync_button.png "Add locations")
 
-Once the sync process is initiated, the Location status is updated to *Syncing*. It then moves to *Active* when we receive confirmation from the card networks that the location has been successfully on-boarded to your program. If the card networks have an issue with a specific location, the status is set to *Failed* and a case is opened to resolve the issue.
+Once the sync process is initiated, the Location status is updated to *Syncing*. It then moves to *Active* when we receive confirmation from the card networks that the location has been successfully on-boarded to your program. If the card networks have an issue with a specific location, the status is set to *Failed* and a case is opened to resolve the issue. While your locations are syncing you have a progress bar to follow the current status and estimated finish time.
 
 For Locations in the live environment, status can be tracked on the dashboard. A green check ✅ means we have received at least one transaction from this Location confirming the active onboarding status. A **RT** icon will show where we can track real-time authorisation transaction and the **RT** will turn green when we receive the first auth transaction from this Location.
-
-While your locations are syncing you have a progress bar to follow the current status and estimated finish time.
