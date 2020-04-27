@@ -11,14 +11,14 @@ Fidel only accepts HTTPS URLs for webhooks endpoints. In order to create webhook
 
 <div class="info-box">
     <small>Important note</small><br/>
-    To confirm receipt of a webhook event, your server endpoint should return a `200` HTTP status code. Any other response will be treated as a failure and we retry the request three times over the next hour with exponential back off.
+	To confirm receipt of a webhook event, your server endpoint should return a <code>200</code> HTTP status code. Any other response will be treated as a failure and we retry the request three times over the next hour with exponential back off.
 </div>
 
 ## Authentication
 
 To confirm that received events are being sent from Fidel we recommend verifying webhook signatures. That can be done by using the `x-fidel-signature` and `x-fidel-timestamp` HTTP headers. This isn't required, but offers an additional layer of security.
 
-<hr />
+---
 
 A unique secret key is generated for each webhook. The key is returned in the response's `secretKey` property if you are using the Webhooks API. You can also copy the key from the dashboard's webhooks page by clicking in the **Show Key** button next to your webhook endpoint. To verify a webhook request, generate a signature using the same key that Fidel uses and compare that to the value of the `x-fidel-signature` header.
 
@@ -42,7 +42,7 @@ function isSignatureValid(fidelHeaders, payload, secret, url) {
       .digest('base64');
   }
 
-  /** You might also want to check how much time has passed since the request has been sent */
+  /** You can check how much time has passed since the request has been sent */
   /** timestamp - UTC Unix Timestamp (milliseconds) */
   const timestamp = fidelHeaders['x-fidel-timestamp'];
   const content = JSON.stringify(payload) + url + timestamp;
@@ -52,9 +52,9 @@ function isSignatureValid(fidelHeaders, payload, secret, url) {
 }
 ```
 
-To prevent replay attacks where a valid payload and it's signature is intercepted and re-transmitted, you can use the `x-fidel-timestamp` header and confirm that the timestamp is not too old. We recommend you validate the requests in a 5 minute gap. In case of retries, a new signature and timestamp are generated for each new request.
+To prevent replay attacks where a valid payload and its signature is intercepted and re-transmitted, you can use the `x-fidel-timestamp` header and confirm that the timestamp is not too old. We recommend you validate the requests in a 5 minute gap. In case of retries, a new signature and timestamp are generated for each new request.
 
-<hr>
+---
 
 ## Events
 
@@ -81,17 +81,17 @@ fileName:brand.consent
 ```json
 fileName:program.status
 {
-	"id": "f67b7b16-0e3d-457a-811a-cc21dc8448f3",
-	"accountId": "77aa1f5f-7152-45dc-8eb1-cb83355e9cf9",
-	"active": true,
-	"activeDate": "2018-10-28T09: 33: 30.139Z",
-	"created": "2018-10-26T17: 10: 02.509Z",
-	"live": true,
-	"name": "Starbucks Card Linked",
-	"syncStats": {
-	  "status": "updating"
-	},
-	"updated": "2018-10-30T16: 12: 15.604Z"
+  "id": "f67b7b16-0e3d-457a-811a-cc21dc8448f3",
+  "accountId": "77aa1f5f-7152-45dc-8eb1-cb83355e9cf9",
+  "active": true,
+  "activeDate": "2018-10-28T09: 33: 30.139Z",
+  "created": "2018-10-26T17: 10: 02.509Z",
+  "live": true,
+  "name": "Starbucks Card Linked",
+  "syncStats": {
+    "status": "updating"
+  },
+  "updated": "2018-10-30T16: 12: 15.604Z"
 }
 ```
 
@@ -102,20 +102,20 @@ There are two webhooks for card linking if you want to receive the response in y
 ```json
 fileName:card.linked
 {
-	"id": "556f8179-bfdb-4274-852e-ba6e43559590",
-	"accountId": "d346d574-d5c2-4a0e-8e02-ffd813fd1a8d",
-	"countryCode": "GBR",
-	"created": "2018-10-29T17:01:05.013Z",
-	"expDate": "2019-10-01T00:00:00.000Z",
-	"expMonth": 10,
-	"expYear": 2019,
-	"firstNumbers": "444400",
-	"lastNumbers": "4735",
-	"live": false,
-	"programId": "cc67a36a-bae5-4b91-80f0-1ba9a0851eb5",
-	"scheme": "visa",
-	"type": "visa",
-	"updated": "2018-10-29T17:01:05.013Z"
+  "id": "556f8179-bfdb-4274-852e-ba6e43559590",
+  "accountId": "d346d574-d5c2-4a0e-8e02-ffd813fd1a8d",
+  "countryCode": "GBR",
+  "created": "2018-10-29T17:01:05.013Z",
+  "expDate": "2019-10-01T00:00:00.000Z",
+  "expMonth": 10,
+  "expYear": 2019,
+  "firstNumbers": "444400",
+  "lastNumbers": "4735",
+  "live": false,
+  "programId": "cc67a36a-bae5-4b91-80f0-1ba9a0851eb5",
+  "scheme": "visa",
+  "type": "visa",
+  "updated": "2018-10-29T17:01:05.013Z"
 }
 ```
 
@@ -153,7 +153,7 @@ fileName:card.failed
 
 <div class="info-box">
     <small>Qualification events</small><br/>
-    In live environment there are two additional transaction webhook events: `transaction.auth.qualified` and `transaction.clearing.qualified`. They are triggered when an auth or a clearing transaction is qualified for an offer.
+    In live environment there are two additional transaction webhook events: <code>transaction.auth.qualified</code> and <code>transaction.clearing.qualified</code>. They are triggered when an auth or a clearing transaction is qualified for an offer.
 </div>
 
 ```json

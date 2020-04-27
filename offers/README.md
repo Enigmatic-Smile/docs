@@ -21,8 +21,8 @@ fileName:offer.json
   "endDate": "2020-06-20T13:13:00.000Z",
   "feeSplit": 70,
   "funded": {
-      "id": "d346d574-d5c2-4a0e-8e02-ffd713fd1a9d",
-      "type": "card-linking"
+    "id": "d346d574-d5c2-4a0e-8e02-ffd713fd1a9d",
+    "type": "card-linking"
   },
   "live": true,
   "locationsTotal": 240,
@@ -237,10 +237,10 @@ curl -X POST \
         "publisherId":"4ed4b62b-aa4c-43a1-8064-nb7d1368e17a",
         "startDate":"2020-04-20T12:13:13.000Z",
         "type":{
-            "name":"discount",
-            "value":20
+          "name":"discount",
+          "value":20
          }
-     }'
+       }'
 ```
 
 As required parameters, you need to set an offer `name`, your `accountId` as the `publisherId`, the `brandId`, a `startDate`, the type of offer between `amount` or `discount`, an offer `value`, and the `countryCode` where the offer will be available. The `value` is a percentage if the offer `type` is `discount` or a fixed amount in the local currency of the `countryCode` specified.
@@ -264,7 +264,7 @@ Current day is between `startDate` and `endDate` and offer is qualifying transac
 ### Expired
 Current day is after the `endDate`. The offer has stopped qualifying transactions.
 
-<hr>
+---
 
 ## Qualification
 
@@ -347,7 +347,7 @@ fileName:non-qualified-transaction.json
     "qualified": false,
     "qualificationDate": null,
     "message": [
-        "Transaction amount of 5 USD is lower than the offer's minimum transaction amount of 10 USD"
+      "Transaction amount of 5 USD is lower than the offer's minimum transaction amount of 10 USD"
     ]
   }
 }
