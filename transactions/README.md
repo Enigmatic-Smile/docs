@@ -64,7 +64,7 @@ fileName:transaction.json
 
 <details>
   <summary style="margin-bottom: 30px;">JSON Response on API versions to 2018-08-16</summary>
-<div class="code-box"><div class="code-block-header"><svg width="16px" height="20px" viewBox="0 0 16 20" version="1.1"><defs></defs><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"><g id="API-Docs-Copy-3" transform="translate(-490.000000, -6818.000000)" fill="#003650"><g id="Group-2-Copy-2" transform="translate(450.000000, 6790.000000)"><g id="Fill-64" transform="translate(40.000000, 28.000000)"><path d="M14.001,18.0005 L2,18.0005 L2,2.0005 L10,2.0005 L10,6.0005 L14,6.0005 L14.001,18.0005 Z M11.414,0.0005 L2,0.0005 C0.897,0.0005 0,0.8985 0,2.0005 L0,18.0005 C0,19.1025 0.897,20.0005 2,20.0005 L14,20.0005 C15.103,20.0005 16,19.1025 16,18.0005 L16,4.5865 L11.414,0.0005 Z"></path></g></g></g></g></svg>transaction.json</div><pre><code class="language-json hljs">{
+<div class="code-box"><strong>transaction.json</strong><pre><code class="language-json hljs">{
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"7fdfd5d8-9589-402f-8477-4a727ad239a2"</span>,
   <span class="hljs-attr">"accountId"</span>: <span class="hljs-string">"4ed4b62b-aa4c-43a1-8064-da6d1368e17a"</span>,
   <span class="hljs-attr">"programId"</span>: <span class="hljs-string">"6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba"</span>,
