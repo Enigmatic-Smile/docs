@@ -23,14 +23,14 @@ Click on the links below to see how to use the web and mobile SDKs in your appli
 
 <div class="row">
   <div class="column">
-    <a href="/web-sdk" data-path="/web-sdk" class="content">
+    <a href="/docs/web-sdk" class="content">
       <img src="https://docs.fidel.uk/assets/images/web_sdk.svg" />
       <h2>Web</h2>
       <h3>Customisable and secure iframe to link cards on your website</h3>
     </a>
   </div>
   <div class="column">
-    <a href="/mobile-sdks" data-path="/mobile-sdks" class="content">
+    <a href="/docs/mobile-sdks" class="content">
       <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg" />
       <h2>Mobile</h2>
       <h3>PCI compliant SDKs for iOS, Android and React Native</h3>
