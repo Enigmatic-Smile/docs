@@ -2,7 +2,7 @@
 
 <div class="row">
   <div class="column">
-    <a href="/getting-started" class="content" data-path="/getting-started">
+    <a href="/docs/getting-started" class="content" data-path="/getting-started">
       <img src="https://docs.fidel.uk/assets/images/get_started.svg" />
       <h2>Get Started</h2>
       <h3>Start building card-linked applications with our quickstart guide</h3>
@@ -18,14 +18,14 @@
 </div>
 <div class="row">
   <div class="column">
-    <a href="/web-sdk" data-path="/web-sdk" class="content">
+    <a href="/docs/web-sdk" data-path="/web-sdk" class="content">
       <img src="https://docs.fidel.uk/assets/images/web_sdk.svg" />
       <h2>Web SDK</h2>
       <h3>Learn to integrate a secure Javascript SDK to link cards on your website</h3>
     </a>
   </div>
   <div class="column">
-    <a href="/mobile-sdks" class="content" data-path="/mobile-sdks">
+    <a href="/docs/mobile-sdks" class="content" data-path="/mobile-sdks">
       <img src="https://docs.fidel.uk/assets/images/mobile_sdk.svg" />
       <h2>Mobile SDKs</h2>
       <h3>PCI Compliant native SDKs for iOS, Android and React Native</h3>
@@ -47,7 +47,7 @@ Check out the [API Reference](https://reference.fidel.uk) to see all available r
 Join our [Developer Community](https://community.fidel.uk/) for API discussions, documentation, frequently asked questions, roadmap and new features. We’re always happy to help and answer any questions. 
 
 ## Card Linking
-The [iOS](https://docs.fidel.uk/mobile-sdks/ios), [Android](https://docs.fidel.uk/mobile-sdks/android) and [Web](https://docs.fidel.uk/web-sdk) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
+The [iOS](/mobile-sdks/#ios), [Android](/mobile-sdks/#android) and [Web](/web-sdk) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
 By using Fidel SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements.
 
@@ -66,7 +66,7 @@ Your apps will receive an `id` back that identifies the card in each transaction
   <span>View demo</span>
 </button>
 
-Use one of our [test card](https://docs.fidel.uk/cards/testing-card-numbers) numbers (for example `4444000000004004`) and enter an expiry date in the future.
+Use one of our [test card](/cards/#testing-card-numbers) numbers (for example `4444000000004004`) and enter an expiry date in the future.
 
 ##### Web SDK integration script
 
