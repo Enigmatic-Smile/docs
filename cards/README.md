@@ -28,7 +28,7 @@ To test adding cards to a program, go to the [**API Playground**](https://dashbo
     To use the <strong>Create Card</strong> endpoint, you must use the test public key. Using the <strong>Create Card</strong> API endpoint on live environment requires your company to be PCI Compliant. If you want to use the API instead of the SDKs, please contact us at developer@fidel.uk.
 </div>
 
-![Create card](https://docs.fidel.uk/assets/images/create-card.png "Create card")
+![Create card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-card.png "Create card")
 
 When the card is successfully linked, the newly created card object is returned in JSON and displayed in the response body box. If the card linking fails, the failure object will be delivered instead.  
 
