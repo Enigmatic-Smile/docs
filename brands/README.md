@@ -37,7 +37,8 @@ You can monitor consent status on the dashboard and also set up a `brand.consent
 
 ### Auto-Approve Consent 
 
-If you're funding your own offers, or you've received direct authorisation from a brand, you can auto-approve the brand's consent: 
+If you're funding your own offers, or you've received direct authorisation from a brand, you can auto-approve the brand's consent:
+
 ![Auto approve Brand](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/autoapproveConsent.png "auto-approve brand")
 
 Using the Brand Consent API, you can auto-approve your Brand by adding  ```skipInvite: true``` to the JSON request with the brand owner information.
