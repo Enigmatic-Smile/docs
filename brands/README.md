@@ -10,7 +10,7 @@ Once you create a **Brand**, it cannot be deleted.
 
 ## Create Brand
 
-![Create brand](https://docs.fidel.uk/assets/images/create-brand.png "Create brand")
+![Create brand](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-brand.png "Create brand")
 
 
 To create a new Brand, go to the **Brands** page on the dashboard, click the **+** icon and enter a name. Optionally, you can add a link to the brand logo (Note: the logo cannot be added later).  You can also [create a Brand](https://reference.fidel.uk/reference#create-brand) with the API:
