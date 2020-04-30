@@ -1,5 +1,3 @@
-# Documentation
-
 <div class="row">
   <div class="column">
     <a href="/docs/getting-started" class="content" data-path="/getting-started">
