@@ -1,9 +1,9 @@
 # Transactions
-The transaction object is the central piece of data of your card-linked application. When a user makes a purchase with a linked card in any of the linked program's locations, Fidel collects the data and sends to your server through [webhooks](https://docs.fidel.uk/webhooks).
+The transaction object is the central piece of data of your card-linked application. When a user makes a purchase with a linked card in any of the program's participating locations, Fidel tracks the transaction in the payment card networks and sends it to your server in JSON format through [webhooks](https://docs.fidel.uk/webhooks).
 
 ## Transaction object
 
-##### JSON Response: API version from `2019-03-05`
+##### API version from `2019-03-05`
 
 ```json
 fileName:transaction.json
@@ -18,6 +18,7 @@ fileName:transaction.json
   "datetime": "2019-04-10T15:59:30",
   "offer": null,
   "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c647d9cba",
+  "refundTransactionId": null,
   "updated": "2019-04-09T16:00:00.644Z",
   "wallet": "apple-pay",
   "brand": {
@@ -96,29 +97,36 @@ fileName:transaction.json
 }</code><span class="line-numbers-rows" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
 </details>
 
-There are two types of Transactions depending on the time of processing and clearing state: authorization Transactions and clearing Transactions. You can use the `transaction.auth` webhook event to notify or reward the user in your application in real-time.
+There are two types of transactions: authorisation transactions and clearing transactions. **Authorisation transactions** are processed when the customer is making the payment in-store or online. They trigger the `transaction.auth` webhook event that you can use to notify or reward the user in your application in real-time.
 
-Transactions are usually cleared 24-48 hours after the purchase. For consistency, Fidel API processes cleared Transactions and triggers the `transaction.clearing` webhook events daily at 12:00 UTC.
+**Clearing transactions** are processed 48-72 hours after the payment is made. Fidel processes clearing transactions triggering the `transaction.clearing` webhook events daily at 12:00 UTC for Mastercard and multiple times per day for Visa and American Express. Only one transaction is sent per event.
 
-You will receive both `transaction.auth` events in real-time and `transaction.clearing` events (in the next 24-48 hours). At 12:00 UTC daily when we process the clearing transactions, we match every cleared transaction and if an authorization transaction exists we update the `cleared` property from `false` to `true`.  
+You will receive both `transaction.auth` events in real-time and `transaction.clearing` events (in the next 48-72 hours). When clearing transactions are processed, Fidel matches the clearing transaction to the corresponding authorisation transaction if it exists by updating the `cleared` property from `false` to `true`.
 
-We suggest that you use the auth event to notify the user that you registered the transaction and will fulfill the reward when the Transaction clears, since the clearing is the confirmation that the transaction was successfully completed.
+We suggest that you use the auth event to notify the user that you registered the transaction and will fulfill the reward when the transaction clears, since the clearing is the confirmation that the transaction has been settled.
 
-Please allow up to 24h after card-linking to start receiving real-time authorization Transactions.
+Please allow up to 24h after linking a Mastercard card to start receiving real-time authorisation transactions.
 
+## Refund transactions
 
-## Create Transaction
+Refund transactions are processed when a purchased item is returned and the payment is reversed. Refund transactions are a type of clearing transactions that have negative `amount` and trigger the `transaction.clearing` webhook event.
 
-For testing purposes, you can use the **API Playground** to create transactions and test your application logic.
+Fidel matches full refund transactions to its original transaction by comparing `cardId`, `locationId`, `merchantId`, `amount` and `datetime`. The refund `transactionId` is set in the original transaction as `refundTransactionId` and the original `transactionId` is set on the refund transaction as `originalTransactionId`.
 
-To create a transaction you will need a test program, location and a test Card linked to the program.  
+## Test transactions
+
+For testing purposes, you can use the **API Playground** in test environment to create test transactions and test your application logic.
+
+To create a test transaction you will need a program, a location and a test card linked to the program.  
 
 On the dashboard, go to **API Playground** and click on **Create transaction** from the endpoints menu. The method will be set to POST and the endpoint to **_/transactions/test_**. An editable sample JSON object like the following one will be use to create the transaction.
 
-To create a test transaction, use the dropdown menus to select the Program, Location and Card for the transaction.  These selections will be used to populate the `cardId`, `locationId` and the `amount` in the JSON submission.  You can modify any of the properties in the JSON file (including the amount). If the transaction is created successfully you will see the transaction object in the response body box.
+To create a test transaction, use the dropdown menus to select the Program, Location and Card for the transaction.  These selections will be used to populate the `cardId`, `locationId` and the `amount` in the JSON payload.  You can modify any of the properties in the JSON file (including the amount). If the transaction is created successfully you will see the transaction object in the response body box.
 
 ##### Create sample transactions in test mode using the API Playground.
 
 ![Create transaction](https://docs.fidel.uk/assets/images/create-transaction.png "Create transaction")
 
-Click **Send** and a test transaction will be created.  If you have created a webhook for this program with the event property set to `transaction.auth', the webhook will also receive this JSON data.
+Click **Send** and a test authorisation transaction will be created. If you have created a `transaction.auth` webhook event for this program, the authorisation transaction object will be sent to your webhook URL. Alternatively, you can use the [Create Test Transaction](https://reference.fidel.uk/reference#create-transaction-test) API endpoint to create authorisation test transaction.
+
+In order to clear an authorisation test transaction you can open the transaction options menu in the dashboard and click on 'Clear transaction'. This action will trigger the `transaction.clearing` webhook event.
