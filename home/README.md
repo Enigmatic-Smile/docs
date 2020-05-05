@@ -54,7 +54,7 @@ Your apps will receive an `id` back that identifies the card in each transaction
 <div>
   <img
     src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks_main.png"
-    srcset="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks_main.png, hhttps://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks_main@2x.png 2x"
+    srcset="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks_main.png, https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks_main@2x.png 2x"
     alt="Preview of the web and mobile Fidel card linking UI"
   />
 </div>
