@@ -3,6 +3,7 @@
 Fidel uses webhooks to notify your application when relevant events happen in your account. This functionality can be used to receive data from events not triggered by direct API requests or to receive the data in a service that is not responsible for making the API request but needs to consume the response.
 
 Fidel will notify your registered webhook URLs as the event happens. For example, when a customer makes a payment with a linked Mastercard on a participating location, a `transaction.auth` event is sent in real-time to the specified webhook URL with the transaction object in the request payload.
+
 ---
 
 ## Creating webhooks
@@ -15,6 +16,7 @@ Fidel only accepts HTTPS URLs for webhooks endpoints. In order to create webhook
     <small>Return a 200 status code</small><br/>
 	To confirm receipt of a webhook event, your server endpoint should return a <code>200</code> HTTP status code. Any other response will be treated as a failure and we retry the request three times over the next hour with exponential back off.
 </div>
+
 ---
 
 ## Signatures
@@ -53,11 +55,13 @@ function isSignatureValid(fidelHeaders, payload, secret, url) {
 ```
 
 To prevent replay attacks where a valid payload and its signature is intercepted and re-transmitted, you can use the `x-fidel-timestamp` header and confirm that the timestamp is not too old. We recommend you validate the requests in a 5 minute gap. In case of retries, a new signature and timestamp are generated for each new request.
+
 ---
 
 ## Custom headers
 Fidel allows you to define custom HTTP headers that are passed in the webhook POST requests sent to you application.
-Custom headers can be defined when creating a new webhook in the dashboard or by using the [Webhooks API](https://reference.fidel.uk/v1/reference#create-webhook-brand) by setting the optional `headers` object with a key-value pair. You can use the [Update  Webhook](https://reference.fidel.uk/reference#create-webhook-program) endpoint and submit an empty `headers` object in order to remove the custom headers from the webhook.
+
+Custom headers can be defined when creating a new webhook in the dashboard or by using the [Webhooks API](https://reference.fidel.uk/v1/reference#create-webhook-program) by setting the optional `headers` object with a key-value pair. You can use the [Update  Webhook](https://reference.fidel.uk/reference#update-webhook) endpoint and submit an empty `headers` object in order to remove the custom headers from the webhook.
 
 See below an example on how to create a webhook with a custom header using the [Create Webhook](https://reference.fidel.uk/reference#create-webhook-program) endpoint:
 
@@ -67,12 +71,12 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -H 'Fidel-Key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
   -d '{
-        "event": "transaction.auth",
-        "url": "https://realtime.com",
-        "headers": {
-  	       "Custom-Header": "my-custom-header"
-        }
-      }'
+    "event": "transaction.auth",
+    "url": "https://realtime.com",
+    "headers": {
+      "Custom-Header": "my-custom-header"
+    }
+  }'
 ```
 
 Up to 5 custom headers per webhook can be defined and they need to follow strict character validation patterns. You can find more information regarding validation in the [Webhooks API](https://reference.fidel.uk/v1/reference#create-webhook-brand) reference.
@@ -119,11 +123,12 @@ Additionally, the HTTP reserved headers are blacklisted and cannot be used. You 
   "Fidel-Key",
   "Fidel-Live",
   "Fidel-Request-Id",
+  "Fidel-User",
   "X-Fidel-Signature",
-  "X-Fidel-Timestamp",
-  "Fidel-User"
+  "X-Fidel-Timestamp"
 ]
 ```
+
 ---
 
 
