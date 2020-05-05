@@ -24,8 +24,8 @@ To confirm that received events are being sent from Fidel we recommend verifying
 
 A unique secret key is generated for each webhook. The key is returned in the response's `secretKey` property if you are using the Webhooks API. You can also copy the key from the dashboard's webhooks page by clicking in the **Show Key** button next to your webhook endpoint. To verify a webhook request, generate a signature using the same key that Fidel uses and compare that to the value of the `x-fidel-signature` header:
 
-> **1.** Create a string concatenating the body of the request, the webhook URL and the timestamp value from the `x-fidel-timestamp` header.
-> **2.** Double hash the resulting string using the webhook key with HMAC-SHA256 and encode it in Base-64.
+> **1.** Create a string concatenating the body of the request, the webhook URL and the timestamp value from the `x-fidel-timestamp` header.  
+> **2.** Double hash the resulting string using the webhook key with HMAC-SHA256 and encode it in Base-64.  
 > **3.** Compare the signature you generated with the signature provided in the `x-fidel-signature` header.
 
 ##### Example Javascript implementation
