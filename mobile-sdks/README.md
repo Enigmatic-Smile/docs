@@ -262,9 +262,10 @@ In order to allow scanning cards with the camera, make sure to add the key `NSCa
       }
     }
     ```
-5. Only for projects initialized with **RN <= 0.59**: Open up `android/app/src/main/java/[...]/MainApplication.java`
-    - Add `import com.fidelreactlibrary.FidelPackage;` to the imports at the top of the file
-    - Add `new FidelPackage()` to the list returned by the `getPackages()` method:
+5. Only for projects initialized with **RN <= 0.59**:
+    Open up `android/app/src/main/java/[...]/MainApplication.java`  
+    Add `import com.fidelreactlibrary.FidelPackage;` to the imports at the top of the file  
+    Add `new FidelPackage()` to the list returned by the `getPackages()` method:  
     ```java
     protected List <ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
@@ -275,7 +276,7 @@ In order to allow scanning cards with the camera, make sure to add the key `NSCa
     }
     ```
 6. Ensure that you have *Google Play Services* installed.
-  For a physical device you need to search on Google for *Google Play Services*. There will be a link that takes you to the Play Store and from there you will see a button to update it (*do not* search within the Play Store).
+    For a physical device you need to search on Google for *Google Play Services*. There will be a link that takes you to the Play Store and from there you will see a button to update it (*do not* search within the Play Store).
 
 ### Usage
 
@@ -470,5 +471,5 @@ Amex: `3400000000003**` or `3700000000003**` (the last 2 numbers can be anything
 
 The React Native SDK is in active development, we welcome your feedback!
 
-[Developers Community](https://community.fidel.uk/) — for support and troubleshooting at any phase of integration.
+[Developers Community](https://community.fidel.uk/) — for support and troubleshooting at any phase of integration.  
 [GitHub Issues](https://github.com/fidellimited/rn-sdk/issues) — For SDK issues and feedback.
