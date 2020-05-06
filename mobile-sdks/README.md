@@ -54,7 +54,7 @@ Fidel.privacyURL = "https://yourcompany.com/privacyURL"
 Fidel.deleteInstructions = "Your delete instructions" // Maximum 60 characters, default: "going to your account settings."
 ```
 
-Set a default card country (if set, country picker will be hidden)
+Set a default card country (if set, country picker will be hidden):
 ```swift
 Fidel.country = .unitedKingdom
 ```
@@ -68,7 +68,7 @@ Fidel.present(self, onCardLinkedCallback: { (card: LinkResult) in
 })
 ```
 
-For more detailed documentation about any class in the SDKs and available customisation options, check the [iOS repository on Github](https://github.com/FidelLimited/fidel-ios).
+If you run into any issues, [let us know in the Developer Community](https://community.fidel.uk/c/Issues-or-Questions-on-our-mobile-SDKs/) or [check issues on Github](https://github.com/FidelLimited/fidel-ios).
 
 ## Android
 
@@ -112,7 +112,7 @@ Fidel.privacyURL = "https://yourcompany.com/privacyURL"
 Fidel.deleteInstructions = "Your delete instructions" // Maximum 60 characters, default: "going to your account settings."
 ```
 
-Set a default card country (if set, country picker will be hidden)
+Set a default card country (if set, country picker will be hidden):
 ```swift
 Fidel.country = Fidel.Country.UNITED_KINGDOM;
 ```
@@ -154,7 +154,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-For more detailed documentation about any class in the SDKs and available customisation options, check the [Android repository on Github](https://github.com/FidelLimited/fidel-android).
+If you run into any issues, [let us know in the Developer Community](https://community.fidel.uk/c/Issues-or-Questions-on-our-mobile-SDKs/) or [check issues on Github](https://github.com/FidelLimited/fidel-android).
 
 ## React Native
 
@@ -176,83 +176,6 @@ For more detailed documentation about any class in the SDKs and available custom
 #### Android
 
 1. Append Jitpack to `android/build.gradle`:
-
-```java
-allprojects {
-  repositories {
-    ...
-    maven { url "https://jitpack.io" }
-  }
-}
-```
-
-2. Make sure that the `minSdkVersion` is the same or higher than the `minSdkVersion` of our native Android SDK:
-
-```java
-buildscript {
-  ext {
-    ...
-    minSdkVersion = 19
-    ...
-  }
-}
-```
-
----
-
-### Manual linking
-
-#### iOS manual linking
-
-##### Step 1: Add the Fidel React Native iOS project as a dependency
-
-1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
-2. Go to `node_modules` ➜ `fidel-react-native` and add `Fidel.xcodeproj`
-3. In XCode, in the project navigator, select your project. Add `libFidel.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
-
-4. Under your target's `Build Settings`, make sure to set `YES` for `Always Embed Swift Standard Libraries`. That's because, by default, your project might not need it. It needs to be `YES` because otherwise the project will not find the Swift libraries to be able to run our native iOS SDK.
-
-##### Step 2: Add the Native iOS SDK as a dependency
-
-You can use Cocoapods or install the library as a dynamic library.
-
-1. Add a `Podfile` in your `ios/` folder of your React Native project. It should include the following dependency:
-  ```ruby
-  use_frameworks!
-  pod 'Fidel'
-  ```
-
-  Here is the simplest `Podfile` you need to link with our native iOS SDK:
-
-  ```ruby
-  platform :ios, '9.1'
-
-  workspace 'example'
-
-  target 'example' do
-    use_frameworks!
-    pod 'Fidel'
-  end
-  ```
-
-  If you use an older Swift version, you should install a different `Fidel` pod version. If your project uses Swift `4.2.1`, for example, your Podfile should include `pod Fidel, '~>1.4`, *not* `pod 'Fidel'` (which installs the latest version of the latest Swift supported version). Please check our [iOS SDK docs](/mobile-sdks/ios). You’ll find a suitable version you should set for our Fidel iOS SDK.
-2. Run `pod install` in your terminal.
-3. Make sure to use the new `.xcworkspace` created by Cocoapods when you run your iOS app. React Native should use it by default.
-
-In order to allow scanning cards with the camera, make sure to add the key `NSCameraUsageDescription` to your iOS app `Info.plist` and set the value to a string describing why your app needs to use the camera (e.g. "To scan credit cards."). This string will be displayed when the app initially requests permission to access the camera.
-
-#### Android manual linking
-
-1. Append the following lines to `android/settings.gradle`:
-  ```java
-  include ':fidel-react-native'
-  project(':fidel-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/fidel-react-native/android')
-  ```
-2. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
-  ```java
-  implementation project(':fidel-react-native')
-  ```
-3. Append Jitpack to `android/build.gradle`:
   ```java
   allprojects {
     repositories {
@@ -261,7 +184,7 @@ In order to allow scanning cards with the camera, make sure to add the key `NSCa
     }
   }
   ```
-4. Make sure that the `minSdkVersion` is the same or higher than the `minSdkVersion` of our native Android SDK:
+2. Make sure that the `minSdkVersion` is the same or higher than the `minSdkVersion` of our native Android SDK:
   ```java
   buildscript {
     ext {
@@ -271,20 +194,88 @@ In order to allow scanning cards with the camera, make sure to add the key `NSCa
     }
   }
   ```
+
+---
+
+### Manual linking on iOS
+
+#### Step 1: Add the Fidel React Native iOS project as a dependency
+
+1. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
+2. Go to `node_modules` ➜ `fidel-react-native` and add `Fidel.xcodeproj`
+3. In XCode, in the project navigator, select your project. Add `libFidel.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
+4. Under your target's `Build Settings`, make sure to set `YES` for `Always Embed Swift Standard Libraries`. That's because, by default, your project might not need it. It needs to be `YES` because otherwise the project will not find the Swift libraries to be able to run our native iOS SDK.
+
+#### Step 2: Add the Native iOS SDK as a dependency
+
+You can use Cocoapods or install the library as a dynamic library.
+
+1. Add a `Podfile` in your `ios/` folder of your React Native project. It should include the following dependency:  
+    ```ruby
+    use_frameworks!
+    pod 'Fidel'
+    ```
+    Here is the simplest `Podfile` you need to link with our native iOS SDK:  
+    ```ruby
+    platform :ios, '9.1'
+
+    workspace 'example'
+
+    target 'example' do
+      use_frameworks!
+      pod 'Fidel'
+    end
+    ```
+    If you use an older Swift version, you should install a different `Fidel` pod version. If your project uses Swift `4.2.1`, for example, your Podfile should include `pod Fidel, '~>1.4`, *not* `pod 'Fidel'` (which installs the latest version of the latest Swift supported version). Please check our [iOS SDK docs](/mobile-sdks/ios). You’ll find a suitable version you should set for our Fidel iOS SDK.
+2. Run `pod install` in your terminal.
+3. Make sure to use the new `.xcworkspace` created by Cocoapods when you run your iOS app. React Native should use it by default.
+
+In order to allow scanning cards with the camera, make sure to add the key `NSCameraUsageDescription` to your iOS app `Info.plist` and set the value to a string describing why your app needs to use the camera (e.g. "To scan credit cards."). This string will be displayed when the app initially requests permission to access the camera.
+
+### Manual linking on Android
+
+1. Append the following lines to `android/settings.gradle`:
+    ```java
+    include ':fidel-react-native'
+    project(':fidel-react-native').projectDir = new File(rootProject.projectDir, '../node_modules/fidel-react-native/android')
+    ```
+2. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
+    ```java
+    implementation project(':fidel-react-native')
+    ```
+3. Append Jitpack to `android/build.gradle`:
+    ```java
+    allprojects {
+      repositories {
+        ...
+        maven { url "https://jitpack.io" }
+      }
+    }
+    ```
+4. Make sure that the `minSdkVersion` is the same or higher than the `minSdkVersion` of our native Android SDK:
+    ```java
+    buildscript {
+      ext {
+        ...
+        minSdkVersion = 19
+        ...
+      }
+    }
+    ```
 5. Only for projects initialized with **RN <= 0.59**: Open up `android/app/src/main/java/[...]/MainApplication.java`
-  - Add `import com.fidelreactlibrary.FidelPackage;` to the imports at the top of the file
-  - Add `new FidelPackage()` to the list returned by the `getPackages()` method:
-  ```java
-  protected List <ReactPackage> getPackages() {
-    return Arrays.<ReactPackage>asList(
-      new MainReactPackage(),
-      new FidelPackage(),
-      // you might have other Packages here as well.
-    );
-  }
-  ```
+    - Add `import com.fidelreactlibrary.FidelPackage;` to the imports at the top of the file
+    - Add `new FidelPackage()` to the list returned by the `getPackages()` method:
+    ```java
+    protected List <ReactPackage> getPackages() {
+      return Arrays.<ReactPackage>asList(
+        new MainReactPackage(),
+        new FidelPackage(),
+        // you might have other Packages here as well.
+      );
+    }
+    ```
 6. Ensure that you have *Google Play Services* installed.
-For a physical device you need to search on Google for *Google Play Services*. There will be a link that takes you to the Play Store and from there you will see a button to update it (*do not* search within the Play Store).
+  For a physical device you need to search on Google for *Google Play Services*. There will be a link that takes you to the Play Store and from there you will see a button to update it (*do not* search within the Play Store).
 
 ### Usage
 
@@ -469,15 +460,15 @@ Fidel.setOptions({
 
 In the test environment, you can use the following Visa, Mastercard or American Express test card numbers. You must use a test API Key for them to work.
 
-Visa: _4444000000004***_ (the last 3 numbers can be anything)
+Visa: `4444000000004***` (the last 3 numbers can be anything)
 
-Mastercard: _5555000000005***_ (the last 3 numbers can be anything)
+Mastercard: `5555000000005***` (the last 3 numbers can be anything)
 
-American Express: _3400000000003**_ or _3700000000003**_ (the last 2 numbers can be anything)
+Amex: `3400000000003**` or `3700000000003**` (the last 2 numbers can be anything)
 
 ### Feedback
 
 The React Native SDK is in active development, we welcome your feedback!
 
-[GitHub Issues](https://github.com/fidellimited/rn-sdk/issues) — For SDK issues and feedback  
-[Developers Community](https://community.fidel.uk/) — for personal & community support at any phase of integration.
+[Developers Community](https://community.fidel.uk/) — for support and troubleshooting at any phase of integration.
+[GitHub Issues](https://github.com/fidellimited/rn-sdk/issues) — For SDK issues and feedback.
