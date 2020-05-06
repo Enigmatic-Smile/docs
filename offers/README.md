@@ -18,7 +18,7 @@ fileName:offer.json
   "created": "2020-04-18T12:12:00.000Z",
   "currency": "USD",
   "daysOfWeek": [0,1,2,3,4,5,6],
-  "endDate": "2020-06-20T13:13:00.000Z",
+  "endDate": "2020-06-20T13:13:00",
   "feeSplit": 70,
   "funded": {
     "id": "d346d574-d5c2-4a0e-8e02-ffd713fd1a9d",
@@ -37,7 +37,7 @@ fileName:offer.json
     "mastercard",
     "visa"
   ],
-  "startDate": "2020-04-20T00:00:00.000Z",
+  "startDate": "2020-04-20T00:00:00",
   "type": {
     "name": "discount",
     "value": 20
@@ -124,7 +124,7 @@ fileName:offer.json
             <span><code>endDate</code></span>
             <em>date</em>
         </dt>
-        <dd>Date and time when the offer will complete.</dd>
+        <dd>Date and time, in format <code>YYYY-MM-DDThh:mm:ss</code>, when the offer will complete.</dd>
     </div>
     <div>
         <dt>
@@ -201,7 +201,7 @@ fileName:offer.json
             <span><code>startDate</code></span>
             <em>date</em>
         </dt>
-        <dd>Date and time when the offer gets activated and starts qualifying transactions.</dd>
+        <dd>Date and time, in format <code>YYYY-MM-DDThh:mm:ss</code>, when the offer gets activated and starts qualifying transactions.</dd>
     </div>
     <div>
         <dt>
@@ -235,7 +235,7 @@ curl -X POST \
         "name":"20% Off Everything",
         "brandId":"585dca42-2c77-4007-8429-9496782fd16a",
         "publisherId":"4ed4b62b-aa4c-43a1-8064-nb7d1368e17a",
-        "startDate":"2020-04-20T12:13:13.000Z",
+        "startDate":"2020-04-20T12:13:13",
         "type":{
           "name":"discount",
           "value":20
