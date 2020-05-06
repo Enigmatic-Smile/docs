@@ -253,7 +253,8 @@ Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#crea
 
 An offer qualifies transactions depending on a combination of three properties: `startDate, endDate` and `locationsTotal`. On the dashboard offers are grouped between pending, all-set, live and expired.
 
-If the offer is labeled as pending it means that the `startDate` is in the future or it has no linked locations. When an offer has at least one location linked to it and the `startDate` is set in the future, the offer is placed in the all-set group. An offer is live when today's date is between the offer's `startDate` and `endDate` and `locationsTotal` is greater than `0`.
+If the offer is labeled as pending it means that the `startDate` is in the future or it has no linked locations. When an offer has at least one location linked to it and the `startDate` is set in the future, the offer is placed in the all-set group. An offer is live when today's date is between the offer's `startDate` and `endDate` and `locationsTotal` is greater than `0`. An offer will be bind to the linked locations timezone, `startDate` and `endDate` will currespond to the locations local time.
+
 
 ### Pending
 Offer `startDate` is set in the future. Offer will start qualifying when transactions are made at locations linked to the offer after the `startDate`.
