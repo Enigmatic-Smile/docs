@@ -18,7 +18,7 @@ fileName:offer.json
   "created": "2020-04-18T12:12:00.000Z",
   "currency": "USD",
   "daysOfWeek": [0,1,2,3,4,5,6],
-  "endDate": "2020-06-20T13:13:00.000Z",
+  "endDate": "2020-06-20T13:13:00",
   "feeSplit": 70,
   "funded": {
     "id": "d346d574-d5c2-4a0e-8e02-ffd713fd1a9d",
@@ -37,7 +37,7 @@ fileName:offer.json
     "mastercard",
     "visa"
   ],
-  "startDate": "2020-04-20T00:00:00.000Z",
+  "startDate": "2020-04-20T00:00:00",
   "type": {
     "name": "discount",
     "value": 20
@@ -124,7 +124,7 @@ fileName:offer.json
             <span><code>endDate</code></span>
             <em>date</em>
         </dt>
-        <dd>Date and time when the offer will complete.</dd>
+        <dd>Date and time, in format <code>YYYY-MM-DDThh:mm:ss</code>, when the offer will complete.</dd>
     </div>
     <div>
         <dt>
@@ -201,7 +201,7 @@ fileName:offer.json
             <span><code>startDate</code></span>
             <em>date</em>
         </dt>
-        <dd>Date and time when the offer gets activated and starts qualifying transactions.</dd>
+        <dd>Date and time, in format <code>YYYY-MM-DDThh:mm:ss</code>, when the offer gets activated and starts qualifying transactions.</dd>
     </div>
     <div>
         <dt>
@@ -235,7 +235,7 @@ curl -X POST \
         "name":"20% Off Everything",
         "brandId":"585dca42-2c77-4007-8429-9496782fd16a",
         "publisherId":"4ed4b62b-aa4c-43a1-8064-nb7d1368e17a",
-        "startDate":"2020-04-20T12:13:13.000Z",
+        "startDate":"2020-04-20T12:13:13",
         "type":{
           "name":"discount",
           "value":20
@@ -253,7 +253,8 @@ Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#crea
 
 An offer qualifies transactions depending on a combination of three properties: `startDate, endDate` and `locationsTotal`. On the dashboard offers are grouped between pending, all-set, live and expired.
 
-If the offer is labeled as pending it means that the `startDate` is in the future or it has no linked locations. When an offer has at least one location linked to it and the `startDate` is set in the future, the offer is placed in the all-set group. An offer is live when today's date is between the offer's `startDate` and `endDate` and `locationsTotal` is greater than `0`.
+If the offer is labeled as pending it means that the `startDate` is in the future or it has no linked locations. When an offer has at least one location linked to it and the `startDate` is set in the future, the offer is placed in the all-set group. An offer is live when today's date is between the offer's `startDate` and `endDate` and `locationsTotal` is greater than `0`. An offer will be bound to the time zone of linked locations, `startDate` and `endDate` will correspond to the locations’ local time.
+
 
 ### Pending
 Offer `startDate` is set in the future. Offer will start qualifying when transactions are made at locations linked to the offer after the `startDate`.
