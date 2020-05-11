@@ -14,7 +14,8 @@ To create a new program on the dashboard, go to the [**Programs**](https://dashb
 ![Create program](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-program.png "Create program")
 
 The same can be done with the [API](https://reference.fidel.uk/reference#create-program).  Using curl, we can add 'Program X' as follows:
-```
+
+```sh
 curl -X POST https://api.fidel.uk/v1/programs \
   -H 'content-type: application/json' \
   -H 'fidel-key: <secret key>' \
@@ -29,5 +30,3 @@ curl -X POST https://api.fidel.uk/v1/programs \
 
 
 A `programId` will be generated and is used as a data property when using the SDKs to link Cards to this Program. Cards are linked to Programs and consequently are able to track all purchases at locations in the program.
-
-

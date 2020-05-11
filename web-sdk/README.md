@@ -18,11 +18,9 @@ You can easily integrate the Web SDK in your website or mobile app with only a f
 
 ##### Fidel Web SDK script
 
-*Note: You can still use v1, by setting the script `src` to `https://resources.fidel.uk/sdk/js/v1/fidel.js`.*
-
 Here are the parameters that must be defined in your JavaScript. All of the parameters that begin with `data-` can be customised for your application, but `data-program-id`, `data-key`, `data-country-code` are the absolute minimum to have reports arrive back your Fidel Dashboard. The full parameter description is found below the code.  
 
->Note: The `data-key` in the Web SDK is your public SDK key.
+> Note: The `data-key` in the Web SDK is your public SDK key.
 
 ```html
 fileName:index.html
@@ -55,7 +53,9 @@ fileName:index.html
 ```
 To integrate **Fidel Web SDK** in your website or mobile app, you need to add the script above in your website or mobile web view. For mobile apps, however, we recommend using the [mobile SDKs](/mobile-sdk).
 
->Hint: Adding user data in the metadata as key:value pairs can simplify reconciliation with your system. For example, adding 'myUserId':'123' will help you match the the added card to your user '123'.
+> Hint: Adding user data in the metadata as key:value pairs can simplify reconciliation with your system. For example, adding 'myUserId':'123' will help you match the the added card to your user '123'.
+
+> You can continue using v1, by setting the script `src` to `https://resources.fidel.uk/sdk/js/v1/fidel.js`.
 
 ##### Web SDK parameters
 
