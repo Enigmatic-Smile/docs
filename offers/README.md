@@ -3,7 +3,11 @@
 The Offer object holds the details about a card linked offer. Offers can be created by developers using the [Offer API](https://reference.fidel.uk/v1/reference#create-offer) or by Brands/Merchants using the CLO dashboard at [clo.fidel.uk](https://clo.fidel.uk).
 A card linked offer specifies a set of parameters that will be used to qualify a card transaction made at a participating Brand’s online or offline store.
 
+
+
 ## Offer object
+
+Once you have created an offer, you can request the contents of the object using the [Get Offer](https://reference.fidel.uk/reference#get-offer) API call.  The response will appear similar to the following: 
 
 ```json
 fileName:offer.json
@@ -124,7 +128,7 @@ fileName:offer.json
             <span><code>endDate</code></span>
             <em>date</em>
         </dt>
-        <dd>Date and time, in format <code>YYYY-MM-DDThh:mm:ss</code>, when the offer will complete.</dd>
+        <dd>Date and time, in format <code>YYYY-MM-DDThh:mm:ss</code>, when the offer will complete. Note: Time is local to the location.</dd>
     </div>
     <div>
         <dt>
@@ -221,7 +225,7 @@ fileName:offer.json
 
 ## Create Offer
 
-To create an offer you can use the [Create Offer](https://reference.fidel.uk/v1/reference#create-offer) API endpoint or the dashboard and specify your offer parameters.
+To create an offer you can use the [Create Offer](https://reference.fidel.uk/v1/reference#create-offer) API endpoint or the dashboard and specify your offer parameters. If you have an account in the [CLO dashboard](https://clo.fidel.uk), you may create an offer there as well.
 
 See below an example on how to create an offer using the Create Offer endpoint:
 
@@ -233,8 +237,8 @@ curl -X POST \
   -d '{
         "countryCode": "USA",
         "name":"20% Off Everything",
-        "brandId":"585dca42-2c77-4007-8429-9496782fd16a",
         "publisherId":"4ed4b62b-aa4c-43a1-8064-nb7d1368e17a",
+        "brandId":"585dca42-2c77-4007-8429-9496782fd16a",
         "startDate":"2020-04-20T12:13:13",
         "type":{
           "name":"discount",
@@ -243,21 +247,43 @@ curl -X POST \
        }'
 ```
 
-As required parameters, you need to set an offer `name`, your `accountId` as the `publisherId`, the `brandId`, a `startDate`, the type of offer between `amount` or `discount`, an offer `value`, and the `countryCode` where the offer will be available. The `value` is a percentage if the offer `type` is `discount` or a fixed amount in the local currency of the `countryCode` specified.
+### Required parameters
+
+There are a number of required parameters for the Offer to be created: 
+* `name`: the name of your offer
+* `publisherId` this is your Fidel `accountId`
+* `brandId` of the brand presenting the offer
+* `startDate`of the offer.  Any time added to the startDate will be local to the location.
+* `countryCode` where the offer will be available. 
+* `type` : `name`. Valid names are `amount` or `discount`.  
+* `type`: `value` Numeric value of the discount.
+
+An offer with the type `amount` wil use the currency of the indicated country, and apply the value as the amount of savings (for example: £25 off).  The type `discount` applies the value as a percentage savings (for example: 25% off). 
+
+### Optional Parameters
+
+* `endDate` to automatically end the offer.  Time is set to local time.
+* `daysOfWeek` is an array of numbers 0-6 to indicated the days of the week.  0 = Sunday.
+* `minTransactionAmount` The minumum transaction amount (example: "Save 25% on purchases over £50")
+* `maxTransactionAmount` the maximum transaction spend for an offer.  Example: "Save 25% on purchases over £50, save 40% on purchases over £100."
+* `returnPeriod` Indicates a period for returns before the refulnd is applied.
+* `activation` `false` (the default value) allows any linked card to participate in the offer.  It set to `true`, canrds must be enroled in the offer to participate.
 
 Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#create-offer) for more detailed documentation about available Offer API endpoints.
+
+Once you have created the offer, it will enter the Offer lifecycle as a pending offer.
 
 <hr>
 
 ## Offer Lifecycle
 
-An offer qualifies transactions depending on a combination of three properties: `startDate, endDate` and `locationsTotal`. On the dashboard offers are grouped between pending, all-set, live and expired.
-
-If the offer is labeled as pending it means that the `startDate` is in the future or it has no linked locations. When an offer has at least one location linked to it and the `startDate` is set in the future, the offer is placed in the all-set group. An offer is live when today's date is between the offer's `startDate` and `endDate` and `locationsTotal` is greater than `0`. An offer will be bound to the time zone of linked locations, `startDate` and `endDate` will correspond to the locations’ local time.
-
+On the dashboard offers are grouped into four categories: pending, all-set, live and expired.  
 
 ### Pending
-Offer `startDate` is set in the future. Offer will start qualifying when transactions are made at locations linked to the offer after the `startDate`.
+Offer `startDate` is set in the future, and/or no locations are set.
+
+### All-set
+Offer has at least one location set, but `startDate` is in the future. Offers in this category will automatically become "live" when the `startDate` is reached.
 
 ### Live
 Current day is between `startDate` and `endDate` and offer is qualifying transactions at the locations linked to it.
@@ -266,6 +292,10 @@ Current day is between `startDate` and `endDate` and offer is qualifying transac
 Current day is after the `endDate`. The offer has stopped qualifying transactions.
 
 ---
+
+## Adding Locations
+
+To move your new Offer out of the Pending group to All-set (if `startDate` is in the future) or Live (if `startDate is in the past), you must add at least one location.  You can use the [Link Location to Offer](https://reference.fidel.uk/reference#add-location-to-offer) API endpoint for each location to be added to the offer.
 
 ## Qualification
 
