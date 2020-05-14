@@ -3,8 +3,6 @@
 The Offer object holds the details about a card linked offer. Offers can be created by developers using the [Offer API](https://reference.fidel.uk/v1/reference#create-offer) or by Brands/Merchants using the CLO dashboard at [clo.fidel.uk](https://clo.fidel.uk).
 A card linked offer specifies a set of parameters that will be used to qualify a card transaction made at a participating Brand’s online or offline store.
 
-
-
 ## Offer object
 
 Once you have created an offer, you can request the contents of the object using the [Get Offer](https://reference.fidel.uk/reference#get-offer) API call.  The response will appear similar to the following: 
@@ -263,11 +261,11 @@ An offer with the type `amount` wil use the currency of the indicated country, a
 ### Optional Parameters
 
 * `endDate` to automatically end the offer.  Time is set to local time.
-* `daysOfWeek` is an array of numbers 0-6 to indicated the days of the week.  0 = Sunday.
+* `daysOfWeek` is an array of numbers 0-6 to indicated the days of the week.  0 = Sunday, 1 = Monday, etc.
 * `minTransactionAmount` The minumum transaction amount (example: "Save 25% on purchases over £50")
-* `maxTransactionAmount` the maximum transaction spend for an offer.  Example: "Save 25% on purchases over £50, save 40% on purchases over £100."
+* `maxTransactionAmount` the maximum transaction spend for an offer.  Example: "Save 25% on purchases over £50, save 40% on purchases over £100" the first offer would have a maxTransactionAmout of £100.
 * `returnPeriod` Indicates a period for returns before the refulnd is applied.
-* `activation` `false` (the default value) allows any linked card to participate in the offer.  It set to `true`, canrds must be enroled in the offer to participate.
+* `activation` `false` (the default value) allows any linked card to participate in the offer.  It set to `true`, the offer requires the card to be entered into the offer.  *CAUTION* please read the section below on Activated offers before using this parameter. 
 
 Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#create-offer) for more detailed documentation about available Offer API endpoints.
 
@@ -386,7 +384,14 @@ fileName:non-qualified-transaction.json
 
 ## Activation
 
-Offer activation allows developers to require that offers are activated on cards in order to qualify for a reward. This feature is part of the Offers API and can be used by creating offers that require activation with `activation: true`.
+Offers using the activation parameter require cards to be specifically added to the offer in order to redeem them.  
+
+<div class="info-box">
+    <small>Locations and Activated Offers</small><br/>
+    Any location that has a Live Activated Offer will be unable to record **any** card-linking transactions or regular offers for cards that are not enroled in the Activated Offer.
+</div>
+
+Offer activation requires offers to be activated on cards in order to qualify for a reward. This feature is part of the Offers API and can be used by creating offers that require activation with `activation: true`.
 This can be done using the [Create Offer API](https://reference.fidel.uk/v1/reference#create-offer) endpoint or using the [dashboard](https://dashboard.fidel.uk).
 
 To receive and qualify transactions for offers with activation, offers need to be activated on cards before the purchase. That is done by using the [Activate Offer on Card](https://reference.fidel.uk/reference#activate-offer-on-card) API endpoint as follows:
