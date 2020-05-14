@@ -256,16 +256,16 @@ There are a number of required parameters for the Offer to be created:
 * `type` : `name`. Valid names are `amount` or `discount`.  
 * `type`: `value` Numeric value of the discount.
 
-An offer with the type `amount` wil use the currency of the indicated country, and apply the value as the amount of savings (for example: £25 off).  The type `discount` applies the value as a percentage savings (for example: 25% off). 
+An offer with the type `amount` will use the currency of the indicated country, and apply the value as the amount of savings (for example: £25 off).  The type `discount` applies the value as a percentage savings (for example: 25% off). 
 
 ### Optional Parameters
 
 * `endDate` to automatically end the offer.  Time is set to local time.
-* `daysOfWeek` is an array of numbers 0-6 to indicated the days of the week.  0 = Sunday, 1 = Monday, etc.
-* `minTransactionAmount` The minumum transaction amount (example: "Save 25% on purchases over £50")
+* `daysOfWeek` is an array of numbers 0-6 to indicate the days of the week.  0 = Sunday, 1 = Monday, etc.
+* `minTransactionAmount` The minimum transaction amount (example: "Save 25% on purchases over £50")
 * `maxTransactionAmount` the maximum transaction spend for an offer.  Example: "Save 25% on purchases over £50, save 40% on purchases over £100" the first offer would have a maxTransactionAmout of £100.
-* `returnPeriod` Indicates a period for returns before the refulnd is applied.
-* `activation` `false` (the default value) allows any linked card to participate in the offer.  It set to `true`, the offer requires the card to be entered into the offer.  *CAUTION* please read the section below on Activated offers before using this parameter. 
+* `returnPeriod` Indicates a period for returns before the refund is applied.
+* `activation` `false` (the default value) allows any linked card to participate in the offer.  If set to `true`, the offer requires the card to be entered into the offer.  *CAUTION* please read the section below on Activated offers before using this parameter. 
 
 Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#create-offer) for more detailed documentation about available Offer API endpoints.
 
