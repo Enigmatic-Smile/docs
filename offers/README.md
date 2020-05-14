@@ -382,14 +382,9 @@ fileName:non-qualified-transaction.json
 }
 ```
 
-## Activation
+## Activated Card Offers
 
-Offers using the activation parameter require cards to be specifically added to the offer in order to redeem them.  
-
-<div class="info-box">
-    <small>Locations and Activated Offers</small><br/>
-    Any location that has a Live Activated Offer will be unable to record **any** card-linking transactions or regular offers for cards that are not enroled in the Activated Offer.
-</div>
+Offers using the activation parameter have important and significant differences from offers that are not activated. Activated Card Offers require cards to be specifically added to the offer in order to be redeemed. Importantly, locations affiliated with an Activated Card Offer will not register any transactions for cards that are not linked to the Activated Offer.
 
 Offer activation requires offers to be activated on cards in order to qualify for a reward. This feature is part of the Offers API and can be used by creating offers that require activation with `activation: true`.
 This can be done using the [Create Offer API](https://reference.fidel.uk/v1/reference#create-offer) endpoint or using the [dashboard](https://dashboard.fidel.uk).
