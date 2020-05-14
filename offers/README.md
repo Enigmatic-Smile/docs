@@ -293,7 +293,7 @@ Current day is after the `endDate`. The offer has stopped qualifying transaction
 
 ## Adding Locations
 
-To move your new Offer out of the Pending group to All-set (if `startDate` is in the future) or Live (if `startDate is in the past), you must add at least one location.  You can use the [Link Location to Offer](https://reference.fidel.uk/reference#add-location-to-offer) API endpoint for each location to be added to the offer.
+To move your new Offer out of the Pending group to All-set (if `startDate` is in the future) or Live (if `startDate` is in the past), you must add at least one location.  You can use the [Link Location to Offer](https://reference.fidel.uk/reference#add-location-to-offer) API endpoint for each location to be added to the offer.
 
 ## Qualification
 
