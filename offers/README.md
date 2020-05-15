@@ -5,7 +5,7 @@ A card linked offer specifies a set of parameters that will be used to qualify a
 
 ## Offer object
 
-Once you have created an offer, you can request the contents of the object using the [Get Offer](https://reference.fidel.uk/reference#get-offer) API call.  The response will appear similar to the following: 
+Once you have created an offer, you can request the contents of the object using the [Get Offer](https://reference.fidel.uk/reference#get-offer) API call. The response will appear similar to the following: 
 
 ```json
 fileName:offer.json
@@ -223,7 +223,7 @@ fileName:offer.json
 
 ## Create Offer
 
-To create an offer you can use the [Create Offer](https://reference.fidel.uk/v1/reference#create-offer) API endpoint or the dashboard and specify your offer parameters. If you have an account in the [CLO dashboard](https://clo.fidel.uk), you may create an offer there as well.
+To create an offer you can use the [Create Offer](https://reference.fidel.uk/v1/reference#create-offer) API endpoint or the dashboard and specify your offer parameters. If you have an account in the [Offers dashboard](https://clo.fidel.uk), you may create an offer there as well.
 
 See below an example on how to create an offer using the Create Offer endpoint:
 
@@ -235,8 +235,8 @@ curl -X POST \
   -d '{
         "countryCode": "USA",
         "name":"20% Off Everything",
-        "publisherId":"4ed4b62b-aa4c-43a1-8064-nb7d1368e17a",
         "brandId":"585dca42-2c77-4007-8429-9496782fd16a",
+        "publisherId":"4ed4b62b-aa4c-43a1-8064-nb7d1368e17a",
         "startDate":"2020-04-20T12:13:13",
         "type":{
           "name":"discount",
@@ -248,24 +248,24 @@ curl -X POST \
 ### Required parameters
 
 There are a number of required parameters for the Offer to be created: 
-* `name`: the name of your offer
-* `publisherId` this is your Fidel `accountId`
-* `brandId` of the brand presenting the offer
-* `startDate`of the offer.  Any time added to the startDate will be local to the location.
-* `countryCode` where the offer will be available. 
-* `type` : `name`. Valid names are `amount` or `discount`.  
-* `type`: `value` Numeric value of the discount.
+* `name`: the name of your offer.
+* `publisherId`: this is your Fidel `accountId`.
+* `brandId`: of the brand presenting the offer.
+* `startDate`: of the offer. Any time added to the startDate will be local to the location.
+* `countryCode`: where the offer will be available. 
+* `type`: `name`: Valid names are `amount` or `discount`.  
+* `type`: `value`: Numeric value of the discount.
 
-An offer with the type `amount` will use the currency of the indicated country, and apply the value as the amount of savings (for example: £25 off).  The type `discount` applies the value as a percentage savings (for example: 25% off). 
+An offer with the type `amount` will use the currency of the indicated country, and apply the value as the amount of savings (for example: £25 off). The type `discount` applies the value as a percentage savings (for example: 25% off). 
 
 ### Optional Parameters
 
-* `endDate` to automatically end the offer.  Time is set to local time.
-* `daysOfWeek` is an array of numbers 0-6 to indicate the days of the week.  0 = Sunday, 1 = Monday, etc.
+* `endDate` to automatically end the offer. Time is set to local time.
+* `daysOfWeek` is an array of numbers 0-6 to indicate the days of the week. 0 = Sunday, 1 = Monday, etc.
 * `minTransactionAmount` The minimum transaction amount (example: "Save 25% on purchases over £50")
-* `maxTransactionAmount` the maximum transaction spend for an offer.  Example: "Save 25% on purchases over £50, save 40% on purchases over £100" the first offer would have a maxTransactionAmout of £100.
+* `maxTransactionAmount` the maximum transaction spend for an offer. Example: "Save 25% on purchases over £50, save 40% on purchases over £100" the first offer would have a maxTransactionAmout of £100.
 * `returnPeriod` Indicates a period for returns before the refund is applied.
-* `activation` `false` (the default value) allows any linked card to participate in the offer.  If set to `true`, the offer requires the card to be entered into the offer.  *CAUTION* please read the section below on Activated offers before using this parameter. 
+* `activation` `false` (the default value) allows any linked card to participate in the offer. If set to `true`, the offer requires the card to be entered into the offer. *CAUTION* please read the section below on Activated offers before using this parameter. 
 
 Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#create-offer) for more detailed documentation about available Offer API endpoints.
 
@@ -275,7 +275,7 @@ Once you have created the offer, it will enter the Offer lifecycle as a pending 
 
 ## Offer Lifecycle
 
-On the dashboard offers are grouped into four categories: pending, all-set, live and expired.  
+On the dashboard offers are grouped into four categories: pending, all-set, live and expired.
 
 ### Pending
 Offer `startDate` is set in the future, and/or no locations are set.
@@ -293,7 +293,7 @@ Current day is after the `endDate`. The offer has stopped qualifying transaction
 
 ## Adding Locations
 
-To move your new Offer out of the Pending group to All-set (if `startDate` is in the future) or Live (if `startDate` is in the past), you must add at least one location.  You can use the [Link Location to Offer](https://reference.fidel.uk/reference#add-location-to-offer) API endpoint for each location to be added to the offer.
+To move your new Offer out of the Pending group to All-set (if `startDate` is in the future) or Live (if `startDate` is in the past), you must add at least one location. You can use the [Link Location to Offer](https://reference.fidel.uk/reference#add-location-to-offer) API endpoint for each location to be added to the offer.
 
 ## Qualification
 
