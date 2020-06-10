@@ -27,6 +27,8 @@ curl -X POST \
 
 ## Brand Consent
 
+>NOTE: Brand Consent is only required in the Live environment. Test Brands are automatically given Brand consent.
+
 All brands must be approved by the authorised Brand Contact. There are two ways that brands are approved. For an external brand, you may request Brand consent either in the dashboard, or with our API. For self-funded Brands, this can be skipped by auto-approving consent.
 
 ### Requesting Brand Consent
