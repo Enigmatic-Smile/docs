@@ -68,7 +68,7 @@ fileName:offer.json
             <span><code>additionalTerms</code></span>
             <em>string</em>
         </dt>
-        <dd>Additional terms related to the offer.</dd>
+        <dd>Additional terms related to the offer. Supports markdown link syntax. E.g. [My docs link](https://fidel.uk/docs)</dd>
     </div>
     <div>
         <dt>
