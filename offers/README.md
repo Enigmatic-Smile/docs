@@ -11,7 +11,10 @@ Once you have created an offer, you can request the contents of the object using
 fileName:offer.json
 {
   "id": "49b407ef-508a-432b-900c-a04e5e6ac86c",
-  "activation": false,
+  "activation": {
+    "enabled": true,
+    "qualifiedTransactionsLimit": 1
+  },
   "additionalTerms": null,
   "brandId": "e4928475-6a39-41e6-8484-951202d43de9",
   "brandName": "Starbucks",
@@ -61,16 +64,16 @@ fileName:offer.json
     <div>
         <dt>
             <span><code>activation</code></span>
-            <em>boolean</em>
+            <em>object</em>
         </dt>
-        <dd>If set to <code>true</code> cards need to be activated before the purchase for the transaction to be tracked. Only one transaction is tracked and qualified for each card activation.</dd>
+        <dd>If <code>enabled: true</code> offers need to be activated on cards before the purchase so the transaction is tracked. The number of transactions to qualify for each offer activation can be specified by setting <code>qualifiedTransactionsLimit</code> to a specific number.</dd>
     </div>
     <div>
         <dt>
             <span><code>additionalTerms</code></span>
             <em>string</em>
         </dt>
-        <dd>Additional terms related to the offer.</dd>
+        <dd>Additional terms related to the offer. Supports markdown link syntax. E.g. [My docs link](https://fidel.uk/docs)</dd>
     </div>
     <div>
         <dt>
@@ -386,7 +389,8 @@ fileName:non-qualified-transaction.json
 
 Offers using the activation parameter have important and significant differences from offers that are not activated. Activated Card Offers require cards to be specifically added to the offer in order to be redeemed. Importantly, locations affiliated with an Activated Card Offer will not register any transactions for cards that are not linked to the Activated Offer.
 
-Offer activation requires offers to be activated on cards in order to qualify for a reward. This feature is part of the Offers API and can be used by creating offers that require activation with `activation: true`.
+
+Offer activation allows developers to require that offers are activated on cards in order to qualify for a reward. This feature is part of the Offers API and can be used by creating offers that require activation with `activation: { enabled: true, qualifiedTransactionsLimit: 1 }`. The `qualifiedTransactionsLimit` property specifies how many transactions will be qualified for each offer activation.
 This can be done using the [Create Offer API](https://reference.fidel.uk/v1/reference#create-offer) endpoint or using the [dashboard](https://dashboard.fidel.uk).
 
 To receive and qualify transactions for offers with activation, offers need to be activated on cards before the purchase. That is done by using the [Activate Offer on Card](https://reference.fidel.uk/reference#activate-offer-on-card) API endpoint as follows:
@@ -402,7 +406,7 @@ You can also activate an offer on a card using the dashboard by clicking on a ca
 
 When an offer is activated on a card, the next transaction at any of the offer locations will be tracked and qualified based on the offer rules. After the first transaction is qualified for a reward the offer is automatically deactivated from the card.
 
-Note that when you link locations to an offer with activation you will only receive transactions from cards where the offer has been activated on. To receive all transactions from all cards you disable the offer activation with `activation: false` or unlink the locations from the offer.
+Note that when you link locations to an offer with activation you will only receive transactions from cards where the offer has been activated on. To receive all transactions from all cards you disable the offer activation with `activation: { enabled: false, qualifiedTransactionsLimit: 1 }` or unlink the locations from the offer.
 
 <div class="info-box">
     <small>Test and live environments</small><br/>

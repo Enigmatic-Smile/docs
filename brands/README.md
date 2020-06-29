@@ -27,7 +27,13 @@ curl -X POST \
 
 ## Brand Consent
 
-All brands must be approved by the authorised Brand Contact. To automatically request Brand consent in the dashboard, enter the name and email of the Brand Contact and Fidel will send an email inviting them to create a Brand account at [clo.fidel.uk](https://clo.fidel.uk). To request Brand Consent with the API, use the [Brand Consent Endpoint](https://reference.fidel.uk/reference#create-brand-user). By creating an account the Brand User provides consent and will have access to transactions made by cardholders at participating locations.
+>NOTE: Brand consent is only required in the Live environment. Test Brands are automatically given Brand consent.
+
+All brands must be approved by the authorised Brand Contact. There are two ways that brands are approved. For an external brand, you may request Brand consent either in the dashboard, or with our API. For self-funded Brands, this can be skipped by auto-approving consent.
+
+### Requesting Brand Consent
+
+On the dashboard, enter the name and email of the Brand Contact and Fidel will send an email inviting them to create a Brand account at [clo.fidel.uk](https://clo.fidel.uk). To request Brand Consent with the API, use the [Brand Consent Endpoint](https://reference.fidel.uk/reference#create-brand-user). After creating an account, the Brand User provides consent and will have access to transactions made by cardholders at participating locations.
 
 <div class="info-box">
 Brand Consent is only required in the Live environment. Test Brands are automatically given Brand consent.
