@@ -1,6 +1,6 @@
 # Getting Started
 
-**Fidel API** provides a developer-friendly, secure and reliable API for businesses to link payment cards with mobile and web applications. Through a single API, developers can securely access data from the three major card networks and build their applications on top of the powerful payments infrastructure.
+Fidel API lets you connect your applications to credit and debit cards and monitor transactions in-store and online, chip & pin or contactless.
 
 Card numbers are instantly tokenised and we return to you a unique token that identifies each successfully linked card on your database. You should save the `id` of the card object that is returned inside your user's object. Every transaction we will send to you will have a `cardId` that you can use to identify the user that made that transaction.
 

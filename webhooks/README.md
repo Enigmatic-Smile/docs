@@ -258,7 +258,7 @@ fileName:transaction.auth
   "brand": {
     "id": "9d136f2e-df99-4a08-a0a5-3bc1534b7db9",
     "name": "Bob's Cafe",
-    "logoUrl": null
+    "logoURL": null
   },
   "location": {
     "id": "7a916fbd-70a0-462f-8dbc-bd7dbfbea160",
