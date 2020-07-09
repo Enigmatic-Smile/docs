@@ -5,11 +5,16 @@ A card linked offer specifies a set of parameters that will be used to qualify a
 
 ## Offer object
 
+Once you have created an offer, you can request the contents of the object using the [Get Offer](https://reference.fidel.uk/reference#get-offer) API call. The response will appear similar to the following:
+
 ```json
 fileName:offer.json
 {
   "id": "49b407ef-508a-432b-900c-a04e5e6ac86c",
-  "activation": false,
+  "activation": {
+    "enabled": true,
+    "qualifiedTransactionsLimit": 1
+  },
   "additionalTerms": null,
   "brandId": "e4928475-6a39-41e6-8484-951202d43de9",
   "brandName": "Starbucks",
@@ -59,9 +64,9 @@ fileName:offer.json
     <div>
         <dt>
             <span><code>activation</code></span>
-            <em>boolean</em>
+            <em>object</em>
         </dt>
-        <dd>If set to <code>true</code> cards need to be activated before the purchase for the transaction to be tracked. Only one transaction is tracked and qualified for each card activation.</dd>
+        <dd>If <code>enabled: true</code> offers need to be activated on cards before the purchase so the transaction is tracked. The number of transactions to qualify for each offer activation can be specified by setting <code>qualifiedTransactionsLimit</code> to a specific number.</dd>
     </div>
     <div>
         <dt>
@@ -124,7 +129,7 @@ fileName:offer.json
             <span><code>endDate</code></span>
             <em>date</em>
         </dt>
-        <dd>Date and time, in format <code>YYYY-MM-DDThh:mm:ss</code>, when the offer will complete.</dd>
+        <dd>Date and time, in format <code>YYYY-MM-DDThh:mm:ss</code>, when the offer will complete. Note: Time is local to the location.</dd>
     </div>
     <div>
         <dt>
@@ -221,7 +226,7 @@ fileName:offer.json
 
 ## Create Offer
 
-To create an offer you can use the [Create Offer](https://reference.fidel.uk/v1/reference#create-offer) API endpoint or the dashboard and specify your offer parameters.
+To create an offer you can use the [Create Offer](https://reference.fidel.uk/v1/reference#create-offer) API endpoint or the dashboard and specify your offer parameters. If you have an account in the [Offers dashboard](https://clo.fidel.uk), you may create an offer there as well.
 
 See below an example on how to create an offer using the Create Offer endpoint:
 
@@ -243,21 +248,45 @@ curl -X POST \
        }'
 ```
 
-As required parameters, you need to set an offer `name`, your `accountId` as the `publisherId`, the `brandId`, a `startDate`, the type of offer between `amount` or `discount`, an offer `value`, and the `countryCode` where the offer will be available. The `value` is a percentage if the offer `type` is `discount` or a fixed amount in the local currency of the `countryCode` specified.
+### Required Parameters
+
+There are a number of required parameters for the Offer to be created:
+* `countryCode`: where the offer will be available.
+* `name`: the name of your offer.
+* `brandId`: of the brand presenting the offer.
+* `publisherId`: this is your Fidel `accountId`.
+* `startDate`: of the offer. Any time added to the startDate will be local to the location.
+* `type: name`: valid names are `amount` or `discount`.  
+* `type: value`: numeric value of the discount.
+
+An offer with the type `amount` will use the currency of the indicated country, and apply the value as the amount of savings (for example: £25 off). The type `discount` applies the value as a percentage savings (for example: 25% off).
+
+### Optional Parameters
+
+* `activation: enabled`: if set to `true`, the offer requires to be activated on cards. **Please read the section below on Offer Activation before using this parameter.**
+* `activation: qualifiedTransactionsLimit`: number of transactions to qualify after each offer activation. Default is 1.
+* `daysOfWeek`: is an array of numbers 0-6 to indicate the days of the week. 0 = Sunday, 1 = Monday, etc.
+* `endDate`: to automatically end the offer. Time is set to local time.
+* `maxTransactionAmount`: the maximum transaction spend for an offer. Example: "Save 25% on purchases over £50, save 40% on purchases over £100" the first offer would have a maxTransactionAmout of £100.
+* `minTransactionAmount`: The minimum transaction amount (example: "Save 25% on purchases over £50")
+* `returnPeriod`: number of days before a transaction qualifies for the offer.
+
 
 Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#create-offer) for more detailed documentation about available Offer API endpoints.
+
+Once you have created the offer, it will enter the Offer lifecycle as a pending offer.
 
 <hr>
 
 ## Offer Lifecycle
 
-An offer qualifies transactions depending on a combination of three properties: `startDate, endDate` and `locationsTotal`. On the dashboard offers are grouped between pending, all-set, live and expired.
-
-If the offer is labeled as pending it means that the `startDate` is in the future or it has no linked locations. When an offer has at least one location linked to it and the `startDate` is set in the future, the offer is placed in the all-set group. An offer is live when today's date is between the offer's `startDate` and `endDate` and `locationsTotal` is greater than `0`. An offer will be bound to the time zone of linked locations, `startDate` and `endDate` will correspond to the locations’ local time.
-
+On the dashboard offers are grouped into four categories: pending, all-set, live and expired.
 
 ### Pending
-Offer `startDate` is set in the future. Offer will start qualifying when transactions are made at locations linked to the offer after the `startDate`.
+Offer `startDate` is set in the future, and/or no locations are set.
+
+### All-set
+Offer has at least one location set, but `startDate` is in the future. Offers in this category will automatically become "live" when the `startDate` is reached.
 
 ### Live
 Current day is between `startDate` and `endDate` and offer is qualifying transactions at the locations linked to it.
@@ -267,11 +296,18 @@ Current day is after the `endDate`. The offer has stopped qualifying transaction
 
 ---
 
+## Linking Locations
+
+Before an Offer goes live and starts qualifying transactions, you will need to link locations to the Offer. You can do that by using the dashboard and clicking on the options menu for a location and then clicking on 'Link to Offer'.
+
+Alternatively, you can use the [Link Location to Offer](https://reference.fidel.uk/reference#add-location-to-offer) API endpoint to link any location to an Offer.
+
+
 ## Qualification
 
 When an offer is live, each transaction made by a linked card on a location linked to the offer will be analysed against the offer parameters and can qualify or not qualify for the offer.
 
-In both cases, an offer object is appended to the original transaction object containing the qualification result data. In case the transaction qualifies, `cashback` and `performanceFee` amounts are calculated and the `qualified` property is set to `true`. If the transactions does not qualify, `cashback` and `performanceFee` amounts will be `0`, the `qualified` property set to `null` and a message explaining why the offer did not qualify is set in the `message` property. You can see examples for qualified and non-qualified transactions below.
+In both cases, an offer object is appended to the original transaction object containing the qualification result data. In case the transaction qualifies, `cashback` and `performanceFee` amounts are calculated and the `qualified` property is set to `true`. If the transactions does not qualify, `cashback` and `performanceFee` amounts will be `0`, the `qualified` property set to `false` and a message explaining why the offer did not qualify is set in the `message` property. You can see examples for qualified and non-qualified transactions below.
 
 ```json
 fileName:qualified-transaction.json
@@ -356,7 +392,7 @@ fileName:non-qualified-transaction.json
 
 ## Activation
 
-Offer activation allows developers to require that offers are activated on cards in order to qualify for a reward. This feature is part of the Offers API and can be used by creating offers that require activation with `activation: true`.
+Offer activation allows developers to require that offers are activated on cards in order to qualify for a reward. This feature is part of the Offers API and can be used by creating offers that require activation with `activation: { enabled: true, qualifiedTransactionsLimit: 1 }`. The `qualifiedTransactionsLimit` property specifies how many transactions will be qualified for each offer activation.
 This can be done using the [Create Offer API](https://reference.fidel.uk/v1/reference#create-offer) endpoint or using the [dashboard](https://dashboard.fidel.uk).
 
 To receive and qualify transactions for offers with activation, offers need to be activated on cards before the purchase. That is done by using the [Activate Offer on Card](https://reference.fidel.uk/reference#activate-offer-on-card) API endpoint as follows:
@@ -370,9 +406,9 @@ curl -X POST \
 
 You can also activate an offer on a card using the dashboard by clicking on a card’s options menu, click ‘Activate offer on card’ and select the offer to activate.
 
-When an offer is activated on a card, the next transaction at any of the offer locations will be tracked and qualified based on the offer rules. After the first transaction is qualified for a reward the offer is automatically deactivated from the card.
+When an offer is activated on a card, it will qualify the number of transactions specified by the `qualifiedTransactionsLimit` value. After one or more transactions are qualified the offer is automatically deactivated from the card.
 
-Note that when you link locations to an offer with activation you will only receive transactions from cards where the offer has been activated on. To receive all transactions from all cards you disable the offer activation with `activation: false` or unlink the locations from the offer.
+Note that when you link locations to an offer with activation you will only receive transactions from cards where the offer has been activated on. To receive all transactions from all cards you disable the offer activation with `activation: { enabled: false, qualifiedTransactionsLimit: 1 }` or unlink the locations from the offer.
 
 <div class="info-box">
     <small>Test and live environments</small><br/>
