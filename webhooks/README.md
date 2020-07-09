@@ -257,7 +257,7 @@ fileName:transaction.auth
 }
 ```
 
-A `transaction.clearing` or **clearing** transaction event is triggered when a transaction is settled, usually happens 24 to 48 hours after a payment is made. The Fidel processes for clearing transactions and triggering the `transaction.clearing` webhook events run daily at 12:00 UTC for Mastercard and multiple times per day for Visa and American Express. Only one transaction is sent per event.
+A `transaction.clearing` or **clearing** transaction event is triggered when a transaction is settled, usually happens 48 to 72 hours after a payment is made. The Fidel processes for clearing transactions and triggering the `transaction.clearing` webhook events run daily at 12:00 UTC for Mastercard and multiple times per day for Visa and American Express. Only one transaction is sent per event.
 
 ```json
 fileName:transaction.clearing
