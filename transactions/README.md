@@ -140,7 +140,7 @@ We suggest that you use the auth event to notify the user that you registered th
 
 For testing purposes, you can use the [**API Playground**](https://dashboard.fidel.uk/playground) in the Fidel Dashboard test environment to create test transactions and test your application logic. Alternatively, you can use the [Create Test Transaction](https://reference.fidel.uk/reference#create-transaction-test) API endpoint to create authorisation test transaction.
 
-To create a test transaction, you will need a [Program](/programs), a [Location](/locations) and a test [Card](cards) linked to the program.
+To create a test transaction, you will need a [Program](/programs), a [Location](/locations) and a test [Card](/cards) linked to the program.
 
 ##### Create Test Transactions Using the API
 
@@ -172,4 +172,4 @@ To clear an authorisation test transaction, you can navigate to the [Transaction
 
 ## API Reference
 
-If you're looking to find out more about our Transactions API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference#create-transaction-test).
+To find out more about our Transactions API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference#create-transaction-test).
