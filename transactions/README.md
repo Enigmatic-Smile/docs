@@ -142,7 +142,7 @@ For testing purposes, you can use the [**API Playground**](https://dashboard.fid
 
 To create a test transaction, you will need a [Program](/programs), a [Location](/locations) and a test [Card](cards) linked to the program.
 
-##### Create Test Transactions Using the API.
+##### Create Test Transactions Using the API
 
 ```sh
 curl -X POST \
@@ -156,7 +156,7 @@ curl -X POST \
   }'
 ```
 
-##### Create Test Transactions Using the API Playground.
+##### Create Test Transactions Using the API Playground
 
 On the Fidel Dashboard, go to the [**Playground**](https://dashboard.fidel.uk/playground) option in the navigation menu. Click on **Create transaction** link, located on the left side, in the **END POINTS** menu. The method will be set to POST and the endpoint to **_/transactions/test_**. An editable sample JSON object like the following one will be used to create the transaction.
 
@@ -166,7 +166,7 @@ To create a test transaction, use the dropdown menus to select the Program, Loca
 
 Click **Send** and a test authorisation transaction will be created. If the transaction is created successfully, you will see the transaction object in the response body box. If you have registered a `transaction.auth` webhook event for this program, the authorisation transaction object will be sent to your webhook URL as well.
 
-##### Clear Test Transactions Using the Dashboard.
+##### Clear Test Transactions Using the Dashboard
 
 To clear an authorisation test transaction, you can navigate to the [Transaction](https://dashboard.fidel.uk/transactions) option in the Dashboard navigation menu. You'll see all your transactions listed there. Find the one you want to change the status of, click on the three dots on the right side of it. A popup menu will appear, and you should click on the 'Clear transaction' option. This action will change the status of the transaction from `auth` to `cleared`, and trigger the `transaction.clearing` webhook event.
 
