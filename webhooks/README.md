@@ -21,7 +21,7 @@ The Fidel API sends the data via HTTP POST in JSON format. It will send test eve
 
 There are two ways you can register Webhooks with the Fidel API. You can create them in the [Fidel Dashboard, under the "Webhooks" page](https://dashboard.fidel.uk/webhooks) or make HTTP requests using the [Webhooks API](https://reference.fidel.uk/v1/reference#create-webhook-brand).
 
-The Fidel API has two types of webhooks, both of which work similarly, but require slightly different things to be registered.
+The Fidel API has two types of webhooks, both of which work similarly, but have slightly different requirements to be registered.
 
 ##### Brand Webhook
 
