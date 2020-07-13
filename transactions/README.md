@@ -109,7 +109,7 @@ fileName:transaction.json
 
 The Fidel API currently supports three types of transactions: authorisation transactions, clearing transactions and refund transactions.
 
-**Authorisation transactions** are processed when a purchase registers on a linked card. For example, when a customer is making a payment in-store or online in real-time. When a customer makes a payment with a linked debit/credit card in an auth-enabled location, the `transaction.auth` webhook is also triggered and the transaction object sent to your specified URL in real-time.
+**Authorisation transactions** are processed when a purchase registers on a linked card. For example, when a customer makes a payment in-store or online in real time. When a customer makes a payment with a linked debit/credit card in an auth-enabled location, the `transaction.auth` webhook is also triggered and the transaction object sent to your specified URL in real time.
 
 **Clearing transactions**, also known as “settled transaction”, are processed when a payment transaction settles, usually happens 48 to 72 hours after a payment registers. The Fidel processes for clearing transactions are also triggering the `transaction.clearing` webhook events. The processes run daily at 12:00 UTC for Mastercard and multiple times per day for Visa and American Express. Only one transaction is sent per event.
 
