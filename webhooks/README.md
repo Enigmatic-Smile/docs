@@ -106,7 +106,7 @@ A maximum of five custom headers per webhook can be defined, and they need to fo
 ## Events
 
 ### Brand
-A `brand.consent` event is triggered when Brand consent is "Approved". In the `test` environment, it will immediately trigger after you create a Brand. In the `live` environment, it will trigger when the Brand User approves the consent request.
+A `brand.consent` event is triggered when Brand consent is “Approved”. In the `test` environment, it will immediately trigger after you create a Brand. In the `live` environment, it will trigger when the Brand User approves the consent request.
 
 ```json
 fileName:brand.consent
