@@ -158,7 +158,7 @@ curl -X POST \
 
 ##### Create Test Transactions Using the API Playground
 
-On the Fidel Dashboard, go to the [**Playground**](https://dashboard.fidel.uk/playground) option in the navigation menu. Click on **Create transaction** link, located on the left side, in the **END POINTS** menu. The method will be set to POST and the endpoint to **_/transactions/test_**. An editable sample JSON object like the following one will be used to create the transaction.
+On the Fidel Dashboard, go to the [**Playground**](https://dashboard.fidel.uk/playground) option in the navigation menu. Click on **Create transaction** link, located on the left side, in the **ENDPOINTS** menu. The method will be set to POST and the endpoint to **_/transactions/test_**. An editable sample JSON object like the following one will be used to create the transaction.
 
 ![Create transaction](https://docs.fidel.uk/assets/images/create-transaction.png "Create transaction")
 
