@@ -1,6 +1,6 @@
 # Webhooks
 
-The Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account. You can use this functionality to receive data from events not triggered by direct API requests. You can also use this functionality to receive the data in a service that is not responsible for making the API request but needs to consume the response.
+The Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account. You can utilise this functionality to receive data from events not triggered by direct API requests. Or to get the data in a service that is not responsible for making the API request but needs to consume the response.
 
 There are currently nine webhooks available to use with the Fidel API, each corresponding to an event happening in your account: `brand.consent`, `card.linked `, `card.failed `, `program.status`, `transaction.auth`, `transaction.auth.qualified`, `transaction.clearing`, `transaction.clearing.qualified` and `transaction.refund`. Each of them requires an HTTPS URL to be registered.
 
