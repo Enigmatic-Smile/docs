@@ -1,0 +1,10 @@
+name: Trigger deploy preview
+  on:
+    pull_request:
+      types: [opened, edited, synchronize]
+      branches:
+        - master
+  uses: joelwmale/webhook-action@master
+  env:
+    WEBHOOK_URL: ${{ secrets.DEPLOY_PREVIEW_WEBHOOK_URL }}
+    data: ${{ github.ref }}
