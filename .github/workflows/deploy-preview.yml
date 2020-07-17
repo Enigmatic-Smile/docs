@@ -1,0 +1,17 @@
+name: Deploy preview
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+    branches:
+      - master
+
+jobs:
+  send_webhook:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger deploy
+        uses: joelwmale/webhook-action@master
+        env:
+          WEBHOOK_URL: ${{ secrets.DEPLOY_PREVIEW_WEBHOOK_URL }}
+          data: ${{ github.head_ref }}
