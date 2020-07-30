@@ -47,4 +47,18 @@ If you're funding your own offers, or you've received direct authorisation from 
 
 ![Auto approve Brand](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/autoapproveConsent.png "auto-approve brand")
 
-Using the Brand Consent API, you can auto-approve your Brand by adding  ```skipInvite: true``` to the JSON request with the brand owner information.
+Using the [Create Brand User](https://reference.fidel.uk/reference#create-brand-user) endpoint in the Brand Consent API, you can auto-approve your Brand by adding  ```skipInvite: true``` to the JSON request with the brand owner information. Keep in mind this endpoint only works with your Live API Key, the one that starts with `sk_live_`. You'll also need to have a Brand and Program created with the same live API key, before you can use the endpoint. Here's a cURL example, don't forget to replace `{brandId}` and `{programId}` before running it.
+
+```sh
+curl -X POST \
+https://api.fidel.uk/v1/brands/{brandId}/programs/{programId}/users \
+  -H 'content-type: application/json' \
+  -H 'fidel-key: sk_live_key' \
+  -d '{
+    "email": "email@fidel.uk",
+    "nameFirst": "Test",
+    "nameLast": "User",
+    "title": "Docs",
+    "skipInvite": true
+}'
+```
