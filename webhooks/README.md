@@ -382,7 +382,7 @@ curl -X POST \
   }'
 ```
 
-We are working to extend the list of events. If you require any specific event that is not available yet, please reach out on our [community forum](https://community.fidel.uk/) or email us at [developer@fidel.uk](mailto:developer@fidel.uk).
+We are working to extend the list of events. If you require any specific event that is not available yet, please reach out on our [community forum](https://community.fidel.uk/) or email us at [devrel@fidel.uk](mailto:devrel@fidel.uk).
 
 ---
 

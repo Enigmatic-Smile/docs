@@ -10,7 +10,7 @@
 
 After successfully tokenising and linking the card on Visa, Mastercard or American Express networks, Fidel API returns the created card object with a unique `id` that you must use to link each unique card and transaction to your user’s account. The `id` of each linked card is present on the transaction object as `cardId`. You can now create card-linked web and mobile applications with online and offline transactional data visibility in a matter of minutes.
 
-All modern desktop and mobile browsers are supported, including Chrome, Firefox, Safari, Microsoft IE and Edge. Please contact us at [developer@fidel.uk](mailto:developer@fidel.uk) if you experience any browser related issues.
+All modern desktop and mobile browsers are supported, including Chrome, Firefox, Safari, Microsoft IE and Edge. Please contact us at [devrel@fidel.uk](mailto:devrel@fidel.uk) if you experience any browser related issues.
 
 ## Integrating Web SDK
 

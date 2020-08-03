@@ -1,6 +1,6 @@
 # Mobile SDKs
 
-The native mobile SDKs allow you to integrate card linking technology in your mobile apps in minutes. Card details are collected securely, removing any PCI compliance requirements from your side. See below code examples on how to integrate the SDKs in your apps. 
+The native mobile SDKs allow you to integrate card linking technology in your mobile apps in minutes. Card details are collected securely, removing any PCI compliance requirements from your side. See below code examples on how to integrate the SDKs in your apps.
 
 For more detailed documentation about any class in the SDKs and available customisation options, check the Github repositories for [iOS](https://github.com/FidelLimited/fidel-ios) and [Android](https://github.com/FidelLimited/fidel-android).
 
@@ -22,9 +22,9 @@ Add Fidel pod:
 pod 'Fidel'
 ```
 
-### Camera 
+### Camera
 
-In order to allow scanning cards with the camera, make sure to add the key `NSCameraUsageDescription` to your app’s Info.plist and set the value to a string describing why your app needs to use the camera (e.g. “Used for scanning credit cards.”) 
+In order to allow scanning cards with the camera, make sure to add the key `NSCameraUsageDescription` to your app’s Info.plist and set the value to a string describing why your app needs to use the camera (e.g. “Used for scanning credit cards.”)
 
 ### Objective-C (skip for Swift projects)
 
@@ -307,7 +307,7 @@ Fidel.setOptions ({
   country: Fidel.Country.sweden,
   autoScan: false,
   metaData: { 'id': 'yourCustomId', 'someOtherKey': 'someOtherValue' },
-  companyName: 'My RN Company', 
+  companyName: 'My RN Company',
   deleteInstructions: 'My custom delete instructions',
   privacyUrl: 'https://example.com/privacy',
 });
@@ -388,7 +388,7 @@ When you set a default country, the card linking screen will not show the countr
 
 #### supportedCardSchemes
 
-We currently support _Visa_, _Mastercard_ and _AmericanExpress_. You can choose to support only one, two or all three. By default the SDK is configured to support all three. (Geographical limitations exist, please [see available countries](https://fidel.uk/products) or [via email](mailto:support@fidel.uk) if you have questions). 
+We currently support _Visa_, _Mastercard_ and _AmericanExpress_. You can choose to support only one, two or all three. By default the SDK is configured to support all three. (Geographical limitations exist, please [see available countries](https://fidel.uk/products) or [via email](mailto:devrel@fidel.uk) if you have questions). 
 
 If you set this option to an empty array or to `null`, of course, you will not be able to open the Fidel UI. You must support at least one of our supported card schemes.
 
