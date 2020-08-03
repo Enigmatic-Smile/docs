@@ -1,5 +1,5 @@
 # Cards
-The Card object holds information about the card details submitted by the user using the web or mobile SDKs. One user may link multiple debit or credit cards. 
+The Card object holds information about the card details submitted by the user using the web or mobile SDKs. One user may link multiple debit or credit cards.
 
 ## Add Card with SDK (preferred)
 
@@ -8,7 +8,7 @@ In order to link a card to a program, we recommend that you use our secure and P
 <div class="info-box">
   <small>Linking Multiple Cards</small><br/>
   To facilitate users linking multiple cards, add identication key:value pairs from your system in the metadata field.
-</div> 
+</div>
 
 We never store card numbers. To identify the user in a transaction object you can use the `cardId` property. After this point only the `cardId` is exchanged between your servers, the card networks and Fidel's API.
 
@@ -16,16 +16,16 @@ After the card is linked successfully, we will monitor any purchase made by this
 
 ## Add Card with API
 
-To add a card using the API, you must be PCI Compliant. Contact us at developer@fidel.uk for more information.
+To add a card using the API, you must be PCI Compliant. Contact us at devrel@fidel.uk for more information.
 
 ### Card Linking in Test
 
 #### API Playground
-To test adding cards to a program, go to the [**API Playground**](https://dashboard.fidel.uk/playground), and choose **Add Card** from the left menu endpoints.  The method is set to POST and the endpoint to **_/cards_**.  When you choose the program that you would like to connect the card to from the dropdown, the POST url will change to show the program ID.  In the edit field of the playground is the JSON object that will be used to add the card. To add a card, use one of the available testing card numbers displayed below, an expiry date in the future, and the three letter `countryCode`. You must set `termsOfUse` to `true` to define that the user agreed to the terms of use and opt-in. 
+To test adding cards to a program, go to the [**API Playground**](https://dashboard.fidel.uk/playground), and choose **Add Card** from the left menu endpoints.  The method is set to POST and the endpoint to **_/cards_**.  When you choose the program that you would like to connect the card to from the dropdown, the POST url will change to show the program ID.  In the edit field of the playground is the JSON object that will be used to add the card. To add a card, use one of the available testing card numbers displayed below, an expiry date in the future, and the three letter `countryCode`. You must set `termsOfUse` to `true` to define that the user agreed to the terms of use and opt-in.
 
 <div class="info-box">
     <small>Important note</small><br/>
-    To use the <strong>Create Card</strong> endpoint, you must use the test public key. Using the <strong>Create Card</strong> API endpoint on live environment requires your company to be PCI Compliant. If you want to use the API instead of the SDKs, please contact us at developer@fidel.uk.
+    To use the <strong>Create Card</strong> endpoint, you must use the test public key. Using the <strong>Create Card</strong> API endpoint on live environment requires your company to be PCI Compliant. If you want to use the API instead of the SDKs, please contact us at devrel@fidel.uk.
 </div>
 
 ![Create card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-card.png "Create card")
