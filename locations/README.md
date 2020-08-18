@@ -25,7 +25,7 @@ In the test environment, every added Location skips the Location Sync process an
 
 ### Location Status Webhook
 
-The `location.status` webhook can be registered on the Fidel Dashboard or via the Fidel API. An event is triggered when there are updates from a card network for a Location in a Program. In the `test` environment, this webhook triggers three times for each location upon creating a Location, once for each card scheme, with a `location.active` event. In the `live` environment, this would trigger whenever a location has synced successfully for a card scheme, with a `location.active` event. Or whenever a location has failed syncing for a card scheme, with a `location.failed` event.
+The `location.status` webhook can be registered on the Fidel Dashboard or via the Fidel API. An event is triggered when there are updates from a card network for a Location in a Program. In the `test` environment, this webhook triggers three times for each location upon creating a Location, once for each card scheme, with a `location.active` event. In the `live` environment, this would trigger whenever a location has synced successfully for a card scheme, with a `location.active` event. Or whenever a location has failed to sync for a card scheme, with a `location.failed` event.
 
 Here's an example on how to register the webhook on a Program, with `example.com` as the URL:
 
