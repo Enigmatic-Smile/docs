@@ -23,6 +23,24 @@ Location status is reported separately for each card scheme. Each location/schem
 In the test environment, every added Location skips the Location Sync process and is automatically set to Active.
 </div>
 
+### Location Status Webhook
+
+The `location.status` webhook can be registered on the Fidel Dashboard or via the Fidel API. An event is triggered when there are updates from a card network for a Location in a Program. In the `test` environment, this webhook triggers three times for each location upon creating a Location, once for each card scheme, with a `location.active` event. In the `live` environment, this would trigger whenever a location has synced successfully for a card scheme, with a `location.active` event. Or whenever a location has failed syncing for a card scheme, with a `location.failed` event.
+
+Here's an example on how to register the webhook on a Program, with `example.com` as the URL:
+
+```sh
+curl -X POST \
+  https://api.fidel.uk/v1/programs/06471dbe-a3c7-429e-8a18-16dc97e5cf35/hooks \
+  -H 'content-type: application/json' \
+  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -d '{
+    "event": "location.status",
+    "url": "https://example.com"
+  }'
+```
+
+### Location Sync Process
 In the live environment, the location begins in an *Inactive* state. In order initiate a change in status of your location, you must start the syncing process by pressing the sync button on the dashboard. Location Sync can take 1-2 weeks. Only one sync per program can be run at a time, so ensure that you are ready to run this process.
 
 ![Sync button](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programsync_button.png "Add locations")

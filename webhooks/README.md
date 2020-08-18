@@ -2,9 +2,9 @@
 
 The Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account. You can utilise this functionality to receive data from events not triggered by direct API requests. Or to get the data in a service that is not responsible for making the API request but needs to consume the response.
 
-There are several webhooks available to use with the Fidel API, each corresponding to an event happening in your account: `brand.consent`, `card.linked `, `card.failed `, `program.status`, `transaction.auth`, `transaction.auth.qualified`, `transaction.clearing`, `transaction.clearing.qualified` and `transaction.refund`. Each of them requires an HTTPS URL to be registered.
+There are several webhooks available to use with the Fidel API, each corresponding to an event happening in your account: `brand.consent`, `card.linked `, `card.failed `, `program.status`, `location.status`, `transaction.auth`, `transaction.auth.qualified`, `transaction.clearing`, `transaction.clearing.qualified` and `transaction.refund`. Each of them requires an HTTPS URL to be registered.
 
-The Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request. The HTTP request payload contains the Event object. For example, when a customer makes a payment with a linked Mastercard on a participating location, a `transaction.auth`event is sent in real-time to the specified webhook URL. The HTTP request payload contains the Transaction object.
+The Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request. The HTTP request payload contains the Event object. For example, when a customer makes a payment with a linked Mastercard on a participating location, a `transaction.auth` event is sent in real-time to the specified webhook URL. The HTTP request payload contains the Transaction object.
 
 ---
 
@@ -142,6 +142,68 @@ fileName:program.status
     "status": "syncing"
   },
   "updated": "2018-10-30T16: 12: 15.604Z"
+}
+```
+
+### Location
+A `location.status` event is triggered when there are updates from a card network for a Location in a Program. In the `test` environment, this webhook triggers three times for each location upon creating a Location, once for each card scheme, with a `location.active` event. In the `live` environment, this would trigger whenever a location has synced successfully for a card scheme, with a `location.active` event. Or whenever a location has failed syncing for a card scheme, with a `location.failed` event.
+
+```json
+fileName:location.status
+{
+    "location": {
+        "city": "London",
+        "timezone": "Europe/London",
+        "mastercard": {
+            "estimatedActivationDate": null,
+            "clearingTransactionId": null,
+            "auth": false,
+            "authTransactionId": null,
+            "clearing": false,
+            "status": "inactive"
+        },
+        "countryCode": "GBR",
+        "activeDate": "2020-08-18T13:40:11.406Z",
+        "currency": "GBP",
+        "id": "298d9c88-cabe-4583-a54b-574e29b57c84",
+        "live": false,
+        "address": "1 Main Street",
+        "created": "2020-08-18T13:40:11.406Z",
+        "postcode": "W1NN3R",
+        "searchBy": {
+            "merchantIds": {
+                "visa": [],
+                "mastercard": []
+            }
+        },
+        "accountId": "36081095-2782-4669-8a07-857bbaaeb89b",
+        "amex": {
+            "estimatedActivationDate": null,
+            "clearingTransactionId": null,
+            "auth": false,
+            "authTransactionId": null,
+            "clearing": false,
+            "status": "active"
+        },
+        "visa": {
+            "estimatedActivationDate": null,
+            "clearingTransactionId": null,
+            "auth": false,
+            "authTransactionId": null,
+            "clearing": false,
+            "status": "inactive"
+        },
+        "brandId": "9cd32c61-43ca-4bb7-8aca-0cf491112c28",
+        "preonboard": false,
+        "updated": "2020-08-18T13:40:11.406Z",
+        "programId": "f2c9719a-6433-4ef4-8401-19d7ebf60ab9",
+        "geolocation": {
+            "latitude": 51.5138332,
+            "longitude": -0.1318224
+        }
+    },
+    "scheme": "amex",
+    "status": "location.active"
 }
 ```
 
