@@ -42,7 +42,7 @@ curl -X POST \
 
 ##### Program Webhooks
 
-Program webhooks require a `programId` to be associated with and an `URL` to register. You can use the [Program Hooks](https://reference.fidel.uk/reference#create-webhook-program) endpoint for registering program webhooks. The events that can be registered are `card.linked`, `card.failed`, `program.status`, `transaction.auth`, `transaction.auth.qualified`, `transaction.clearing`, `transaction.clearing.qualified` and `transaction.refund`.
+Program webhooks require a `programId` to be associated with and an `URL` to register. You can use the [Program Hooks](https://reference.fidel.uk/reference#create-webhook-program) endpoint for registering program webhooks. The events that can be registered are `card.linked`, `card.failed`, `program.status`, `location.status`, `transaction.auth`, `transaction.auth.qualified`, `transaction.clearing`, `transaction.clearing.qualified` and `transaction.refund`.
 
 Here's an example on how to create a webhook on a Program for the `transaction.auth` event, with `example.com` as the URL:
 
