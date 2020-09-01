@@ -311,6 +311,7 @@ fileName:transaction.auth
   },
   "identifiers": {
     "MID": "12345678",
+    "mastercardAuthCode": null,
     "mastercardTransactionSequenceNumber": "0000000000000",
     "mastercardRefNumber": "AABBCCDDE",
     "amexApprovalCode": "AA00BB",
@@ -363,6 +364,7 @@ fileName:transaction.clearing
         "mastercardTransactionSequenceNumber": null,
         "mastercardRefNumber": null,
         "amexApprovalCode": null,
+        "mastercardAuthCode": null,
         "visaAuthCode": null
     }
 }
@@ -412,7 +414,8 @@ fileName:transaction.refund
         "mastercardTransactionSequenceNumber": null,
         "mastercardRefNumber": null,
         "amexApprovalCode": null,
-        "visaAuthCode": null
+        "visaAuthCode": null,
+        "mastercardAuthCode": null
     }
 }
 ```

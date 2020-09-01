@@ -367,7 +367,8 @@ fileName:qualified-transaction.json
     "mastercardTransactionSequenceNumber": "0000000000000",
     "mastercardRefNumber": "AABBCCDDE",
     "amexApprovalCode": "AA00BB",
-    "visaAuthCode": "000000"
+    "visaAuthCode": "000000",
+    "mastercardAuthCode": null
   }
 }
 ```
