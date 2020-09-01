@@ -40,6 +40,7 @@ fileName:transaction.json
   },
   "identifiers": {
     "amexApprovalCode": "AA00BB",
+    "mastercardAuthCode": null,
     "mastercardRefNumber": "AABBCCDDE",
     "mastercardTransactionSequenceNumber": "0000001234567",
     "MID": "8552067328",
