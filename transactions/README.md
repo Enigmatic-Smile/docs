@@ -17,7 +17,6 @@ fileName:transaction.json
   "created": "2019-04-09T16:00:00.644Z",
   "currency": "GBP",
   "datetime": "2019-04-10T15:59:30",
-  "offer": null,
   "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c647d9cba",
   "refundTransactionId": null,
   "updated": "2019-04-09T16:00:00.644Z",
