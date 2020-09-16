@@ -5,6 +5,22 @@ To add a location, select a Program from the **Programs** page, click the **+** 
 ##### You can add Locations after creating a Program and a Brand.
 ![Add locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/add-locations.png "Add locations")
 
+##### You can do the same by using our API.
+
+```sh
+curl -X POST \
+  https://api.fidel.uk/v1/programs/b58d8057-9159-4daf-a003-1397e28f6822/locations \
+  -H 'content-type: application/json' \
+  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -d '{
+    "address": "2 Soho Square",
+    "brandId": "838d648e-5614-48a7-8e8b-6b3014638c66",
+    "city": "London",
+    "countryCode": "GBR",
+    "postcode": "W1D 3PX"
+}'
+```
+
 The information required for each location is the Brand (with approved consent), address, postcode, city and country. If your location has been assigned Merchant IDs (MIDs) from the card networks, you may add them now. Adding MIDs during Location creation will speed up the onboarding process.
 
 <div class="info-box">
@@ -54,6 +70,23 @@ curl -X PATCH https://api.fidel.uk/v1/programs/1ed2d0a4-b778-4ea4-b991-b5ede2d4e
   -d '{
     "status": "syncing"
   }'
+```
+
+Alternatively, you can start the sync process for each location when you create it, by using the `"status": "syncing"` property. This only works in the live environment, so you'll need to use a live API key when making the API request.
+
+```sh
+curl -X POST \
+  https://api.fidel.uk/v1/programs/1ed2d0a4-b778-4ea4-b991-b5ede2d4eeaa/locations \
+  -H 'content-type: application/json' \
+  -H 'fidel-key: sk_live_b2e6a6ab-1a11-47ec-831c-81c2b23fd5a0' \
+  -d '{
+    "address": "2 Soho Square",
+    "brandId": "8c092cdb-e53d-4512-8168-c2a7f6b87286",
+    "city": "London",
+    "countryCode": "GBR",
+    "postcode": "W1D 3PX",
+    "status": "syncing"
+}'
 ```
 
 Once the sync process is initiated, the Location status is updated to *Syncing*. It then moves to *Active* when we receive confirmation from the card networks that the location has been successfully on-boarded to your program. If the card networks have an issue with a specific location, the status is set to *Failed* and a case is opened to resolve the issue. While your locations are syncing you have a progress bar to follow the current status and estimated finish time.
