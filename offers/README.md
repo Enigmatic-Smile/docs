@@ -307,7 +307,7 @@ Alternatively, you can use the [Link Location to Offer](https://reference.fidel.
 
 When an offer is live, each transaction made by a linked card on a location linked to the offer will be analysed against the offer parameters and can qualify or not qualify for the offer.
 
-In both cases, an offer object is appended to the original transaction object containing the qualification result data. In case the transaction qualifies, `cashback` and `performanceFee` amounts are calculated and the `qualified` property is set to `true`. If the transactions does not qualify, `cashback` and `performanceFee` amounts will be `0`, the `qualified` property set to `false` and a message explaining why the offer did not qualify is set in the `message` property. If a transaction does not qualify for multiple offers, the rejection `message` is for the most recent offer. You can see examples for qualified and non-qualified transactions below.
+In both cases, an offer object is appended to the original transaction object containing the qualification result data. In case the transaction qualifies, `cashback` and `performanceFee` amounts are calculated and the `qualified` property is set to `true`. If the transactions does not qualify, `cashback` and `performanceFee` amounts will be `0`, the `qualified` property set to `false` and a message explaining why the offer did not qualify is set in the `message` property. You can see examples for qualified and non-qualified transactions below.
 
 ```json
 fileName:qualified-transaction.json
