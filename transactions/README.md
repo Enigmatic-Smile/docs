@@ -1,5 +1,5 @@
 # Transactions
-The Fidel API `Transaction` object is the central piece of data in your card-linked application. When a customer makes a purchase with a linked card in any of the program's participating locations, Fidel tracks the transaction in the payment card networks. The Fidel API sends the data to your server in JSON format through [webhooks](/webhooks).
+The Fidel API `Transaction` object is the central piece of data in your card-linked application. When a user makes a purchase with a linked card in a program participating brand location, Fidel captures the transaction event in real-time. The Fidel API then sends the data to your server in JSON format through [webhooks](/webhooks).
 
 
 ## Transaction Object
