@@ -231,21 +231,23 @@ To create an offer you can use the [Create Offer](https://reference.fidel.uk/v1/
 See below an example on how to create an offer using the Create Offer endpoint:
 
 ```sh
-curl -X POST \
-  https://api.fidel.uk/v1/offers \
+curl -X POST https://api.fidel.uk/v1/offers \
   -H 'content-type: application/json' \
-  -H 'fidel-key: sk_live_152c2c3c-3bc1-49af-84e2-82646f303c13' \
+  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
   -d '{
-        "countryCode": "USA",
-        "name":"20% Off Everything",
-        "brandId":"585dca42-2c77-4007-8429-9496782fd16a",
-        "publisherId":"4ed4b62b-aa4c-43a1-8064-nb7d1368e17a",
-        "startDate":"2020-04-20T12:13:13",
+        "countryCode": "GBR",
+        "name":"20% Off Netflix Subscription",
+        "publisherId":"3693ac7e-3e2b-432c-8c60-2b786453ca9b",
+        "brandId":"f8bdb5e7-85c3-4acb-8a59-1b7e9218e412",
+        "startDate":"2020-04-25T00:00:00",
         "type":{
           "name":"discount",
           "value":20
-         }
-       }'
+        },
+        "metadata": {
+          "some": "data"
+        }
+      }'
 ```
 
 ### Required Parameters
@@ -270,7 +272,7 @@ An offer with the type `amount` will use the currency of the indicated country, 
 * `maxTransactionAmount`: the maximum transaction spend for an offer. Example: "Save 25% on purchases over £50, save 40% on purchases over £100" the first offer would have a maxTransactionAmout of £100.
 * `minTransactionAmount`: The minimum transaction amount (example: "Save 25% on purchases over £50")
 * `returnPeriod`: number of days before a transaction qualifies for the offer.
-
+* `metadata`: object with your own data, will be returned on the offer object.
 
 Check out the [Offer API Reference](https://reference.fidel.uk/v1/reference#create-offer) for more detailed documentation about available Offer API endpoints.
 
