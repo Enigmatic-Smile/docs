@@ -1,9 +1,9 @@
 # Cards
-The Card object holds information about the card details submitted by the user using our SDKs - we have JavaScript, Android, iOS and ReactNative SDKs at the moment. One user may link multiple debit or credit cards. 
+The Card object holds information about the card details submitted by the user using our SDKs - we have JavaScript, Android, iOS and ReactNative SDKs at the moment. One user may link multiple debit or credit cards.
 
 ## Metadata
 
-The Card object can also have associated metadata, with an `id` property that is a *non-unique index*.  When creating a card, you can set the `id` property of the metadata to a custom identifier, for example `my-brand-name-cards`. Later you can retrieve a list of cards by using the metadata `ID`, . You can read more about this in our API Reference for the [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference#list-cards-from-metadata-id) endpoint.
+The Card object can also have associated metadata, with an `id` property that is a *non-unique index*.  When creating a card, you can set the `id` property of the metadata to a custom identifier, for example `my-brand-name-cards`. Later you can use our Cards API to retrieve a list of cards by using the metadata `ID`. You can read more about this in our API Reference for the [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference#list-cards-from-metadata-id) endpoint.
 
 ## Add Card with SDK (preferred)
 
