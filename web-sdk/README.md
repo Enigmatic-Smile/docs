@@ -36,6 +36,7 @@ fileName:index.html
   data-metadata="metadata"
   data-auto-open="false"
   data-auto-close="false"
+  data-allowed-countries="GBR,IRL"
   data-background-color="#ffffff"
   data-button-color="#4dadea"
   data-button-title="Link Card"
@@ -113,6 +114,13 @@ To integrate **Fidel Web SDK** in your website or mobile app, you need to add th
             <em>default: true</em>
         </dt>
         <dd>whether the web form auto closes on successful card link</dd>
+    </div>
+    <div>
+        <dt>
+            <span><code>data-allowed-countries</code></span>
+            <em>default: all supported countries</em>
+        </dt>
+        <dd>comma separated list of countries that shown in the dropdown</dd>
     </div>
     <div>
         <dt>
