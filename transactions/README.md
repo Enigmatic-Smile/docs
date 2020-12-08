@@ -1,6 +1,7 @@
 # Transactions
 The Fidel API `Transaction` object is the central piece of data in your card-linked application. When a user makes a purchase with a linked card in a program participating brand location, Fidel captures the transaction event in real-time. The Fidel API then sends the data to your server in JSON format through [webhooks](/webhooks).
 
+One transaction event occurs at authorisation time. The other transaction event occurs when the transaction has cleared. These are two distinct events, and Fidel processes both of them, even if you're not registering webhooks to listen for both event types. Because we bill based on transaction events, and we process both of them, you'll get charged for both of them, regardless of the number or type of webhooks you have registered with Fidel.
 
 ## Transaction Object
 
