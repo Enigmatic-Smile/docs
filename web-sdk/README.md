@@ -52,7 +52,7 @@ fileName:index.html
   data-title-color="#000000">
 </script>
 ```
-To integrate **Fidel Web SDK** in your website or mobile app, you need to add the script above in your website or mobile web view. For mobile apps, however, we recommend using the [mobile SDKs](/mobile-sdk).
+To integrate **Fidel Web SDK** in your website or mobile app, you need to add the script above in your website or mobile web view. For mobile apps, however, we recommend using the [mobile SDKs](/mobile-sdks).
 
 > Hint: Adding user data in the metadata as key:value pairs can simplify reconciliation with your system. For example, adding 'myUserId':'123' will help you match the the added card to your user '123'.
 
