@@ -72,7 +72,7 @@ fileName:transaction.json
   }
 }
 ```
-> The `wallet` property has been deprecated since August 2019 because of privacy concerns, and will always return null on transactions created after that date. If you're retrieving a transaction that was created before August 2019, the property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
+> The `wallet` property has been deprecated since August 2019 because of privacy concerns, and will always return `null` on transactions created after that date. If you're retrieving a transaction that was created before August 2019, the property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
 
 <details>
   <summary style="margin-bottom: 30px;">JSON Response on API versions to 2018-08-16</summary>
