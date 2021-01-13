@@ -21,7 +21,7 @@ fileName:transaction.json
   "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c647d9cba",
   "refundTransactionId": null,
   "updated": "2019-04-09T16:00:00.644Z",
-  "wallet": "apple-pay",
+  "wallet": null,
   "brand": {
     "id": "9d136f2e-df99-4a08-a0a5-3bc1534b7db8",
     "logoURL": "https://example.com/logo.png",
@@ -72,7 +72,7 @@ fileName:transaction.json
   }
 }
 ```
-> The wallet property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
+> The `wallet` property has been deprecated since August 2019 because of privacy concerns, and will always return null on transactions created after that date. If you're retrieving a transaction that was created before August 2019, the property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
 
 <details>
   <summary style="margin-bottom: 30px;">JSON Response on API versions to 2018-08-16</summary>
