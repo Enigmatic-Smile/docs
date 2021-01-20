@@ -2,267 +2,6 @@
 
 Fidel Offers help you create and manage card-linked offers with various retailers – all in one place. Developers can create Offers via the [Fidel Offers API](https://reference.fidel.uk/v1/reference#create-offer), which allows your application to create and update Offers, link and unlink Locations to the created Offers, activate and deactivate Offers on specific Cards and send the Offers for approval to a Brand. Brands and Merchants can interact with the Fidel Offers by using the [Fidel CLO Dashboard]((https://clo.fidel.uk)).
 
-## Offer Object
-The Offers API's central piece of data is the Fidel Offer object, which holds all the details about a card-linked Offer. The card-linked offer has a set of parameters used to qualify any [card transaction](https://fidel.uk/docs/transactions) made at a participating Brands' linked Location.
-
-The Offer object looks similar to the following and will be returned by the API in a multitude of situations. Transaction objects will also have a smaller version of the object inside, making it easier to retrieve the full Offer object if necessary.
-
-```json
-fileName:offer.json
-{
-  "id": "feb9af3c-9b4e-49df-bb8f-13ae4ad8cd22",
-  "accepted": true,
-  "activation": {
-    "enabled": true,
-    "qualifiedTransactionsLimit": 1
-  },
-  "additionalTerms": null,
-  "brandId": "f8bdb5e7-85c3-4acb-8a59-1b7e9218e412",
-  "brandName": "API Reference",
-  "brandLogoURL": "https://example.com/logo.png",
-  "countryCode": "GBR",
-  "created": "2020-07-29T13:45:36.191Z",
-  "currency": "GBP",
-  "daysOfWeek": [0, 1, 2, 3, 4, 5, 6],
-  "endDate": null,
-  "feeSplit": 70,
-  "funded": {
-  	"type": "card-linking",
-  	"id": "3693ac7e-3e2b-432c-8c60-2b786453ca9b"
-  },
-  "live": true,
-  "locationsTotal": 240,
-  "maxTransactionAmount": 0,
-  "minTransactionAmount": 0,
-  "metadata": null,
-  "name": "£5 Off Netflix Every Month",
-  "origin": {
-  	"type": "card-linking",
-  	"id": "3693ac7e-3e2b-432c-8c60-2b786453ca9b"
-  },
-  "priority": 1,
-  "publisherId": "3693ac7e-3e2b-432c-8c60-2b786453ca9b",
-  "returnPeriod": 15,
-  "schemes": ["amex", "mastercard", "visa"],
-  "startDate": "2020-06-30T00:00:00",
-  "supplier": null,
-  "type": {
-  	"name": "amount",
-  	"value": 5
-  },
-  "updated": "2020-08-22T14:47:37.479Z"
-}
-```
-
-### Parameters
-
-<dl>
-  <div>
-    <dt>
-      <span><code>id</code></span>
-      <em>string</em>
-    </dt>
-    <dd>Unique identifier for the object.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>accepted</code></span>
-      <em>boolean</em>
-    </dt>
-    <dd>Whether the Offer was accepted by the Brand. To send the Offer to a Brand for funding, see the <a href="https://reference.fidel.uk/reference#send-offer-to-brand">Send Offer to Brand</a> API endpoint.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>activation</code></span>
-      <em>object</em>
-    </dt>
-    <dd>Has an <code>enabled</code> <em>boolean</em> property, showing if the offer needs activation or not. If the <code>enabled</code> flag is set to true, the <code>activation</code> object also has a <code>qualifiedTransactionsLimit</code> property, specifying the number of transactions to qualify for each offer activation. You can read more about Offers with Activation below.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>additionalTerms</code></span>
-      <em>string</em>
-    </dt>
-    <dd>Support for additional Terms & Conditions related to the Offer. <code>null</code> by default. Accepts Markdown link syntax. E.g. [Additional Terms](https://fidel.uk/terms).</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>brandId</code></span>
-      <em>string</em>
-    </dt>
-    <dd>Unique identifier of the associated Brand.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>brandName</code></span>
-      <em>string</em>
-    </dt>
-    <dd>Name of the associated Brand.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>brandLogoURL</code></span>
-      <em>string</em>
-    </dt>
-    <dd>Logo URL of the associated Brand. <code>null</code> by default.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>countryCode</code></span>
-      <em>string</em>
-    </dt>
-    <dd><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> country code for the Country where the Offer is active.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>created</code></span>
-      <em>date</em>
-    </dt>
-    <dd><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date and time in UTC representing the creation date for the Offer object.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>currency</code></span>
-      <em>string</em>
-    </dt>
-    <dd><a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code based on the <code>countryCode</code> value.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>daysOfWeek</code></span>
-      <em>array: number</em>
-    </dt>
-    <dd>Array of numbers between 0 and 6 representing the days of the week for which the Offer is active. Starting with Sunday.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>endDate</code></span>
-      <em>date</em>
-    </dt>
-    <dd>Date and time, in the <code>YYYY-MM-DDThh:mm:ss</code> format, for when the offer expires. Note: Time is local to the Location. Defaluts to <code>null</code> for offers that do not expire.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>feeSplit</code></span>
-      <em>number</em>
-    </dt>
-    <dd>Percentage of the performance fee to be charged by Fidel to the participating Brand.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>funded</code></span>
-      <em>object</em>
-    </dt>
-    <dd>Contains an <code>id</code> property, with the unique identifier for the account that is funding the offer. Also contains a <em>string</em> <code>type</code> property, for the type of account that is funding the offer. The type can have one of the values <code>"merchant" | "card-linking" | "affiliate"</code>.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>live</code></span>
-      <em>boolean</em>
-    </dt>
-    <dd>Whether the Offer should be created in the live or test Fidel environment.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>locationsTotal</code></span>
-      <em>number</em>
-    </dt>
-    <dd>Total number of Locations linked to the Offer.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>maxTransactionAmount</code></span>
-      <em>number</em>
-    </dt>
-    <dd>Maximum amount needed for a Transaction to qualify for offer.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>minTransactionAmount</code></span>
-      <em>number</em>
-    </dt>
-    <dd>Minimum amount needed for a Transaction to qualify for offer.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>name</code></span>
-      <em>string</em>
-    </dt>
-    <dd>Name of the Offer.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>metadata</code></span>
-      <em>object</em>
-    </dt>
-    <dd>Metadata to be associated with the Offer. Defaluts to <code>null</code>.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>origin</code></span>
-      <em>object</em>
-    </dt>
-    <dd>Contains an <code>id</code> property, with the unique identifier for the account that created the offer. Also contains a <em>string</em> <code>type</code> property, for the type of account that created the offer. The type can have one of the values <code>"merchant" | "card-linking" | "affiliate"</code>.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>priority</code></span>
-      <em>number</em>
-    </dt>
-    <dd>Number, starting with 1, representing the stacking priority for the publisher. By default, the publisher that invites the Brand gets the top priority, 1.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>publisherId</code></span>
-      <em>string</em>
-    </dt>
-    <dd>Unique identifier of the Publisher. Refers to <code>accountId</code>.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>returnPeriod</code></span>
-      <em>number</em>
-    </dt>
-    <dd>Number of days before a Transaction qualifies for the offer.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>schemes</code></span>
-      <em>array: string</em>
-    </dt>
-    <dd>Card Schemes for which the Offer is valid. Possible values in the array are <code>visa</code>, <code>mastercard</code> and <code>amex</code>.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>startDate</code></span>
-      <em>date</em>
-    </dt>
-    <dd>Date and time, in the <code>YYYY-MM-DDThh:mm:ss</code> format, for when the offer is activated and starts qualifying transactions.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>supplier</code></span>
-      <em>object</em>
-    </dt>
-    <dd>Contains an <code>id</code> property, with the unique identifier for the account that supplies the offer. Also contains a <em>string</em> <code>type</code> property, for the type of account that supplies the offer. The type can have one of the values <code>"merchant" | "card-linking" | "affiliate"</code>. Defaluts to <code>null</code>.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>type</code></span>
-      <em>object</em>
-    </dt>
-    <dd>Represents the type of Offer: a fixed amount or a percentage of the original transaction The <code>name</code> property can have one of the following two values: <code>amount</code> and
-      <code>discount</code>. The <code>value</code> property has either the fixed amount of currency to be rewarded or the percentage value, depending on the Offer type.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>updated</code></span>
-      <em>date</em>
-    </dt>
-    <dd><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date and time in UTC representing the last time the Offer object was updated.</dd>
-  </div>
-</dl>
-
 ## Offer Lifecycle
 
 Offers can be accessed via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending). They are grouped into four categories: Requests, Upcoming, Live and Expired.
@@ -283,7 +22,7 @@ The current date is between the Offer `startDate` and `endDate`. The Offers in t
 
 ### Expired
 
-The current date is after the Offer `endDate`. The Offers in this category are have stopped qualifying Transactions.
+The current date is after the Offer `endDate`. The Offers in this category have stopped qualifying Transactions.
 
 ## Create Offer
 
@@ -312,9 +51,9 @@ curl -X POST https://api.fidel.uk/v1/offers \
 
 These are the minimum required parameters to create a new Offer:
 
+* `brandId`: Unique identifier for the Brand presenting the Offer.
 * `countryCode`: Country where the Offer will be available.
 * `name`: Name of your Offer.
-* `brandId`: Unique identifier for the Brand presenting the Offer.
 * `publisherId`: Unique identifier for you, the same as your Fidel `accountId`.
 * `startDate`: The start date for the Offer. The `startDate` time will be a local time relative to the Location where the Offer is active.
 * `type: name`: Type of the Offer. Valid names are `"amount"` and `"discount"`.  
@@ -326,18 +65,18 @@ Offers with the type `amount` will use the indicated country's currency and appl
 
 There is a range of optional parameters available, which influence how the Offer behaves on the Fidel platform. You can read more about the endpoint's full specification on our [API Reference](https://reference.fidel.uk/reference#create-offer).
 
-* `daysOfWeek`: Array of numbers, with possible values from 0 to 6, to indicate the days of the week. 0 = Sunday, 1 = Monday, etc.
-* `endDate`: The date to automatically end the Offer. Same as `startDate`, the time will be a local time relative to the Location where the Offer was active.
-* `maxTransactionAmount`: Maximum amount for a Transaction to qualify for the Offer. For example, suppose your promotion sounded something similar to "Save 25% on purchases over £50, save 40% on purchases over £100". In that case, the first Offer should have a `maxTransactionAmout` of £100.
-* `minTransactionAmount`: Maximum amount for a Transaction to qualify for the Offer. For example, suppose your promotion sounded something similar to "Save 25% on purchases over £50". In that case, the Offer should have a `minTransactionAmount` of £50.
-* `returnPeriod`: Number of days between when a Transaction was created and when a Transaction qualifies for the Offer.
-* `metadata`: Object with your own metadata, will be returned on the Offer object.
-* `schemes`: Array of schemes for which a Transaction qualifies for the Offer. Possible values are `"amex"`, `"mastercard"` and `"visa"`.
-* `funded: id`: Unique identifier for the account that funds the Offer. For self-funded Offers, this is not required. In the test environment, all Offers are self-funded, so this will always be the same as your `accountId`.
-* `funded: type`: Type of Offer funding. Possible values are `"merchant"`, `"card-linking"` and `"affiliate"`. In the test environment, you can only create card-linked Offers, so the funding type will always be `"card-linking"`
 * `activation`: An object, showing if the Offer needs activation or not. Default is `{ enabled: false }`.
 * `activation: enabled`: Boolean showing if the Offer needs to be activated on Cards or not. If it's `true`, the `activation` object also has a `qualifiedTransactionsLimit` property. **Please read the section below on Offer Activation before using this parameter.**
 * `activation: qualifiedTransactionsLimit`: Number of Transactions to qualify for each Offer activation. Default is 1.
+* `daysOfWeek`: Array of numbers, with possible values from 0 to 6, to indicate the days of the week. 0 = Sunday, 1 = Monday, etc.
+* `endDate`: The date to automatically end the Offer. Same as `startDate`, the time will be a local time relative to the Location where the Offer was active.
+* `funded: id`: Unique identifier for the account that funds the Offer. For self-funded Offers, this is not required. In the test environment, all Offers are self-funded, so this will always be the same as your `accountId`.
+* `funded: type`: Type of Offer funding. Possible values are `"merchant"`, `"card-linking"` and `"affiliate"`. In the test environment, you can only create card-linked Offers, so the funding type will always be `"card-linking"`.
+* `maxTransactionAmount`: Maximum amount for a Transaction to qualify for the Offer. For example, suppose your promotion sounded something similar to "Save 25% on purchases over £50, save 40% on purchases over £100". In that case, the first Offer should have a `maxTransactionAmout` of £100.
+* `minTransactionAmount`: Maximum amount for a Transaction to qualify for the Offer. For example, suppose your promotion sounded something similar to "Save 25% on purchases over £50". In that case, the Offer should have a `minTransactionAmount` of £50.
+* `metadata`: Object with your own metadata, will be returned on the Offer object.
+* `returnPeriod`: Number of days between when a Transaction was created and when a Transaction qualifies for the Offer.
+* `schemes`: Array of schemes for which a Transaction qualifies for the Offer. Possible values are `"amex"`, `"mastercard"` and `"visa"`.
 
 ### Create an Offer in the Dashboards
 
@@ -346,6 +85,82 @@ Alternatively, you can create an Offer via the [Fidel Dashboard](https://dashboa
 ![Create Offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/new-offers/assets/images/create-offers.gif "Create Offer in Fidel Dashboard")
 
 Once you have created an Offer, it will enter the Offer Lifecycle in the Requests category.
+
+## Linking Locations to Offers
+
+Before an Offer goes live and starts qualifying transactions, you will need to link Locations to the Offer. Developers can use the [Link Location to Offer](https://reference.fidel.uk/reference#add-location-to-offer) API endpoint to link any Location to an Offer. Similarly, the Fidel API has an endpoint to [unlink a Location from an Offer](https://reference.fidel.uk/reference#unlink-location-to-offer).
+
+Here's a cURL example of using the endpoint, with two path parameters, for the `offerId` and `locationId`:
+
+```sh
+curl -X POST \
+  https://api.fidel.uk/v1/offers/feb9af3c-9b4e-49df-bb8f-13ae4ad8cd22/locations/1af3b7a0-4bfd-4b5e-a285-fab1c8a8421d \
+  -H 'content-type: application/json' \
+  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
+```
+
+### Linking Offers in the Dashboard
+
+When you create an Offer in the Fidel Dashboard, the second step of the creation dialogue allows you to link Locations to the newly created Offer.
+
+![Link Locations in Offer Creation](https://raw.githubusercontent.com/FidelLimited/docs/new-offers/assets/images/create-offer-location.gif "Link Locations in Offer Creation")
+
+If you need to link more Locations after you've created an Offer, the [Locations list in the Dashboard](https://dashboard.fidel.uk/locations) has a menu button next to each Location, which opens a contextual menu. Selecting 'Link to offer' in the context menu will open a drawer that lets you select a possible Offer to link.
+
+![Link to offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/new-offers/assets/images/dashboard-link-locations.png "Link to Offer in Fidel Dashboard")
+
+## Offers with Activation
+
+Offers with activation require an Offer to be activated on a Card before they can go through the qualification process. Developers can use the Offers API to specify an Offer requires activation. When [creating an Offer](https://reference.fidel.uk/v1/reference#create-offer), the `activation` object should have the `enabled: true` property and a `qualifiedTransactionsLimit` property higher or equal to 1. The `qualifiedTransactionsLimit` property specifies how many Transactions will be qualified for each Offer activation. Here's a cURL example:
+
+```sh
+curl -X POST https://api.fidel.uk/v1/offers \
+  -H 'content-type: application/json' \
+  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -d '{
+        "countryCode": "GBR",
+        "name":"20% Off Netflix Subscription",
+        "publisherId":"3693ac7e-3e2b-432c-8c60-2b786453ca9b",
+        "brandId":"f8bdb5e7-85c3-4acb-8a59-1b7e9218e412",
+        "startDate":"2020-04-25T00:00:00",
+        "type":{
+          "name":"discount",
+          "value":20
+        },
+        "activation":{
+          "enabled":true,
+          "qualifiedTransactionsLimit":1
+        }
+      }'
+```
+
+Offers need to be activated on Cards before the purchase to receive and qualify Transactions for Offers with activation. Developers can do that by using the [Activate Offer on Card](https://reference.fidel.uk/reference#activate-offer-on-card) API endpoint as follows:
+
+```sh
+curl -X POST \
+  https://api.fidel.uk/v1/offers/:offerId/cards/:cardId \
+  -H 'content-type: application/json' \
+  -H 'fidel-key: your-secret-key'
+```
+
+After an Offer is activated on a Card, it will qualify the number of Transactions specified by the `qualifiedTransactionsLimit` value. After the limit of Transactions is qualified, the Offer is automatically deactivated from the Card. If developers need to deactivate an Offer from the Card for any reason before that event, they can use the [Deactivate Offer on Card](https://reference.fidel.uk/reference#unlink-card-from-offer) API endpoint.
+
+Note that when you link Locations to an Offer with activation, you will only receive Transactions from Cards where the Offer has been activated on. To receive all Transactions from all Cards, you will need to disable the Offer activation with `activation: { enabled: false, qualifiedTransactionsLimit: 1 }` or unlink the Locations from the Offer.
+
+<div class="info-box">
+    <small>Test and Live environments</small><br/>
+    It is important to note that when testing Offers with activation in the test environmentm all test transactions created will be visible for testing purposes. In the live environment only Transactions for activated Offers on Cards will be received and qualified.
+</div>
+
+### Offers with Activation in the Dashboard
+
+You can create Offers with activation in the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending) as well. When creating an Offer, check the "Enable offer activation" checkbox. That will reveal a "1" transactions field, which you can use to change the number for the qualified transactions limit.
+
+![Create Offer with Activation](https://raw.githubusercontent.com/FidelLimited/docs/new-offers/assets/images/create-offers.gif "Create Offer with Activation")
+
+To activate an Offer on a Card using the Fidel Dashboard, you'll want to go to the [Cards list](https://dashboard.fidel.uk/cards). Each Card has a menu button next to them, which opens a contextual menu. Selecting 'Activate offer' in the context menu will open a drawer that lets you select a possible Offer to activate on the Card.
+
+![Activate offer on Card in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/new-offers/assets/images/dashboard-activate-offer.png "Activate offer on Card in Fidel Dashboard")
 
 ## Transaction Qualification
 
@@ -435,82 +250,267 @@ fileName:non-qualified-transaction.json
 }
 ```
 
-## Linking Locations to Offers
+## Offer Object
 
-Before an Offer goes live and starts qualifying transactions, you will need to link Locations to the Offer. Developers can use the [Link Location to Offer](https://reference.fidel.uk/reference#add-location-to-offer) API endpoint to link any Location to an Offer. Similarly, the Fidel API has an endpoint to [unlink a Location from an Offer](https://reference.fidel.uk/reference#unlink-location-to-offer).
+The Offers API's central piece of data is the Fidel Offer object, which holds all the details about a card-linked Offer. The card-linked Offer has a set of parameters used to qualify any [Card Transaction](https://fidel.uk/docs/transactions) made at a participating Brands' linked Location.
 
-Here's a cURL example of using the endpoint, with two path parameters, for the `offerId` and `locationId`:
+The Offer object looks similar to the following and will be returned by the API in a multitude of situations. Transaction objects will also have a smaller version of the object inside, making it easier to retrieve the full Offer object if necessary.
 
-```sh
-curl -X POST \
-  https://api.fidel.uk/v1/offers/feb9af3c-9b4e-49df-bb8f-13ae4ad8cd22/locations/1af3b7a0-4bfd-4b5e-a285-fab1c8a8421d \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
+```json
+fileName:offer.json
+{
+  "id": "feb9af3c-9b4e-49df-bb8f-13ae4ad8cd22",
+  "accepted": true,
+  "activation": {
+    "enabled": true,
+    "qualifiedTransactionsLimit": 1
+  },
+  "additionalTerms": null,
+  "brandId": "f8bdb5e7-85c3-4acb-8a59-1b7e9218e412",
+  "brandName": "API Reference",
+  "brandLogoURL": "https://example.com/logo.png",
+  "countryCode": "GBR",
+  "created": "2020-07-29T13:45:36.191Z",
+  "currency": "GBP",
+  "daysOfWeek": [0, 1, 2, 3, 4, 5, 6],
+  "endDate": null,
+  "feeSplit": 70,
+  "funded": {
+    "id": "3693ac7e-3e2b-432c-8c60-2b786453ca9b",
+  	"type": "card-linking"
+  },
+  "live": true,
+  "locationsTotal": 240,
+  "maxTransactionAmount": 0,
+  "minTransactionAmount": 0,
+  "metadata": null,
+  "name": "£5 Off Netflix Every Month",
+  "origin": {
+    "id": "3693ac7e-3e2b-432c-8c60-2b786453ca9b",
+  	"type": "card-linking"
+  },
+  "priority": 1,
+  "publisherId": "3693ac7e-3e2b-432c-8c60-2b786453ca9b",
+  "returnPeriod": 15,
+  "schemes": ["amex", "mastercard", "visa"],
+  "startDate": "2020-06-30T00:00:00",
+  "supplier": null,
+  "type": {
+  	"name": "amount",
+  	"value": 5
+  },
+  "updated": "2020-08-22T14:47:37.479Z"
+}
 ```
 
-### Linking Offers in the Dashboard
+### Parameters
 
-When you create an Offer in the Fidel Dashboard, the second step of the creation dialogue allows you to link Locations to the newly created Offer.
-
-![Link Locations in Offer Creation](https://raw.githubusercontent.com/FidelLimited/docs/new-offers/assets/images/create-offer-location.gif "Link Locations in Offer Creation")
-
-If you need to link more Locations after you've created an Offer, the [Locations list in the Dashboard](https://dashboard.fidel.uk/locations) has a menu button next to each Location, which opens a contextual menu. Selecting 'Link to offer' in the context menu will open a drawer that lets you select a possible Offer to link.
-
-![Link to offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/new-offers/assets/images/dashboard-link-locations.png "Link to Offer in Fidel Dashboard")
-
-## Offers with Activation
-
-Offers with activation require and Offer to be activated on a Card before they can go through the qualification process. Developers can use the Offers API to specify an Offer requires activation. When [creating an Offer](https://reference.fidel.uk/v1/reference#create-offer), the `activation` object should have the `enabled: true` property and a `qualifiedTransactionsLimit` property higher or equal to 1. The `qualifiedTransactionsLimit` property specifies how many transactions will be qualified for each offer activation. Here's a cURL example:
-
-```sh
-curl -X POST https://api.fidel.uk/v1/offers \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
-  -d '{
-        "countryCode": "GBR",
-        "name":"20% Off Netflix Subscription",
-        "publisherId":"3693ac7e-3e2b-432c-8c60-2b786453ca9b",
-        "brandId":"f8bdb5e7-85c3-4acb-8a59-1b7e9218e412",
-        "startDate":"2020-04-25T00:00:00",
-        "type":{
-          "name":"discount",
-          "value":20
-        },
-        "activation":{
-          "enabled":true,
-          "qualifiedTransactionsLimit":1
-        }
-      }'
-```
-
-Offers need to be activated on Cards before the purchase to receive and qualify Transactions for Offers with activation. Developers can do that by using the [Activate Offer on Card](https://reference.fidel.uk/reference#activate-offer-on-card) API endpoint as follows:
-
-```sh
-curl -X POST \
-  https://api.fidel.uk/v1/offers/:offerId/cards/:cardId \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: your-secret-key'
-```
-
-After an Offer is activated on a Card, it will qualify the number of Transactions specified by the `qualifiedTransactionsLimit` value. After the limit of Transactions is qualified, the Offer is automatically deactivated from the Card. If developers need to deactivate an Offer from the Card for any reason before that event, they can use the [Deactivate Offer on Card](https://reference.fidel.uk/reference#unlink-card-from-offer) API endpoint.
-
-Note that when you link Locations to an Offer with activation, you will only receive Transactions from Cards where the Offer has been activated on. To receive all Transactions from all Cards, you will need to disable the Offer activation with `activation: { enabled: false, qualifiedTransactionsLimit: 1 }` or unlink the Locations from the Offer.
-
-<div class="info-box">
-    <small>Test and Live environments</small><br/>
-    It is important to note that when testing Offers with activation in the test environmentm all test transactions created will be visible for testing purposes. In the live environment only Transactions for activated Offers on Cards will be received and qualified.
-</div>
-
-### Offers with Activation in the Dashboard
-
-You can create Offers with activation in the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending) as well. When creating an Offer, check the "Enable offer activation" checkbox. That will reveal a "1" transactions field, which you can use to change the number for the qualified transactions limit.
-
-![Create Offer with Activation](https://raw.githubusercontent.com/FidelLimited/docs/new-offers/assets/images/create-offers.gif "Create Offer with Activation")
-
-To activate an Offer on a Card using the Fidel Dashboard, you'll want to go to the [Cards list](https://dashboard.fidel.uk/cards). Each Card has a menu button next to them, which opens a contextual menu. Selecting 'Activate offer' in the context menu will open a drawer that lets you select a possible Offer to activate on the Card.
-
-![Activate offer on Card in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/new-offers/assets/images/dashboard-activate-offer.png "Activate offer on Card in Fidel Dashboard")
-
+<dl>
+  <div>
+    <dt>
+      <span><code>id</code></span>
+      <em>string</em>
+    </dt>
+    <dd>Unique identifier for the object.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>accepted</code></span>
+      <em>boolean</em>
+    </dt>
+    <dd>Whether the Offer was accepted by the Brand. To send the Offer to a Brand for funding, see the <a href="https://reference.fidel.uk/reference#send-offer-to-brand">Send Offer to Brand</a> API endpoint.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>activation</code></span>
+      <em>object</em>
+    </dt>
+    <dd>Has an <code>enabled</code> <em>boolean</em> property, showing if the Offer needs activation or not. If the <code>enabled</code> flag is set to true, the <code>activation</code> object also has a <code>qualifiedTransactionsLimit</code> property, specifying the number of transactions to qualify for each Offer activation. You can read more about Offers with Activation below.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>additionalTerms</code></span>
+      <em>string</em>
+    </dt>
+    <dd>Support for additional Terms & Conditions related to the Offer. <code>null</code> by default. Accepts Markdown link syntax. E.g. [Additional Terms](https://fidel.uk/terms).</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>brandId</code></span>
+      <em>string</em>
+    </dt>
+    <dd>Unique identifier of the associated Brand.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>brandName</code></span>
+      <em>string</em>
+    </dt>
+    <dd>Name of the associated Brand.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>brandLogoURL</code></span>
+      <em>string</em>
+    </dt>
+    <dd>Logo URL of the associated Brand. <code>null</code> by default.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>countryCode</code></span>
+      <em>string</em>
+    </dt>
+    <dd><a href="https://en.wikipedia.org/wiki/ISO_3166-1_alpha-3">ISO 3166-1 alpha-3</a> country code for the Country where the Offer is active.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>created</code></span>
+      <em>date</em>
+    </dt>
+    <dd><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date and time in UTC representing the creation date for the Offer object.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>currency</code></span>
+      <em>string</em>
+    </dt>
+    <dd><a href="https://en.wikipedia.org/wiki/ISO_4217">ISO 4217</a> currency code based on the <code>countryCode</code> value.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>daysOfWeek</code></span>
+      <em>array: number</em>
+    </dt>
+    <dd>Array of numbers between 0 and 6 representing the days of the week for which the Offer is active. Starting with Sunday.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>endDate</code></span>
+      <em>date</em>
+    </dt>
+    <dd>Date and time, in the <code>YYYY-MM-DDThh:mm:ss</code> format, for when the Offer expires. Note: Time is local to the Location. Defaluts to <code>null</code> for Offers that do not expire.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>feeSplit</code></span>
+      <em>number</em>
+    </dt>
+    <dd>Percentage of the performance fee to be charged by Fidel to the participating Brand.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>funded</code></span>
+      <em>object</em>
+    </dt>
+    <dd>Contains an <code>id</code> property, with the unique identifier for the account that is funding the Offer. Also contains a <em>string</em> <code>type</code> property, for the type of account that is funding the Offer. The type can have one of the values <code>"merchant" | "card-linking" | "affiliate"</code>.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>live</code></span>
+      <em>boolean</em>
+    </dt>
+    <dd>Whether the Offer should be created in the live or test Fidel environment.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>locationsTotal</code></span>
+      <em>number</em>
+    </dt>
+    <dd>Total number of Locations linked to the Offer.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>maxTransactionAmount</code></span>
+      <em>number</em>
+    </dt>
+    <dd>Maximum amount needed for a Transaction to qualify for the Offer.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>minTransactionAmount</code></span>
+      <em>number</em>
+    </dt>
+    <dd>Minimum amount needed for a Transaction to qualify for the Offer.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>name</code></span>
+      <em>string</em>
+    </dt>
+    <dd>Name of the Offer.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>metadata</code></span>
+      <em>object</em>
+    </dt>
+    <dd>Metadata to be associated with the Offer. Defaults to <code>null</code>.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>origin</code></span>
+      <em>object</em>
+    </dt>
+    <dd>Contains an <code>id</code> property, with the unique identifier for the account that created the Offer. Also contains a <em>string</em> <code>type</code> property, for the type of account that created the Offer. The type can have one of the values <code>"merchant" | "card-linking" | "affiliate"</code>.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>priority</code></span>
+      <em>number</em>
+    </dt>
+    <dd>Number, starting with 1, representing the stacking priority for the publisher. By default, the publisher that invites the Brand gets the top priority, 1.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>publisherId</code></span>
+      <em>string</em>
+    </dt>
+    <dd>Unique identifier of the Publisher. Refers to <code>accountId</code>.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>returnPeriod</code></span>
+      <em>number</em>
+    </dt>
+    <dd>Number of days before a Transaction qualifies for the Offer.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>schemes</code></span>
+      <em>array: string</em>
+    </dt>
+    <dd>Card Schemes for which the Offer is valid. Possible values in the array are <code>visa</code>, <code>mastercard</code> and <code>amex</code>.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>startDate</code></span>
+      <em>date</em>
+    </dt>
+    <dd>Date and time, in the <code>YYYY-MM-DDThh:mm:ss</code> format, for when the Offer is activated and starts qualifying transactions.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>supplier</code></span>
+      <em>object</em>
+    </dt>
+    <dd>Contains an <code>id</code> property, with the unique identifier for the account that supplies the Offer. Also contains a <em>string</em> <code>type</code> property, for the type of account that supplies the Offer. The type can have one of the values <code>"merchant" | "card-linking" | "affiliate"</code>. Defaluts to <code>null</code>.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>type</code></span>
+      <em>object</em>
+    </dt>
+    <dd>Represents the type of Offer: a fixed amount or a percentage of the original transaction The <code>name</code> property can have one of the following two values: <code>amount</code> and
+      <code>discount</code>. The <code>value</code> property has either the fixed amount of currency to be rewarded or the percentage value, depending on the Offer type.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>updated</code></span>
+      <em>date</em>
+    </dt>
+    <dd><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date and time in UTC representing the last time the Offer object was updated.</dd>
+  </div>
+</dl>
 
 ## API Reference
 
