@@ -63,7 +63,7 @@ Offers with the type `amount` will use the indicated country's currency and appl
 
 ### Optional Parameters
 
-There is a range of optional parameters available, which influence how the Offer behaves on the Fidel platform. You can read more about the endpoint's full specification on our [API Reference](https://reference.fidel.uk/reference#create-offer).
+There are a range of optional parameters available, which influence how the Offer behaves on the Fidel platform. You can read more about the endpoint's full specification on our [API Reference](https://reference.fidel.uk/reference#create-offer).
 
 * `activation`: An object, showing if the Offer needs activation or not. Default is `{ enabled: false }`.
 * `activation: enabled`: Boolean showing if the Offer needs to be activated on Cards or not. If it's `true`, the `activation` object also has a `qualifiedTransactionsLimit` property. **Please read the section below on Offer Activation before using this parameter.**
@@ -75,7 +75,7 @@ There is a range of optional parameters available, which influence how the Offer
 * `maxTransactionAmount`: Maximum amount for a Transaction to qualify for the Offer. For example, suppose your promotion sounded something similar to "Save 25% on purchases over £50, save 40% on purchases over £100". In that case, the first Offer should have a `maxTransactionAmout` of £100.
 * `minTransactionAmount`: Maximum amount for a Transaction to qualify for the Offer. For example, suppose your promotion sounded something similar to "Save 25% on purchases over £50". In that case, the Offer should have a `minTransactionAmount` of £50.
 * `metadata`: Object with your own metadata, will be returned on the Offer object.
-* `returnPeriod`: Number of days between when a Transaction was created and when a Transaction qualifies for the Offer.
+* `returnPeriod`: Number of days between when a Transaction was created and when a Transaction qualifies for the Offer. The qualified Transaction will have the `offer.qualificationDate` set to the creation date plus the number of days in the return period.
 * `schemes`: Array of schemes for which a Transaction qualifies for the Offer. Possible values are `"amex"`, `"mastercard"` and `"visa"`.
 
 ### Create an Offer in the Dashboards
@@ -99,6 +99,19 @@ curl -X POST \
   -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
 ```
 
+### Linking All Brand Locations to an Offer
+
+Developers can use the [Link All Brand Locations to Offer](https://reference.fidel.uk/reference#link-all-program-locations-to-offer) API endpoint to link all Location from a Brand to an Offer.
+
+Here's a cURL example of using the endpoint, with the two required path parameters, for the `offerId` and `programId`:
+
+```sh
+curl -X POST \
+  https://api.fidel.uk/v1/offers/feb9af3c-9b4e-49df-bb8f-13ae4ad8cd22/programs/0228b979-6f7c-4238-a309-40f9d6efd3ea/locations \
+  -H 'content-type: application/json' \
+  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
+```
+
 ### Linking Offers in the Dashboard
 
 When you create an Offer in the Fidel Dashboard, the second step of the creation dialogue allows you to link Locations to the newly created Offer.
@@ -107,8 +120,11 @@ When you create an Offer in the Fidel Dashboard, the second step of the creation
 
 If you need to link more Locations after you've created an Offer, the [Locations list in the Dashboard](https://dashboard.fidel.uk/locations) has a menu button next to each Location, which opens a contextual menu. Selecting 'Link to offer' in the context menu will open a drawer that lets you select a possible Offer to link.
 
-![Link to offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/new-offers/assets/images/dashboard-link-locations.png "Link to Offer in Fidel Dashboard")
+![Link to offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/new-offers/assets/images/dashboard-link-location.png "Link to Offer in Fidel Dashboard")
 
+Alternatively, you can edit an Offer in the Fidel Dashboard, which will allow you to link more Locations in the second step of the Offer drawer.
+
+![Edit Offer Link Locations](https://raw.githubusercontent.com/FidelLimited/docs/new-offers/assets/images/dashboard-edit-offer.gif "Edit Offer Link Locations")
 ## Offers with Activation
 
 Offers with activation require an Offer to be activated on a Card before they can go through the qualification process. Developers can use the Offers API to specify an Offer requires activation. When [creating an Offer](https://reference.fidel.uk/v1/reference#create-offer), the `activation` object should have the `enabled: true` property and a `qualifiedTransactionsLimit` property higher or equal to 1. The `qualifiedTransactionsLimit` property specifies how many Transactions will be qualified for each Offer activation. Here's a cURL example:
@@ -164,9 +180,9 @@ To activate an Offer on a Card using the Fidel Dashboard, you'll want to go to t
 
 ## Transaction Qualification
 
-When an Offer is Live, each transaction made by a linked Card in a Location linked to the Offer will be analysed against the Offer parameters and will be qualified against the Offer.
+When an Offer is Live, each transaction made by an enrolled Card will be analysed against the Offer parameters and will be qualified against the Offer. If the Offer has a return period, transactions will only qualify for the Offer after the return period has passed.
 
-In both cases, an `offer` object is appended to the original Transaction object containing the qualification result data. In case the Transaction qualifies, `cashback` and `performanceFee` properties are calculated and the `qualified` property is set to `true`. If the Transaction does not qualify, `cashback` and `performanceFee` properties will have a `0` value. The `qualified` property will be set to `false` and a message explaining why the Offer did not qualify will be set in the `message` property. If a Transaction does not qualify for multiple Offers, the rejection `message` is for the most recent Offer. You can see examples for qualified and non-qualified Transactions below.
+In both cases, an `offer` object is appended to the original Transaction object containing the qualification result data. In case the Transaction qualifies, `cashback` and `performanceFee` properties are calculated and the `qualified` property is set to `true`. If the qualified Transaction was for an Offer with a return period, the `offer.qualificationDate` is set to the Transaction creation date plus the number of days in the Offer return period. If the Transaction does not qualify, `cashback` and `performanceFee` properties will have a `0` value. The `qualified` property will be set to `false` and a message explaining why the Offer did not qualify will be set in the `message` property. If a Transaction does not qualify for multiple Offers, the rejection `message` is for the most recent Offer. You can see examples for qualified and non-qualified Transactions below.
 
 ```json
 fileName:qualified-transaction.json
