@@ -1,84 +1,119 @@
 # Cards
-The Card object holds information about the card details submitted by the user using our SDKs - we have JavaScript, Android, iOS and ReactNative SDKs at the moment. One user may link multiple debit or credit cards.
-
-## Metadata
-
-The Card object can also have associated metadata, with an `id` property that is a *non-unique index*.  When creating a card, you can set the `id` property of the metadata to a custom identifier, for example `my-brand-name-cards`. Later you can use our Cards API to retrieve a list of cards by using the metadata `ID`. You can read more about this in our API Reference for the [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference#list-cards-from-metadata-id) endpoint.
-
-## Add Card with SDK (preferred)
-
-In order to link a card to a program, we recommend that you use our secure and PCI compliant SDKs. These require the user to enter their card number and expiry date. The SDK will be prepopulated with the country code and the `programId` of the Program you want to link their card to. On submission, the card number is tokenised and transmitted directly from our secure pre-built iframe to the API. This way, your servers are never exposed to sensitive information, removing all PCI compliance requirements from your side.
-
-<div class="info-box">
-  <small>Linking Multiple Cards</small><br/>
-  To facilitate users linking multiple cards, add identication key:value pairs from your system in the metadata field.
-</div>
-
-We never store card numbers. To identify the user in a transaction object you can use the `cardId` property. After this point only the `cardId` is exchanged between your servers, the card networks and Fidel's API.
+Payment cards are the cornerstone of Fidel APIs. You can receive Fidel Transactions from a merchant location only from the registered (or linked) cards in your Program. That being said, we never store the full card number or CVV details in our system. We tokenise the card details and exchange only the card id with the card networks to retrieve the transactions made using the cards.
 
 After the card is linked successfully, we will monitor any purchase made by this card at any of the program’s physical or online locations. The transaction object will be sent to a webhook URL specified by you.
 
-## Add Card with API
+Developers can use [our APIs](https://reference.fidel.uk/reference#create-card) or SDKs - we have [JavaScript](/web-sdk), [Android, iOS and ReactNative SDKs](/mobile-sdks) - to register debit or credit cards on the Fidel platform, link them to a [Program](/programs) and start receiving transaction made with the card in the Program locations.
 
-To add a card using the API, you must be PCI Compliant. Contact us at devrel@fidel.uk for more information.
+## Test Card Numbers
 
-### Card Linking in Test
-
-#### API Playground
-To test adding cards to a program, go to the [**API Playground**](https://dashboard.fidel.uk/playground), and choose **Add Card** from the left menu endpoints.  The method is set to POST and the endpoint to **_/cards_**.  When you choose the program that you would like to connect the card to from the dropdown, the POST url will change to show the program ID.  In the edit field of the playground is the JSON object that will be used to add the card. To add a card, use one of the available testing card numbers displayed below, an expiry date in the future, and the three letter `countryCode`. You must set `termsOfUse` to `true` to define that the user agreed to the terms of use and opt-in.
-
-<div class="info-box">
-    <small>Important note</small><br/>
-    To use the <strong>Create Card</strong> endpoint, you must use the test public key. Using the <strong>Create Card</strong> API endpoint on live environment requires your company to be PCI Compliant. If you want to use the API instead of the SDKs, please contact us at devrel@fidel.uk.
-</div>
-
-![Create card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-card.png "Create card")
-
-When the card is successfully linked, the newly created card object is returned in JSON and displayed in the response body box. If the card linking fails, the failure object will be delivered instead.  
-
-### Testing Card Linking with the Web SDK
-
-You can also use the [Web SDK](/web-sdk) to create cards in test environment using your test public key. If an error occurs on card creation, you receive the error message in the HTTP response body.
-
-#### JSON Card Response Object
-
-```json
-fileName:cardResponse.json
-{
-  "items":[
-    {
-      "accountId": "a3de60c3-849a-4faa-8447-bcd16efb148c",
-      "countryCode": "GBR",
-      "expDate": "2022-01-31T23:59:59.999Z",
-      "metadata": {
-        "id": "my-brand-name-cards",
-        "customKey1": "customValue1",
-        "customKey2": "customValue2"
-      },
-      "expMonth": 1,
-      "expYear": 2022,
-      "firstNumbers": "444400",
-      "lastNumbers": "4898",
-      "live": true,
-      "programId": "bca59bd9-171b-4d1f-92af-4b2b7305268a",
-      "scheme": "visa",
-      "type": "visa",
-      "updated": "2020-03-24T14:10:19.597Z",
-      "created": "2020-03-24T14:10:19.597Z",
-      "id": "68cb2b1c-ad78-44bc-8abc-d93277667240"
-    }],
-  "resource": "/v1/programs/bca59bd9-171b-4d1f-92af-4b2b7305268a/cards",
-  "status": 201,
-  "execution": 34.24295
-}
-```
-
-## Testing Card Numbers
-
-Use the following test card number ranges to test card linking in test mode, either in the Playground or using the SDKs or APIs with your test public API key.
+For security purposes, the Fidel test environment doesn't accept live card numbers. We've provided a range of test card numbers you can use while integrating or testing the Fidel APIs. The test card numbers work in the [Fidel Dashboard Playground](https://dashboard.fidel.uk/playground), with the Fidel SDKs and with the Fidel Cards APIs.
 
 **Visa**: `4444000000004***`  
 **Mastercard**: `5555000000005***`  
 **Amex**: `3400000000003**` and `3700000000003**`
 
-Where `*` can be any number. E.g. `4444000000004278`, `5555000000005093` and `370000000000388` are all valid test card numbers.
+Where `*` can be any digit. For example, `4444000000004278`, `5555000000005093`, `340000000000301` `370000000000388` are all valid test card numbers.
+
+## Adding Cards
+
+There are multiple ways you can test card-linking on the Fidel platform before going live: in the Fidel Dashboard, with the Fidel SDKs or with the Fidel Cards API. For integrating card-linking into your application, we recommend using one of our PCI Compliant SDKs. We provide both Web(JavaScript) and Mobile(iOS, Android, ReactNative) SDKs. Fidel also provides a Cards API that can be used for linking cards to your Program, but we require you to be PCI Compliant before using it. Contact us at devrel@fidel.uk for more information.
+
+### Fidel Dashboard
+
+You can create, view or export Cards in any Program in the [Fidel Dashboard](https://dashboard.fidel.uk/cards). The Fidel Dashboard doesn't allow you to delete cards via the user interface, you'll have to use some of our other options to delete Cards.
+
+![Fidel Dashboard Create Card](https://raw.githubusercontent.com/FidelLimited/docs/new-cards/assets/images/dashboard-new-card.gif "Fidel Dashboard Create Card")
+
+### API Playground
+
+To test creating Cards or deleting Cards in a Program you can use the [API Playground](https://dashboard.fidel.uk/playground), where we've got both options available.
+
+When you choose `/create` from the `cards` endpoints, a dropdown appears where you can select a Program. Once you selected a Program, the `/programs/program_id/cards` POST request will be updated with the program id for the selected Program. The request body on the right is already pre-filled with a card number, expiration date, country code and terms of service. You can edit all the properties in the request body before running the request. You can use any of the available testing card numbers listed above, an expiry date in the future, and a three-letter `countryCode`. `termsOfUse` is set to `true` to simulate that the user agreed to the terms of use and opted-in. Once you've run the request, you'll be able to inspect the Card object in the response section if the card was successfully linked. If the card linking failed, you would be able to inspect the error object in the response section.
+
+![API Playground Create Card](https://raw.githubusercontent.com/FidelLimited/docs/new-cards/assets/images/dashboard-create-card.gif "API Playground Create Card")
+
+The `/delete` Card endpoint works similarly, with the difference being that you also get a dropdown to select the card you want to delete. The request and response objects are empty.
+
+### SDKs
+
+We recommend you use the secure and PCI compliant [Web SDK](/web-sdk) or [Mobile SDKs](/mobile-sdks) to create Cards in the Fidel environments. The SDKs work in both the live and test environment and use your SDK key. You can find your SDK keys (Live and Test) in your [Dashboard Account Settings](https://dashboard.fidel.uk/account/plan).
+
+All our SDKs require a user to enter their card number and expiry date, along with the country of issue for the card. The SDKs won't require the CVV number, and will not make any active card checks against the cards. The SDKs will pre-populate the `countryCode` and the `programId` of the Program you want to link the card to. The card numbers are tokenised and transmitted directly from our secure pre-built SDKs to our API on submission. This way, your servers are never exposed to sensitive information, removing all PCI compliance requirements for you.
+
+<div class="info-box">
+  <small>Linking Multiple Cards</small><br/>
+  To facilitate users linking multiple cards, add identifying key:value pairs from your system in the metadata field. You can read more in the [Metadata](/cards#Metadata) section below.
+</div>
+
+### API
+
+If you don't want to use our secure and PCI compliant SDKs, you must get PCI Compliant before using our Cards API. Contact us at devrel@fidel.uk for more information.
+
+```sh
+curl -X POST \
+  https://api.fidel.uk/v1/programs/f76ed1be-e434-480b-aa1d-ff48f548f62a/cards
+  -H 'Content-Type: application/json'
+  -H 'Fidel-Key: pk_test_62f02030-0409-4eb5-ab94-6eff05b3d888'
+  -d '{
+  	"number": "4444000000004222",
+    "expMonth": 10,
+    "expYear": 2025,
+    "countryCode": "GBR",
+    "termsOfUse": true,
+    "metadata": {
+      "id": "my-brand-name-cards",
+      "customKey1": "customValue1",
+      "customKey2": "customValue2"
+    }
+}'
+```
+
+<div class="info-box">
+    <small>Important note</small><br/>
+    To use the <strong>Create Card</strong> endpoint, you must use the SDK key. Using the <strong>Create Card</strong> API endpoint with the Fidel live environment requires your company to be PCI Compliant. If you want to use the API instead of the SDKs, please contact us at devrel@fidel.uk.
+</div>
+
+## Card Object
+
+The Fidel Card object holds the tokenised information about the physical card details submitted by your users. You can't access all the card details, just the tokenised data that allows you to uniquely identify a card. You will have access to the first six digits of the card number, last four digits of the card number, the expiry date, the issuing card scheme (Amex, Mastercard or Visa) and the country in which the card was issued. The CVV number is not needed to link a card, and you won't have access to it in the Fidel Card object.
+
+```json
+fileName:cardResponse.json
+{
+  "items": [
+    {
+      "accountId": "4f6cb653-5ceb-417a-8709-9cb2f8628691",
+      "countryCode": "GBR",
+      "created": "2021-02-05T18:15:56.202Z",
+      "expDate": "2030-10-31T23:59:59.999Z",
+      "expMonth": 10,
+      "expYear": 2030,
+      "firstNumbers": "444400",
+      "id": "cce3e4d0-0a34-4f55-8725-e5f5acb5d0f9",
+      "lastNumbers": "4002",
+      "live": false,
+      "metadata": {
+        "id": "my-brand-name-cards",
+        "customKey1": "customValue1",
+        "customKey2": "customValue2"
+      },
+      "programId": "22610397-56a3-4770-9562-09405c4eedec",
+      "scheme": "visa",
+      "type": "visa",
+      "updated": "2021-02-05T18:15:56.202Z"
+    }
+  ],
+  "resource": "/v1/programs/22610397-56a3-4770-9562-09405c4eedec/cards",
+  "status": 201,
+  "execution": 47.506751
+}
+```
+
+## Metadata
+
+The Card object can also have associated metadata, with an `id` property that is a *non-unique index*.  When creating a card, you can set the `id` property of the metadata to a custom identifier, for example `my-brand-name-cards`. Later you can use our Cards API to retrieve a list of cards by using the metadata `ID`. You can read more about this in our API Reference for the [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference#list-cards-from-metadata-id) endpoint.
+
+## API Reference
+
+If you're looking to find out more about our Cards API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference#create-card).
