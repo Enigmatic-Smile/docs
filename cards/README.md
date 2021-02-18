@@ -23,7 +23,7 @@ There are multiple ways you can test card-linking on the Fidel platform before g
 
 You can create, view or export Cards in any Program in the [Fidel Dashboard](https://dashboard.fidel.uk/cards). The Fidel Dashboard doesn't allow you to delete cards via the user interface, you'll have to use some of our other options to delete Cards.
 
-![Fidel Dashboard Create Card](https://raw.githubusercontent.com/FidelLimited/docs/new-cards/assets/images/dashboard-new-card.gif "Fidel Dashboard Create Card")
+![Fidel Dashboard Create Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-new-card.gif "Fidel Dashboard Create Card")
 
 ### API Playground
 
@@ -31,7 +31,7 @@ To test creating Cards or deleting Cards in a Program you can use the [API Playg
 
 When you choose `/create` from the `cards` endpoints, a dropdown appears where you can select a Program. Once you selected a Program, the `/programs/program_id/cards` POST request will be updated with the program id for the selected Program. The request body on the right is already pre-filled with a card number, expiration date, country code and terms of service. You can edit all the properties in the request body before running the request. You can use any of the available testing card numbers listed above, an expiry date in the future, and a three-letter `countryCode`. `termsOfUse` is set to `true` to simulate that the user agreed to the terms of use and opted-in. Once you've run the request, you'll be able to inspect the Card object in the response section if the card was successfully linked. If the card linking failed, you would be able to inspect the error object in the response section.
 
-![API Playground Create Card](https://raw.githubusercontent.com/FidelLimited/docs/new-cards/assets/images/dashboard-create-card.gif "API Playground Create Card")
+![API Playground Create Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-create-card.gif "API Playground Create Card")
 
 The `/delete` Card endpoint works similarly, with the difference being that you also get a dropdown to select the card you want to delete. The request and response objects are empty.
 
