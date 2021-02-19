@@ -388,7 +388,7 @@ When you set a default country, the card linking screen will not show the countr
 
 #### supportedCardSchemes
 
-We currently support _Visa_, _Mastercard_ and _AmericanExpress_. You can choose to support only one, two or all three. By default the SDK is configured to support all three. (Geographical limitations exist, please [see available countries](https://fidel.uk/products) or [via email](mailto:devrel@fidel.uk) if you have questions). 
+We currently support _Visa_, _Mastercard_ and _AmericanExpress_. You can choose to support only one, two or all three. By default the SDK is configured to support all three. (Geographical limitations exist, please [see available countries](https://fidel.uk/products) or [via email](mailto:devrel@fidel.uk) if you have questions).
 
 If you set this option to an empty array or to `null`, of course, you will not be able to open the Fidel UI. You must support at least one of our supported card schemes.
 
@@ -473,3 +473,13 @@ The React Native SDK is in active development, we welcome your feedback!
 
 [Developers Community](https://community.fidel.uk/) — for support and troubleshooting at any phase of integration.  
 [GitHub Issues](https://github.com/fidellimited/rn-sdk/issues) — For SDK issues and feedback.
+
+## Banner Images
+
+The banner image will take the device's width, but it has a fixed height of 100 pts. The image view has an "Aspect Fill" content mode, which means that the banner image you set will fill its entire predefined area. The banner image will be cropped from the top and bottom sides on wider devices. This is because of the "Aspect Fill" content mode that we set for the image view. Depending on what you want to display in the banner image, you might need to experiment a bit to ensure that nothing important from the image is hidden. The most important information should be displayed in the centre of the banner image.
+
+We suggest using the aspect ratio of the smallest devices that you support.  If you support iPhone 5, the aspect ratio would be 320:100*. If the smallest device you support is the iPhone 6, your banner image's aspect ratio would be 375:100.
+
+The same logic works for the Android banner image. You can make the image as pixel-dense as you need to
+
+On iOS, you would need to provide the image for all screen densities. We recommend 375 x 130 for non-retina, 750 x 260 @2x and 1050 x 390 @3x.
