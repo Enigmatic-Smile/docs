@@ -43,7 +43,7 @@ All our SDKs require a user to enter their card number and expiry date, along wi
 
 <div class="info-box">
   <small>Linking Multiple Cards</small><br/>
-  To facilitate users linking multiple cards, add identifying key:value pairs from your system in the metadata field. You can read more in the [Metadata](/cards#Metadata) section below.
+  To facilitate users linking multiple cards, add identifying key:value pairs from your system in the metadata field. You can read more in the <a href="/cards#Metadata">Metadata</a> section below.
 </div>
 
 ### API
