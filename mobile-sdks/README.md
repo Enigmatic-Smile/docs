@@ -478,7 +478,7 @@ The React Native SDK is in active development, we welcome your feedback!
 
 The banner image will take the device's width, but it has a fixed height of 100 pts. The image view has an "Aspect Fill" content mode, which means that the banner image you set will fill its entire predefined area. The banner image will be cropped from the top and bottom sides on wider devices. This is because of the "Aspect Fill" content mode that we set for the image view. Depending on what you want to display in the banner image, you might need to experiment a bit to ensure that nothing important from the image is hidden. The most important information should be displayed in the centre of the banner image.
 
-We suggest using the aspect ratio of the smallest devices that you support.  If you support iPhone 5, the aspect ratio would be 320:100*. If the smallest device you support is the iPhone 6, your banner image's aspect ratio would be 375:100.
+We suggest using the aspect ratio of the smallest devices that you support.  If you support iPhone 5, the aspect ratio would be 320:100. If the smallest device you support is the iPhone 6, your banner image's aspect ratio would be 375:100.
 
 The same logic works for the Android banner image. You can make the image as pixel-dense as you need to
 
