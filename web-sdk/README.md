@@ -14,8 +14,26 @@ All modern desktop and mobile browsers are supported, including Chrome, Firefox,
 
 ## Integrating Web SDK
 
-<p class="codepen" data-height="700" data-theme-id="dark" data-default-tab="result" data-user="fidelapi" data-slug-hash="BaQzjxp" data-preview="true" data-editable="true" style="height: 468px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Fidel Web SDK demo">
+<p class="codepen" data-height="700" data-theme-id="dark" data-default-tab="result" data-user="fidelapi" data-slug-hash="BaQzjxp"  data-editable="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Fidel Web SDK v3">
   <span>See the Pen <a href="https://codepen.io/fidelapi/pen/BaQzjxp">
-  Fidel Web SDK demo</a> by Fidel API (<a href="https://codepen.io/fidelapi">@fidelapi</a>)
+  Fidel Web SDK v3</a> by Fidel API (<a href="https://codepen.io/fidelapi">@fidelapi</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<p class="codepen" data-height="700" data-theme-id="dark" data-default-tab="result" data-user="fidelapi" data-slug-hash="XWNezea"  data-editable="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Fidel Web SDK v3">
+  <span>See the Pen <a href="https://codepen.io/fidelapi/pen/XWNezea">
+  Fidel Web SDK v3</a> by Fidel API (<a href="https://codepen.io/fidelapi">@fidelapi</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<p class="codepen" data-height="700" data-theme-id="dark" data-default-tab="result" data-user="fidelapi" data-slug-hash="OJbxZzW"  data-editable="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Fidel Web SDK v3">
+  <span>See the Pen <a href="https://codepen.io/fidelapi/pen/OJbxZzW">
+  Fidel Web SDK v3</a> by Fidel API (<a href="https://codepen.io/fidelapi">@fidelapi</a>)
+  on <a href="https://codepen.io">CodePen</a>.</span>
+</p>
+
+<p class="codepen" data-height="700" data-theme-id="dark" data-default-tab="result" data-user="fidelapi" data-slug-hash="eYBGrrQ"  data-editable="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Fidel Web SDK v3">
+  <span>See the Pen <a href="https://codepen.io/fidelapi/pen/eYBGrrQ">
+  Fidel Web SDK v3</a> by Fidel API (<a href="https://codepen.io/fidelapi">@fidelapi</a>)
   on <a href="https://codepen.io">CodePen</a>.</span>
 </p>
