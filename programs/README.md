@@ -4,14 +4,14 @@ A **Program** is a set of locations that uniquely represent an offline or online
 
 ##### Hierarchy diagram of the Fidel API object structure.
 
-![Programs structure diagram](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programs_diagram_2020.png "Programs structure diagram")
+![Programs structure diagram](https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/programs_diagram_2020.png "Programs structure diagram")
 
 ## Create Program
 To create a new program on the dashboard, go to the [**Programs**](https://dashboard.fidel.uk/programs), click the **+** icon and enter a name. The Program will be created with the name provided without any initial locations.
 
 ##### Go to the Programs page on the dashboard to create a new program.
 
-![Create program](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-program.png "Create program")
+![Create program](https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/create-program.png "Create program")
 
 The same can be done with the [API](https://reference.fidel.uk/reference#create-program).  Using curl, we can add 'Program X' as follows:
 
