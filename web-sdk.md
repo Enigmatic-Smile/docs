@@ -14,42 +14,14 @@ All modern desktop and mobile browsers are supported, including Chrome, Firefox,
 
 ## Integrating Web SDK
 
-<p class="codepen" data-height="700" data-theme-id="dark" data-default-tab="result" data-user="fidelapi" data-slug-hash="BaQzjxp"  data-editable="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Fidel Web SDK v3">
-  <span>See the Pen <a href="https://codepen.io/fidelapi/pen/BaQzjxp">
-  Fidel Web SDK v3</a> by Fidel API (<a href="https://codepen.io/fidelapi">@fidelapi</a>)
-  on <a href="https://codepen.io">CodePen</a>.</span>
-</p>
+<Codepen slug="BaQzjxp" title="Fidel Web SDK v3" />
 
-<div>
-  <script>
-    function showTheme(idToShow) {
-      ['custom-1','custom-2','custom-3'].forEach(function (id) {
-        document.getElementById(id).style.display = id === idToShow ? '' : 'none';
-      });
-    }
-  </script>
-  <button onclick="showTheme('custom-1')">Theme 1</button>
-  <button onclick="showTheme('custom-2')">Theme 2</button>
-  <button onclick="showTheme('custom-3')">Theme 3</button>
-  <div id="custom-1">
-    <p class="codepen" data-height="700" data-theme-id="dark" data-default-tab="result" data-user="fidelapi" data-slug-hash="XWNezea"  data-editable="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Fidel Web SDK v3">
-      <span>See the Pen <a href="https://codepen.io/fidelapi/pen/XWNezea">
-      Fidel Web SDK v3</a> by Fidel API (<a href="https://codepen.io/fidelapi">@fidelapi</a>)
-      on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-  </div>
-  <div id="custom-2" style="display: none;">
-    <p class="codepen" data-height="700" data-theme-id="dark" data-default-tab="result" data-user="fidelapi" data-slug-hash="OJbxZzW"  data-editable="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Fidel Web SDK v3">
-      <span>See the Pen <a href="https://codepen.io/fidelapi/pen/OJbxZzW">
-      Fidel Web SDK v3</a> by Fidel API (<a href="https://codepen.io/fidelapi">@fidelapi</a>)
-      on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-  </div>
-  <div id="custom-3" style="display: none;">
-    <p class="codepen" data-height="700" data-theme-id="dark" data-default-tab="result" data-user="fidelapi" data-slug-hash="eYBGrrQ"  data-editable="true" style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;" data-pen-title="Fidel Web SDK v3">
-      <span>See the Pen <a href="https://codepen.io/fidelapi/pen/eYBGrrQ">
-      Fidel Web SDK v3</a> by Fidel API (<a href="https://codepen.io/fidelapi">@fidelapi</a>)
-      on <a href="https://codepen.io">CodePen</a>.</span>
-    </p>
-  </div>
-</div>
+## Customization
+
+<MultipleCodepens
+  codepens={[
+    { buttonText: 'Theme 1', slug: 'XWNezea', title: 'Fidel Web SDK v3' },
+    { buttonText: 'Theme 2', slug: 'OJbxZzW', title: 'Fidel Web SDK v3' },
+    { buttonText: 'Theme 3', slug: 'eYBGrrQ', title: 'Fidel Web SDK v3' },
+  ]}
+/>
