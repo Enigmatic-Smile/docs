@@ -12,7 +12,7 @@ After you created an account, in your account page on the dashboard, you will fi
 
 ##### Your SDK and API keys are displayed in your account page
 
-![API keys](https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/api-keys.png "API keys")
+![API keys](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/api-keys.png "API keys")
 
 When you're ready to go live with your integration and test with plastic credit/debit cards on VISA, Mastercard and American Express networks you can request access to the live keys by using the test-live switch on your dashboard.
 
@@ -24,14 +24,14 @@ Click on the links below to see how to use the web and mobile SDKs in your appli
 <div class="row">
   <div class="column">
     <a href="/docs/web-sdk" class="content">
-      <img src="https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/web_sdk.svg" />
+      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/web_sdk.svg" />
       <h2>Web</h2>
       <h3>Customisable and secure iframe to link cards on your website</h3>
     </a>
   </div>
   <div class="column">
     <a href="/docs/mobile-sdks" class="content">
-      <img src="https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/mobile_sdk.svg" />
+      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/mobile_sdk.svg" />
       <h2>Mobile</h2>
       <h3>PCI compliant SDKs for iOS, Android and React Native</h3>
     </a>

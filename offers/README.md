@@ -6,7 +6,7 @@ Fidel Offers help you create and manage card-linked offers with various retailer
 
 Offers can be accessed via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending). They are grouped into four categories: Requests, Upcoming, Live and Expired.
 
-![Fidel Dashboard with Offers](https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/dashboard-offers.png "Fidel Dashboard with Offers")
+![Fidel Dashboard with Offers](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-offers.png "Fidel Dashboard with Offers")
 
 ### Requests
 
@@ -82,7 +82,7 @@ There are a range of optional parameters available, which influence how the Offe
 
 Alternatively, you can create an Offer via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending), in the Offers section. If you have an account in the [Offers Dashboard](https://clo.fidel.uk), you can create an Offer there as well.
 
-![Create Offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/create-offers.gif "Create Offer in Fidel Dashboard")
+![Create Offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-offers.gif "Create Offer in Fidel Dashboard")
 
 Once you have created an Offer, it will enter the Offer Lifecycle in the Requests category.
 
@@ -116,15 +116,15 @@ curl -X POST \
 
 When you create an Offer in the Fidel Dashboard, the second step of the creation dialogue allows you to link Locations to the newly created Offer.
 
-![Link Locations in Offer Creation](https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/create-offer-location.gif "Link Locations in Offer Creation")
+![Link Locations in Offer Creation](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-offer-location.gif "Link Locations in Offer Creation")
 
 If you need to link more Locations after you've created an Offer, the [Locations list in the Dashboard](https://dashboard.fidel.uk/locations) has a menu button next to each Location, which opens a contextual menu. Selecting 'Link to offer' in the context menu will open a drawer that lets you select a possible Offer to link.
 
-![Link to offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/dashboard-link-location.png "Link to Offer in Fidel Dashboard")
+![Link to offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-link-location.png "Link to Offer in Fidel Dashboard")
 
 Alternatively, you can edit an Offer in the Fidel Dashboard, which will allow you to link more Locations in the second step of the Offer drawer.
 
-![Edit Offer Link Locations](https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/dashboard-edit-offer.gif "Edit Offer Link Locations")
+![Edit Offer Link Locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-edit-offer.gif "Edit Offer Link Locations")
 ## Offers with Activation
 
 Offers with activation require an Offer to be activated on a Card before they can go through the qualification process. Developers can use the Offers API to specify an Offer requires activation. When [creating an Offer](https://reference.fidel.uk/v1/reference#create-offer), the `activation` object should have the `enabled: true` property and a `qualifiedTransactionsLimit` property higher or equal to 1. The `qualifiedTransactionsLimit` property specifies how many Transactions will be qualified for each Offer activation. Here's a cURL example:
@@ -172,11 +172,11 @@ Note that when you link Locations to an Offer with activation, you will only rec
 
 You can create Offers with activation in the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending) as well. When creating an Offer, check the "Enable offer activation" checkbox. That will reveal a "1" transactions field, which you can use to change the number for the qualified transactions limit.
 
-![Create Offer with Activation](https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/create-offers.gif "Create Offer with Activation")
+![Create Offer with Activation](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-offers.gif "Create Offer with Activation")
 
 To activate an Offer on a Card using the Fidel Dashboard, you'll want to go to the [Cards list](https://dashboard.fidel.uk/cards). Each Card has a menu button next to them, which opens a contextual menu. Selecting 'Activate offer' in the context menu will open a drawer that lets you select a possible Offer to activate on the Card.
 
-![Activate offer on Card in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/dashboard-activate-offer.png "Activate offer on Card in Fidel Dashboard")
+![Activate offer on Card in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-activate-offer.png "Activate offer on Card in Fidel Dashboard")
 
 ## Transaction Qualification
 
