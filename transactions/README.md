@@ -159,17 +159,17 @@ curl -X POST \
 
 ##### Create Test Transactions Using the API Playground
 
-On the Fidel Dashboard, go to the [**Playground**](https://dashboard.fidel.uk/playground) option in the navigation menu. Click on **Create transaction** link, located on the left side, in the **ENDPOINTS** menu. The method will be set to POST and the endpoint to **_/transactions/test_**. An editable sample JSON object like the following one will be used to create the transaction.
+On the Fidel Dashboard, go to the [**Playground**](https://dashboard.fidel.uk/playground) option in the navigation menu. Click on the transactions **/create** link, located on the left side, in the **Endpoints** drawer menu. The method will be set to POST and the endpoint to **_/transactions/test_**. An editable sample JSON object like the following one will be used to create the transaction.
 
 ![Create transaction](https://docs.fidel.uk/assets/images/create-transaction.png "Create transaction")
 
 To create a test transaction, use the dropdown menus to select the Program, Location and Card for the transaction. These selections will be used to populate the `cardId`, `locationId` and the `amount` in the JSON payload.  You can modify any of the properties in the JSON file (including the amount).
 
-Click **Send** and a test authorisation transaction will be created. If the transaction is created successfully, you will see the transaction object in the response body box. If you have registered a `transaction.auth` webhook event for this program, the authorisation transaction object will be sent to your webhook URL as well.
+Click **Run** and a test authorisation transaction will be created. If the transaction is created successfully, you will see the transaction object in the Response body box. If you have registered a `transaction.auth` webhook event for this program, the authorisation transaction object will be sent to your webhook URL as well.
 
 ##### Clear Test Transactions Using the Dashboard
 
-To clear an authorisation test transaction, you can navigate to the [Transaction](https://dashboard.fidel.uk/transactions) option in the Dashboard navigation menu. You'll see all your transactions listed there. Find the one you want to change the status of, click on the three dots on the right side of it. A popup menu will appear, and you should click on the 'Clear transaction' option. This action will change the status of the transaction from `auth` to `cleared`, and trigger the `transaction.clearing` webhook event.
+To clear an authorisation test transaction, you can navigate to the [Transaction](https://dashboard.fidel.uk/transactions) option in the Dashboard navigation menu. You'll see all your transactions listed there. Find the one you want to change the status of, click on the three dots on the right side of it. A popup menu will appear, and you should click on the 'Clear' option. This action will change the status of the transaction from `auth` to `cleared`, and trigger the `transaction.clearing` webhook event.
 
 ## API Reference
 

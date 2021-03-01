@@ -1,9 +1,9 @@
 # Brands
 
-After creating an account and getting access to the dashboard, the next step is to create a test **Brand** (Merchant). This lets you create locations and add them to a Program so you can start tracking transactions. 
+After creating an account and getting access to the dashboard, the next step is to create a test **Brand** (Merchant). This lets you create locations and add them to a Program so you can start tracking transactions.
 
 
-  
+
 The **Brand** object is used to aggregate locations and keep track of the Brand consent. To track real-time transactions at a Brand's locations, you need to obtain consent from authorised personnel (Brand Contact), and provide the Brand with access to view transactional data. You can do this when creating the Brand (see below).
 
 Once you create a **Brand**, it cannot be deleted.
@@ -13,7 +13,7 @@ Once you create a **Brand**, it cannot be deleted.
 ![Create brand](https://raw.githubusercontent.com/FidelLimited/docs/new-dashboard-images/assets/images/create-brand.png "Create brand")
 
 
-To create a new Brand, go to the **Brands** page on the dashboard, click the **+** icon and enter a name. Optionally, you can add a link to the brand logo (Note: the logo cannot be added later).  You can also [create a Brand](https://reference.fidel.uk/reference#create-brand) with the API:
+To create a new Brand, go to the [Brands](https://dashboard.fidel.uk/brands) page on the Fidel Dashboard, click the **New brand** button and enter a name. Optionally, you can add a link to the brand logo (Note: the logo cannot be added later).  You can also [create a Brand](https://reference.fidel.uk/reference#create-brand) with the API:
 ```bash
 curl -X POST \
   https://api.fidel.uk/v1/brands \
@@ -41,7 +41,7 @@ Brand Consent is only required in the Live environment. Test Brands are automati
 
 You can monitor consent status on the dashboard and also set up a `brand.consent` webhook to be notified when the status changes.
 
-### Auto-Approve Consent 
+### Auto-Approve Consent
 
 If you're funding your own offers, or you've received direct authorisation from a brand, you can auto-approve the brand's consent:
 
