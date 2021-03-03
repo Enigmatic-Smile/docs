@@ -7,7 +7,7 @@ A **Program** is a set of locations that uniquely represent an offline or online
 ![Programs structure diagram](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programs_diagram_2020.png "Programs structure diagram")
 
 ## Create Program
-To create a new program on the dashboard, go to the [**Programs**](https://dashboard.fidel.uk/programs), click the **+** icon and enter a name. The Program will be created with the name provided without any initial locations.
+To create a new program on the Fidel Dashboard, go to the [**Programs**](https://dashboard.fidel.uk/programs) page, click the **New program** button and enter a name. The Program will be created with the name provided without any initial locations.
 
 ##### Go to the Programs page on the dashboard to create a new program.
 

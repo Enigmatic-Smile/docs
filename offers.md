@@ -1,6 +1,6 @@
 # Offers
 
-Fidel Offers help you create and manage card-linked offers with various retailers – all in one place. The Fidel Offers API serves as a Transaction qualification engine for Fidel Offers. Developers can create Offers via the [Fidel Offers API](https://reference.fidel.uk/v1/reference#create-offer), which allows your application to create and update Offers, link and unlink Locations to the created Offers, activate and deactivate Offers on specific Cards and send the Offers for approval to a Brand. Brands and Merchants can interact with the Fidel Offers by using the [Fidel CLO Dashboard]((https://clo.fidel.uk)).
+Fidel Offers help you create and manage card-linked offers with various retailers – all in one place. The Fidel Offers API serves as a Transaction qualification engine for Fidel Offers. Developers can create Offers via the [Fidel Offers API](https://reference.fidel.uk/v1/reference#create-offer), which allows your application to create and update Offers, link and unlink Locations to the created Offers, activate and deactivate Offers on specific Cards and send the Offers for approval to a Brand. Brands and Merchants can interact with the Fidel Offers by using the [Fidel CLO Dashboard](https://clo.fidel.uk).
 
 ## Offer Lifecycle
 
