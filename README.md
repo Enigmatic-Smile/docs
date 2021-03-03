@@ -1,0 +1,3 @@
+# Fidel documentation
+
+This repository is the home for the Fidel documentation located [here](https://fidel.uk/docs/). The format of this documentation is [MDX](https://mdxjs.com/), this enhances standard markdown with functionality that enables us to create richer and more interactive documentation. MDX is indicated by the presence of `<Tags>` within these files. If you wish to contribute please be aware of this, in most cases you should not need to touch any MDX however if you do we will assist you in the pull request.
