@@ -1,6 +1,6 @@
 <div class="row">
   <div class="column">
-    <a href="/docs/getting-started" class="content" data-path="/getting-started">
+    <a href="/getting-started" class="content" data-path="/getting-started">
       <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/get-started.svg" />
       <h2 data-no-link>Get Started</h2>
       <h3>Start building card-linked applications with our quickstart guide</h3>
@@ -16,14 +16,14 @@
 </div>
 <div class="row">
   <div class="column">
-    <a href="/docs/web-sdk" data-path="/web-sdk" class="content">
+    <a href="/web-sdk" data-path="/web-sdk" class="content">
       <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/web_sdk.svg" />
       <h2 data-no-link>Web SDK</h2>
       <h3>Learn to integrate a secure Javascript SDK to link cards on your website</h3>
     </a>
   </div>
   <div class="column">
-    <a href="/docs/mobile-sdks" class="content" data-path="/mobile-sdks">
+    <a href="/mobile-sdks" class="content" data-path="/mobile-sdks">
       <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/mobile_sdk.svg" />
       <h2 data-no-link>Mobile SDKs</h2>
       <h3>PCI Compliant native SDKs for iOS, Android and React Native</h3>
