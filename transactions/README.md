@@ -13,7 +13,9 @@ fileName:transaction.json
   "id": "7fdfd5d8-9589-402f-8477-4a727ad138a2",
   "accountId": "4ed4b72b-aa4c-43a1-8054-da6d1368e17a",
   "amount": 100,
+  "approvalCode": "AA00BB",
   "auth": true,
+  "authCode": "A73H890",
   "cleared": false,
   "created": "2019-04-09T16:00:00.644Z",
   "currency": "GBP",
@@ -72,6 +74,8 @@ fileName:transaction.json
   }
 }
 ```
+> The `authCode` property is present only for Mastercard and Visa transactions, and will mirror the `identifiers.mastercardAuthCode` or `identifiers.visaAuthCode` properties, depending on the issuing card for the transaction. The `approvalCode` property is present only for Amex transactions and will mirror the `identifier.amexApprovalCode` property.
+
 > The `wallet` property has been deprecated since August 2019 because of privacy concerns, and will always return `null` on transactions created after that date. If you're retrieving a transaction that was created before August 2019, the property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
 
 <details>

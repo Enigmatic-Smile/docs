@@ -272,7 +272,9 @@ fileName:transaction.auth
   "created": "2019-03-12T19:12:01.744Z",
   "updated": "2019-03-12T19:12:01.744Z",
   "offer": null,
+  "approvalCode": "AA00BB",
   "auth": true,
+  "authCode": "A73H890",
   "cleared": false,
   "amount": 100,
   "currency": "GBP",
@@ -315,7 +317,7 @@ fileName:transaction.auth
     "mastercardTransactionSequenceNumber": "0000000000000",
     "mastercardRefNumber": "AABBCCDDE",
     "amexApprovalCode": "AA00BB",
-    "visaAuthCode": "000000"
+    "visaAuthCode": "A73H890"
   }
 }
 ```
@@ -325,7 +327,9 @@ A `transaction.clearing` or **clearing** transaction event is triggered when a t
 ```json
 fileName:transaction.clearing
 {
+    "approvalCode": "AA00BB",
     "auth": true,
+    "authCode": "A73H890",
     "offer": null,
     "currency": "GBP",
     "id": "8bbbf56b-3819-473b-877d-cf2175f268f4",
@@ -363,9 +367,9 @@ fileName:transaction.clearing
         "MID": "TEST_MID_d74bc1ca-cd6e-409d-ba8e-549a214dfb0a",
         "mastercardTransactionSequenceNumber": null,
         "mastercardRefNumber": null,
-        "amexApprovalCode": null,
         "mastercardAuthCode": null,
-        "visaAuthCode": null
+        "amexApprovalCode": "AA00BB",
+        "visaAuthCode": "A73H890"
     }
 }
 ```
@@ -375,7 +379,9 @@ A `transaction.refund` or **refund** transaction event is triggered when a trans
 ```json
 fileName:transaction.refund
 {
+    "approvalCode": "AA00BB",
     "auth": false,
+    "authCode": "A73H890",
     "originalTransactionId": "8bbbf56b-3819-473b-877d-cf2175f268f4",
     "currency": "GBP",
     "id": "5ec08ca8-38c6-42e1-9fa5-32c67e4135b2",
@@ -414,8 +420,9 @@ fileName:transaction.refund
         "mastercardTransactionSequenceNumber": null,
         "mastercardRefNumber": null,
         "amexApprovalCode": null,
-        "visaAuthCode": null,
-        "mastercardAuthCode": null
+        "mastercardAuthCode": null,
+        "amexApprovalCode": "AA00BB",
+        "visaAuthCode": "A73H890"
     }
 }
 ```
