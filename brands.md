@@ -21,7 +21,8 @@ curl -X POST \
   -H 'fidel-key: {your Secret key}' \
   -d '{
     "name": "Brand B",
-    "logoURL": "https://mycompany.com/brandlogo.png"
+    "logoURL": "https://example.com/logo.png",
+    "websiteURL": "https://example.com/"
   }'
 ```
 
