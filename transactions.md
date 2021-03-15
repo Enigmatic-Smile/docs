@@ -78,39 +78,40 @@ fileName:transaction.json
 
 > The `wallet` property has been deprecated since August 2019 because of privacy concerns, and will always return `null` on transactions created after that date. If you're retrieving a transaction that was created before August 2019, the property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
 
-<details>
-  <summary style="margin-bottom: 30px;">JSON Response on API versions to 2018-08-16</summary>
-<div class="code-box"><strong>transaction.json</strong><pre><code class="language-json hljs">{
-  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"7fdfd5d8-9589-402f-8477-4a727ad239a2"</span>,
-  <span class="hljs-attr">"accountId"</span>: <span class="hljs-string">"4ed4b62b-aa4c-43a1-8064-da6d1368e17a"</span>,
-  <span class="hljs-attr">"programId"</span>: <span class="hljs-string">"6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba"</span>,
-  <span class="hljs-attr">"brandId"</span>: <span class="hljs-string">"9d136f2e-df99-4a08-a0a5-3bc1534b7db9"</span>,
-  <span class="hljs-attr">"locationId"</span>: <span class="hljs-string">"7a916fbd-70a0-462f-8dbc-bd7dbfbea160"</span>,
-  <span class="hljs-attr">"cardId"</span>: <span class="hljs-string">"bc538b71-31c5-4699-840a-6d4a08693314"</span>,
-  <span class="hljs-attr">"amount"</span>: <span class="hljs-number">100</span>,
-  <span class="hljs-attr">"currency"</span>: <span class="hljs-string">"GBP"</span>,
-  <span class="hljs-attr">"countryCode"</span>: <span class="hljs-string">"GBR"</span>,
-  <span class="hljs-attr">"scheme"</span>: <span class="hljs-string">"visa"</span>,
-  <span class="hljs-attr">"firstNumbers"</span>: <span class="hljs-string">"555500"</span>,
-  <span class="hljs-attr">"lastNumbers"</span>: <span class="hljs-string">"5001"</span>,
-  <span class="hljs-attr">"address"</span>: <span class="hljs-string">"2 Soho Square"</span>,
-  <span class="hljs-attr">"postcode"</span>: <span class="hljs-string">"W1D3PX"</span>,
-  <span class="hljs-attr">"city"</span>: <span class="hljs-string">"London"</span>,
-  <span class="hljs-attr">"merchantId"</span>: <span class="hljs-string">"12345"</span>,
-  <span class="hljs-attr">"live"</span>: <span class="hljs-literal">false</span>,
-  <span class="hljs-attr">"auth"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"cleared"</span>: <span class="hljs-literal">true</span>,
-  <span class="hljs-attr">"time"</span>: <span class="hljs-string">"2017-03-02T19:12:01.743Z"</span>,
-  <span class="hljs-attr">"date"</span>: <span class="hljs-string">"2017-03-02T19:12:01.743Z"</span>,
-  <span class="hljs-attr">"created"</span>: <span class="hljs-string">"2017-03-02T19:12:01.744Z"</span>,
-  <span class="hljs-attr">"updated"</span>: <span class="hljs-string">"2017-03-02T19:12:01.744Z"</span>,
-  <span class="hljs-attr">"offer"</span>: <span class="hljs-literal">null</span>,
-  <span class="hljs-attr">"medatada"</span>: {
-    <span class="hljs-attr">"id"</span>: <span class="hljs-string">"your-unique-id"</span>,
-    <span class="hljs-attr">"property"</span>: <span class="hljs-string">"value"</span>
+```json
+summary:JSON Response on API versions to 2018-08-16
+fileName:transaction-old.json
+{
+  "id": "7fdfd5d8-9589-402f-8477-4a727ad239a2",
+  "accountId": "4ed4b62b-aa4c-43a1-8064-da6d1368e17a",
+  "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba",
+  "brandId": "9d136f2e-df99-4a08-a0a5-3bc1534b7db9",
+  "locationId": "7a916fbd-70a0-462f-8dbc-bd7dbfbea160",
+  "cardId": "bc538b71-31c5-4699-840a-6d4a08693314",
+  "amount": 100,
+  "currency": "GBP",
+  "countryCode": "GBR",
+  "scheme": "visa",
+  "firstNumbers": "555500",
+  "lastNumbers": "5001",
+  "address": "2 Soho Square",
+  "postcode": "W1D3PX",
+  "city": "London",
+  "merchantId": "12345",
+  "live": false,
+  "auth": true,
+  "cleared": true,
+  "time": "2017-03-02T19:12:01.743Z",
+  "date": "2017-03-02T19:12:01.743Z",
+  "created": "2017-03-02T19:12:01.744Z",
+  "updated": "2017-03-02T19:12:01.744Z",
+  "offer": null,
+  "medatada": {
+    "id": "your-unique-id",
+    "property": "value"
   }
-}</code><span class="line-numbers-rows" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></pre></div>
-</details>
+}
+```
 
 The Fidel API currently supports three types of transactions: authorisation transactions, clearing transactions and refund transactions.
 
