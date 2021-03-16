@@ -21,7 +21,7 @@ There are multiple ways you can test card-linking on the Fidel platform before g
 
 ### Fidel Dashboard
 
-You can create, view or export Cards in any Program in the [Fidel Dashboard](https://dashboard.fidel.uk/cards). The Fidel Dashboard doesn't allow you to delete cards via the user interface, you'll have to use some of our other options to delete Cards.
+You can create, view, delete or export Cards in any Program in the [Fidel Dashboard](https://dashboard.fidel.uk/cards).
 
 ![Fidel Dashboard Create Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-new-card.gif "Fidel Dashboard Create Card")
 
