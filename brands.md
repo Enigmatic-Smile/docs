@@ -2,18 +2,16 @@
 
 After creating an account and getting access to the dashboard, the next step is to create a test **Brand** (Merchant). This lets you create locations and add them to a Program so you can start tracking transactions.
 
-
-
 The **Brand** object is used to aggregate locations and keep track of the Brand consent. To track real-time transactions at a Brand's locations, you need to obtain consent from authorised personnel (Brand Contact), and provide the Brand with access to view transactional data. You can do this when creating the Brand (see below).
 
 Once you create a **Brand**, it cannot be deleted.
 
 ## Create Brand
 
-![Create brand](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-brand.png "Create brand")
+![Create brand](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-brand.gif "Create brand")
 
 
-To create a new Brand, go to the [Brands](https://dashboard.fidel.uk/brands) page on the Fidel Dashboard, click the **New brand** button and enter a name. Optionally, you can add a link to the brand logo (Note: the logo cannot be added later).  You can also [create a Brand](https://reference.fidel.uk/reference#create-brand) with the API:
+To add a new Brand, go to the [Brands](https://dashboard.fidel.uk/brands) page on the Fidel Dashboard, click the **Add a brand** button and enter a name. If you can't find the brand in the Fidel Dashboard, you can create a new one. Optionally, you can add a link to the brand website and logo (Note: the links cannot be added later using the Dashboard). You can also [create a Brand](https://reference.fidel.uk/reference#create-brand) with the API:
 ```bash
 curl -X POST \
   https://api.fidel.uk/v1/brands \
