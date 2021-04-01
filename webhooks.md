@@ -10,7 +10,7 @@ The Fidel API will notify your registered webhook URLs as the event happens, via
 
 ## Creating Webhooks
 
-You can register up to five webhook URLs per event type for each account. The Fidel API only accepts HTTPS URLs for webhook endpoints. Your webhook server must support HTTPS and have a valid certificate.
+You can register up to ten webhook URLs per event type for each account. The Fidel API only accepts HTTPS URLs for webhook endpoints. Your webhook server must support HTTPS and have a valid certificate.
 
 <div class="info-box">
     <small>Return a 200 status code</small><br/>
