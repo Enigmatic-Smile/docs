@@ -87,4 +87,4 @@ fileName:index.html
 </script>
 ```
 
-Check the [Web SDK documentation](/web-sdk/v2) section for more information about all available parameters, customisation options, and the metadata nested object.
+Check the [Web SDK documentation](/web-sdk/v2) section for more information about all available parameters, customization options, and the metadata nested object.
