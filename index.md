@@ -16,7 +16,7 @@
 </div>
 <div class="row">
   <div class="column">
-    <a href="/web-sdk" data-path="/web-sdk" class="content">
+    <a href="/web-sdk/v2" data-path="/web-sdk/v2" class="content">
       <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/web_sdk.svg" />
       <h2 data-no-link>Web SDK</h2>
       <h3>Learn to integrate a secure Javascript SDK to link cards on your website</h3>
@@ -45,7 +45,7 @@ Check out the [API Reference](https://reference.fidel.uk) to see all available r
 Join our [Developer Community](https://community.fidel.uk/) for API discussions, documentation, frequently asked questions, roadmap and new features. We’re always happy to help and answer any questions.
 
 ## Card Linking
-The [iOS](/mobile-sdks/#ios), [Android](/mobile-sdks/#android) and [Web](/web-sdk) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
+The [iOS](/mobile-sdks/#ios), [Android](/mobile-sdks/#android) and [Web](/web-sdk/v2) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
 By using Fidel SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements.
 
@@ -87,4 +87,4 @@ fileName:index.html
 </script>
 ```
 
-Check the [Web SDK documentation](/web-sdk) section for more information about all available parameters, customisation options, and the metadata nested object.
+Check the [Web SDK documentation](/web-sdk/v2) section for more information about all available parameters, customization options, and the metadata nested object.
