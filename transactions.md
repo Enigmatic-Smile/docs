@@ -121,7 +121,7 @@ The Fidel API currently supports three types of transactions: authorisation tran
 
 **Refund transactions** are processed when a payment is refunded, usually when a purchased item is returned, and the payment reverses. A refunded transaction triggers two webhook events, `transaction.clearing` and `transaction.refund`, with the `auth` property set to false. The amount on both events is negative. The Fidel API tries to identify the initial transaction for which the refund was issued, using `cardId`, `locationId`, `merchantId`, `amount` and `datetime`. If an associated initial transaction is identified, the webhook data contains the `originalTransactionId`. If no initial transaction is identified, the data comes in on both webhooks with a negative amount but no `originalTransactionId` property.
 
-The original transaction has a new `refundTransactionId` property, set to the `transactionId` of the refunded transaction. Updates on he original transaction will not trigger a webhook event.
+The original transaction has a new `refundTransactionId` property, set to the `transactionId` of the refunded transaction. Updates on the original transaction will not trigger a webhook event.
 
 You will receive both `transaction.auth` events in real-time and `transaction.clearing` events (in the next 48 to 72 hours). When clearing transactions are processed, the Fidel API matches the clearing transaction to the corresponding authorisation transaction if it exists by updating the `cleared` property from `false` to `true`.
 
