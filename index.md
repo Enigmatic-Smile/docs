@@ -40,6 +40,8 @@ Fidel API runs on top of global payment networks, so it doesn’t require change
 
 Currently, the API is available in the **United States**, **UK**, **Ireland** and **Canada**, while **Sweden**, **Norway** and **Finland** are in the beta stage. **Australia**, **New Zealand**, **Japan** and **Singapore** are also on our radar, please refer to the up-to-date [list of countries and schemes](https://fidel.uk/products). We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please contact us at [devrel@fidel.uk](mailto:devrel@fidel.uk).
 
+You can see an example implementation for integrating the Fidel APIs and Web SDK in our [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app).
+
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 
 Join our [Developer Community](https://community.fidel.uk/) for API discussions, documentation, frequently asked questions, roadmap and new features. We’re always happy to help and answer any questions.
