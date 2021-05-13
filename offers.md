@@ -315,6 +315,7 @@ fileName:offer.json
   	"name": "amount",
   	"value": 5
   },
+  "status": "live",
   "updated": "2020-08-22T14:47:37.479Z"
 }
 ```
@@ -503,6 +504,13 @@ fileName:offer.json
       <em>date</em>
     </dt>
     <dd>Date and time, in the <code>YYYY-MM-DDThh:mm:ss</code> format, for when the Offer is activated and starts qualifying transactions.</dd>
+  </div>
+  <div>
+    <dt>
+      <span><code>status</code></span>
+      <em>string</em>
+    </dt>
+    <dd>Offer status corresponding to the state in the <a class="content" href="/offers/#offer-lifecycle">Offer Lifecycle</a>. Can be one of <code>requests</code>, <code>upcoming</code>, <code>live</code> or <code>expired</code>.</dd>
   </div>
   <div>
     <dt>
