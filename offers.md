@@ -268,7 +268,7 @@ fileName:non-qualified-transaction.json
 
 ## Offer Object
 
-The Offers API's central piece of data is the Fidel Offer object, which holds all the details about a card-linked Offer. The card-linked Offer has a set of parameters used to qualify any [Card Transaction](https://fidel.uk/docs/transactions) made at a participating Brands' linked Location.
+The Offers API's central piece of data is the Fidel Offer object, which holds all the details about a card-linked Offer. The card-linked Offer has a set of parameters used to qualify any [Card Transaction](https://fidel.uk/docs/transactions) made at a participating Brand's linked Location.
 
 The Offer object looks similar to the following and will be returned by the API in a multitude of situations. Transaction objects will also have a smaller version of the object inside, making it easier to retrieve the full Offer object if necessary.
 
