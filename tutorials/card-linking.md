@@ -1,4 +1,4 @@
-# How to Build a Card-Linked Application on the Fidel Platform With the Fidel Web SDK
+# How to Build a Card-Linked Application With the Web SDK
 
 Fidel makes it simple to add card-linking capabilities to any application. The process involves setting up a program, along with the participating brands and locations. And then registering or helping your users register their cards on the Fidel platform. Once they are live, Fidel receives transactions from participating locations and will pass them along to your application using webhooks. You can register your webhook URLs in the Fidel Dashboard and start receiving the transaction data.
 
@@ -30,9 +30,9 @@ You'll first build a React client to use the Fidel Web SDK and give your applica
 Let's go ahead and create a new React application using `create-react-app`. After you've generated a new project called `fidel-card-linking-tutorial`, run it using the generated `npm start`.
 
 ```sh
-$ npx create-react-app fidel-card-linking-tutorial
-$ cd fidel-card-linking-tutorial
-$ npm start
+npx create-react-app fidel-card-linking-tutorial
+cd fidel-card-linking-tutorial
+npm start
 ```
 
 You should have a blank new React application running in your browser on port 3000. The generated files should look similar to this:
@@ -75,7 +75,7 @@ You'll want to create a nice-looking application, and for that, a CSS framework 
 
 After you've included Tailwind into the empty project, let's remove the boilerplate code in the `/src/App.js` file and replace it with an empty application shell. It's already set up to have a header and a table to display the transaction data you'll get from Fidel.
 
-```js
+```jsx
 import { ReactComponent as Logo } from "./assets/logo.svg";
 
 function App() {
@@ -148,8 +148,8 @@ export default App;
 You've probably noticed your application is failing to compile now. And that's because you haven't yet added the logo component that's being used in the empty application shell above. To do that, create a new `assets` folder inside the `/src` directory, and create an empty `logo.svg` file. Now 
 
 ```sh
-$ mkdir src/assets
-$ touch src/assets/logo.svg
+mkdir src/assets
+touch src/assets/logo.svg
 ```
 
 Your application is still going to fail to compile, but with a new error. And that's because the empty SVG file should actually be a valid SVG. Replace the contents of `/src/assets/logo.svg` with the Fidel logo:
@@ -179,7 +179,7 @@ Now that your application compiles successfully, you'll see an empty table layou
 
 First, at the top of your `/src/App.js` file, import `useEffect` from React. 
 
-```javascript
+```jsx
 import { useEffect } from "react";
 ```
 
@@ -189,7 +189,7 @@ You can find the SDK Key in the ["Account" section of the Fidel Dashboard](https
 
 To add the SDK to your application, use an effect that runs only once at startup to create a `<script>` tag with the Fidel SDK, add the required attributes to it, and then append it to the document body. In the `App()` function of the `/src/App.js` file, add the effect:
 
-```javascript
+```jsx
 function App() {
   const headers = ["Amount", "Cashback", "Scheme", "Card", "Brand", "Location", "Status", "Date↓"]
 
@@ -224,7 +224,7 @@ export default App;
 
 Because you've set `auto-open` to false in the SDK attributes, the SDK overlay will only show if called, with `Fidel?.openForm()`. Add a `onClick` handler to the "Add Card" button to open the SDK overlay when clicked.
 
-```html
+```jsx
 <button
   onClick={() => window.Fidel?.openForm()}
   className="ml-10 w-full bg-blue-700 hover:bg-blue-900 text-white py-2 px-4 rounded">
@@ -237,7 +237,7 @@ Because you've set `auto-open` to false in the SDK attributes, the SDK overlay w
 You might have noticed the example code didn't hardcode the values of the SDK key and program id but rather used environment variables. The generated React application already has support for environment variables. To use them, you need to create an `.env` file.
 
 ```sh
-$ touch .env
+touch .env
 ```
 
 Add variables to it, and fill out the values for your SDK key and program Id in `REACT_APP_FIDEL_SDK_KEY` and `REACT_APP_FIDEL_PROGRAM_ID`.
@@ -264,12 +264,12 @@ Congratulation, you have successfully added the ability to register cards to you
 To start receiving transactions from your linked card, you'll need to register webhooks in the Fidel Dashboard. Before you can register them, you'll need to build them. Create a new `server.js` file at the root of your `fidel-card-linking-tutorial` folder.
 
 ```sh
-$ touch server.js
+touch server.js
 ```
 
 Let's go ahead and implement a fairly standard Node.js server, using `express`, that listens on port 3000. First, install the dependencies with `$ npm install express cors` and then add some boilerplate code to the `server.js` file.
 
-```javascript
+```jsx
 import express from 'express'
 import { createServer } from 'http'
 import cors from 'cors';
@@ -292,7 +292,7 @@ server.listen(PORT, () => {
 
 The Fidel platform can register a multitude of webhooks, so let's add a generic catch-all route `/api/webhooks/:type` that deals with webhooks and sends back a `200 OK` response. If your webhook doesn't return a 200 status, the Fidel platform retries sending the webhook until it receives a 200 status.
 
-```javascript
+```jsx
 app.post('/api/webhooks/:type', (req, res, next) => {
 
     res.status(200).end()
@@ -301,13 +301,13 @@ app.post('/api/webhooks/:type', (req, res, next) => {
 
 If you try to run the server as is right now, you'll get an error saying you "Cannot use import statement outside a module". And that's because you're using modern import statements in your Node.js code. You'll need to update the `package.json` with a new line to support imports.
 
-```js
+```jsx
 "type": "module"
 ```
 
 It would also be helpful if you could run both the React client and the Node.js server with the same command. Update the `start` script inside `package.json` to run the server and the client at the same time. You'll need to run `npm start` again after you're done.
 
-```js
+```jsx
 "scripts": {
     "start": "node server.js & react-scripts start",
   },
@@ -339,13 +339,13 @@ Because the data comes from a webhook, your server doesn't have a lot of control
 
 You'll need to add the socket mechanism to the server first. Import the `Server` from `socket.io` at the top of your `server.js` file.
 
-```js
+```jsx
 import { Server } from 'socket.io'
 ```
 
 Before the webhook route is defined, instantiate a new socket Server, and log to the console every time a client connects to the socket. Update the webhook route handler to emit on the socket every time there is new transaction data coming from Fidel.
 
-```js
+```jsx
 const io = new Server(server, {
     cors: {
         origin: "http://localhost:3001",
@@ -370,14 +370,14 @@ Now that the server is completed restart it with `npm start`.
 
 You'll need to add `socket.io` to the client as well, in order to receive the transaction data and display it. At the top of your `/src/App.js` file, import `socketIOClient` from `socket.io-client` and `useState` from react.
 
-```js
+```jsx
 import { useState, useEffect } from "react";
 import socketIOClient from "socket.io-client";
 ```
 
 After you've imported the socket in your `/src/App.js`, you need to create a new socketIOClient in an effect. And register a listener that sets the transactions state on any incoming data.
 
-```js
+```jsx
 function App() {
   const [transactions, setTransactions] = useState([]);
 
@@ -401,13 +401,13 @@ function App() {
 Now that we've got the data coming into the React client, let's create a `Transaction` component that displays it. First, create a `components` folder inside the `src` folder, and create an empty `Transaction.js` file in it.
 
 ```sh
-$ mkdir src/components
-$ touch src/components/Transaction.js
+mkdir src/components
+touch src/components/Transaction.js
 ```
 
 A transaction has a type and information about the currency, amount, card scheme, card number, store brand, name and location, and date of creation. Let's create a component that displays all that data to match the empty table we used in the initial empty shell for our application.
 
-```js
+```jsx
 import React from "react";
 
 import { formatCard } from "../utils";
@@ -452,12 +452,12 @@ export default Transaction;
 For the application to compile, you'll need to create a few of the things we already used in the Transaction component. Start with the `TransactionStatus` component in the same folder as the `Transaction` component.
 
 ```sh
-$ touch src/components/TransactionStatus.js
+touch src/components/TransactionStatus.js
 ```
 
 A transaction can have three statuses: authorized, cleared and refunded. The information is contained in the transaction type being passed from the server in the socket. Let's use that data to have a different coloured pill for the status and make it instantly recognizable in the UI.
 
-```js
+```jsx
 import React from "react";
 
 const TransactionStatus = ({ status }) => (
@@ -491,7 +491,7 @@ You'll also need to create the icons for the three card networks in the assets f
 First, create the Amex icon.
 
 ```sh
-$ touch src/assets/amex-icon.svg
+touch src/assets/amex-icon.svg
 ```
 
 ```html
@@ -506,7 +506,7 @@ $ touch src/assets/amex-icon.svg
 Second, create the Mastercard icon.
 
 ```sh
-$ touch src/assets/mastercard-icon.svg
+touch src/assets/mastercard-icon.svg
 ```
 
 ```html
@@ -520,7 +520,7 @@ $ touch src/assets/mastercard-icon.svg
 And third, the Visa icon.
 
 ```sh
-$ touch src/assets/visa-icon.svg
+touch src/assets/visa-icon.svg
 ```
 
 ```html
@@ -538,13 +538,13 @@ $ touch src/assets/visa-icon.svg
 The only piece missing is a little utils function to format the card number in the UI. Create a `utils` folder inside the `src` folder, and then an `index.js` file inside.
 
 ```sh
-$ mkdir src/utils
-$ touch src/utils/index.js
+mkdir src/utils
+touch src/utils/index.js
 ```
 
 Fidel uses a tokenization mechanism for the card numbers and doesn't store the entire card number. You'll receive the first six, and last four numbers from the card number, and the six in between are missing. You'll replace those with asterisks and then split the long card number every other 4 characters to display. In the `index.js` file, create a `formatCard` method that contains the logic.
 
-```js
+```jsx
 export function formatCard(card) {
   return `${card?.firstNumbers}******${card?.lastNumbers}`
     .match(/.{4}/g)
@@ -554,13 +554,13 @@ export function formatCard(card) {
 
 Now that you've created all the missing pieces for the `Transaction` component go ahead and add it to your main application. At the top of the `/src/App.js` file, import the `Transaction` component.
 
-```js
+```jsx
 import Transaction from "./components/Transaction";
 ```
 
 Inside the render function, there is currently an empty `<tbody>` tag. Replace it to iterate over the `transactions` data, and map a `Transaction` component for each entry.
 
-```js
+```jsx
 <tbody className="bg-white">
   {transactions.map(({ transaction, type }, idx) => (
     <Transaction key={idx} transaction={transaction} type={type} transactions={transactions} />
