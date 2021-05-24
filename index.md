@@ -7,10 +7,10 @@
     </a>
   </div>
   <div class="column">
-    <a href="https://community.fidel.uk/c/Frequently-Asked-Questions" class="content">
-      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/help_center.svg" />
-      <h2 data-no-link>Help Centre</h2>
-      <h3>Find information and answers to frequently asked questions in our Community FAQ.</h3>
+    <a href="/tutorials/card-linking" class="content">
+      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/playground.svg" />
+      <h2 data-no-link>Tutorials</h2>
+      <h3>Learn how to build a card-linking feature into your applications.</h3>
     </a>
   </div>
 </div>
@@ -49,7 +49,7 @@ Join our [Developer Community](https://community.fidel.uk/) for API discussions,
 ## Card Linking
 The [iOS](/mobile-sdks/#ios), [Android](/mobile-sdks/#android) and [Web](/web-sdk/v2) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
-By using Fidel SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements.
+By using Fidel SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements. [Our Card-Linking tutorial](/tutorials/card-linking) explains in detail all the steps required to build a card-linking feature into your application using the Fidel SDKs.
 
 Your apps will receive an `id` back that identifies the card in each transaction.
 
