@@ -77,6 +77,8 @@ There are a range of optional parameters available, which influence how the Offe
 * `metadata`: Object with your own metadata, will be returned on the Offer object.
 * `returnPeriod`: Number of days between when a Transaction was created and when a Transaction qualifies for the Offer. The qualified Transaction will have the `offer.qualificationDate` set to the creation date plus the number of days in the return period.
 * `schemes`: Array of schemes for which a Transaction qualifies for the Offer. Possible values are `"amex"`, `"mastercard"` and `"visa"`.
+* `type: maxRewardAmount`: Numeric value of the maximum amount to be awarded for the Offer. Only applies to `discount` type Offers.
+
 
 ### Create an Offer in the Dashboards
 
@@ -312,7 +314,8 @@ fileName:offer.json
   "startDate": "2020-06-30T00:00:00",
   "supplier": null,
   "type": {
-  	"name": "amount",
+  	"name": "discount",
+    "maxRewardAmount": 10,
   	"value": 5
   },
   "status": "live",
@@ -525,7 +528,7 @@ fileName:offer.json
       <em>object</em>
     </dt>
     <dd>Represents the type of Offer: a fixed amount or a percentage of the original transaction The <code>name</code> property can have one of the following two values: <code>amount</code> and
-      <code>discount</code>. The <code>value</code> property has either the fixed amount of currency to be rewarded or the percentage value, depending on the Offer type.</dd>
+      <code>discount</code>. The <code>value</code> property has either the fixed amount of currency to be rewarded or the percentage value, depending on the Offer type. The <code>maxRewardAmount</code> property has a maximum fixed amount of currency to be rewarded for percentage typed Offers. <code>maxRewardAmount</code> only applies to discount Offers, and will be <code>null</code> for amount Offers.</dd>
   </div>
   <div>
     <dt>
