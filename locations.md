@@ -7,7 +7,7 @@ To add a location, select a Program from the [Programs](https://dashboard.fidel.
 
 In the live environment, the Fidel Dashboard has a new feature that allows you to bulk add multiple locations from the same brand. You can see a list of the brands onboarded into your account, and the locations available to us. You can choose all participating locations and add them to your program. Please note, this feature is only available in the live environment.
 
-![Add unique locations](https://raw.githubusercontent.com/FidelLimited/docs/vcards/assets/images/add-unique-locations.png "Add unique locations")
+![Add unique locations](https://raw.githubusercontent.com/FidelLimited/docs/vcards/assets/images/add-unique-locations.gif "Add unique locations")
 
 ##### You can do the same by using our API.
 
