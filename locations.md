@@ -101,13 +101,13 @@ For Locations in the live environment, status can be tracked on the dashboard. A
 
 ## Virtual Cards
 
-When a location fails to sync or can't be found during the "Location Sync" process, you can use our new Virtual Cards feature to help onboard a new locations. You can onboard locations that are *Not Found* by adding our pre-funded virtual card to your mobile wallet, making a small purchase at the location, and linking the location to the transaction. Fidel funds your virtual card free of charge. There is a maximum of 2.00$ or equivalent per transaction, with a limit of 5 transactions per day. The new Virtual Cards feature is available in all our live markets.
+When a location fails to sync or can't be found during the "Location Sync" process, you can use our new Virtual Cards feature to help onboard a new locations. You can onboard locations that are *Not Found* by adding our pre-funded virtual card to your mobile wallet, making a small purchase at the location, and linking the location to the transaction. Fidel funds your virtual card free of charge. There is a maximum of 2.00$ or equivalent per transaction, with a limit of 5 transactions per day. The new Virtual Cards feature is available in all our live markets, for Mastercard and Visa.
 
 You can activate a new Virtual Card [in your Account Settings](https://dashboard.fidel.uk/account/virtual-cards).
 
 ![Activate Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/vcards/assets/images/virtual-card-activate.gif "Activate Virtual Card")
 
-After you've activated your virtual card, use it to make a small transaction in the location you're trying to onboard. This can be done physically in the store, or ask your merchant to use the card when processing a transaction remotely. After you've done a transaction in the store, you can link it in the [Fidel Dashboard](https://dashboard.fidel.uk/locations).
+After you've activated your virtual card, use it to make a small transaction in the location you're trying to onboard. This can be done physically in the store, or ask your merchant to use the card when processing a transaction remotely. After you've done a transaction in the store, you can link it in the [Fidel Dashboard](https://dashboard.fidel.uk/locations). Linking one location with either Mastercard or Visa will automatically link the other one as well.
 
 In the Locations page of the Fidel Dashboard, you can use the drop-down option next to the "Not found" locations to "Link virtual card transaction". A drawer will appear, listing the transactions made with your Virtual Card, and you can select the transaction that matches the one you’ve made at the corresponding location.
 
