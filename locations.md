@@ -7,7 +7,7 @@ To add a location, select a Program from the [Programs](https://dashboard.fidel.
 
 In the live environment, the Fidel Dashboard has a new feature that allows you to bulk add multiple locations from the same brand. You can see a list of the brands onboarded into your account, and the locations available to us. You can choose all participating locations and add them to your program. Please note, this feature is only available in the live environment.
 
-![Add unique locations](https://raw.githubusercontent.com/FidelLimited/docs/vcards/assets/images/add-unique-locations.gif "Add unique locations")
+![Add unique locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/add-unique-locations.gif "Add unique locations")
 
 ##### You can do the same by using our API.
 
@@ -105,10 +105,10 @@ When a location fails to sync or can't be found during the "Location Sync" proce
 
 You can activate a new Virtual Card [in your Account Settings](https://dashboard.fidel.uk/account/virtual-cards).
 
-![Activate Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/vcards/assets/images/virtual-card-activate.gif "Activate Virtual Card")
+![Activate Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/virtual-card-activate.gif "Activate Virtual Card")
 
 After you've activated your virtual card, use it to make a small transaction in the location you're trying to onboard. This can be done physically in the store, or ask your merchant to use the card when processing a transaction remotely. After you've done a transaction in the store, you can link it in the [Fidel Dashboard](https://dashboard.fidel.uk/locations). Linking one location with either Mastercard or Visa will automatically link the other one as well.
 
 In the Locations page of the Fidel Dashboard, you can use the drop-down option next to the "Not found" locations to "Link virtual card transaction". A drawer will appear, listing the transactions made with your Virtual Card, and you can select the transaction that matches the one you’ve made at the corresponding location.
 
-![Link location using Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/vcards/assets/images/virtual-card-location.gif "Link location using Virtual Card")
+![Link location using Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/virtual-card-location.gif "Link location using Virtual Card")
