@@ -101,7 +101,7 @@ For Locations in the live environment, status can be tracked on the dashboard. A
 
 ## Virtual Cards
 
-When a location fails to sync or can't be found during the "Location Sync" process, you can use our new Virtual Cards feature to help onboard a new locations. You can onboard locations that are *Not Found* by adding our pre-funded virtual card to your mobile wallet, making a small purchase at the location, and linking the location to the transaction. Fidel funds your virtual card free of charge. There is a maximum of 2.00$ or equivalent per transaction, with a limit of 5 transactions per day. Transactions made in the same day needs to be different amounts. The new Virtual Cards feature is available in all our live markets for Visa and Mastercard.
+When a location fails to sync or can't be found during the "Location Sync" process, you can use our new Virtual Cards feature to help onboard a new locations. You can onboard locations that are *Not Found* by adding our pre-funded virtual card to your mobile wallet, making a small purchase at the location, and linking the location to the transaction. Fidel funds your virtual card free of charge. There is a maximum of 2.00$ or equivalent per transaction, with a limit of 5 transactions per day. Transactions made in the same day need to be different amounts. The new Virtual Cards feature is available in all our live markets for Visa and Mastercard.
 
 You can activate a new Virtual Card [in your Account Settings](https://dashboard.fidel.uk/account/virtual-cards).
 
