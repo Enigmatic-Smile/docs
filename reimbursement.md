@@ -211,6 +211,8 @@ When you request a reimbursement to an eligible cardholder transaction, we send 
 
 Reimbursement `status` is set to `pending` while waiting for the card scheme to confirm the successful `issued` status, at which point funds normally hit the cardholder’ account. It takes between 48 to 72 hours for the `issued` status to be updated.
 
+![Reimbursement status](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursement-transactions.gif "Reimbursement status")
+
 ### Status
 
 Find the reimbursement status in the transaction `reimbursement.status` property:
