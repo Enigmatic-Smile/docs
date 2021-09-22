@@ -248,23 +248,94 @@ The reimbursement request and status update can fail for various reasons. Your a
 
 These errors might be returned in the [request](https://fidel.uk/docs/reimbursement/#request) endpoint.
 
-| HTTP Status Code |                  Error Code                    |                                   Error Message                                    |
-|:----------------:|------------------------------------------------|------------------------------------------------------------------------------------|
-|        400       | `reimbursement-account-network-inactive`       | `Account cannot issue reimbursement for card network`                              |
-|        400       | `reimbursement-account-not-enough-funds `      | `Account does not have enough funds for issuing reimbursement`                     |
-|        404       | `reimbursement-account-not-found`              | `Account does not exist`                                                           |
-|        400       | `reimbursement-already-created`                | `Transaction reimbursement already created`                                        |
-|        400       | `reimbursement-amount-above-limit`             | `Reimbursement amount is above the allowed limit`                                  |
-|        400       | `reimbursement-amount-greater-original-amount` | `Reimbursement amount is greater than original transaction amount`                 |
-|        400       | `reimbursement-invalid-transaction`            | `Transaction is invalid to issue reimbursement`                                    |
-|        500       | `reimbursement-network-internal-error `        | `Network responded with internal error`                                            |
-|        404       | `reimbursement-transaction-not-found`          | `Transaction does not exist`                                                       |
-|        400       | `reimbursement-unsupported-network`            | `Transaction network not supported for reimbursement`                              |
-|        400       | `reimbursement-unsupported-currency`           | `Transaction currency not supported for reimbursement`                             |
-|        401       | `reimbursement-not-activated`                  | `The reimbursement product is not activated for this account`                      |
-|        400       | `reimbursement-time-limit-after-transaction`   | `Surpassed the time limit after the original transaction to issue a reimbursement` |
-|        400       | `reimbursement-visa-invalid-community-code`    | `The transaction community code is invalid`                                        |
-|        400       | `credits-account-not-enough-funds`             | `Account does not have enough credits`                                             |
+<dl>
+  <div>
+    <dt>
+      <b>HTTP Status Code</b>
+    </dt>
+    <dt>
+      <b>Error Code</b>
+    </dt>
+    <dt>
+      <b>Error Message</b>
+    </dt>
+  </div>
+  <div>
+    <dd>400</dd>
+    <dd><span><code>reimbursement-account-network-inactive</code></span></dd>
+    <dd><span><code>Account cannot issue reimbursement for card network</code></span></dd>
+  </div>
+  <div>
+    <dt>400</dt>
+    <dt><span><code>reimbursement-account-not-enough-funds</code></span></dt>
+    <dt><span><code>Account does not have enough funds for issuing reimbursement</code></span></dt>
+  </div>
+  <div>
+    <dt>404</dt>
+    <dt><span><code>reimbursement-account-not-found</code></span></dt>
+    <dt><span><code>Account does not exist</code></span></dt>
+  </div>
+  <div>
+    <dt>400</dt>
+    <dt><span><code>reimbursement-already-created</code></span></dt>
+    <dt><span><code>Transaction reimbursement already created</code></span></dt>
+  </div>
+  <div>
+    <dt>400</dt>
+    <dt><span><code>reimbursement-amount-above-limit</code></span></dt>
+    <dt><span><code>Reimbursement amount is above the allowed limit</code></span></dt>
+  </div>
+  <div>
+    <dt>400</dt>
+    <dt><span><code>reimbursement-amount-greater-original-amount</code></span></dt>
+    <dt><span><code>Reimbursement amount is greater than original transaction amount</code></span></dt>
+  </div>
+  <div>
+    <dt>400</dt>
+    <dt><span><code>reimbursement-invalid-transaction</code></span></dt>
+    <dt><span><code>Transaction is invalid to issue reimbursement</code></span></dt>
+  </div>
+  <div>
+    <dt>500</dt>
+    <dt><span><code>reimbursement-network-internal-error</code></span></dt>
+    <dt><span><code>Network responded with internal error</code></span></dt>
+  </div>
+  <div>
+    <dt>404</dt>
+    <dt><span><code>reimbursement-transaction-not-found</code></span></dt>
+    <dt><span><code>Transaction does not exist</code></span></dt>
+  </div>
+  <div>
+    <dt>400</dt>
+    <dt><span><code>reimbursement-unsupported-network</code></span></dt>
+    <dt><span><code>Transaction network not supported for reimbursement</code></span></dt>
+  </div>
+  <div>
+    <dt>400</dt>
+    <dt><span><code>reimbursement-unsupported-currency</code></span></dt>
+    <dt><span><code>Transaction currency not supported for reimbursement</code></span></dt>
+  </div>
+  <div>
+    <dt>401</dt>
+    <dt><span><code>reimbursement-not-activated</code></span></dt>
+    <dt><span><code>The reimbursement product is not activated for this account</code></span></dt>
+  </div>
+  <div>
+    <dt>400</dt>
+    <dt><span><code>reimbursement-time-limit-after-transaction</code></span></dt>
+    <dt><span><code>Surpassed the time limit after the original transaction to issue a reimbursement</code></span></dt>
+  </div>
+  <div>
+    <dt>400</dt>
+    <dt><span><code>reimbursement-visa-invalid-community-code</code></span></dt>
+    <dt><span><code>The transaction community code is invalid</code></span></dt>
+  </div>
+  <div>
+    <dt>400</dt>
+    <dt><span><code>credits-account-not-enough-funds</code></span></dt>
+    <dt><span><code>Account does not have enough credits</code></span></dt>
+  </div>
+</dl>
 
 ### API Error Example
 
@@ -286,17 +357,59 @@ These errors might be returned in the [request](https://fidel.uk/docs/reimbursem
 
 These errors might be returned in the reimbursement `status` update to `failed` from the card scheme and sent to the `transaction.reimbursement.status` webhook.
 
-| Status Code |                   Error Code                    |                            Error Message                              |
-|:-----------:|-------------------------------------------------|-----------------------------------------------------------------------|
-|     400     | `reimbursement-issuing-mismatch`                | `Reimbursements issued by network do not match with original request` |
-|     404     | `reimbursement-network-account-not-found`       | `Network was unable to find bank account`                             |
-|     404     | `reimbursement-network-customer-not-found`      | `Network was unable to find customer account`                         |
-|     500     | `reimbursement-network-invalid-account`         | `Network responded bank account is invalid`                           |
-|     500     | `reimbursement-network-invalid-account-country` | `Network responded bank account country is invalid`                   |
-|     500     | `reimbursement-network-invalid-currency`        | `Network responded the selected currency is invalid`                  |
-|     400     | `reimbursement-network-multiple-accounts-found` | `Network responded multiple bank accounts were found `                |
-|     500     | `reimbursement-network-others`                  | `Network responded with an irregular issue`                           |
-|     500     | `reimbursement-request-failed `                 | `Failed to submit reimbursement request to network`                   |
+<dl>
+  <div>
+    <dt>
+      <b>Status Code</b>
+    </dt>
+    <dt>
+      <b>Error Code</b>
+    </dt>
+    <dt>
+      <b>Error Message</b>
+    </dt>
+  </div>
+  <div>
+    <dd>400</dd>
+    <dd><span><code>reimbursement-issuing-mismatch</code></span></dd>
+    <dd><span><code>Reimbursements issued by network do not match with original request</code></span></dd>
+  </div>
+  <div>
+    <dd>404</dd>
+    <dd><span><code>reimbursement-network-account-not-found</code></span></dd>
+    <dd><span><code>Network was unable to find bank account</code></span></dd>
+  </div>
+  <div>
+    <dd>500</dd>
+    <dd><span><code>reimbursement-network-invalid-account</code></span></dd>
+    <dd><span><code>Network responded bank account is invalid</code></span></dd>
+  </div>
+  <div>
+    <dd>500</dd>
+    <dd><span><code>reimbursement-network-invalid-account-country</code></span></dd>
+    <dd><span><code>Network responded bank account country is invalid</code></span></dd>
+  </div>
+  <div>
+    <dd>500</dd>
+    <dd><span><code>reimbursement-network-invalid-currency</code></span></dd>
+    <dd><span><code>Network responded the selected currency is invalid</code></span></dd>
+  </div>
+  <div>
+    <dd>400</dd>
+    <dd><span><code>reimbursement-network-multiple-accounts-found</code></span></dd>
+    <dd><span><code>Network responded multiple bank accounts were found</code></span></dd>
+  </div>
+  <div>
+    <dd>500</dd>
+    <dd><span><code>reimbursement-network-others</code></span></dd>
+    <dd><span><code>Network responded with an irregular issue</code></span></dd>
+  </div>
+  <div>
+    <dd>500</dd>
+    <dd><span><code>reimbursement-request-failed</code></span></dd>
+    <dd><span><code>Failed to submit reimbursement request to network</code></span></dd>
+  </div>
+</dl>
 
 ### Status Error Example
 
