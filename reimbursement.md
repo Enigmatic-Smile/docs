@@ -37,6 +37,7 @@ curl -X GET \
 ```
 
 ```json
+filename:credits-balance.json
 {
     "items": [
         {
@@ -95,6 +96,7 @@ When a currency balance drops to _25%_ of the balance amount you had on your las
 The `credits.balance.low `webhook notifies on the _[Low Balance Notification](https://fidel.uk/docs/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
 
 ```json
+filename:credits-balance.json
 {
   "accountId": "61741c3-3dc9-45f5-8e7c-db1dt649afab",
   "balances": {
@@ -178,6 +180,7 @@ curl -X POST \
 After the reimbursement request is received by the card scheme, the full transaction is returned with the newly created `transaction.reimbursement` object with `pending` status.
 
 ```json
+filename:transaction.json
 {
     "items": [
         {
@@ -207,7 +210,7 @@ When you request a reimbursement to an eligible cardholder transaction, we send 
 
 Reimbursement `status` is set to `pending` while waiting for the card scheme to confirm the successful `issued` status, at which point funds normally hit the cardholder’ account. It takes between 48 to 72 hours for the `issued` status to be updated.
 
-![Reimbursement status](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursement-transactions.gif "Reimbursement status")
+![Reimbursement status](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursement-transactions.png "Reimbursement status")
 
 ### Status
 
@@ -224,6 +227,7 @@ Find the reimbursement status in the transaction `reimbursement.status` property
 When a reimbursement status is updated from `pending` to `issued` or `failed` the webhook named `transaction.reimbursement.status` is triggered. The webhook will send the full transaction object with the updated `reimbursement.status`. See the example below with the update to `issued` status:
 
 ```json
+filename:transaction.json
 {
   // For the purpose of this example, only selected properties are shown
   "cleared": true, 
@@ -340,6 +344,7 @@ These errors might be returned in the [request](https://fidel.uk/docs/reimbursem
 ### API Error Example
 
 ```json
+filename:reimbursement-request.json
 {
     "error": {
         "code": "reimbursement-amount-greater-original-amount",
@@ -414,6 +419,7 @@ These errors might be returned in the reimbursement `status` update to `failed` 
 ### Status Error Example
 
 ```json
+filename:transaction.json
 {
   // For the purpose of this example, only selected properties are shown
   "cleared": true, 
