@@ -14,15 +14,15 @@ If your account is setup in the US and you are using an older [API version](http
 
 ## Credits
 
-Before reimbursing cardholders you will need to buy Fidel Credits. To be able to make a reimbursement request you need to have enough credits in your balance to deduct the reimbursement amount. Credits currently support USD currency denomination and must be purchased by bank transfer to FIDEL LIMITED beneficiary account using your _unique reference code_ in the description. Find yours under the [Credits view in the dashboard](https://dashboard.fidel.uk/account/credits).
+Before reimbursing cardholders you will need to buy Fidel Credits. To be able to make a reimbursement request you need to have enough credits in your balance to deduct the reimbursement amount. Credits currently support USD currency denominations only and must be purchased by bank transfer to FIDEL LIMITED’s beneficiary account using your unique reference code in the description. Find yours under the [Credits view in the dashboard](https://dashboard.fidel.uk/account/credits).
 
-Fidel Credits are non refundable and non transferable. Take into consideration possible bank transfer delays.
+Fidel Credits are non refundable and non transferable. Take into consideration possible bank transfer delays that can take between 2-3 business days.
 
 ![Credits view in the dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/credits-view.png "Credits view in the dashboard")
 
 ## Balance
 
-Your credit balance is updated every time there is a new credits purchase or spent through reimbursement usage. When sending a reimbursement request, the amount is immediately deducted from the balance. If the reimbursement goes to `failed` status, the amount is added again to the balance. Read more information on the credits balance [API endpoint]().
+Your credit balance is updated every time you purchase credits or spend by using Reimbursement. When sending a reimbursement request, the amount is immediately deducted from the balance. If the reimbursement goes to `failed` status, the amount is added again to the balance. Read more information on the credits balance [endpoint](https://reference.fidel.uk/reference).
 
 
 ### Credits Balance Example
@@ -80,23 +80,19 @@ curl -X GET \
 }
 ```
 
-### Low Balance Notification
+<h3 id="low-balance-notification">Low Balance Notification</h3>
 
-When a currency balance drops to 25% of the balance amount you had on your last purchase, `lowCreditsNotificationSent` is set to true and the following actions are then triggered:
-
-- `credits.balance.low` webhook is sent;
+When a currency balance drops to _25%_ of the balance amount you had on your last purchase, `lowCreditsNotificationSent` is set to true and the following actions are then triggered:
 
 - notification email is sent to account users emails;
 
-- dashboard notification is shown.
+- dashboard notification is shown;
+
+- `credits.balance.low` webhook is sent if you are listening on your end. Read below on how to set it up.
 
 ### Low Balance Webhook
 
-The credits.balance.low webhook notifies on the Low Balance Notification event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
-
-### Low Balance Webhook
-
-The `credits.balance.low` webhook notifies on the _Low Balance Notification_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
+The `credits.balance.low `webhook notifies on the _[Low Balance Notification](https://fidel.uk/docs/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
 
 ```json
 {
@@ -136,7 +132,7 @@ The `credits.balance.low` webhook notifies on the _Low Balance Notification_ eve
 
 ### History
 
-In the Credits dashboard view you have access to your credits purchases in Purchased credits and spent usage in Reimbursements. Read more information on the credits history [API endpoint]().
+In the Credits dashboard view you have access to your credit purchases in _Purchased credits_ and credit spent in _Reimbursements_. Read more information on the credits history [endpoint](https://reference.fidel.uk/reference).
 
 ![Credits history](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/credits-history.gif "Credits history")
 
@@ -144,7 +140,7 @@ In the Credits dashboard view you have access to your credits purchases in Purch
 
 ### Eligibility
 
-The reimbursement request is done towards a cardholder transaction with the path parameter `transactionId` and it needs to meet the eligibility criteria that can be checked with the transaction boolean property `reimbursementEligible`. You must be using the _API version_ `2021-09-28` or newer to have the property available in your transactions.
+The reimbursement request is done towards a cardholder transaction with the path parameter transactionId and it needs to meet the eligibility criteria that can be checked with the transaction boolean property reimbursementEligible. You must be using the API version 2021-09-28 or newer to have the property available in your transactions.
 
 Eligibility has a `true` value when the transaction meets the following criteria:
 
@@ -158,9 +154,9 @@ Eligibility has a `true` value when the transaction meets the following criteria
 
 - Transaction `time` date is newer than 90 days.
 
-### Sending Reimbursement
+<h3 id="request">Request</h3>
 
-After selecting the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. We currently support `USD` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the reimbursement [API endpoint]().
+After selecting the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. Visa cards have a maximum reimbursement amount limit of _USD $250_. We currently support `USD` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the reimbursement [API endpoint](https://reference.fidel.uk/reference).
 
 ![Creating a reimbursement](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursing.gif "Creating a reimbursement")
 
@@ -185,7 +181,7 @@ After the reimbursement request is received by the card scheme, the full transac
 {
     "items": [
         {
-            // ... (other properties are hidden)
+            // For the purpose of this example, only selected properties are shown
             "cleared": true, 
             "currency": "USD",
             "scheme": "visa",
@@ -221,7 +217,7 @@ Find the reimbursement status in the transaction `reimbursement.status` property
 
 - `issued`: scheme executed request successfully;
 
-- `failed`: scheme request failed and `transaction.reimbursement.error` object is created. Retry is possible. [See error list for more information]().
+- `failed`: scheme request failed and `transaction.reimbursement.error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement/#errors).
 
 ### Webhook
 
@@ -229,7 +225,7 @@ When a reimbursement status is updated from `pending` to `issued` or `failed` th
 
 ```json
 {
-  // ... (other properties are hidden)
+  // For the purpose of this example, only selected properties are shown
   "cleared": true, 
   "currency": "USD",
   "scheme": "visa",
@@ -250,7 +246,7 @@ The reimbursement request and status update can fail for various reasons. Your a
 
 ### API Errors
 
-These errors might be returned in the sending reimbursement endpoint request.
+These errors might be returned in the [request](https://fidel.uk/docs/reimbursement/#request) endpoint.
 
 | HTTP Status Code |                  Error Code                    |                                   Error Message                                    |
 |:----------------:|------------------------------------------------|------------------------------------------------------------------------------------|
@@ -306,7 +302,7 @@ These errors might be returned in the reimbursement `status` update to `failed` 
 
 ```json
 {
-  // ... (other properties are hidden)
+  // For the purpose of this example, only selected properties are shown
   "cleared": true, 
   "currency": "USD",
   "scheme": "visa",

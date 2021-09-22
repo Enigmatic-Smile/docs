@@ -165,6 +165,8 @@ After an Offer is activated on a Card, it will qualify the number of Transaction
 
 Note that when you link Locations to an Offer with activation, you will only receive Transactions from Cards where the Offer has been activated on. To receive all Transactions from all Cards, you will need to disable the Offer activation with `activation: { enabled: false, qualifiedTransactionsLimit: 1 }` or unlink the Locations from the Offer.
 
+It is not possible to run an activation offer and a non-activation offer at the same time for the same brand. Should you wish to run two offers at the same time for the same brand, they must both be activation offers or both be non-activation offers. If you are running two offers at once, only one transaction webhook will be sent for whichever offer has the highest award.
+
 <div class="info-box">
     <small>Test and Live environments</small><br/>
     It is important to note that when testing Offers with activation in the test environmentm all test transactions created will be visible for testing purposes. In the live environment only Transactions for activated Offers on Cards will be received and qualified.
