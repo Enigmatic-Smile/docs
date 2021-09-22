@@ -1,6 +1,6 @@
 # Reimbursement
 
-Fidel Reimbursement is an add-on product to _Transaction_ tracking capability, that gives developers the ability to reimburse consumers faster and more easily than ever before, by pushing cash directly onto linked cards.
+Fidel Reimbursement is an adt-on product to _Transaction_ tracking capability, that gives developers the ability to reimburse consumers faster and more easily than ever before, by pushing cash directly onto linked cards.
 
 ## Availability
 
@@ -22,7 +22,7 @@ Fidel Credits are non refundable and non transferable. Take into consideration p
 
 ## Balance
 
-Your credit balance is updated every time you purchase credits or spend by using Reimbursement. When sending a reimbursement request, the amount is immediately deducted from the balance. If the reimbursement goes to `failed` status, the amount is added again to the balance. Read more information on the credits balance [endpoint](https://reference.fidel.uk/reference).
+Your credit balance is updated every time you purchase credits or spend by using Reimbursement. When sending a reimbursement request, the amount is immediately deducted from the balance. If the reimbursement goes to `failed` status, the amount is adted again to the balance. Read more information on the credits balance [endpoint](https://reference.fidel.uk/reference).
 
 
 ### Credits Balance Example
@@ -40,7 +40,7 @@ curl -X GET \
 {
     "items": [
         {
-          "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
+          "accountId": "61741c3-3dc9-45f5-8e7c-db1dt649afab",
           "balances": {
             "AUD": 0,
             "CHF": 0,
@@ -96,7 +96,7 @@ The `credits.balance.low `webhook notifies on the _[Low Balance Notification](ht
 
 ```json
 {
-  "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
+  "accountId": "61741c3-3dc9-45f5-8e7c-db1dt649afab",
   "balances": {
     "AUD": 0,
     "CHF": 0,
@@ -261,9 +261,9 @@ These errors might be returned in the [request](https://fidel.uk/docs/reimbursem
     </dt>
   </div>
   <div>
-    <dd>400</dd>
-    <dd><span><code>reimbursement-account-network-inactive</code></span></dd>
-    <dd><span><code>Account cannot issue reimbursement for card network</code></span></dd>
+    <dt>400</dt>
+    <dt><span><code>reimbursement-account-network-inactive</code></span></dt>
+    <dt><span><code>Account cannot issue reimbursement for card network</code></span></dt>
   </div>
   <div>
     <dt>400</dt>
@@ -370,44 +370,44 @@ These errors might be returned in the reimbursement `status` update to `failed` 
     </dt>
   </div>
   <div>
-    <dd>400</dd>
-    <dd><span><code>reimbursement-issuing-mismatch</code></span></dd>
-    <dd><span><code>Reimbursements issued by network do not match with original request</code></span></dd>
+    <dt>400</dt>
+    <dt><span><code>reimbursement-issuing-mismatch</code></span></dt>
+    <dt><span><code>Reimbursements issued by network do not match with original request</code></span></dt>
   </div>
   <div>
-    <dd>404</dd>
-    <dd><span><code>reimbursement-network-account-not-found</code></span></dd>
-    <dd><span><code>Network was unable to find bank account</code></span></dd>
+    <dt>404</dt>
+    <dt><span><code>reimbursement-network-account-not-found</code></span></dt>
+    <dt><span><code>Network was unable to find bank account</code></span></dt>
   </div>
   <div>
-    <dd>500</dd>
-    <dd><span><code>reimbursement-network-invalid-account</code></span></dd>
-    <dd><span><code>Network responded bank account is invalid</code></span></dd>
+    <dt>500</dt>
+    <dt><span><code>reimbursement-network-invalid-account</code></span></dt>
+    <dt><span><code>Network responded bank account is invalid</code></span></dt>
   </div>
   <div>
-    <dd>500</dd>
-    <dd><span><code>reimbursement-network-invalid-account-country</code></span></dd>
-    <dd><span><code>Network responded bank account country is invalid</code></span></dd>
+    <dt>500</dt>
+    <dt><span><code>reimbursement-network-invalid-account-country</code></span></dt>
+    <dt><span><code>Network responded bank account country is invalid</code></span></dt>
   </div>
   <div>
-    <dd>500</dd>
-    <dd><span><code>reimbursement-network-invalid-currency</code></span></dd>
-    <dd><span><code>Network responded the selected currency is invalid</code></span></dd>
+    <dt>500</dt>
+    <dt><span><code>reimbursement-network-invalid-currency</code></span></dt>
+    <dt><span><code>Network responded the selected currency is invalid</code></span></dt>
   </div>
   <div>
-    <dd>400</dd>
-    <dd><span><code>reimbursement-network-multiple-accounts-found</code></span></dd>
-    <dd><span><code>Network responded multiple bank accounts were found</code></span></dd>
+    <dt>400</dt>
+    <dt><span><code>reimbursement-network-multiple-accounts-found</code></span></dt>
+    <dt><span><code>Network responded multiple bank accounts were found</code></span></dt>
   </div>
   <div>
-    <dd>500</dd>
-    <dd><span><code>reimbursement-network-others</code></span></dd>
-    <dd><span><code>Network responded with an irregular issue</code></span></dd>
+    <dt>500</dt>
+    <dt><span><code>reimbursement-network-others</code></span></dt>
+    <dt><span><code>Network responded with an irregular issue</code></span></dt>
   </div>
   <div>
-    <dd>500</dd>
-    <dd><span><code>reimbursement-request-failed</code></span></dd>
-    <dd><span><code>Failed to submit reimbursement request to network</code></span></dd>
+    <dt>500</dt>
+    <dt><span><code>reimbursement-request-failed</code></span></dt>
+    <dt><span><code>Failed to submit reimbursement request to network</code></span></dt>
   </div>
 </dl>
 
