@@ -362,27 +362,20 @@ fileName:reimbursement-request.json
 
 These errors might be returned in the reimbursement `status` update to `failed` from the card scheme and sent to the `transaction.reimbursement.status` webhook.
 
-<!-- <ReimbursementTable 
+<ReimbursementTable 
   headings={['StatusCode', 'ErrorCode', 'Error Message']} 
   rows={[
-    ['404', 'reimbursement-issuing-mismatch', 'Reimbursements issued by network do not match with original request'],
-    ['404', 'reimbursement-issuing-mismatch', 'Reimbursements issued by network do not match with original request'],
+    ['400', 'reimbursement-issuing-mismatch', 'Reimbursements issued by network do not match with original request'],
+    ['404', 'reimbursement-network-account-not-found', 'Network was unable to find bank account'],
+    ['404', 'reimbursement-network-customer-not-foun', 'Network was unable to find customer account'],
+    ['500', 'reimbursement-network-invalid-account', 'Network responded bank account is invalid'],
+    ['500', 'reimbursement-network-invalid-account-country', 'Network responded bank account country is invalid'],
+    ['500', 'reimbursement-network-invalid-currency', 'Network responded the selected currency is invalid'],
+    ['400', 'reimbursement-network-multiple-accounts-found', 'Network responded multiple bank accounts were found'],
+    ['500', 'reimbursement-network-others, 'Network responded with an irregular issue'],
+    ['500', 'reimbursement-request-failed, 'Failed to submit reimbursement request to network'],
   ]}
-/> -->
-
-<ReimbursementTable>
-| Status Code |                   Error Code                    |                            Error Message                              |
-|:-----------:|-------------------------------------------------|-----------------------------------------------------------------------|
-|     400     | `reimbursement-issuing-mismatch`                | `Reimbursements issued by network do not match with original request` |
-|     404     | `reimbursement-network-account-not-found`       | `Network was unable to find bank account`                             |
-|     404     | `reimbursement-network-customer-not-found`      | `Network was unable to find customer account`                         |
-|     500     | `reimbursement-network-invalid-account`         | `Network responded bank account is invalid`                           |
-|     500     | `reimbursement-network-invalid-account-country` | `Network responded bank account country is invalid`                   |
-|     500     | `reimbursement-network-invalid-currency`        | `Network responded the selected currency is invalid`                  |
-|     400     | `reimbursement-network-multiple-accounts-found` | `Network responded multiple bank accounts were found `                |
-|     500     | `reimbursement-network-others`                  | `Network responded with an irregular issue`                           |
-|     500     | `reimbursement-request-failed `                 | `Failed to submit reimbursement request to network`                   |
-</ReimbursementTable>
+/>
 
 ### Status Error Example
 
