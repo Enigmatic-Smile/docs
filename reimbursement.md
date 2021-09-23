@@ -362,6 +362,13 @@ fileName:reimbursement-request.json
 
 These errors might be returned in the reimbursement `status` update to `failed` from the card scheme and sent to the `transaction.reimbursement.status` webhook.
 
+<ReimbursementTable 
+  headings={['StatusCode', 'ErrorCode', 'Error Message']} 
+  rows={[
+    ['404', 'reimbursement-issuing-mismatch', 'Reimbursements issued by network do not match with original request'],
+  ]}
+/>
+
 <dl>
   <div>
     <dt>
