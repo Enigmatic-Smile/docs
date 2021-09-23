@@ -1,6 +1,6 @@
-# Reimbursement
+# Reimbursements
 
-Fidel Reimbursement is an adt-on product to _Transaction_ tracking capability, that gives developers the ability to reimburse consumers faster and more easily than ever before, by pushing cash directly onto linked cards.
+Fidel Reimbursement is an adt-on product to _Transaction_ tracking capability, that gives developers the ability to reimburse customers faster and more easily than ever before, by pushing cash directly onto linked cards.
 
 ## Availability
 
@@ -20,7 +20,7 @@ Fidel Credits are non refundable and non transferable. Take into consideration p
 
 ![Credits view in the dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/credits-view.png "Credits view in the dashboard")
 
-## Balance
+### Balance
 
 Your credit balance is updated every time you purchase credits or spend by using Reimbursement. When sending a reimbursement request, the amount is immediately deducted from the balance. If the reimbursement goes to `failed` status, the amount is adted again to the balance. Read more information on the credits balance [endpoint](https://reference.fidel.uk/reference).
 
@@ -138,7 +138,7 @@ In the Credits dashboard view you have access to your credit purchases in _Purch
 
 ![Credits history](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/credits-history.gif "Credits history")
 
-## Reimbursement Request
+## Request
 
 ### Eligibility
 
@@ -156,7 +156,7 @@ Eligibility has a `true` value when the transaction meets the following criteria
 
 - Transaction `time` date is newer than 90 days.
 
-<h3 id="request">Request</h3>
+<h3 id="creating-a-request">Creating a request</h3>
 
 After selecting the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. Visa cards have a maximum reimbursement amount limit of _USD $250_. We currently support `USD` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the reimbursement [API endpoint](https://reference.fidel.uk/reference).
 
@@ -250,7 +250,7 @@ The reimbursement request and status update can fail for various reasons. Your a
 
 ### API Errors
 
-These errors might be returned in the [request](https://fidel.uk/docs/reimbursement/#request) endpoint.
+These errors might be returned in the [request](https://fidel.uk/docs/reimbursement/#creating-a-request) endpoint.
 
 <dl>
   <div>
@@ -440,3 +440,7 @@ fileName:transaction.json
   }
 }
 ```
+
+## API Reference
+
+If you're looking to find out more about our Reimbursement API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference).
