@@ -1,6 +1,6 @@
 # Reimbursements
 
-Fidel Reimbursement is an adt-on product to _Transaction_ tracking capability, that gives developers the ability to reimburse customers faster and more easily than ever before, by pushing cash directly onto linked cards.
+Fidel Reimbursement is an add-on product to _Transaction_ tracking capability, that gives developers the ability to reimburse customers faster and more easily than ever before, by pushing cash directly onto linked cards.
 
 ## Availability
 
@@ -22,7 +22,7 @@ Fidel Credits are non refundable and non transferable. Take into consideration p
 
 ### Balance
 
-Your credit balance is updated every time you purchase credits or spend by using Reimbursement. When sending a reimbursement request, the amount is immediately deducted from the balance. If the reimbursement goes to `failed` status, the amount is adted again to the balance. Read more information on the credits balance [endpoint](https://reference.fidel.uk/reference).
+Your credit balance is updated every time you purchase credits or spend by using Reimbursement. When sending a reimbursement request, the amount is immediately deducted from the balance. If the reimbursement goes to `failed` status, the amount is added again to the balance. Read more information on the credits balance [endpoint](https://reference.fidel.uk/reference).
 
 
 ### Credits Balance Example
@@ -41,7 +41,7 @@ fileName:credits-balance.json
 {
     "items": [
         {
-          "accountId": "61741c3-3dc9-45f5-8e7c-db1dt649afab",
+          "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
           "balances": {
             "AUD": 0,
             "CHF": 0,
@@ -98,7 +98,7 @@ The `credits.balance.low `webhook notifies on the _[Low Balance Notification](ht
 ```json
 fileName:credits-balance.json
 {
-  "accountId": "61741c3-3dc9-45f5-8e7c-db1dt649afab",
+  "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
   "balances": {
     "AUD": 0,
     "CHF": 0,
@@ -168,7 +168,7 @@ Example `amount` set to `2.55` and custom `description` to `Gift from Fidel`.
 
 ```sh
 curl -X POST \
-  https://api.fidel.uk/v1/transactions/{transactionId}/reimbursements \
+  https://api.fidel.uk/v1/transactions/{transactionId}/reimbursement \
   -H 'content-type: application/json' \
   -H 'fidel-key: {your secret key}' \
   -d '{
@@ -199,7 +199,7 @@ fileName:transaction.json
         }
     ],
     "execution": 120.856835,
-    "resource": "/v1/transactions/{transactionId}/reimbursements",
+    "resource": "/v1/transactions/{transactionId}/reimbursement",
     "status": 200
 }
 ```
@@ -353,7 +353,7 @@ fileName:reimbursement-request.json
         "metadata": {}
     },
     "execution": 105.254359,
-    "resource": "/v1/transactions/{transactionId}/reimbursements",
+    "resource": "/v1/transactions/{transactionId}/reimbursement",
     "status": 400
 }
 ```
