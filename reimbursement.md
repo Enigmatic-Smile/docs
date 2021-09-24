@@ -1,6 +1,6 @@
-# Reimbursement
+# Reimbursements
 
-Fidel Reimbursement is an add-on product to _Transaction_ tracking capability, that gives developers the ability to reimburse consumers faster and more easily than ever before, by pushing cash directly onto linked cards.
+Fidel Reimbursement is an add-on product to _Transaction_ tracking capability, that gives developers the ability to reimburse customers faster and more easily than ever before, by pushing cash directly onto linked cards.
 
 ## Availability
 
@@ -20,7 +20,7 @@ Fidel Credits are non refundable and non transferable. Take into consideration p
 
 ![Credits view in the dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/credits-view.png "Credits view in the dashboard")
 
-## Balance
+### Balance
 
 Your credit balance is updated every time you purchase credits or spend by using Reimbursement. When sending a reimbursement request, the amount is immediately deducted from the balance. If the reimbursement goes to `failed` status, the amount is added again to the balance. Read more information on the credits balance [endpoint](https://reference.fidel.uk/reference).
 
@@ -37,6 +37,7 @@ curl -X GET \
 ```
 
 ```json
+fileName:credits-balance.json
 {
     "items": [
         {
@@ -95,6 +96,7 @@ When a currency balance drops to _25%_ of the balance amount you had on your las
 The `credits.balance.low `webhook notifies on the _[Low Balance Notification](https://fidel.uk/docs/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
 
 ```json
+fileName:credits-balance.json
 {
   "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
   "balances": {
@@ -136,7 +138,7 @@ In the Credits dashboard view you have access to your credit purchases in _Purch
 
 ![Credits history](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/credits-history.gif "Credits history")
 
-## Reimbursement Request
+## Request
 
 ### Eligibility
 
@@ -154,7 +156,7 @@ Eligibility has a `true` value when the transaction meets the following criteria
 
 - Transaction `time` date is newer than 90 days.
 
-<h3 id="request">Request</h3>
+<h3 id="creating-a-request">Creating a request</h3>
 
 After selecting the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. Visa cards have a maximum reimbursement amount limit of _USD $250_. We currently support `USD` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the reimbursement [API endpoint](https://reference.fidel.uk/reference).
 
@@ -166,7 +168,7 @@ Example `amount` set to `2.55` and custom `description` to `Gift from Fidel`.
 
 ```sh
 curl -X POST \
-  https://api.fidel.uk/v1/transactions/{transactionId}/reimbursements \
+  https://api.fidel.uk/v1/transactions/{transactionId}/reimbursement \
   -H 'content-type: application/json' \
   -H 'fidel-key: {your secret key}' \
   -d '{
@@ -178,6 +180,7 @@ curl -X POST \
 After the reimbursement request is received by the card scheme, the full transaction is returned with the newly created `transaction.reimbursement` object with `pending` status.
 
 ```json
+fileName:transaction.json
 {
     "items": [
         {
@@ -196,7 +199,7 @@ After the reimbursement request is received by the card scheme, the full transac
         }
     ],
     "execution": 120.856835,
-    "resource": "/v1/transactions/{transactionId}/reimbursements",
+    "resource": "/v1/transactions/{transactionId}/reimbursement",
     "status": 200
 }
 ```
@@ -207,7 +210,7 @@ When you request a reimbursement to an eligible cardholder transaction, we send 
 
 Reimbursement `status` is set to `pending` while waiting for the card scheme to confirm the successful `issued` status, at which point funds normally hit the cardholder’ account. It takes between 48 to 72 hours for the `issued` status to be updated.
 
-![Reimbursement status](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursement-transactions.gif "Reimbursement status")
+![Reimbursement status](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursement-transactions.png "Reimbursement status")
 
 ### Status
 
@@ -224,6 +227,7 @@ Find the reimbursement status in the transaction `reimbursement.status` property
 When a reimbursement status is updated from `pending` to `issued` or `failed` the webhook named `transaction.reimbursement.status` is triggered. The webhook will send the full transaction object with the updated `reimbursement.status`. See the example below with the update to `issued` status:
 
 ```json
+fileName:transaction.json
 {
   // For the purpose of this example, only selected properties are shown
   "cleared": true, 
@@ -246,29 +250,33 @@ The reimbursement request and status update can fail for various reasons. Your a
 
 ### API Errors
 
-These errors might be returned in the [request](https://fidel.uk/docs/reimbursement/#request) endpoint.
+These errors might be returned in the [request](https://fidel.uk/docs/reimbursement/#creating-a-request) endpoint.
 
-| HTTP Status Code |                  Error Code                    |                                   Error Message                                    |
-|:----------------:|------------------------------------------------|------------------------------------------------------------------------------------|
-|        400       | `reimbursement-account-network-inactive`       | `Account cannot issue reimbursement for card network`                              |
-|        400       | `reimbursement-account-not-enough-funds `      | `Account does not have enough funds for issuing reimbursement`                     |
-|        404       | `reimbursement-account-not-found`              | `Account does not exist`                                                           |
-|        400       | `reimbursement-already-created`                | `Transaction reimbursement already created`                                        |
-|        400       | `reimbursement-amount-above-limit`             | `Reimbursement amount is above the allowed limit`                                  |
-|        400       | `reimbursement-amount-greater-original-amount` | `Reimbursement amount is greater than original transaction amount`                 |
-|        400       | `reimbursement-invalid-transaction`            | `Transaction is invalid to issue reimbursement`                                    |
-|        500       | `reimbursement-network-internal-error `        | `Network responded with internal error`                                            |
-|        404       | `reimbursement-transaction-not-found`          | `Transaction does not exist`                                                       |
-|        400       | `reimbursement-unsupported-network`            | `Transaction network not supported for reimbursement`                              |
-|        400       | `reimbursement-unsupported-currency`           | `Transaction currency not supported for reimbursement`                             |
-|        401       | `reimbursement-not-activated`                  | `The reimbursement product is not activated for this account`                      |
-|        400       | `reimbursement-time-limit-after-transaction`   | `Surpassed the time limit after the original transaction to issue a reimbursement` |
-|        400       | `reimbursement-visa-invalid-community-code`    | `The transaction community code is invalid`                                        |
-|        400       | `credits-account-not-enough-funds`             | `Account does not have enough credits`                                             |
+<ReimbursementTable 
+  headings={['HTTP Status Code', 'Error Code', 'Error Message']} 
+  rows={[
+    ['400', 'reimbursement-account-network-inactive', 'Account cannot issue reimbursement for card network'],
+    ['400', 'reimbursement-account-not-enough-funds', 'Account does not have enough funds for issuing reimbursement'],
+    ['404', 'reimbursement-account-not-found', 'Account does not exist'],
+    ['400', 'reimbursement-already-created', 'Transaction reimbursement already created'],
+    ['400', 'reimbursement-amount-above-limit', 'Reimbursement amount is above the allowed limit'],
+    ['400', 'reimbursement-amount-greater-original-amount', 'Reimbursement amount is greater than original transaction amount'],
+    ['400', 'reimbursement-invalid-transaction', 'Transaction is invalid to issue reimbursement'],
+    ['500', 'reimbursement-network-internal-error', 'Network responded with internal error'],
+    ['404', 'reimbursement-transaction-not-found', 'Transaction does not exist'],
+    ['400', 'reimbursement-unsupported-network', 'Transaction network not supported for reimbursement'],
+    ['400', 'reimbursement-unsupported-currency', 'Transaction currency not supported for reimbursement'],
+    ['401', 'reimbursement-not-activated', 'The reimbursement product is not activated for this account'],
+    ['400', 'reimbursement-time-limit-after-transaction', 'Surpassed the time limit after the original transaction to issue a reimbursement'],
+    ['400', 'reimbursement-visa-invalid-community-code', 'The transaction community code is invalid'],
+    ['400', 'credits-account-not-enough-funds', 'Account does not have enough credits'],
+  ]}
+/>
 
 ### API Error Example
 
 ```json
+fileName:reimbursement-request.json
 {
     "error": {
         "code": "reimbursement-amount-greater-original-amount",
@@ -277,7 +285,7 @@ These errors might be returned in the [request](https://fidel.uk/docs/reimbursem
         "metadata": {}
     },
     "execution": 105.254359,
-    "resource": "/v1/transactions/{transactionId}/reimbursements",
+    "resource": "/v1/transactions/{transactionId}/reimbursement",
     "status": 400
 }
 ```
@@ -286,21 +294,25 @@ These errors might be returned in the [request](https://fidel.uk/docs/reimbursem
 
 These errors might be returned in the reimbursement `status` update to `failed` from the card scheme and sent to the `transaction.reimbursement.status` webhook.
 
-| Status Code |                   Error Code                    |                            Error Message                              |
-|:-----------:|-------------------------------------------------|-----------------------------------------------------------------------|
-|     400     | `reimbursement-issuing-mismatch`                | `Reimbursements issued by network do not match with original request` |
-|     404     | `reimbursement-network-account-not-found`       | `Network was unable to find bank account`                             |
-|     404     | `reimbursement-network-customer-not-found`      | `Network was unable to find customer account`                         |
-|     500     | `reimbursement-network-invalid-account`         | `Network responded bank account is invalid`                           |
-|     500     | `reimbursement-network-invalid-account-country` | `Network responded bank account country is invalid`                   |
-|     500     | `reimbursement-network-invalid-currency`        | `Network responded the selected currency is invalid`                  |
-|     400     | `reimbursement-network-multiple-accounts-found` | `Network responded multiple bank accounts were found `                |
-|     500     | `reimbursement-network-others`                  | `Network responded with an irregular issue`                           |
-|     500     | `reimbursement-request-failed `                 | `Failed to submit reimbursement request to network`                   |
+<ReimbursementTable 
+  headings={['Status Code', 'Error Code', 'Error Message']} 
+  rows={[
+    ['400', 'reimbursement-issuing-mismatch', 'Reimbursements issued by network do not match with original request'],
+    ['404', 'reimbursement-network-account-not-found', 'Network was unable to find bank account'],
+    ['404', 'reimbursement-network-customer-not-foun', 'Network was unable to find customer account'],
+    ['500', 'reimbursement-network-invalid-account', 'Network responded bank account is invalid'],
+    ['500', 'reimbursement-network-invalid-account-country', 'Network responded bank account country is invalid'],
+    ['500', 'reimbursement-network-invalid-currency', 'Network responded the selected currency is invalid'],
+    ['400', 'reimbursement-network-multiple-accounts-found', 'Network responded multiple bank accounts were found'],
+    ['500', 'reimbursement-network-others', 'Network responded with an irregular issue'],
+    ['500', 'reimbursement-request-failed', 'Failed to submit reimbursement request to network'],
+  ]}
+/>
 
 ### Status Error Example
 
 ```json
+fileName:transaction.json
 {
   // For the purpose of this example, only selected properties are shown
   "cleared": true, 
@@ -321,3 +333,7 @@ These errors might be returned in the reimbursement `status` update to `failed` 
   }
 }
 ```
+
+## API Reference
+
+If you're looking to find out more about our Reimbursement API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference).
