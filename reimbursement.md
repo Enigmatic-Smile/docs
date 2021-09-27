@@ -1,4 +1,4 @@
-# Reimbursements
+# Reimbursement
 
 Fidel Reimbursement is an add-on product to _Transaction_ tracking capability, that gives developers the ability to reimburse customers faster and more easily than ever before, by pushing cash directly onto linked cards.
 
