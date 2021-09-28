@@ -222,7 +222,7 @@ Find the reimbursement status in the transaction `reimbursement.status` property
 
 - `failed`: scheme request failed and `transaction.reimbursement.error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement/#errors).
 
-### Webhook
+## Webhook
 
 When a reimbursement status is updated from `pending` to `issued` or `failed` the webhook named `transaction.reimbursement.status` is triggered. The webhook will send the full transaction object with the updated `reimbursement.status`. See the example below with the update to `issued` status:
 
