@@ -22,7 +22,7 @@ Fidel Credits are non refundable and non transferable. Take into consideration p
 
 ### Balance
 
-Your credit balance is updated every time you purchase credits or spend by using Reimbursement. When sending a reimbursement request, the amount is immediately deducted from the balance. If the reimbursement goes to `failed` status, the amount is added again to the balance. Read more information on the credits balance [endpoint](https://reference.fidel.uk/reference).
+Your credit balance is updated every time you purchase credits or spend by using Reimbursement. When sending a reimbursement request, the amount is immediately deducted from the balance. If the reimbursement goes to `failed` status, the amount is added again to the balance. Read more information on the [credits balance endpoint](https://reference.fidel.uk/reference#get-account-balance).
 
 
 ### Credits Balance Example
@@ -134,7 +134,7 @@ fileName:credits-balance.json
 
 ### History
 
-In the Credits dashboard view you have access to your credit purchases in _Purchased credits_ and credit spent in _Reimbursements_. Read more information on the credits history [endpoint](https://reference.fidel.uk/reference).
+In the Credits dashboard view you have access to your credit purchases in _Purchased credits_ and credit spent in _Reimbursements_. Read more information on the [credits history endpoint](https://reference.fidel.uk/reference#get-credits-history).
 
 ![Credits history](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/credits-history.gif "Credits history")
 
@@ -158,13 +158,13 @@ Eligibility has a `true` value when the transaction meets the following criteria
 
 <h3 id="creating-a-request">Creating a request</h3>
 
-After selecting the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. Visa cards have a maximum reimbursement amount limit of _USD $250_. We currently support `USD` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the reimbursement [API endpoint](https://reference.fidel.uk/reference).
+After selecting the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. Visa cards have a maximum reimbursement amount limit of _USD $250_. We currently support `USD` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the [create reimbursement endpoint](https://reference.fidel.uk/reference#create-reimbursement).
 
 ![Creating a reimbursement](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursing.gif "Creating a reimbursement")
 
 ### Reimbursement Example
 
-Example `amount` set to `2.55` and custom `description` to `Gift from Fidel`.
+Example `amount` set to `2.55` and custom `description` to `Earned Stars`.
 
 ```sh
 curl -X POST \
@@ -173,7 +173,7 @@ curl -X POST \
   -H 'fidel-key: {your secret key}' \
   -d '{
     "amount": 2.55,
-    "description": "Gift from Fidel"
+    "description": "Earned Stars"
   }'
 ```
 
@@ -193,7 +193,7 @@ fileName:transaction.json
               "amount": 2.55,
               "created": "2021-09-30T11:11:11.000Z",
               "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
-              "description": "Gift from Fidel",
+              "description": "Earned Stars",
               "status": "pending"
             }
         }
@@ -238,7 +238,7 @@ fileName:transaction.json
     "amount": 2.55,
     "created": "2021-09-30T11:11:11.000Z",
     "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
-    "description": "Gift from Fidel",
+    "description": "Earned Stars",
     "status": "issued"
   }
 }
@@ -328,7 +328,7 @@ fileName:transaction.json
       "message": "Network was unable to find bank account",
       "status": 404 
     },
-    "description": "Gift from Fidel",
+    "description": "Earned Stars",
     "status": "failed"
   }
 }
