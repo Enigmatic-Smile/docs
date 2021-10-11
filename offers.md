@@ -417,7 +417,7 @@ fileName:offer.json
       <span><code>feeSplit</code></span>
       <em>number</em>
     </dt>
-    <dd>Explains the amount to be awarded to the publisher (Fidel customer) as their performance fee. Offers with the type amount will use the indicated country’s currency and apply the value as the amount, for example, £2. Offers with the discount type applies the value as a percentage, for example, 2% of the transaction value.</dd>
+    <dd>Explains the amount to be awarded to the publisher (Fidel customer) as their performance fee. Offers with the <code>amount</code> type will use the indicated country’s currency and apply the value as the amount, for example, £2. Offers with the <code>discount</code> type applies the value as a percentage, for example, 2% of the transaction value.</dd>
   </div>
   <div>
     <dt>
