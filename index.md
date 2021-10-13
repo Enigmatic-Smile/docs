@@ -48,7 +48,6 @@ Check out the [API Reference](https://reference.fidel.uk) to see all available r
 Join our [Developer Community](https://community.fidel.uk/) for API discussions, documentation, frequently asked questions, roadmap and new features. We’re always happy to help and answer any questions.
 
 ## Card Linking
-
 The [iOS](/mobile-sdks/#ios), [Android](/mobile-sdks/#android) and [Web](/web-sdk/v3) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
 By using Fidel SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements. [Our Card-Linking tutorial](/tutorials/card-linking) explains in detail all the steps required to build a card-linking feature into your application using the Fidel SDKs.
@@ -64,8 +63,8 @@ Your apps will receive an `id` back that identifies the card in each transaction
 </div>
 
 <button id="link-card-button" class="with-icon" type="submit" onClick={() => Fidel.openForm()}>
-<img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/eye.svg" />
-<span>View demo</span>
+  <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/eye.svg" />
+  <span>View demo</span>
 </button>
 
 Use one of our [test card](/cards/#testing-card-numbers) numbers (for example `4444000000004004`) and enter an expiry date in the future.
