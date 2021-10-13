@@ -183,7 +183,7 @@ First, at the top of your `/src/App.js` file, import `useEffect` from React.
 import { useEffect } from "react";
 ```
 
-The Fidel Web SDK is a JavaScript file hosted at `https://resources.fidel.uk/sdk/js/v2/fidel.js`. The required attributes for functioning correctly are the Fidel SDK Key, the Program Id and the company name. 
+The Fidel Web SDK is a JavaScript file hosted at `https://resources.fidel.uk/sdk/js/v3/fidel.js`. The required attributes for functioning correctly are the Fidel SDK Key, the Program Id and the company name. 
 
 You can find the SDK Key in the ["Account" section of the Fidel Dashboard](https://dashboard.fidel.uk/account/plan). For the purpose of this tutorial, use the Test SDK Key. It should start with `pk_test_`. The Program Id can be found in the ["Program" section of the Dashboard](https://dashboard.fidel.uk/programs). The Demo Program that comes with each new account has a contextual menu that you can use to copy the program ID. For the company name, you can use anything you want. For the purposes of this tutorial, use something generic like "Fidel Card-Linking Application".
 
@@ -197,7 +197,7 @@ function App() {
     document.getElementById("fidel-form")?.remove();
 
     const sdkScript = document.createElement("script");
-    sdkScript.src = "https://resources.fidel.uk/sdk/js/v2/fidel.js";
+    sdkScript.src = "https://resources.fidel.uk/sdk/js/v3/fidel.js";
     sdkScript.id = "fidel-form";
 
     const attributes = {
