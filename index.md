@@ -16,7 +16,7 @@
 </div>
 <div class="row">
   <div class="column">
-    <a href="/web-sdk/v2" data-path="/web-sdk/v2" class="content">
+    <a href="/web-sdk/v3" data-path="/web-sdk/v3" class="content">
       <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/web_sdk.svg" />
       <h2 data-no-link>Web SDK</h2>
       <h3>Learn to integrate a secure Javascript SDK to link cards on your website</h3>
@@ -32,6 +32,7 @@
 </div>
 
 ## Introduction
+
 Fidel API provides a developer-friendly, secure and reliable API for businesses to link payment cards with mobile and web applications. Through a single API, developers can securely access data from the three major card networks and build their applications on top of the powerful payments infrastructure.
 
 **When a consumer makes a purchase at a participating store with a linked card, Fidel API spots that transaction and sends it to your server in real-time through webhooks.** 💳⚡️
@@ -47,7 +48,7 @@ Check out the [API Reference](https://reference.fidel.uk) to see all available r
 Join our [Developer Community](https://community.fidel.uk/) for API discussions, documentation, frequently asked questions, roadmap and new features. We’re always happy to help and answer any questions.
 
 ## Card Linking
-The [iOS](/mobile-sdks/#ios), [Android](/mobile-sdks/#android) and [Web](/web-sdk/v2) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
+The [iOS](/mobile-sdks/#ios), [Android](/mobile-sdks/#android) and [Web](/web-sdk/v3) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
 By using Fidel SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements. [Our Card-Linking tutorial](/tutorials/card-linking) explains in detail all the steps required to build a card-linking feature into your application using the Fidel SDKs.
 
@@ -74,7 +75,7 @@ Use one of our [test card](/cards/#testing-card-numbers) numbers (for example `4
 fileName:index.html
 <script
   type="text/javascript"
-  src="https://resources.fidel.uk/sdk/js/v2/fidel.js"
+  src="https://resources.fidel.uk/sdk/js/v3/fidel.js"
   class="fidel-form"
   data-company-name="Your Company"
   data-key="pk_test_demo"
@@ -85,8 +86,8 @@ fileName:index.html
   data-subtitle="Earn 1 point for every £1 spent online or in-store"
   data-privacy-url="https://yourcompany.com/privacy"
   data-delete-instructions="tapping remove in your settings page."
-  data-button-title="Link Card">
-</script>
+  data-button-title="Link Card"
+></script>
 ```
 
-Check the [Web SDK documentation](/web-sdk/v2) section for more information about all available parameters, customization options, and the metadata nested object.
+Check the [Web SDK documentation](/web-sdk/v3) section for more information about all available parameters, customization options, and the metadata nested object.
