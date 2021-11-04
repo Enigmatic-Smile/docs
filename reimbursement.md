@@ -4,7 +4,7 @@ Fidel Reimbursement is an add-on product to _Transaction_ tracking capability, t
 
 ## Availability
 
-Reimbursement is supported by both Visa and Mastercard in the US. Your account must be setup in the US to have access to the Reimbursement product.
+Reimbursement supports both debit and credits cards by Visa and Mastercard in the US. Your account must be setup in the US to have access to the Reimbursement product.
 
 ## Activation
 
