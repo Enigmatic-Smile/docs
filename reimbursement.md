@@ -93,7 +93,7 @@ When a currency balance drops to _25%_ of the balance amount you had on your las
 
 ### Low Balance Webhook
 
-The `credits.balance.low `webhook notifies on the _[Low Balance Notification](https://fidel.uk/docs/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
+The `credits.balance.low` webhook notifies on the _[Low Balance Notification](https://fidel.uk/docs/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
 
 ```json
 fileName:credits-balance.json
@@ -140,7 +140,7 @@ In the Credits dashboard view you have access to your credit purchases in _Purch
 
 ## Eligibility
 
-The reimbursement request is done towards a cardholder transaction with the path parameter transactionId and it needs to meet the eligibility criteria that can be checked with the transaction boolean property reimbursementEligible. You must be using the API version 2021-09-28 or newer to have the property available in your transactions.
+The reimbursement request is done towards a cardholder transaction with the path parameter `transactionId` and it needs to meet the eligibility criteria that can be checked with the transaction boolean property `reimbursementEligible`. You must be using the API version `2021-09-28` or newer to have the property available in your transactions.
 
 Eligibility has a `true` value when the transaction meets the following criteria:
 
@@ -290,10 +290,15 @@ When a reimbursement status is updated from `pending` to `issued` or `failed` th
 fileName:transaction.json
 {
   // For the purpose of this example, only selected properties are shown
+  "amount": 10,
   "cleared": true, 
   "currency": "USD",
-  "scheme": "visa",
-  "time": "2021-08-20T11:11:11.000Z",
+  "card": {
+    // For the purpose of this example, only selected properties are shown
+    "scheme": "visa",
+  },
+  "datetime": "2021-08-20T11:11:11",
+  "reimbursementEligible": false,
   "reimbursement": {
     "amount": 2.55,
     "created": "2021-09-30T11:11:11.000Z",
@@ -377,8 +382,12 @@ fileName:transaction.json
   // For the purpose of this example, only selected properties are shown
   "cleared": true, 
   "currency": "USD",
-  "scheme": "visa",
-  "time": "2021-08-20T11:11:11.000Z",
+  "card": {
+    // For the purpose of this example, only selected properties are shown
+    "scheme": "visa",
+  },
+  "datetime": "2021-08-20T11:11:11",
+  "reimbursementEligible": true,
   "reimbursement": {
     "amount": 2.55,
     "created": "2021-09-30T11:11:11.000Z",
