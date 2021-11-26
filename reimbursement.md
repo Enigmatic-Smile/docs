@@ -93,7 +93,7 @@ When a currency balance drops to _25%_ of the balance amount you had on your las
 
 ### Low Balance Webhook
 
-The `credits.balance.low `webhook notifies on the _[Low Balance Notification](https://fidel.uk/docs/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
+The `credits.balance.low` webhook notifies on the _[Low Balance Notification](https://fidel.uk/docs/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
 
 ```json
 fileName:credits-balance.json
@@ -138,11 +138,9 @@ In the Credits dashboard view you have access to your credit purchases in _Purch
 
 ![Credits history](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/credits-history.gif "Credits history")
 
-## Request
+## Eligibility
 
-### Eligibility
-
-The reimbursement request is done towards a cardholder transaction with the path parameter transactionId and it needs to meet the eligibility criteria that can be checked with the transaction boolean property reimbursementEligible. You must be using the API version 2021-09-28 or newer to have the property available in your transactions.
+The reimbursement request is done towards a cardholder transaction with the path parameter `transactionId` and it needs to meet the eligibility criteria that can be checked with the transaction boolean property `reimbursementEligible`. You must be using the API version `2021-09-28` or newer to have the property available in your transactions.
 
 Eligibility has a `true` value when the transaction meets the following criteria:
 
@@ -156,9 +154,66 @@ Eligibility has a `true` value when the transaction meets the following criteria
 
 - Transaction `time` date is newer than 90 days.
 
-<h3 id="creating-a-request">Creating a request</h3>
+### Finding Eligible Transactions by Card
 
-After selecting the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. Visa cards have a maximum reimbursement amount limit of _USD $250_. We currently support `USD` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the [create reimbursement endpoint](https://reference.fidel.uk/reference#create-reimbursement).
+Find eligible card transactions with `cardId` for a specific `amount` and `currency`. Optionally pass `brandId` to find transactions in a specific brand.
+
+Transactions are sorted automatically in descending order by the best available, following the eligibility criteria, giving more emphasis on the transaction time and then amount. Read more information on the [find eligible reimbursement transactions endpoint](https://reference.fidel.uk/reference/get-transactions-for-reimbursement-by-card).
+
+![Reimbursement by Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimburse-card.gif "Reimbursement by Card")
+
+### Eligible Transactions Example
+
+Example `amount` set to `5`, `currency` to `USD` and `brandId` to `Star`. 
+
+```sh
+curl -X GET \
+  GET https://api.fidel.uk/v1/cards/{cardId}/transactions/reimbursement?amount={amount}&currency={currency}&brandId={brandId} \
+  -H 'content-type: application/json' \
+  -H 'fidel-key: {your secret key}'
+```
+
+```json
+fileName:transaction.json
+{
+  "count": 2,
+  "items": [
+    {
+      // For the purpose of this example, only selected properties are shown
+      "amount": 10,
+      "cleared": true, 
+      "currency": "USD",
+      "card": {
+        // For the purpose of this example, only selected properties are shown
+        "scheme": "visa",  
+      },
+      "datetime": "2021-08-20T11:11:11",
+      "reimbursementEligible": true
+    },
+    {
+      // For the purpose of this example, only selected properties are shown
+      "amount": 20,
+      "cleared": true, 
+      "currency": "USD",
+      "card": {
+        // For the purpose of this example, only selected properties are shown
+        "scheme": "visa",  
+      },
+      "datetime": "2021-10-20T11:11:11",
+      "reimbursementEligible": true
+    }
+  ],
+  "resource": "/v1/cards/{cardId}/transactions/reimbursement",
+  "status": 200,
+  "execution": 26.392104
+}
+```
+
+## Request
+
+### Creating a request
+
+After choosing the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. Visa cards have a maximum reimbursement amount limit of _USD $250_. We currently support `USD` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the [create reimbursement endpoint](https://reference.fidel.uk/reference#create-reimbursement).
 
 ![Creating a reimbursement](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursing.gif "Creating a reimbursement")
 
@@ -185,10 +240,15 @@ fileName:transaction.json
     "items": [
         {
             // For the purpose of this example, only selected properties are shown
+            "amount": 10,
             "cleared": true, 
             "currency": "USD",
-            "scheme": "visa",
-            "time": "2021-08-20T11:11:11.000Z",
+            "card": {
+              // For the purpose of this example, only selected properties are shown
+              "scheme": "visa",  
+            },
+            "datetime": "2021-08-20T11:11:11",
+            "reimbursementEligible": false,
             "reimbursement": {
               "amount": 2.55,
               "created": "2021-09-30T11:11:11.000Z",
@@ -230,10 +290,15 @@ When a reimbursement status is updated from `pending` to `issued` or `failed` th
 fileName:transaction.json
 {
   // For the purpose of this example, only selected properties are shown
+  "amount": 10,
   "cleared": true, 
   "currency": "USD",
-  "scheme": "visa",
-  "time": "2021-08-20T11:11:11.000Z",
+  "card": {
+    // For the purpose of this example, only selected properties are shown
+    "scheme": "visa",
+  },
+  "datetime": "2021-08-20T11:11:11",
+  "reimbursementEligible": false,
   "reimbursement": {
     "amount": 2.55,
     "created": "2021-09-30T11:11:11.000Z",
@@ -250,7 +315,7 @@ The reimbursement request and status update can fail for various reasons. Your a
 
 ### API Errors
 
-These errors might be returned in the [request](https://fidel.uk/docs/reimbursement/#creating-a-request) endpoint.
+These errors might be returned in the [request](https://fidel.uk/docs/reimbursement/#request) endpoint.
 
 <ReimbursementTable 
   headings={['HTTP Status Code', 'Error Code', 'Error Message']} 
@@ -317,8 +382,12 @@ fileName:transaction.json
   // For the purpose of this example, only selected properties are shown
   "cleared": true, 
   "currency": "USD",
-  "scheme": "visa",
-  "time": "2021-08-20T11:11:11.000Z",
+  "card": {
+    // For the purpose of this example, only selected properties are shown
+    "scheme": "visa",
+  },
+  "datetime": "2021-08-20T11:11:11",
+  "reimbursementEligible": true,
   "reimbursement": {
     "amount": 2.55,
     "created": "2021-09-30T11:11:11.000Z",
