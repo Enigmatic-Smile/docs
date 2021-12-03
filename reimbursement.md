@@ -282,7 +282,7 @@ Find the reimbursement status in the transaction `reimbursement.status` property
 
 - `failed`: scheme request failed and `transaction.reimbursement.error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement/#errors).
 
-## Automating Reimbursements with Offers
+## Automation
 
 Automate reimbursement requests when creating an Offer by toggling the “enable automatic reimbursements” checkbox. This toggle will be available if the reimbursement product is active and the Offer’s country is the `USA`.
 
