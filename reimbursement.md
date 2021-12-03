@@ -282,6 +282,87 @@ Find the reimbursement status in the transaction `reimbursement.status` property
 
 - `failed`: scheme request failed and `transaction.reimbursement.error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement/#errors).
 
+## Automating Reimbursements with Offers
+
+Automate reimbursement requests when creating an Offer by toggling the “enable automatic reimbursements” checkbox. This toggle will be available if the reimbursement product is active and the Offer’s country is the `USA`.
+
+![Automatic reimbursement with Offers](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/offers-automatic-reimbursement.gif "Automatic reimbursement with Offers")
+
+Reimbursements will be automatically requested whenever a transaction **is both cleared and qualified** for an Offer with `offer.automatedReimbursement.enabled` set to `true`.
+
+Read more information on the Offers product [in the documentation page](https://fidel.uk/docs/offers).
+
+### Tracking before issuing
+
+Track if a transaction will get a reimbursement request by checking the transaction’s `offer` object:
+
+```json
+fileName:transaction-with-offer.json
+{
+  // For the purpose of this example, only selected properties are shown
+  "amount": 10,
+  "amount": 10,
+  "cleared": true, 
+  "currency": "USD",
+  "datetime": "2021-08-20T11:11:11",
+  "reimbursementEligible": true,
+  "offer": {
+    "automatedReimbursement": true,
+    "id": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
+    "cashback": 20,
+    "message": [],
+    "performanceFee": 3.2,
+    "qualified": false,
+    "qualificationDate": null
+  },
+}
+```
+
+The `offer.automatedReimbursement` states whether a reimbursement request will be attempted for that transaction or not. The reimbursement will have the same amount as the `offer.cashback` property and the same currency as `currency`. Transactions that already have a `reimbursement` object will not have any reimbursements requested automatically.
+
+Transactions with expected automated reimbursement attempts are shown in the dashboard with a grey label on the reimbursements column.
+
+![Transactions with auto-reimbursements](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/transactions-auto-reimbursements.png "Transactions with auto-reimbursements")
+
+### Tracking after issuing
+
+Automated reimbursement attempts have the same payloads as regular reimbursements requests and also include three new properties to provide the user with more information on how and why they were requested - `automated`, `issuingBrandId`, `issuingOfferId`.
+
+The `reimbursement.automated` property states whether that reimbursement request was issued automatically. Automated reimbursements are those that were not triggered directly by the user (via API or dashboard).
+
+The `reimbursement.issuingBrandId` and `reimbursement.issuingOfferId` properties are informative properties which only exist for automated reimbursements and inform the user of what context the reimbursement was requested in.
+
+```json
+fileName:transaction-with-offer.json
+{
+  // For the purpose of this example, only selected properties are shown
+  "amount": 10,
+  "cleared": true, 
+  "currency": "USD",
+  "datetime": "2021-08-20T11:11:11",
+  "reimbursementEligible": true,
+  "reimbursement": {
+    "amount": 2.55,
+    "automated": true,
+    "created": "2021-09-30T11:11:11.000Z",
+    "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
+    "description": "Earned Stars",
+    "issuingBrandId": "459170aa-7490-467d-bb4d-19b35139e325",
+    "issuingOfferId": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
+    "status": "pending"
+  },
+  "offer": {
+    "automatedReimbursement": true,
+    "id": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
+    "cashback": 20,
+    "message": [],
+    "performanceFee": 3.2,
+    "qualified": false,
+    "qualificationDate": null
+  },
+}
+```
+
 ## Webhook
 
 When a reimbursement status is updated from `pending` to `issued` or `failed` the webhook named `transaction.reimbursement.status` is triggered. The webhook will send the full transaction object with the updated `reimbursement.status`. See the example below with the update to `issued` status:
