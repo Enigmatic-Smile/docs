@@ -280,7 +280,7 @@ Find the reimbursement status in the transaction `reimbursement.status` property
 
 - `issued`: scheme executed request successfully;
 
-- `failed`: scheme request failed and `transaction.reimbursement.error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement/#errors).
+- `failed`: scheme request failed and `transaction.reimbursement.error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement#errors).
 
 ## Automation
 
@@ -363,6 +363,10 @@ fileName:transaction-with-offer.json
 }
 ```
 
+### Failed automated reimbursements
+
+Automated reimbursement requests can fail – e.g.: account does not have enough credits, transient issue or transaction is not reimbursement eligible (see [Eligibility](https://fidel.uk/docs/reimbursement#eligibility) section). In these cases, they can be retried as described in the [Retry](https://fidel.uk/docs/reimbursement#retry) section.
+
 ## Webhook
 
 When a reimbursement status is updated from `pending` to `issued` or `failed` the webhook named `transaction.reimbursement.status` is triggered. The webhook will send the full transaction object with the updated `reimbursement.status`. See the example below with the update to `issued` status:
@@ -393,6 +397,12 @@ fileName:transaction.json
 ## Errors
 
 The reimbursement request and status update can fail for various reasons. Your application should handle these errors accordingly.
+
+<h3 id="retry">Retry</h3>
+
+Reimbursement requests can be retried via API or dashboard.
+
+![Retry reimbursement](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/retry-reimbursement.gif "Retry reimbursement")
 
 ### API Errors
 
