@@ -12,6 +12,6 @@ jobs:
     steps:
       - name: Trigger deploy
         uses: joelwmale/webhook-action@master
-        env:
-          WEBHOOK_URL: ${{ secrets.DEPLOY_PREVIEW_WEBHOOK_URL }}
-          data: ${{ github.head_ref }}
+        with:
+          url: ${{ secrets.DEPLOY_PREVIEW_WEBHOOK_URL }}
+          body: '{"data": "${{ github.head_ref }}"}'
