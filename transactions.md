@@ -36,8 +36,7 @@ fileName:transaction.json
     "lastNumbers": "5001",
     "scheme": "visa",
     "metadata": {
-      "id": "00012345",
-      "name": "Joseph Cooper"
+      "id": "00012345"
     }
   },
   "identifiers": {
