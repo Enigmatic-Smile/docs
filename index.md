@@ -62,7 +62,7 @@ Your apps will receive an `id` back that identifies the card in each transaction
   />
 </div>
 
-<button id="link-card-button" class="with-icon" type="submit" onClick={() => Fidel.openForm()}>
+<button id="link-card-button" class="with-icon" type="submit" onClick={() => window.location.href = "/docs/web-sdk/v3/#web-sdk-codepen"}>
   <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/eye.svg" />
   <span>View demo</span>
 </button>
