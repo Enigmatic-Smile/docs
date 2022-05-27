@@ -51,13 +51,13 @@ curl -X POST https://api.fidel.uk/v1/offers \
 
 These are the minimum required parameters to create a new Offer:
 
-* `brandId`: Unique identifier for the Brand presenting the Offer.
-* `countryCode`: Country where the Offer will be available.
-* `name`: Name of your Offer.
-* `publisherId`: Unique identifier for you, the same as your Fidel `accountId`.
-* `startDate`: The start date for the Offer. The `startDate` time will be a local time relative to the Location where the Offer is active.
-* `type: name`: Type of the Offer. Valid names are `"amount"` and `"discount"`.  
-* `type: value`: Numeric value of the discount associated with the Offer.
+- `brandId`: Unique identifier for the Brand presenting the Offer.
+- `countryCode`: Country where the Offer will be available.
+- `name`: Name of your Offer.
+- `publisherId`: Unique identifier for you, the same as your Fidel `accountId`.
+- `startDate`: The start date for the Offer. The `startDate` time will be a local time relative to the Location where the Offer is active.
+- `type: name`: Type of the Offer. Valid names are `"amount"` and `"discount"`.
+- `type: value`: Numeric value of the discount associated with the Offer.
 
 Offers with the type `amount` will use the indicated country's currency and apply the value as the amount of the discount, for example, `£20 Off`. The `discount` type applies the value as a percentage discount, for example, `20% Off`.
 
@@ -65,20 +65,19 @@ Offers with the type `amount` will use the indicated country's currency and appl
 
 There are a range of optional parameters available, which influence how the Offer behaves on the Fidel platform. You can read more about the endpoint's full specification on our [API Reference](https://reference.fidel.uk/reference#create-offer).
 
-* `activation`: An object, showing if the Offer needs activation or not. Default is `{ enabled: false }`.
-* `activation: enabled`: Boolean showing if the Offer needs to be activated on Cards or not. If it's `true`, the `activation` object also has a `qualifiedTransactionsLimit` property. **Please read the section below on Offer Activation before using this parameter.**
-* `activation: qualifiedTransactionsLimit`: Number of Transactions to qualify for each Offer activation. Default is 1.
-* `daysOfWeek`: Array of numbers, with possible values from 0 to 6, to indicate the days of the week. 0 = Sunday, 1 = Monday, etc.
-* `endDate`: The date to automatically end the Offer. Same as `startDate`, the time will be a local time relative to the Location where the Offer was active.
-* `funded: id`: Unique identifier for the account that funds the Offer. For self-funded Offers, this is not required. In the test environment, all Offers are self-funded, so this will always be the same as your `accountId`.
-* `funded: type`: Type of Offer funding. Possible values are `"merchant"`, `"card-linking"` and `"affiliate"`. In the test environment, you can only create card-linked Offers, so the funding type will always be `"card-linking"`.
-* `maxTransactionAmount`: Maximum amount for a Transaction to qualify for the Offer. For example, suppose your promotion sounded something similar to "Save 25% on purchases over £50, save 40% on purchases over £100". In that case, the first Offer should have a `maxTransactionAmout` of £100.
-* `minTransactionAmount`: Minimum amount for a Transaction to qualify for the Offer. For example, suppose your promotion sounded something similar to "Save 25% on purchases over £50". In that case, the Offer should have a `minTransactionAmount` of £50.
-* `metadata`: Object with your own metadata, will be returned on the Offer object.
-* `returnPeriod`: Number of days between when a Transaction was created and when a Transaction qualifies for the Offer. The qualified Transaction will have the `offer.qualificationDate` set to the creation date plus the number of days in the return period.
-* `schemes`: Array of schemes for which a Transaction qualifies for the Offer. Possible values are `"amex"`, `"mastercard"` and `"visa"`.
-* `type: maxRewardAmount`: Numeric value of the maximum amount to be awarded for the Offer. Only applies to `discount` type Offers.
-
+- `activation`: An object, showing if the Offer needs activation or not. Default is `{ enabled: false }`.
+- `activation: enabled`: Boolean showing if the Offer needs to be activated on Cards or not. If it's `true`, the `activation` object also has a `qualifiedTransactionsLimit` property. **Please read the section below on Offer Activation before using this parameter.**
+- `activation: qualifiedTransactionsLimit`: Number of Transactions to qualify for each Offer activation. Default is 1.
+- `daysOfWeek`: Array of numbers, with possible values from 0 to 6, to indicate the days of the week. 0 = Sunday, 1 = Monday, etc.
+- `endDate`: The date to automatically end the Offer. Same as `startDate`, the time will be a local time relative to the Location where the Offer was active.
+- `funded: id`: Unique identifier for the account that funds the Offer. For self-funded Offers, this is not required. In the test environment, all Offers are self-funded, so this will always be the same as your `accountId`.
+- `funded: type`: Type of Offer funding. Possible values are `"merchant"`, `"card-linking"` and `"affiliate"`. In the test environment, you can only create card-linked Offers, so the funding type will always be `"card-linking"`.
+- `maxTransactionAmount`: Maximum transaction amount generating a proportional reward. For example, a 10% reward with a max transaction amount of £100 can't generate a reward larger than £10, even if the transaction amount is higher than £100.
+- `minTransactionAmount`: Minimum transaction amount to qualify for the offer. For example, if your offer is to save 25% on purchases over £50, then the Offer should have a `minTransactionAmount` of £50.
+- `metadata`: Object with your own metadata, will be returned on the Offer object.
+- `returnPeriod`: Number of days between when a Transaction was created and when a Transaction qualifies for the Offer. The qualified Transaction will have the `offer.qualificationDate` set to the creation date plus the number of days in the return period.
+- `schemes`: Array of schemes for which a Transaction qualifies for the Offer. Possible values are `"amex"`, `"mastercard"` and `"visa"`.
+- `type: maxRewardAmount`: Numeric value of the maximum amount to be awarded for the Offer. Only applies to `discount` type Offers.
 
 ### Create an Offer in the Dashboards
 
@@ -127,6 +126,7 @@ If you need to link more Locations after you've created an Offer, the [Locations
 Alternatively, you can edit an Offer in the Fidel Dashboard, which will allow you to link more Locations in the second step of the Offer drawer.
 
 ![Edit Offer Link Locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-edit-offer.gif "Edit Offer Link Locations")
+
 ## Offers with Activation
 
 Offers with activation require an Offer to be activated on a Card before they can go through the qualification process. Developers can use the Offers API to specify an Offer requires activation. When [creating an Offer](https://reference.fidel.uk/v1/reference#create-offer), the `activation` object should have the `enabled: true` property and a `qualifiedTransactionsLimit` property higher or equal to 1. The `qualifiedTransactionsLimit` property specifies how many Transactions will be qualified for each Offer activation. Here's a cURL example:
@@ -445,7 +445,7 @@ fileName:offer.json
       <span><code>maxTransactionAmount</code></span>
       <em>number</em>
     </dt>
-    <dd>Maximum amount needed for a Transaction to qualify for the Offer.</dd>
+    <dd>Maximum transaction amount generating a proportional reward.</dd>
   </div>
   <div>
     <dt>
