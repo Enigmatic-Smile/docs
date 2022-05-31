@@ -116,4 +116,15 @@ If you make several transactions on the same day it’s recommended that they ha
 
 After you've made the transaction, you can link it in the [Fidel API Dashboard](https://dashboard.fidel.uk/locations) via the drop-down next to the location status. A drawer will appear, listing the transactions made with your virtual card, and you can select the transaction that matches the one you’ve made at the corresponding location. Linking one location with either Mastercard or Visa will automatically link the other one as well.
 
-![Link location using Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/virtual-card-location.gif 'Link location using Virtual Card')
+![Link location using Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/virtual-card-location.gif "Link location using Virtual Card")
+
+## Deleting Locations
+
+You can delete locations in the [Fidel API Dashboard](https://dashboard.fidel.uk/locations), or using the API's [Delete Location](https://reference.fidel.uk/reference/delete-location) endpoint.
+
+```sh
+curl -X DELETE \
+      https://api.fidel.uk/v1/locations/1d4f3030-f40b-4497-88ae-5dbe0c189a72 \
+      -H 'content-type: application/json' \
+      -H 'fidel-key: sk_live_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
+```

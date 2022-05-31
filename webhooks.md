@@ -596,6 +596,17 @@ function isSignatureValid(fidelHeaders, payload, secret, url) {
 }
 ```
 
-## API reference
+## Deleting Webhooks
+
+You can delete webhooks in the [Fidel API Dashboard](https://dashboard.fidel.uk/webhooks), or using the API's [Delete Webhook](https://reference.fidel.uk/reference/delete-webhook) endpoint.
+
+```sh
+curl -X DELETE \
+  https://api.fidel.uk/v1/hooks/b9ef3795-a38f-4ef2-8d8d-293dd7fbe1a7 \
+  -H 'content-type: application/json' \
+  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
+```
+
+## API Reference
 
 If you're looking to find out more about our Webhooks API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference/create-webhook-brand).

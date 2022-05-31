@@ -24,7 +24,7 @@ The current date is between the Offer `startDate` and `endDate`. The Offers in t
 
 The current date is after the Offer `endDate`. The Offers in this category have stopped qualifying Transactions.
 
-## Create Offer
+## Creating an Offer
 
 There are multiple options for creating a new Offer. Developers can use the [Create Offer endpoint](https://reference.fidel.uk/v1/reference/create-offer) from the Offers API to create an Offer.
 
@@ -552,6 +552,17 @@ fileName:offer.json
     <dd><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date and time in UTC representing the last time the Offer object was updated.</dd>
   </div>
 </dl>
+
+## Deleting Offers
+
+You can delete offers in the [Fidel API Dashboard](https://dashboard.fidel.uk/offers/pending), or using the API's [Delete Offer](https://reference.fidel.uk/reference/delete-offer) endpoint.
+
+```sh
+curl -X DELETE \
+  https://api.fidel.uk/v1/offers/ec80c3a1-0899-4e10-abdf-2dfb699b509c \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
+```
 
 ## API Reference
 

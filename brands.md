@@ -4,7 +4,7 @@ After creating an account and getting access to the dashboard, the next step is 
 
 The **Brand** object is used to aggregate locations and keep track of the Brand consent. To track real-time transactions at a Brand's locations, you need to obtain consent from authorised personnel (Brand Contact), and provide the Brand with access to view transactional data. You can do this when creating the Brand (see below).
 
-Once you create a **Brand**, it cannot be deleted.
+Once you create a **Brand**, it cannot be deleted in the Dashboard. In live mode you can use the [Delete Brand](https://reference.fidel.uk/reference/delete-brand) endpoint to delete brands that have no signed consent yet.
 
 ## Create Brand
 
