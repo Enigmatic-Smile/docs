@@ -1,4 +1,5 @@
 # Transactions
+
 The Fidel API `Transaction` object is the central piece of data in your card-linked application. When a user makes a purchase with a linked card in a program participating brand location, Fidel captures the transaction event in real-time. The Fidel API then sends the data to your server in JSON format through [webhooks](/webhooks).
 
 One transaction event occurs at authorisation time. The other transaction event occurs when the transaction has cleared. These are two distinct events, and Fidel processes both of them, even if you're not registering webhooks to listen for both event types. Because we bill based on transaction events, and we process both of them, you'll get charged for both of them, regardless of the number or type of webhooks you have registered with Fidel.
@@ -16,6 +17,7 @@ fileName:transaction.json
   "approvalCode": "AA00BB",
   "auth": true,
   "authCode": "A73H890",
+  "cardPresent": false,
   "cleared": false,
   "created": "2019-04-09T16:00:00.644Z",
   "currency": "GBP",
@@ -73,6 +75,7 @@ fileName:transaction.json
   }
 }
 ```
+
 > The `authCode` property is present only for Mastercard and Visa transactions, and will mirror the `identifiers.mastercardAuthCode` or `identifiers.visaAuthCode` properties, depending on the issuing card for the transaction. The `approvalCode` property is present only for Amex transactions and will mirror the `identifier.amexApprovalCode` property.
 
 > The `wallet` property has been deprecated since August 2019 because of privacy concerns, and will always return `null` on transactions created after that date. If you're retrieving a transaction that was created before August 2019, the property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
@@ -140,7 +143,6 @@ We suggest that you use the auth event to notify the user that you registered th
   Please allow up to 24h after linking a Mastercard card to start receiving real-time authorisation transactions.
 </div>
 
-
 ## Test Transactions
 
 For testing purposes, you can use the [**API Playground**](https://dashboard.fidel.uk/playground) in the Fidel Dashboard test environment to create test transactions and test your application logic. Alternatively, you can use the [Create Test Transaction](https://reference.fidel.uk/reference#create-transaction-test) API endpoint to create authorisation test transaction. You can see an example implementation for creating and clearing test transactions via the API in our [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app/blob/main/server/controllers/transactions.js).
@@ -167,7 +169,7 @@ On the Fidel Dashboard, go to the [**Playground**](https://dashboard.fidel.uk/pl
 
 ![Create transaction](https://docs.fidel.uk/assets/images/create-transaction.png "Create transaction")
 
-To create a test transaction, use the dropdown menus to select the Program, Location and Card for the transaction. These selections will be used to populate the `cardId`, `locationId` and the `amount` in the JSON payload.  You can modify any of the properties in the JSON file (including the amount).
+To create a test transaction, use the dropdown menus to select the Program, Location and Card for the transaction. These selections will be used to populate the `cardId`, `locationId` and the `amount` in the JSON payload. You can modify any of the properties in the JSON file (including the amount).
 
 Click **Run** and a test authorisation transaction will be created. If the transaction is created successfully, you will see the transaction object in the Response body box. If you have registered a `transaction.auth` webhook event for this program, the authorisation transaction object will be sent to your webhook URL as well.
 
