@@ -198,6 +198,7 @@ fileName:qualified-transaction.json
   "created": "2020-04-21T19:12:01.744Z",
   "updated": "2020-04-21T19:12:01.744Z",
   "auth": true,
+  "cardPresent": false,
   "cleared": false,
   "amount": 5,
   "currency": "USD",

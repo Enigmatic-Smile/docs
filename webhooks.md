@@ -42,7 +42,7 @@ curl -X POST \
 
 ##### Program Webhooks
 
-Program webhooks require a `programId` to be associated with and an `URL` to register. You can use the [Program Hooks](https://reference.fidel.uk/reference#create-webhook-program) endpoint for registering program webhooks. The events that can be registered are `card.linked`, `card.failed`, `program.status`, `location.status`, `transaction.auth`, `transaction.auth.qualified`, `transaction.clearing`, `transaction.clearing.qualified`,  `transaction.refund` and `transaction.refund.qualified`.
+Program webhooks require a `programId` to be associated with and an `URL` to register. You can use the [Program Hooks](https://reference.fidel.uk/reference#create-webhook-program) endpoint for registering program webhooks. The events that can be registered are `card.linked`, `card.failed`, `program.status`, `location.status`, `transaction.auth`, `transaction.auth.qualified`, `transaction.clearing`, `transaction.clearing.qualified`, `transaction.refund` and `transaction.refund.qualified`.
 
 Here's an example on how to create a webhook on a Program for the `transaction.auth` event, with `example.com` as the URL:
 
@@ -60,6 +60,7 @@ curl -X POST \
 ---
 
 ## Custom Headers
+
 The Fidel API allows you to define custom HTTP headers when you register a webhook URL. The custom headers get added to the HTTP POST request headers that are sent to your application.
 
 Custom headers can be defined when creating a new webhook in the Dashboard. Or by using the [Webhooks API](https://reference.fidel.uk/v1/reference#create-webhook-program) and setting the optional `headers `object with a key-value pair.
@@ -98,7 +99,49 @@ curl -X PUT \
 A maximum of five custom headers per webhook can be defined, and they need to follow strict character validation patterns. The key name must be between 1 and 64 characters and only accepts the Roman alphabet, numbers, dashes and underscores. The value must be between 1 and 1000 characters. Additionally, the HTTP reserved headers are blocklisted and cannot be used for the key name. The full list of blocklisted key names:
 
 ```json
-["Accept", "Accept-Charset", "Accept-Encoding", "Accept-Language", "Accept-Datetime", "Access-Control-Request-Method", "Access-Control-Request-Headers", "Cache-Control", "Connection", "Content-Length", "Content-Type", "Cookie", "Date", "Expect", "Forwarded", "From", "Host", "If-Match", "If-Modified-Since", "If-None-Match", "If-Range", "If-Unmodified-Since", "Max-Forwards", "Origin", "Pragma", "Proxy-Authorization", "Range", "Referer", "Te", "Transfer-Encoding", "User-Agent", "Upgrade", "Via", "Warning", "Fidel-Account", "Fidel-Key", "Fidel-Live", "Fidel-Request-Id", "Fidel-User", "X-Fidel-Signature", "X-Fidel-Timestamp"]
+[
+  "Accept",
+  "Accept-Charset",
+  "Accept-Encoding",
+  "Accept-Language",
+  "Accept-Datetime",
+  "Access-Control-Request-Method",
+  "Access-Control-Request-Headers",
+  "Cache-Control",
+  "Connection",
+  "Content-Length",
+  "Content-Type",
+  "Cookie",
+  "Date",
+  "Expect",
+  "Forwarded",
+  "From",
+  "Host",
+  "If-Match",
+  "If-Modified-Since",
+  "If-None-Match",
+  "If-Range",
+  "If-Unmodified-Since",
+  "Max-Forwards",
+  "Origin",
+  "Pragma",
+  "Proxy-Authorization",
+  "Range",
+  "Referer",
+  "Te",
+  "Transfer-Encoding",
+  "User-Agent",
+  "Upgrade",
+  "Via",
+  "Warning",
+  "Fidel-Account",
+  "Fidel-Key",
+  "Fidel-Live",
+  "Fidel-Request-Id",
+  "Fidel-User",
+  "X-Fidel-Signature",
+  "X-Fidel-Timestamp"
+]
 ```
 
 ---
@@ -106,6 +149,7 @@ A maximum of five custom headers per webhook can be defined, and they need to fo
 ## Events
 
 ### Brand
+
 A `brand.consent` event is triggered when Brand consent is “Approved”. In the `test` environment, it will immediately trigger after you create a Brand. In the `live` environment, it will trigger when the Brand User approves the consent request.
 
 ```json
@@ -123,6 +167,7 @@ fileName:brand.consent
 ```
 
 ### Program
+
 A `program.status` event is triggered in the `live` environment when there are updates for each Location in a Program. In the `test` environment, this webhook doesn't trigger because there is no concept of Location syncing there.
 
 ```json
@@ -146,6 +191,7 @@ fileName:program.status
 ```
 
 ### Location
+
 A `location.status` event is triggered when there are updates from a card network for a Location in a Program. In the `test` environment, this webhook triggers three times for each location upon creating a Location, once for each card scheme, with a `location.active` event. In the `live` environment, this would trigger whenever a location has synced successfully for a card scheme, with a `location.active` event. Or whenever a location has failed to sync for a card scheme, with a `location.failed` event.
 
 ```json
@@ -208,6 +254,7 @@ fileName:location.status
 ```
 
 ### Card
+
 There are two card-related events available on the Webhooks API: `card.linked` and `card.failed`. They are useful for linking a card if you want to receive the response via your server instead of via the client when using the SDK callbacks.
 
 A `card.linked` event is triggered when a card is successfully linked.
@@ -275,6 +322,7 @@ fileName:transaction.auth
   "approvalCode": "AA00BB",
   "auth": true,
   "authCode": "A73H890",
+  "cardPresent": true,
   "cleared": false,
   "amount": 100,
   "currency": "GBP",
@@ -337,6 +385,7 @@ fileName:transaction.clearing
     "wallet": null,
     "created": "2020-07-08T17:05:52.567Z",
     "accountId": "36081095-2782-4669-8a07-857bbaaeb89b",
+    "cardPresent": false,
     "cleared": true,
     "updated": "2020-07-08T17:20:44.134Z",
     "programId": "06471dbe-a3c7-429e-8a18-16dc97e5cf35",
@@ -389,6 +438,7 @@ fileName:transaction.refund
     "wallet": null,
     "created": "2020-07-08T17:23:13.972Z",
     "accountId": "36081095-2782-4669-8a07-857bbaaeb89b",
+    "cardPresent": false,    
     "cleared": true,
     "updated": "2020-07-08T17:23:13.972Z",
     "programId": "06471dbe-a3c7-429e-8a18-16dc97e5cf35",
@@ -481,18 +531,16 @@ Replay attacks are a common MITM attack vector where a valid payload and its sig
 */
 function isSignatureValid(fidelHeaders, payload, secret, url) {
   function base64Digest(s) {
-    return crypto.createHmac('sha256', secret)
-      .update(s)
-      .digest('base64');
+    return crypto.createHmac("sha256", secret).update(s).digest("base64");
   }
 
   /** You can check how much time has passed since the request has been sent */
   /** timestamp - UTC Unix Timestamp (milliseconds) */
-  const timestamp = fidelHeaders['x-fidel-timestamp'];
+  const timestamp = fidelHeaders["x-fidel-timestamp"];
   const content = JSON.stringify(payload) + url + timestamp;
 
   const signature = base64Digest(base64Digest(content));
-  return fidelHeaders['x-fidel-signature'] === signature;
+  return fidelHeaders["x-fidel-signature"] === signature;
 }
 ```
 
