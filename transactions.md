@@ -6,7 +6,7 @@ One transaction event occurs at authorisation time. The other transaction event 
 
 ## Transaction Object
 
-##### API version from `2019-03-05`
+##### API version from `2022-07-13`
 
 ```json
 fileName:transaction.json
