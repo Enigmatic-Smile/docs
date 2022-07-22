@@ -72,7 +72,8 @@ fileName:transaction.json
     "qualificationDate": null,
     "cashback": 2.5,
     "performanceFee": 0.3
-  }
+  },
+  "reimbursementEligible": false
 }
 ```
 
