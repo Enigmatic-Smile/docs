@@ -164,7 +164,7 @@ Transactions are sorted automatically in descending order by the best available,
 
 ### Eligible Transactions Example
 
-Example `amount` set to `5`, `currency` to `USD` and `brandId` to `Star`. 
+Example `amount` set to `5`, `currency` to `USD` and `brandId` to `Star`.
 
 ```sh
 curl -X GET \
@@ -181,11 +181,11 @@ fileName:transaction.json
     {
       // For the purpose of this example, only selected properties are shown
       "amount": 10,
-      "cleared": true, 
+      "cleared": true,
       "currency": "USD",
       "card": {
         // For the purpose of this example, only selected properties are shown
-        "scheme": "visa",  
+        "scheme": "visa",
       },
       "datetime": "2021-08-20T11:11:11",
       "reimbursementEligible": true
@@ -193,11 +193,11 @@ fileName:transaction.json
     {
       // For the purpose of this example, only selected properties are shown
       "amount": 20,
-      "cleared": true, 
+      "cleared": true,
       "currency": "USD",
       "card": {
         // For the purpose of this example, only selected properties are shown
-        "scheme": "visa",  
+        "scheme": "visa",
       },
       "datetime": "2021-10-20T11:11:11",
       "reimbursementEligible": true
@@ -241,11 +241,11 @@ fileName:transaction.json
         {
             // For the purpose of this example, only selected properties are shown
             "amount": 10,
-            "cleared": true, 
+            "cleared": true,
             "currency": "USD",
             "card": {
               // For the purpose of this example, only selected properties are shown
-              "scheme": "visa",  
+              "scheme": "visa",
             },
             "datetime": "2021-08-20T11:11:11",
             "reimbursementEligible": false,
@@ -282,6 +282,96 @@ Find the reimbursement status in the transaction `reimbursement.status` property
 
 - `failed`: scheme request failed and `transaction.reimbursement.error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement#errors).
 
+## Reimbursement by card
+
+At this point reimbursements could only be performed for a specific transaction. There are other scenarios when you just want to reimburse a card, without a transaction. In this case, you'd need to find a transaction (that belongs to the card) and is  eligible for reimbursement manually, then reimburse. Depending on your use case, this can be a time consuming and tedious process.
+
+That said, the idea behind reimbursement by card is to make this process easier for you by exposing an API endpoint where you can simply define the `cardId` and we'll search for the most suitable transaction, and apply the reimbursement in that one.
+
+`POST https://api.fidel.uk/v1/cards/{cardId}/reimbursement`
+```json
+fileName: request.json
+{
+  amount: 5,
+  currency: 'USD',
+  description?: 'Earned Stars',
+  brandId?: '518c746f-fbf4-420a-8d37-c591adc39684' // optional
+}
+```
+
+```json
+fileName: response.json
+{
+  "items": [
+    {
+      "id": "3c0c4ed5-b821-4390-8a9e-e7c140ec8358",
+      "accountId": "3693ac7e-3e2b-432c-8c60-2b786453ca9b",
+      "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba",
+      "datetime": "2021-08-20T11:11:11",
+      "created": "2021-08-20T11:11:11.000Z",
+      "updated": "2021-08-20T11:11:11.000Z",
+      "auth": true,
+      "cleared": true,
+      "amount": 5,
+      "currency": "USD",
+      "wallet": null,
+      "card": {
+        "id": "bc538b71-31c5-4699-840a-6d4a08693314",
+        "firstNumbers": "555500",
+        "lastNumbers": "5001",
+        "scheme": "visa",
+        "metadata": {
+          "customKey1": "customValue1",
+          "customKey2": "customValue2"
+        }
+      },
+      "brand": {
+        "id": "9d136f2e-df99-4a08-a0a5-3bc1534b7db9",
+        "name": "Starbucks",
+        "logoUrl": null
+      },
+      "location": {
+        "id": "7a916fbd-70a0-462f-8dbc-bd7dbfbea160",
+        "address": "5th Avenue",
+        "city": "New York",
+        "postcode": "10016",
+        "countryCode": "USA",
+        "timezone": "America/New_York",
+        "geolocation": {
+          "latitude": 43.9168069,
+          "longitude": -73.3044301
+        },
+        "metadata": {
+          "customKey1": "customValue1",
+          "customKey2": "customValue2"
+        }
+      },
+      "offer": null,
+      "identifiers": {
+        "MID": "123456789",
+        "mastercardTransactionSequenceNumber": "0000000000000",
+        "mastercardRefNumber": "AABBCCDDE",
+        "amexApprovalCode": "AA00BB",
+        "visaAuthCode": "000000",
+        "mastercardAuthCode": null
+      },
+      "reimbursementEligible": false,
+      "reimbursement": {
+        "amount": 2.55,
+        "created": "2021-09-30T11:11:11.000Z",
+        "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
+        "description": "Earned Stars",
+        "status": "pending"
+      }
+    }
+  ],
+  "resource": "/v1/cards/bc538b71-31c5-4699-840a-6d4a08693314/reimbursement",
+  "status": 200,
+  "execution": 19.980616
+}
+```
+
+For more info, please visit the [API reference](https://reference.fidel.uk/reference/create-reimbursement-by-card) for this particular endpoint.
 ## Automation
 
 Automate reimbursement requests when creating an Offer by toggling the “enable automatic reimbursements” checkbox. This toggle will be available if the reimbursement product is active and the Offer’s country is the `USA`.
@@ -302,7 +392,7 @@ fileName:transaction-with-offer.json
   // For the purpose of this example, only selected properties are shown
   "amount": 10,
   "amount": 10,
-  "cleared": true, 
+  "cleared": true,
   "currency": "USD",
   "datetime": "2021-08-20T11:11:11",
   "reimbursementEligible": true,
@@ -337,7 +427,7 @@ fileName:transaction-with-offer.json
 {
   // For the purpose of this example, only selected properties are shown
   "amount": 10,
-  "cleared": true, 
+  "cleared": true,
   "currency": "USD",
   "datetime": "2021-08-20T11:11:11",
   "reimbursementEligible": true,
@@ -376,7 +466,7 @@ fileName:transaction.json
 {
   // For the purpose of this example, only selected properties are shown
   "amount": 10,
-  "cleared": true, 
+  "cleared": true,
   "currency": "USD",
   "card": {
     // For the purpose of this example, only selected properties are shown
@@ -408,8 +498,8 @@ Reimbursement requests can be retried via API or dashboard.
 
 These errors might be returned in the [request](https://fidel.uk/docs/reimbursement/#request) endpoint.
 
-<ReimbursementTable 
-  headings={['HTTP Status Code', 'Error Code', 'Error Message']} 
+<ReimbursementTable
+  headings={['HTTP Status Code', 'Error Code', 'Error Message']}
   rows={[
     ['400', 'reimbursement-account-network-inactive', 'Account cannot issue reimbursement for card network'],
     ['400', 'reimbursement-account-not-enough-funds', 'Account does not have enough funds for issuing reimbursement'],
@@ -450,8 +540,8 @@ fileName:reimbursement-request.json
 
 These errors might be returned in the reimbursement `status` update to `failed` from the card scheme and sent to the `transaction.reimbursement.status` webhook.
 
-<ReimbursementTable 
-  headings={['Status Code', 'Error Code', 'Error Message']} 
+<ReimbursementTable
+  headings={['Status Code', 'Error Code', 'Error Message']}
   rows={[
     ['400', 'reimbursement-issuing-mismatch', 'Reimbursements issued by network do not match with original request'],
     ['404', 'reimbursement-network-account-not-found', 'Network was unable to find bank account'],
@@ -471,7 +561,7 @@ These errors might be returned in the reimbursement `status` update to `failed` 
 fileName:transaction.json
 {
   // For the purpose of this example, only selected properties are shown
-  "cleared": true, 
+  "cleared": true,
   "currency": "USD",
   "card": {
     // For the purpose of this example, only selected properties are shown
@@ -486,7 +576,7 @@ fileName:transaction.json
     "error": {
       "code": "reimbursement-network-account-not-found",
       "message": "Network was unable to find bank account",
-      "status": 404 
+      "status": 404
     },
     "description": "Earned Stars",
     "status": "failed"
