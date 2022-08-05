@@ -292,10 +292,10 @@ That said, the idea behind reimbursement by card is to make this process easier 
 ```json
 fileName: request.json
 {
-  amount: 5,
-  currency: 'USD',
-  description?: 'Earned Stars',
-  brandId?: '518c746f-fbf4-420a-8d37-c591adc39684' // optional
+  "amount": 5,
+  "currency": "USD",
+  "description": "Earned Stars", //optional
+  "brandId": "518c746f-fbf4-420a-8d37-c591adc39684" // optional
 }
 ```
 
