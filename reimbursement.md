@@ -284,11 +284,9 @@ Find the reimbursement status in the transaction `reimbursement.status` property
 
 ## Reimbursement by card
 
-At this point reimbursements could only be performed for a specific transaction. There are other scenarios when you just want to reimburse a card, without a transaction. In this case, you'd need to find a transaction (that belongs to the card) and is  eligible for reimbursement manually, then reimburse. Depending on your use case, this can be a time consuming and tedious process.
+In some cases, you may want to reimburse a card (and not a specific transaction). However, as card networks allow reimbursements only on specific transactions, the reimbursement request needs to be based on a transaction. The `POST https://api.fidel.uk/v1/cards/{cardId}/reimbursement` endpoint helps you to find such a transaction for this case. You can simply define the `cardId`, and Fidel API will search for the most suitable transaction, and apply the reimbursement on that one.
 
-That said, the idea behind reimbursement by card is to make this process easier for you by exposing an API endpoint where you can simply define the `cardId` and we'll search for the most suitable transaction, and apply the reimbursement in that one.
-
-`POST https://api.fidel.uk/v1/cards/{cardId}/reimbursement`
+The request to this endpoint would require an amount and a currency (and also other optional properties):
 ```json
 fileName: request.json
 {
@@ -298,6 +296,7 @@ fileName: request.json
   "brandId": "518c746f-fbf4-420a-8d37-c591adc39684" // optional
 }
 ```
+The endpoint would then respond with data that would include card and reimbursement data, etc.
 
 ```json
 fileName: response.json
