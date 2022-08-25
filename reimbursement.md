@@ -585,7 +585,8 @@ fileName:transaction.json
       "status": 404
     },
     "description": "Earned Stars",
-    "status": "failed"
+    "status": "failed",
+    "token": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92"
   }
 }
 ```
