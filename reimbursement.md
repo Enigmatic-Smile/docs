@@ -506,21 +506,21 @@ These errors might be returned in the [request](https://fidel.uk/docs/reimbursem
 <ReimbursementTable
   headings={['HTTP Status Code', 'Error Code', 'Error Message']}
   rows={[
-  ['400', 'reimbursement-account-network-inactive', 'Account cannot issue reimbursement for card network'],
-  ['400', 'reimbursement-account-not-enough-funds', 'Account does not have enough funds for issuing reimbursement'],
-  ['404', 'reimbursement-account-not-found', 'Account does not exist'],
-  ['400', 'reimbursement-already-created', 'Transaction reimbursement already created'],
-  ['400', 'reimbursement-amount-above-limit', 'Reimbursement amount is above the allowed limit'],
-  ['400', 'reimbursement-amount-greater-original-amount', 'Reimbursement amount is greater than original transaction amount'],
-  ['400', 'reimbursement-invalid-transaction', 'Transaction is invalid to issue reimbursement'],
-  ['500', 'reimbursement-network-internal-error', 'Network responded with internal error'],
-  ['404', 'reimbursement-transaction-not-found', 'Transaction does not exist'],
-  ['400', 'reimbursement-unsupported-network', 'Transaction network not supported for reimbursement'],
-  ['400', 'reimbursement-unsupported-currency', 'Transaction currency not supported for reimbursement'],
-  ['401', 'reimbursement-not-activated', 'The reimbursement product is not activated for this account'],
-  ['400', 'reimbursement-time-limit-after-transaction', 'Surpassed the time limit after the original transaction to issue a reimbursement'],
-  ['400', 'reimbursement-visa-invalid-community-code', 'The transaction community code is invalid'],
-  ['400', 'credits-account-not-enough-funds', 'Account does not have enough credits'],
+    ['400', 'reimbursement-account-network-inactive', 'Account cannot issue reimbursement for card network'],
+    ['400', 'reimbursement-account-not-enough-funds', 'Account does not have enough funds for issuing reimbursement'],
+    ['404', 'reimbursement-account-not-found', 'Account does not exist'],
+    ['400', 'reimbursement-already-created', 'Transaction reimbursement already created'],
+    ['400', 'reimbursement-amount-above-limit', 'Reimbursement amount is above the allowed limit'],
+    ['400', 'reimbursement-amount-greater-original-amount', 'Reimbursement amount is greater than original transaction amount'],
+    ['400', 'reimbursement-invalid-transaction', 'Transaction is invalid to issue reimbursement'],
+    ['500', 'reimbursement-network-internal-error', 'Network responded with internal error'],
+    ['404', 'reimbursement-transaction-not-found', 'Transaction does not exist'],
+    ['400', 'reimbursement-unsupported-network', 'Transaction network not supported for reimbursement'],
+    ['400', 'reimbursement-unsupported-currency', 'Transaction currency not supported for reimbursement'],
+    ['401', 'reimbursement-not-activated', 'The reimbursement product is not activated for this account'],
+    ['400', 'reimbursement-time-limit-after-transaction', 'Surpassed the time limit after the original transaction to issue a reimbursement'],
+    ['400', 'reimbursement-visa-invalid-community-code', 'The transaction community code is invalid'],
+    ['400', 'credits-account-not-enough-funds', 'Account does not have enough credits'],
   ]}
 />
 
@@ -548,15 +548,15 @@ These errors might be returned in the reimbursement `status` update to `failed` 
 <ReimbursementTable
   headings={['Status Code', 'Error Code', 'Error Message']}
   rows={[
-  ['400', 'reimbursement-issuing-mismatch', 'Reimbursements issued by network do not match with original request'],
-  ['404', 'reimbursement-network-account-not-found', 'Network was unable to find bank account'],
-  ['404', 'reimbursement-network-customer-not-found', 'Network was unable to find customer account'],
-  ['500', 'reimbursement-network-invalid-account', 'Network responded bank account is invalid'],
-  ['500', 'reimbursement-network-invalid-account-country', 'Network responded bank account country is invalid'],
-  ['500', 'reimbursement-network-invalid-currency', 'Network responded the selected currency is invalid'],
-  ['400', 'reimbursement-network-multiple-accounts-found', 'Network responded multiple bank accounts were found'],
-  ['500', 'reimbursement-network-others', 'Network responded with an irregular issue'],
-  ['500', 'reimbursement-request-failed', 'Failed to submit reimbursement request to network'],
+    ['400', 'reimbursement-issuing-mismatch', 'Reimbursements issued by network do not match with original request'],
+    ['404', 'reimbursement-network-account-not-found', 'Network was unable to find bank account'],
+    ['404', 'reimbursement-network-customer-not-found', 'Network was unable to find customer account'],
+    ['500', 'reimbursement-network-invalid-account', 'Network responded bank account is invalid'],
+    ['500', 'reimbursement-network-invalid-account-country', 'Network responded bank account country is invalid'],
+    ['500', 'reimbursement-network-invalid-currency', 'Network responded the selected currency is invalid'],
+    ['400', 'reimbursement-network-multiple-accounts-found', 'Network responded multiple bank accounts were found'],
+    ['500', 'reimbursement-network-others', 'Network responded with an irregular issue'],
+    ['500', 'reimbursement-request-failed', 'Failed to submit reimbursement request to network'],
   ]}
 />
 
