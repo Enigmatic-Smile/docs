@@ -2,25 +2,7 @@
 
 The Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account. You can utilise this functionality to receive data from events not triggered by direct API requests. Or to get the data in a service that is not responsible for making the API request but needs to consume the response.
 
-There are several webhooks available to use with the Fidel API, each corresponding to an event happening either at **Program** or **Account** level. 
-
-The **Program** level events are: 
-- `card.linked `
-- `card.failed `
-- `program.status`
-- `location.status`
-- `transaction.auth`
-- `transaction.auth.qualified`
-- `transaction.clearing`
-- `transaction.clearing.qualified`
-- `transaction.refund`
-- `transaction.refund.qualified` 
-
-The **Account** level events are: 
-- `brand.consent`
-- `credits.balance.low`
-
-*Each event requires an HTTPS URL to be registered.*
+There are several webhooks available to use with the Fidel API, each corresponding to an event happening in your account: `brand.consent`, `card.linked `, `card.failed `, `program.status`, `location.status`, `transaction.auth`, `transaction.auth.qualified`, `transaction.clearing`, `transaction.clearing.qualified`, `transaction.refund` and `transaction.refund.qualified`. Each of them requires an HTTPS URL to be registered.
 
 The Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request. The HTTP request payload contains the Event object. For example, when a customer makes a payment with a linked Mastercard on a participating location, a `transaction.auth` event is sent in real-time to the specified webhook URL. The HTTP request payload contains the Transaction object.
 
@@ -28,12 +10,12 @@ The Fidel API will notify your registered webhook URLs as the event happens, via
 
 ## Creating Webhooks
 
-You can register up to ten webhook URLs per event type for each Program/Account (depending on whether it is a **Program** or **Account** event). The Fidel API only accepts HTTPS URLs for webhook endpoints. Your webhook server must support HTTPS and have a valid certificate.
+The Fidel API only accepts HTTPS URLs for webhook endpoints. Your webhook server must support HTTPS and have a valid certificate.
 
 <div class="info-box">
-<small>Return a 200 status code</small><br/>
+  <small>Return a 200 status code</small><br/>
 
-To confirm receipt of a webhook event, your server endpoint should return a <code>200 OK</code> HTTP status code. Any other response will be treated as a failure and the Fidel API will retry sending requests three times over the next hour with exponential delays between retries. You can see an example implementation for handling webhooks in our [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app/blob/main/server/routes/webhooks.js)
+  To confirm receipt of a webhook event, your server endpoint should return a <code>200 OK</code> HTTP status code. Any other response will be treated as a failure and the Fidel API will retry sending requests three times over the next hour with exponential delays between retries. You can see an example implementation for handling webhooks in our [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app/blob/main/server/routes/webhooks.js)
 </div>
 
 The Fidel API sends the data via HTTP POST in JSON format. It will send test events if your Dashboard is in test mode or if you are using test API keys when registering the webhook URLs. To receive live events, flip your switch on the Dashboard to go live, or create the webhooks using a live API key.
@@ -61,7 +43,7 @@ curl -X POST \
 
 ##### Program Webhooks
 
-Program webhooks require a `programId` to be associated with and an `URL` to register. You can use the [Program Hooks](https://reference.fidel.uk/reference#create-webhook-program) endpoint for registering program webhooks. The events that can be registered are `card.linked`, `card.failed`, `program.status`, `location.status`, `transaction.auth`, `transaction.auth.qualified`, `transaction.clearing`, `transaction.clearing.qualified`, `transaction.refund` and `transaction.refund.qualified`.
+Program webhooks require a `programId` to be associated with and an `URL` to register. You can register up to ten webhook URLs per event type for each program.  You can use the [Program Hooks](https://reference.fidel.uk/reference#create-webhook-program) endpoint for registering program webhooks. The events that can be registered are `card.linked`, `card.failed`, `program.status`, `location.status`, `transaction.auth`, `transaction.auth.qualified`, `transaction.clearing`, `transaction.clearing.qualified`, `transaction.refund` and `transaction.refund.qualified`.
 
 Here's an example on how to create a webhook on a Program for the `transaction.auth` event, with `example.com` as the URL:
 
