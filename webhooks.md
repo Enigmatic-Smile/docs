@@ -14,7 +14,7 @@ You can register up to ten webhook URLs per event type for each account. The Fid
 
 <div class="info-box">
     <small>Return a 200 status code</small><br/>
-    To confirm receipt of a webhook event, your server endpoint should return a <code>200 OK</code> HTTP status code. Any other response will be treated as a failure and the Fidel API will retry sending requests three times over the next hour with exponential delays between retries. You can see an example implementation for handling webhooks in our [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app/blob/main/server/routes/webhooks.js).
+    To confirm receipt of a webhook event, your server endpoint should return a <code>200 OK</code> HTTP status code. Any other response, or not receiving any response within 20 seconds will be treated as a failure and the API will retry sending request twice (i.e. three tries in total) over the next hour with exponential delays between retries. You can see an example implementation for handling webhooks in our [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app/blob/main/server/routes/webhooks.js).
 </div>
 
 The Fidel API sends the data via HTTP POST in JSON format. It will send test events if your Dashboard is in test mode or if you are using test API keys when registering the webhook URLs. To receive live events, flip your switch on the Dashboard to go live, or create the webhooks using a live API key.
