@@ -7,7 +7,7 @@ Fidel Reimbursement is an add-on product to _Transaction_ tracking capability, t
 Reimbursement supports both debit and credit cards by Visa and Mastercard in the US or UK. Your account must be set up either in the US or the UK to have access to the Reimbursement product.
 ## Activation
 
-If your account is set up in the US or the UK and you are using an older [API version](https://reference.fidel.uk/docs/version-log) (reimbursement requires version `2021-09-28` or later) or haven't agreed to the _North America_ [Terms & Conditions](https://fidel.uk/legal) (_17 Jun 2021_), you will be prompted to go through the Reimbursement product activation.
+If your account is set up in the US or UK and you are using an older API version (reimbursement requires version 2021-09-28 or later) or haven't agreed to the (Terms & Conditions)[Link to T&Cs page] in your region, you will be prompted to go through the Reimbursement product activation.
 
 ![Reimbursement Activation](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursement-activation.gif "Reimbursement Activation")
 
