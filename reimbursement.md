@@ -25,7 +25,7 @@ Your credit balance is updated every time you purchase credits or spend by using
 
 ### Credits Balance Example
 
-Balances are denominated in multiple currencies to support other countries in the future. Currently, we support either `USD` or `GBP` and in this example ``balances.USD`` value is `$1000`.
+Balances are denominated in multiple currencies to support other countries in the future. Currently, we support either `USD` or `GBP` and in this example `balances.USD` value is `$1000`.
 
 ```sh
 curl -X GET \
