@@ -377,7 +377,7 @@ For more info, please visit the [API reference](https://reference.fidel.uk/refer
 
 ## Automation
 
-Automate reimbursement requests when creating an Offer by toggling the “enable automatic reimbursements” checkbox. This toggle will be available if the reimbursement product is active and the Offer’s country is the `USA`.
+Automate reimbursement requests when creating an Offer by toggling the “enable automatic reimbursements” checkbox. This toggle will be available if the reimbursement product is active and the Offer’s country is either `USA` (United States of America) or `GBR` (United Kingdom).
 
 ![Automatic reimbursement with Offers](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/offers-automatic-reimbursement.gif "Automatic reimbursement with Offers")
 
