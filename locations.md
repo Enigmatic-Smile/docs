@@ -3,11 +3,12 @@
 To add a location, select a Program from the [Programs](https://dashboard.fidel.uk/programs) page. This will open the Locations page of the Fidel Dashboard, with the program selected. You can then click the **New location** button, and enter the requested info about the location. You can also use the [API](https://reference.fidel.uk/reference#create-location) to create and update locations.
 
 ##### You can add Locations after creating a Program and a Brand.
-![Add locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/add-locations.png "Add locations")
+
+![Add locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/add-locations.png 'Add locations')
 
 In the live environment, the Fidel Dashboard has a new feature that allows you to bulk add multiple locations from the same brand. You can see a list of the brands onboarded into your account, and the locations available to us. You can choose all participating locations and add them to your program. Please note, this feature is only available in the live environment.
 
-![Add unique locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/add-unique-locations.gif "Add unique locations")
+![Add unique locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/add-unique-locations.gif 'Add unique locations')
 
 ##### You can do the same by using our API.
 
@@ -61,9 +62,10 @@ curl -X POST \
 ```
 
 ### Location Sync Process
-In the live environment, the location begins in an *Idle* state. In order initiate a change in status of your location, you must start the syncing process for the entire program. You can start the process by pressing the "Sync locations" button on the Fidel Dashboard. The button is only visible when you have an idle location in your Program. Location Sync can take 1-2 weeks. Only one sync per program can be run at a time, so ensure that you are ready to run this process.
 
-![Sync button](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programsync_button.png "Add locations")
+In the live environment, the location begins in an _Idle_ state. In order to initiate a change in status of your location, you must start the syncing process for the entire program. You can start the process by pressing the "Sync locations" button on the Fidel Dashboard. The button is only visible when you have an idle location in your Program. Location Sync can take 1-2 weeks. Only one sync per program can be run at a time, so ensure that you are ready to run this process.
+
+![Sync button](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programsync_button.png 'Add locations')
 
 You can also start the sync process programmatically by calling the [Update Program](https://reference.fidel.uk/reference#update-program) endpoint of our API. You'll need to add a body parameter of `{ "status" : "syncing" }` to start the process. Because syncing only works for live programs, you'll need to use the `programId` of a live program, and your live API key, when you call the API endpoint. Using a test API key will throw an error.
 
@@ -93,7 +95,7 @@ curl -X POST \
 }'
 ```
 
-Once the sync process is initiated, the Location status is updated to *Syncing*. It then moves to *Active* when we receive confirmation from the card networks that the location has been successfully on-boarded to your program. If the card networks have an issue with a specific location, the status is set to *Not found* and a case is opened to resolve the issue. You can also activate a [Virtual Card](/locations#virtual-cards) in your account, and use that to link a transaction to the location.
+Once the sync process is initiated, the Location status is updated to _Syncing_. It then moves to _Active_ when we receive confirmation from the card networks that the location has been successfully on-boarded to your program. If the card networks have an issue with a specific location, the status is set to _Not found_ and a case is opened to resolve the issue. You can also activate a [Virtual Card](/locations#virtual-cards) in your account, and use that to link a transaction to the location.
 
 While your locations are syncing you have a progress bar to follow the current status and estimated finish time.
 
@@ -101,14 +103,17 @@ For Locations in the live environment, status can be tracked on the dashboard. A
 
 ## Virtual Cards
 
-When a location fails to sync or can't be found during the "Location Sync" process, you can use our new Virtual Cards feature to help onboard a new locations. You can onboard locations that are *Not Found* by adding our pre-funded virtual card to your mobile wallet, making a small purchase at the location, and linking the location to the transaction. Fidel funds your virtual card free of charge. There is a maximum of 2.00$ or equivalent per transaction, with a limit of 5 transactions per day. Transactions made in the same day need to be different amounts. The new Virtual Cards feature is available in all our live markets for Visa and Mastercard.
+When a location can't be found during the standard network location sync, you can use virtual cards to help onboard it. You can use the same process to verify an already active location.
+Fidel API funds your virtual card free of charge. There is a maximum of $2.00 (or equivalent) per transaction, with a limit of $10.00 per day.
 
-You can activate a new Virtual Card [in your Account Settings](https://dashboard.fidel.uk/account/virtual-cards).
+To activate your virtual card, go to the [Account Settings page](https://dashboard.fidel.uk/account/virtual-cards).
 
-![Activate Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/virtual-card-activate.gif "Activate Virtual Card")
+![Activate Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/virtual-card-activate.gif 'Activate Virtual Card')
 
-After you've activated your virtual card, use it to make a small transaction in the location you're trying to onboard. This can be done physically in the store, or ask your merchant to use the card when processing a transaction remotely. After you've done a transaction in the store, you can link it in the [Fidel Dashboard](https://dashboard.fidel.uk/locations). Linking one location with either Mastercard or Visa will automatically link the other one as well.
+After you've activated your virtual card, use it to make a small transaction in the location you're trying to onboard. This can be done physically in the store (by adding it to your mobile wallet), or by asking your merchant to use the card when processing a transaction remotely.
 
-In the Locations page of the Fidel Dashboard, you can use the drop-down option next to the "Not found" locations to "Link virtual card transaction". A drawer will appear, listing the transactions made with your Virtual Card, and you can select the transaction that matches the one you’ve made at the corresponding location.
+If you make several transactions on the same day it’s recommended that they have different amounts, to make them easier to identify.
 
-![Link location using Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/virtual-card-location.gif "Link location using Virtual Card")
+After you've made the transaction, you can link it in the [Fidel API Dashboard](https://dashboard.fidel.uk/locations) via the drop-down next to the location status. A drawer will appear, listing the transactions made with your virtual card, and you can select the transaction that matches the one you’ve made at the corresponding location. Linking one location with either Mastercard or Visa will automatically link the other one as well.
+
+![Link location using Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/virtual-card-location.gif 'Link location using Virtual Card')
