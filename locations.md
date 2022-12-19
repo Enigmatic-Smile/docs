@@ -63,7 +63,7 @@ curl -X POST \
 
 ### Location Sync Process
 
-In the live environment, the location begins in an _Idle_ state. In order initiate a change in status of your location, you must start the syncing process for the entire program. You can start the process by pressing the "Sync locations" button on the Fidel Dashboard. The button is only visible when you have an idle location in your Program. Location Sync can take 1-2 weeks. Only one sync per program can be run at a time, so ensure that you are ready to run this process.
+In the live environment, the location begins in an _Idle_ state. In order to initiate a change in status of your location, you must start the syncing process for the entire program. You can start the process by pressing the "Sync locations" button on the Fidel Dashboard. The button is only visible when you have an idle location in your Program. Location Sync can take 1-2 weeks. Only one sync per program can be run at a time, so ensure that you are ready to run this process.
 
 ![Sync button](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programsync_button.png 'Add locations')
 
