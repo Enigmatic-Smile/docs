@@ -52,6 +52,7 @@ curl -X POST \
 
 To confirm receipt of a webhook event, your server endpoint should return a <code>200 OK</code> HTTP status code. Any other response, or not providing any response within 20 seconds will be treated as a failure and our system will retry sending the request twice (i.e. three tries in total) over the next hour with exponential delays between retries.
 
+It is recommended to not run complex and time-consuming logic upon reception of the webhook in order to provide a response back and thus avoid unnecessary retries and potentially duplicate processing of the events.
 
 ## Custom request headers
 
