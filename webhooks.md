@@ -472,7 +472,11 @@ fileName:transaction.refund
 }
 ```
 
-There are three additional transaction webhook events: `transaction.auth.qualified`, `transaction.clearing.qualified` and `transaction.refund.qualified`. They are triggered when an `auth`, `clearing` or a `refund` transaction is qualified for an Offer. The payload for these events includes the `offer` object with the results of the qualification, and you can read more about it in the [Offers API](/offers/#transaction-qualification) documentation.
+There are three additional transaction webhook events: `transaction.auth.qualified`, `transaction.clearing.qualified` and `transaction.refund.qualified`. They are triggered when an `auth`, `clearing` or a `refund` transaction is qualified for an Offer. 
+
+`transaction.auth.qualified` and `transaction.clearing.qualified` events are triggered only if transactions they are inside of the offer's period and pass the set of rules defined in the offer. `transaction.refund.qualified` events might be emitted even when the offer has expired due to the complex matching logic of the refund to the original transaction.
+
+The payload for these events includes the `offer` object with the results of the qualification, and you can read more about it in the [Offers API](/offers/#transaction-qualification) documentation.
 
 ```json
 "offer": {
