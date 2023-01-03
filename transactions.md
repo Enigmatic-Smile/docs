@@ -134,7 +134,7 @@ If you need the updated information about the original transaction, you can retr
 curl -X GET \
   https://api.fidel.uk/v1/transactions/a375e18f-0678-40fa-aa8b-4875e2146437 \
   -H 'Content-Type: application/json' \
-  -H 'Fidel-Key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
+  -H 'Fidel-Key: <KEY>'
 ```
 
 We suggest that you use the auth event to notify the user that you registered the transaction and will fulfil the reward when the transaction clears. The clearing event is the confirmation that the transaction has been settled.
@@ -155,8 +155,8 @@ To create a test transaction, you will need a [Program](/programs), a [Location]
 ```sh
 curl -X POST \
   https://api.fidel.uk/v1/transactions/test \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
     "amount": 10,
     "cardId": "bc538b71-31c5-4699-820a-6d4a08693314",

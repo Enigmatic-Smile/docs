@@ -17,8 +17,8 @@ The same can be done with the [API](https://reference.fidel.uk/reference#create-
 
 ```sh
 curl -X POST https://api.fidel.uk/v1/programs \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: <secret key>' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
     "name": "Program X",
     "metadata": {

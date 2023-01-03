@@ -15,8 +15,8 @@ In the live environment, the Fidel Dashboard has a new feature that allows you t
 ```sh
 curl -X POST \
   https://api.fidel.uk/v1/programs/b58d8057-9159-4daf-a003-1397e28f6822/locations \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
     "address": "2 Soho Square",
     "brandId": "838d648e-5614-48a7-8e8b-6b3014638c66",
@@ -53,8 +53,8 @@ Here's an example on how to register the webhook on a Program, with `example.com
 ```sh
 curl -X POST \
   https://api.fidel.uk/v1/programs/06471dbe-a3c7-429e-8a18-16dc97e5cf35/hooks \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
     "event": "location.status",
     "url": "https://example.com"
@@ -71,8 +71,8 @@ You can also start the sync process programmatically by calling the [Update Prog
 
 ```sh
 curl -X PATCH https://api.fidel.uk/v1/programs/1ed2d0a4-b778-4ea4-b991-b5ede2d4eeaa \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_live_b2e6a6ab-1a11-47ec-831c-81c2b23fd5b2' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
     "status": "syncing"
   }'
@@ -83,8 +83,8 @@ Alternatively, you can start the sync process for each location when you create 
 ```sh
 curl -X POST \
   https://api.fidel.uk/v1/programs/1ed2d0a4-b778-4ea4-b991-b5ede2d4eeaa/locations \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_live_b2e6a6ab-1a11-47ec-831c-81c2b23fd5a0' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
     "address": "2 Soho Square",
     "brandId": "8c092cdb-e53d-4512-8168-c2a7f6b87286",

@@ -32,8 +32,8 @@ Here's a cURL example of using the endpoint, with only the minimum required para
 
 ```sh
 curl -X POST https://api.fidel.uk/v1/offers \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
         "countryCode": "GBR",
         "name":"20% Off Netflix Subscription",
@@ -96,8 +96,8 @@ Here's a cURL example of using the endpoint, with two path parameters, for the `
 ```sh
 curl -X POST \
   https://api.fidel.uk/v1/offers/feb9af3c-9b4e-49df-bb8f-13ae4ad8cd22/locations/1af3b7a0-4bfd-4b5e-a285-fab1c8a8421d \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>'
 ```
 
 ### Linking All Brand Locations to an Offer
@@ -109,8 +109,8 @@ Here's a cURL example of using the endpoint, with the two required path paramete
 ```sh
 curl -X POST \
   https://api.fidel.uk/v1/offers/feb9af3c-9b4e-49df-bb8f-13ae4ad8cd22/programs/0228b979-6f7c-4238-a309-40f9d6efd3ea/locations \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>'
 ```
 
 ### Linking Offers in the Dashboard
@@ -133,8 +133,8 @@ Offers with activation require an Offer to be activated on a Card before they ca
 
 ```sh
 curl -X POST https://api.fidel.uk/v1/offers \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
         "countryCode": "GBR",
         "name":"20% Off Netflix Subscription",
@@ -157,8 +157,8 @@ Offers need to be activated on Cards before the purchase to receive and qualify 
 ```sh
 curl -X POST \
   https://api.fidel.uk/v1/offers/:offerId/cards/:cardId \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: your-secret-key'
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>'
 ```
 
 After an Offer is activated on a Card, it will qualify the number of Transactions specified by the `qualifiedTransactionsLimit` value. After the limit of Transactions is qualified, the Offer is automatically deactivated from the Card. If developers need to deactivate an Offer from the Card for any reason before that event, they can use the [Deactivate Offer on Card](https://reference.fidel.uk/reference#unlink-card-from-offer) API endpoint.
