@@ -26,7 +26,7 @@ Here's an example on how to create one using the Fidel API, with `example.com` a
 curl -X POST \
   https://api.fidel.uk/v1/hooks \
   -H 'Content-Type: application/json' \
-  -H 'Fidel-Key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -H 'Fidel-Key: sk_test_00000000-0000-0000-0000-000000000000' \
   -d '{
     "event": "brand.consent",
     "url": "https://example.com"
@@ -42,8 +42,8 @@ Here's an example on how to create a webhook on a Program for the `transaction.a
 ```sh
 curl -X POST \
   https://api.fidel.uk/v1/programs/06471dbe-a3c7-429e-8a18-16dc97e5cf35/hooks \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: sk_test_00000000-0000-0000-0000-000000000000' \
   -d '{
     "event": "transaction.auth",
     "url": "https://example.com"
@@ -66,7 +66,7 @@ Custom headers can be defined when creating a new webhook in the Dashboard or by
 curl -X POST \
   https://api.fidel.uk/v1/programs/06471dbe-a3c7-429e-8a18-16dc97e5cf35/hooks \
   -H 'Content-Type: application/json' \
-  -H 'Fidel-Key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -H 'Fidel-Key: sk_test_00000000-0000-0000-0000-000000000000' \
   -d '{
     "event": "transaction.auth",
     "url": "https://example.com",
@@ -81,8 +81,8 @@ To delete custom headers from a registered webhook, use the [Update Hooks](https
 ```sh
 curl -X PUT \
   https://api.fidel.uk/v1/hooks/3b4be60b-6596-4b40-ae3d-89b9fdaf132a \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: sk_test_00000000-0000-0000-0000-000000000000' \
   -d '{
     "programId": "06471dbe-a3c7-429e-8a18-16dc97e5cf35",
     "event": "transaction.auth",
@@ -494,8 +494,8 @@ You can filter transactions from a specific offer by setting the `offerId` optio
 ```sh
 curl -X POST \
   https://api.fidel.uk/v1/programs/06471dbe-a3c7-429e-8a18-16dc97e5cf35/hooks \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: sk_test_00000000-0000-0000-0000-000000000000' \
   -d '{
     "event": "transaction.auth.qualified",
     "url": "https://example.com",
