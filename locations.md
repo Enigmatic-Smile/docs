@@ -1,6 +1,6 @@
 # Locations
 
-To add a location, select a Program from the [Programs](https://dashboard.fidel.uk/programs) page. This will open the Locations page of the Fidel Dashboard, with the program selected. You can then click the **New location** button, and enter the requested info about the location. You can also use the [API](https://reference.fidel.uk/reference#create-location) to create and update locations.
+To add a location, select a Program from the [Programs](https://dashboard.fidel.uk/programs) page. This will open the Locations page of the Fidel Dashboard, with the program selected. You can then click the **New location** button, and enter the requested info about the location. You can also use the [API](https://reference.fidel.uk/reference/create-location) to create and update locations.
 
 ##### You can add Locations after creating a Program and a Brand.
 
