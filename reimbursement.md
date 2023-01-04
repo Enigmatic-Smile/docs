@@ -31,8 +31,8 @@ Balances are denominated in multiple currencies to support other countries in th
 ```sh
 curl -X GET \
   https://api.fidel.uk/v1/accounts/{accountId}/credits/balance \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: {your secret key}'
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>'
 ```
 
 ```json
@@ -168,8 +168,8 @@ Example `amount` set to `5`, `currency` to `USD` and `brandId` to `Star`.
 ```sh
 curl -X GET \
   GET https://api.fidel.uk/v1/cards/{cardId}/transactions/reimbursement?amount={amount}&currency={currency}&brandId={brandId} \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: {your secret key}'
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>'
 ```
 
 ```json
@@ -223,8 +223,8 @@ Example `amount` set to `2.55` and custom `description` to `Earned Stars`.
 ```sh
 curl -X POST \
   https://api.fidel.uk/v1/transactions/{transactionId}/reimbursement \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: {your secret key}' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
     "amount": 2.55,
     "description": "Earned Stars"

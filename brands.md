@@ -15,8 +15,8 @@ To add a new Brand, go to the [Brands](https://dashboard.fidel.uk/brands) page o
 ```bash
 curl -X POST \
   https://api.fidel.uk/v1/brands \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: {your Secret key}' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
     "name": "Brand B",
     "logoURL": "https://example.com/logo.png",
@@ -51,8 +51,8 @@ Using the [Create Brand User](https://reference.fidel.uk/reference#create-brand-
 ```sh
 curl -X POST \
 https://api.fidel.uk/v1/brands/{brandId}/programs/{programId}/users \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_live_key' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
     "email": "email@fidel.uk",
     "nameFirst": "Test",

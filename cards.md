@@ -54,7 +54,7 @@ If you don't want to use our secure and PCI compliant SDKs, you must get PCI Com
 curl -X POST \
   https://api.fidel.uk/v1/programs/f76ed1be-e434-480b-aa1d-ff48f548f62a/cards
   -H 'Content-Type: application/json'
-  -H 'Fidel-Key: pk_test_62f02030-0409-4eb5-ab94-6eff05b3d888'
+  -H 'Fidel-Key: <KEY>'
   -d '{
   	"number": "4444000000004222",
     "expMonth": 10,
