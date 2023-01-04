@@ -67,7 +67,7 @@ In the live environment, the location begins in an _Idle_ state. In order to ini
 
 ![Sync button](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programsync_button.png 'Add locations')
 
-You can also start the sync process programmatically by calling the [Update Program](https://reference.fidel.uk/reference#update-program) endpoint of our API. You'll need to add a body parameter of `{ "status" : "syncing" }` to start the process. Because syncing only works for live programs, you'll need to use the `programId` of a live program, and your live API key, when you call the API endpoint. Using a test API key will throw an error.
+You can also start the sync process programmatically by calling the [Update Program](https://reference.fidel.uk/reference/update-program) endpoint of our API. You'll need to add a body parameter of `{ "status" : "syncing" }` to start the process. Because syncing only works for live programs, you'll need to use the `programId` of a live program, and your live API key, when you call the API endpoint. Using a test API key will throw an error.
 
 ```sh
 curl -X PATCH https://api.fidel.uk/v1/programs/1ed2d0a4-b778-4ea4-b991-b5ede2d4eeaa \
