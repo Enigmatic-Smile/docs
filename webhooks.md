@@ -76,7 +76,7 @@ curl -X POST \
   }'
 ```
 
-To delete custom headers from a registered webhook, use the [Update Hooks](https://reference.fidel.uk/reference#update-webhook) endpoint and send an empty `headers` object.
+To delete custom headers from a registered webhook, use the [Update Hooks](https://reference.fidel.uk/reference/update-webhook) endpoint and send an empty `headers` object.
 
 ```sh
 curl -X PUT \
@@ -542,4 +542,4 @@ function isSignatureValid(fidelHeaders, payload, secret, url) {
 
 ## API reference
 
-If you're looking to find out more about our Webhooks API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference#create-webhook-brand).
+If you're looking to find out more about our Webhooks API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference/create-webhook-brand).

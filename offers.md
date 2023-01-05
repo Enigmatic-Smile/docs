@@ -1,6 +1,6 @@
 # Offers
 
-Fidel Offers help you create and manage card-linked offers with various retailers – all in one place. The Fidel Offers API serves as a Transaction qualification engine for Fidel Offers. Developers can create Offers via the [Fidel Offers API](https://reference.fidel.uk/v1/reference#create-offer), which allows your application to create and update Offers, link and unlink Locations to the created Offers, activate and deactivate Offers on specific Cards and send the Offers for approval to a Brand. Brands and Merchants can interact with the Fidel Offers by using the [Fidel CLO Dashboard](https://clo.fidel.uk).
+Fidel Offers help you create and manage card-linked offers with various retailers – all in one place. The Fidel Offers API serves as a Transaction qualification engine for Fidel Offers. Developers can create Offers via the [Fidel Offers API](https://reference.fidel.uk/v1/reference/create-offer), which allows your application to create and update Offers, link and unlink Locations to the created Offers, activate and deactivate Offers on specific Cards and send the Offers for approval to a Brand. Brands and Merchants can interact with the Fidel Offers by using the [Fidel CLO Dashboard](https://clo.fidel.uk).
 
 ## Offer Lifecycle
 
@@ -26,7 +26,7 @@ The current date is after the Offer `endDate`. The Offers in this category have 
 
 ## Create Offer
 
-There are multiple options for creating a new Offer. Developers can use the [Create Offer endpoint](https://reference.fidel.uk/v1/reference#create-offer) from the Offers API to create an Offer.
+There are multiple options for creating a new Offer. Developers can use the [Create Offer endpoint](https://reference.fidel.uk/v1/reference/create-offer) from the Offers API to create an Offer.
 
 Here's a cURL example of using the endpoint, with only the minimum required parameters:
 
@@ -63,7 +63,7 @@ Offers with the type `amount` will use the indicated country's currency and appl
 
 ### Optional Parameters
 
-There are a range of optional parameters available, which influence how the Offer behaves on the Fidel platform. You can read more about the endpoint's full specification on our [API Reference](https://reference.fidel.uk/reference#create-offer).
+There are a range of optional parameters available, which influence how the Offer behaves on the Fidel platform. You can read more about the endpoint's full specification on our [API Reference](https://reference.fidel.uk/reference/create-offer).
 
 - `activation`: An object, showing if the Offer needs activation or not. Default is `{ enabled: false }`.
 - `activation: enabled`: Boolean showing if the Offer needs to be activated on Cards or not. If it's `true`, the `activation` object also has a `qualifiedTransactionsLimit` property. **Please read the section below on Offer Activation before using this parameter.**
@@ -89,7 +89,7 @@ Once you have created an Offer, it will enter the Offer Lifecycle in the Request
 
 ## Linking Locations to Offers
 
-Before an Offer goes live and starts qualifying transactions, you will need to link Locations to the Offer. Developers can use the [Link Location to Offer](https://reference.fidel.uk/reference#add-location-to-offer) API endpoint to link any Location to an Offer. Similarly, the Fidel API has an endpoint to [unlink a Location from an Offer](https://reference.fidel.uk/reference#unlink-location-to-offer).
+Before an Offer goes live and starts qualifying transactions, you will need to link Locations to the Offer. Developers can use the [Link Location to Offer](https://reference.fidel.uk/reference/add-location-to-offer) API endpoint to link any Location to an Offer. Similarly, the Fidel API has an endpoint to [unlink a Location from an Offer](https://reference.fidel.uk/reference/unlink-location-to-offer).
 
 Here's a cURL example of using the endpoint, with two path parameters, for the `offerId` and `locationId`:
 
@@ -102,7 +102,7 @@ curl -X POST \
 
 ### Linking All Brand Locations to an Offer
 
-Developers can use the [Link All Brand Locations to Offer](https://reference.fidel.uk/reference#link-all-program-locations-to-offer) API endpoint to link all Location from a Brand to an Offer.
+Developers can use the [Link All Brand Locations to Offer](https://reference.fidel.uk/reference/link-all-program-locations-to-offer) API endpoint to link all Location from a Brand to an Offer.
 
 Here's a cURL example of using the endpoint, with the two required path parameters, for the `offerId` and `programId`:
 
@@ -129,7 +129,7 @@ Alternatively, you can edit an Offer in the Fidel Dashboard, which will allow yo
 
 ## Offers with Activation
 
-Offers with activation require an Offer to be activated on a Card before they can go through the qualification process. Developers can use the Offers API to specify an Offer requires activation. When [creating an Offer](https://reference.fidel.uk/v1/reference#create-offer), the `activation` object should have the `enabled: true` property and a `qualifiedTransactionsLimit` property higher or equal to 1. The `qualifiedTransactionsLimit` property specifies how many Transactions will be qualified for each Offer activation. Here's a cURL example:
+Offers with activation require an Offer to be activated on a Card before they can go through the qualification process. Developers can use the Offers API to specify an Offer requires activation. When [creating an Offer](https://reference.fidel.uk/v1/reference/create-offer), the `activation` object should have the `enabled: true` property and a `qualifiedTransactionsLimit` property higher or equal to 1. The `qualifiedTransactionsLimit` property specifies how many Transactions will be qualified for each Offer activation. Here's a cURL example:
 
 ```sh
 curl -X POST https://api.fidel.uk/v1/offers \
@@ -152,7 +152,7 @@ curl -X POST https://api.fidel.uk/v1/offers \
       }'
 ```
 
-Offers need to be activated on Cards before the purchase to receive and qualify Transactions for Offers with activation. Developers can do that by using the [Activate Offer on Card](https://reference.fidel.uk/reference#activate-offer-on-card) API endpoint as follows:
+Offers need to be activated on Cards before the purchase to receive and qualify Transactions for Offers with activation. Developers can do that by using the [Activate Offer on Card](https://reference.fidel.uk/reference/activate-offer-on-card) API endpoint as follows:
 
 ```sh
 curl -X POST \
@@ -161,7 +161,7 @@ curl -X POST \
   -H 'Fidel-Key: <KEY>'
 ```
 
-After an Offer is activated on a Card, it will qualify the number of Transactions specified by the `qualifiedTransactionsLimit` value. After the limit of Transactions is qualified, the Offer is automatically deactivated from the Card. If developers need to deactivate an Offer from the Card for any reason before that event, they can use the [Deactivate Offer on Card](https://reference.fidel.uk/reference#unlink-card-from-offer) API endpoint.
+After an Offer is activated on a Card, it will qualify the number of Transactions specified by the `qualifiedTransactionsLimit` value. After the limit of Transactions is qualified, the Offer is automatically deactivated from the Card. If developers need to deactivate an Offer from the Card for any reason before that event, they can use the [Deactivate Offer on Card](https://reference.fidel.uk/reference/unlink-card-from-offer) API endpoint.
 
 Note that when you link Locations to an Offer with activation, you will only receive Transactions from Cards where the Offer has been activated on. To receive all Transactions from all Cards, you will need to disable the Offer activation with `activation: { enabled: false, qualifiedTransactionsLimit: 1 }` or unlink the Locations from the Offer.
 
@@ -345,7 +345,7 @@ fileName:offer.json
       <span><code>accepted</code></span>
       <em>boolean</em>
     </dt>
-    <dd>Whether the Offer was accepted by the Brand. To send the Offer to a Brand for funding, see the <a href="https://reference.fidel.uk/reference#send-offer-to-brand">Send Offer to Brand</a> API endpoint.</dd>
+    <dd>Whether the Offer was accepted by the Brand. To send the Offer to a Brand for funding, see the <a href="https://reference.fidel.uk/reference/send-offer-to-brand">Send Offer to Brand</a> API endpoint.</dd>
   </div>
   <div>
     <dt>
@@ -555,4 +555,4 @@ fileName:offer.json
 
 ## API Reference
 
-If you're looking to find out more about our Offers API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference#create-offer).
+If you're looking to find out more about our Offers API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference/create-offer).
