@@ -73,7 +73,6 @@ fileName:transaction.json
     "cashback": 2.5,
     "performanceFee": 0.3
   },
-  "reimbursementEligible": false
 }
 ```
 
