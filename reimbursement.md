@@ -139,9 +139,9 @@ In the Credits dashboard view you have access to your credit purchases in _Purch
 
 ## Eligibility
 
-The reimbursement request is done towards a cardholder transaction with the path parameter `transactionId` and it needs to meet the eligibility criteria that can be checked with the transaction boolean property `reimbursementEligible`. You must be using the API version `2021-09-28` or newer to have the property available in your transactions.
+The reimbursement request is done towards a cardholder transaction with the path parameter `transactionId` and it needs to meet the eligibility criteria.
 
-Eligibility has a `true` value when the transaction meets the following criteria:
+A transaction is said to be eligible when it meets the following criteria:
 
 - Transaction `currency` is `USD`;
 
@@ -187,7 +187,6 @@ fileName:transaction.json
         "scheme": "visa",
       },
       "datetime": "2021-08-20T11:11:11",
-      "reimbursementEligible": true
     },
     {
       // For the purpose of this example, only selected properties are shown
@@ -199,7 +198,6 @@ fileName:transaction.json
         "scheme": "visa",
       },
       "datetime": "2021-10-20T11:11:11",
-      "reimbursementEligible": true
     }
   ],
   "resource": "/v1/cards/{cardId}/transactions/reimbursement",
@@ -247,7 +245,6 @@ fileName:transaction.json
               "scheme": "visa",
             },
             "datetime": "2021-08-20T11:11:11",
-            "reimbursementEligible": false,
             "reimbursement": {
               "amount": 2.55,
               "created": "2021-09-30T11:11:11.000Z",
@@ -356,7 +353,6 @@ fileName: response.json
         "visaAuthCode": "000000",
         "mastercardAuthCode": null
       },
-      "reimbursementEligible": false,
       "reimbursement": {
         "amount": 2.55,
         "created": "2021-09-30T11:11:11.000Z",
@@ -398,7 +394,6 @@ fileName:transaction-with-offer.json
   "cleared": true,
   "currency": "USD",
   "datetime": "2021-08-20T11:11:11",
-  "reimbursementEligible": true,
   "offer": {
     "automatedReimbursement": true,
     "id": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
@@ -433,7 +428,6 @@ fileName:transaction-with-offer.json
   "cleared": true,
   "currency": "USD",
   "datetime": "2021-08-20T11:11:11",
-  "reimbursementEligible": true,
   "reimbursement": {
     "amount": 2.55,
     "automated": true,
@@ -477,7 +471,6 @@ fileName:transaction.json
     "scheme": "visa",
   },
   "datetime": "2021-08-20T11:11:11",
-  "reimbursementEligible": false,
   "reimbursement": {
     "amount": 2.55,
     "created": "2021-09-30T11:11:11.000Z",
@@ -573,7 +566,6 @@ fileName:transaction.json
     "scheme": "visa",
   },
   "datetime": "2021-08-20T11:11:11",
-  "reimbursementEligible": true,
   "reimbursement": {
     "amount": 2.55,
     "created": "2021-09-30T11:11:11.000Z",
