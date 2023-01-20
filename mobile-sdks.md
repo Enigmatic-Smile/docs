@@ -68,7 +68,7 @@ Fidel.present(self, onCardLinkedCallback: { (card: LinkResult) in
 })
 ```
 
-If you run into any issues, [let us know in the Developer Community](https://community.fidel.uk/c/Issues-or-Questions-on-our-mobile-SDKs/) or [check issues on Github](https://github.com/FidelLimited/fidel-ios).
+If you run into any issues, [check issues on Github](https://github.com/FidelLimited/fidel-ios).
 
 ## Android
 
@@ -154,7 +154,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-If you run into any issues, [let us know in the Developer Community](https://community.fidel.uk/c/Issues-or-Questions-on-our-mobile-SDKs/) or [check issues on Github](https://github.com/FidelLimited/fidel-android).
+If you run into any issues, [check issues on Github](https://github.com/FidelLimited/fidel-android).
 
 ## React Native
 
@@ -471,7 +471,6 @@ Amex: `3400000000003**` or `3700000000003**` (the last 2 numbers can be anything
 
 The React Native SDK is in active development, we welcome your feedback!
 
-[Developers Community](https://community.fidel.uk/) — for support and troubleshooting at any phase of integration.  
 [GitHub Issues](https://github.com/fidellimited/rn-sdk/issues) — For SDK issues and feedback.
 
 ## Banner Images

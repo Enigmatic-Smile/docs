@@ -2,7 +2,7 @@
 
 Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, and `transaction.refund`.
 
-Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload. 
+Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload.
 
 For example, when a customer makes a payment with a linked Mastercard card, on a participating location, a `transaction.auth` event is sent in real-time to the specified webhook URL, with a payload that contains the Transaction object.
 
@@ -10,7 +10,7 @@ For example, when a customer makes a payment with a linked Mastercard card, on a
 
 There are two ways you can manage your webhooks, i.e., view, create, update, delete, with the Fidel API. You can create them in the [Fidel Dashboard, under the "Webhooks" page](https://dashboard.fidel.uk/webhooks) or make HTTP requests using the [Webhooks API](https://reference.fidel.uk/reference/create-webhook-brand).
 
-As requirements for creation, Fidel API only accepts HTTPS URLs for webhook endpoints, thus your server must support HTTPS and have a valid certificate. 
+As requirements for creation, Fidel API only accepts HTTPS URLs for webhook endpoints, thus your server must support HTTPS and have a valid certificate.
 
 Fidel API sends the data via HTTP POST in JSON format. It will send test events if your Dashboard is in test mode or if you are using test API keys when registering the webhook URLs. To receive live events, flip your switch on the Dashboard to go live, or create the webhooks using a live API key.
 
@@ -138,10 +138,6 @@ A maximum of 5 custom headers per webhook can be defined, and they need to follo
   "X-Fidel-Timestamp"
 ]
 ```
-
-## Events
-
-We are working to extend the list of events. If you require any specific event that is not available yet, please reach out on our [community forum](https://community.fidel.uk/) or email us at [devrel@fidel.uk](mailto:devrel@fidel.uk).
 
 ### Brand
 
@@ -472,7 +468,7 @@ fileName:transaction.refund
 }
 ```
 
-There are three additional transaction webhook events: `transaction.auth.qualified`, `transaction.clearing.qualified` and `transaction.refund.qualified`. They are triggered when an `auth`, `clearing` or a `refund` transaction is qualified for an Offer. 
+There are three additional transaction webhook events: `transaction.auth.qualified`, `transaction.clearing.qualified` and `transaction.refund.qualified`. They are triggered when an `auth`, `clearing` or a `refund` transaction is qualified for an Offer.
 
 `transaction.auth.qualified` and `transaction.clearing.qualified` events are triggered only if transactions they are inside of the offer's period and pass the set of rules defined in the offer. `transaction.refund.qualified` events might be emitted even when the offer has expired due to the complex matching logic of the refund to the original transaction.
 
