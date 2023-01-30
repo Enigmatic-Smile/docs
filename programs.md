@@ -13,12 +13,12 @@ To create a new program on the Fidel Dashboard, go to the [**Programs**](https:/
 
 ![Create program](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-program.png "Create program")
 
-The same can be done with the [API](https://reference.fidel.uk/reference#create-program).  Using curl, we can add 'Program X' as follows:
+The same can be done with the [API](https://reference.fidel.uk/reference/create-program).  Using curl, we can add 'Program X' as follows:
 
 ```sh
 curl -X POST https://api.fidel.uk/v1/programs \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: <secret key>' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
     "name": "Program X",
     "metadata": {

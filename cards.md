@@ -3,7 +3,7 @@ Payment cards are the cornerstone of Fidel APIs. You can receive Fidel Transacti
 
 After the card is linked successfully, we will monitor any purchase made by this card at any of the program’s physical or online locations. The transaction object will be sent to a webhook URL specified by you.
 
-Developers can use [our APIs](https://reference.fidel.uk/reference#create-card) or SDKs - we have [JavaScript](/web-sdk/v3), [Android, iOS and ReactNative SDKs](/mobile-sdks) - to register debit or credit cards on the Fidel platform, link them to a [Program](/programs) and start receiving transaction made with the card in the Program locations.
+Developers can use [our APIs](https://reference.fidel.uk/reference/create-card) or SDKs - we have [JavaScript](/web-sdk/v3), [Android, iOS and ReactNative SDKs](/mobile-sdks) - to register debit or credit cards on the Fidel platform, link them to a [Program](/programs) and start receiving transaction made with the card in the Program locations.
 
 ## Test Card Numbers
 
@@ -54,7 +54,7 @@ If you don't want to use our secure and PCI compliant SDKs, you must get PCI Com
 curl -X POST \
   https://api.fidel.uk/v1/programs/f76ed1be-e434-480b-aa1d-ff48f548f62a/cards
   -H 'Content-Type: application/json'
-  -H 'Fidel-Key: pk_test_62f02030-0409-4eb5-ab94-6eff05b3d888'
+  -H 'Fidel-Key: <KEY>'
   -d '{
   	"number": "4444000000004222",
     "expMonth": 10,
@@ -112,8 +112,8 @@ fileName:cardResponse.json
 
 ## Metadata
 
-The Card object can also have associated metadata, with an `id` property that is a *non-unique index*.  When creating a card, you can set the `id` property of the metadata to a custom identifier, for example `my-brand-name-cards`. Later you can use our Cards API to retrieve a list of cards by using the metadata `ID`. You can read more about this in our API Reference for the [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference#list-cards-from-metadata-id) endpoint.
+The Card object can also have associated metadata, with an `id` property that is a *non-unique index*.  When creating a card, you can set the `id` property of the metadata to a custom identifier, for example `my-brand-name-cards`. Later you can use our Cards API to retrieve a list of cards by using the metadata `ID`. You can read more about this in our API Reference for the [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference/list-cards-from-metadata-id) endpoint.
 
 ## API Reference
 
-If you're looking to find out more about our Cards API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference#create-card).
+If you're looking to find out more about our Cards API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference/create-card).

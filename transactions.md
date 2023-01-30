@@ -73,7 +73,6 @@ fileName:transaction.json
     "cashback": 2.5,
     "performanceFee": 0.3
   },
-  "reimbursementEligible": false
 }
 ```
 
@@ -134,7 +133,7 @@ If you need the updated information about the original transaction, you can retr
 curl -X GET \
   https://api.fidel.uk/v1/transactions/a375e18f-0678-40fa-aa8b-4875e2146437 \
   -H 'Content-Type: application/json' \
-  -H 'Fidel-Key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
+  -H 'Fidel-Key: <KEY>'
 ```
 
 We suggest that you use the auth event to notify the user that you registered the transaction and will fulfil the reward when the transaction clears. The clearing event is the confirmation that the transaction has been settled.
@@ -146,7 +145,7 @@ We suggest that you use the auth event to notify the user that you registered th
 
 ## Test Transactions
 
-For testing purposes, you can use the [**API Playground**](https://dashboard.fidel.uk/playground) in the Fidel Dashboard test environment to create test transactions and test your application logic. Alternatively, you can use the [Create Test Transaction](https://reference.fidel.uk/reference#create-transaction-test) API endpoint to create authorisation test transaction. You can see an example implementation for creating and clearing test transactions via the API in our [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app/blob/main/server/controllers/transactions.js).
+For testing purposes, you can use the [**API Playground**](https://dashboard.fidel.uk/playground) in the Fidel Dashboard test environment to create test transactions and test your application logic. Alternatively, you can use the [Create Test Transaction](https://reference.fidel.uk/reference/create-transaction-test) API endpoint to create authorisation test transaction. You can see an example implementation for creating and clearing test transactions via the API in our [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app/blob/main/server/controllers/transactions.js).
 
 To create a test transaction, you will need a [Program](/programs), a [Location](/locations) and a test [Card](/cards) linked to the program.
 
@@ -155,8 +154,8 @@ To create a test transaction, you will need a [Program](/programs), a [Location]
 ```sh
 curl -X POST \
   https://api.fidel.uk/v1/transactions/test \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
     "amount": 10,
     "cardId": "bc538b71-31c5-4699-820a-6d4a08693314",
@@ -180,4 +179,4 @@ To clear an authorisation test transaction, you can navigate to the [Transaction
 
 ## API Reference
 
-To find out more about our Transactions API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference#create-transaction-test).
+To find out more about our Transactions API and how to use it with your application, please visit the [Fidel API Reference](https://reference.fidel.uk/reference/create-transaction-test).

@@ -21,7 +21,7 @@ Fidel Credits are non refundable and non transferable. Take into consideration p
 
 ### Balance
 
-Your credit balance is updated every time you purchase credits or spend by using Reimbursement. When sending a reimbursement request, the amount is immediately deducted from the balance. If the reimbursement goes to `failed` status, the amount is added again to the balance. Read more information on the [credits balance endpoint](https://reference.fidel.uk/reference#get-account-balance).
+Your credit balance is updated every time you purchase credits or spend by using Reimbursement. When sending a reimbursement request, the amount is immediately deducted from the balance. If the reimbursement goes to `failed` status, the amount is added again to the balance. Read more information on the [credits balance endpoint](https://reference.fidel.uk/reference/get-account-balance).
 
 ### Credits Balance Example
 
@@ -30,8 +30,8 @@ Balances are denominated in multiple currencies to support other countries in th
 ```sh
 curl -X GET \
   https://api.fidel.uk/v1/accounts/{accountId}/credits/balance \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: {your secret key}'
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>'
 ```
 
 ```json
@@ -132,15 +132,15 @@ fileName:credits-balance.json
 
 ### History
 
-In the Credits dashboard view you have access to your credit purchases in _Purchased credits_ and credit spent in _Reimbursements_. Read more information on the [credits history endpoint](https://reference.fidel.uk/reference#get-credits-history).
+In the Credits dashboard view you have access to your credit purchases in _Purchased credits_ and credit spent in _Reimbursements_. Read more information on the [credits history endpoint](https://reference.fidel.uk/reference/get-credits-history).
 
 ![Credits history](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/credits-history.gif "Credits history")
 
 ## Eligibility
 
-The reimbursement request is done towards a cardholder transaction with the path parameter `transactionId` and it needs to meet the eligibility criteria that can be checked with the transaction boolean property `reimbursementEligible`. You must be using the API version `2021-09-28` or newer to have the property available in your transactions.
+The reimbursement request is done towards a cardholder transaction with the path parameter `transactionId` and it needs to meet the eligibility criteria.
 
-Eligibility has a `true` value when the transaction meets the following criteria:
+A transaction is said to be eligible when it meets the following criteria:
 
 - Transaction `currency` is `USD` or `GBP`;
 
@@ -167,8 +167,8 @@ Example `amount` set to `5`, `currency` to `USD` and `brandId` to `Star`.
 ```sh
 curl -X GET \
   GET https://api.fidel.uk/v1/cards/{cardId}/transactions/reimbursement?amount={amount}&currency={currency}&brandId={brandId} \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: {your secret key}'
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>'
 ```
 
 ```json
@@ -186,7 +186,6 @@ fileName:transaction.json
         "scheme": "visa",
       },
       "datetime": "2021-08-20T11:11:11",
-      "reimbursementEligible": true
     },
     {
       // For the purpose of this example, only selected properties are shown
@@ -198,7 +197,6 @@ fileName:transaction.json
         "scheme": "visa",
       },
       "datetime": "2021-10-20T11:11:11",
-      "reimbursementEligible": true
     }
   ],
   "resource": "/v1/cards/{cardId}/transactions/reimbursement",
@@ -222,8 +220,8 @@ Example `amount` set to `2.55` and custom `description` to `Earned Stars`.
 ```sh
 curl -X POST \
   https://api.fidel.uk/v1/transactions/{transactionId}/reimbursement \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: {your secret key}' \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
   -d '{
     "amount": 2.55,
     "description": "Earned Stars"
@@ -246,7 +244,6 @@ fileName:transaction.json
               "scheme": "visa",
             },
             "datetime": "2021-08-20T11:11:11",
-            "reimbursementEligible": false,
             "reimbursement": {
               "amount": 2.55,
               "created": "2021-09-30T11:11:11.000Z",
@@ -355,7 +352,6 @@ fileName: response.json
         "visaAuthCode": "000000",
         "mastercardAuthCode": null
       },
-      "reimbursementEligible": false,
       "reimbursement": {
         "amount": 2.55,
         "created": "2021-09-30T11:11:11.000Z",
@@ -397,7 +393,6 @@ fileName:transaction-with-offer.json
   "cleared": true,
   "currency": "USD",
   "datetime": "2021-08-20T11:11:11",
-  "reimbursementEligible": true,
   "offer": {
     "automatedReimbursement": true,
     "id": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
@@ -432,7 +427,6 @@ fileName:transaction-with-offer.json
   "cleared": true,
   "currency": "USD",
   "datetime": "2021-08-20T11:11:11",
-  "reimbursementEligible": true,
   "reimbursement": {
     "amount": 2.55,
     "automated": true,
@@ -476,7 +470,6 @@ fileName:transaction.json
     "scheme": "visa",
   },
   "datetime": "2021-08-20T11:11:11",
-  "reimbursementEligible": false,
   "reimbursement": {
     "amount": 2.55,
     "created": "2021-09-30T11:11:11.000Z",
@@ -572,7 +565,6 @@ fileName:transaction.json
     "scheme": "visa",
   },
   "datetime": "2021-08-20T11:11:11",
-  "reimbursementEligible": true,
   "reimbursement": {
     "amount": 2.55,
     "created": "2021-09-30T11:11:11.000Z",
