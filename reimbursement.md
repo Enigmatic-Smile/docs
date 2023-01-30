@@ -7,7 +7,7 @@ Fidel Reimbursement is an add-on product to _Transaction_ tracking capability, t
 Reimbursement supports both debit and credit cards by Visa and Mastercard in the US or UK. Your account must be set up either in the US or the UK to have access to the Reimbursement product.
 ## Activation
 
-If your account is set up in the US or UK and you are using an older API version (reimbursement requires version 2021-09-28 or later) or haven't agreed to the [Terms & Conditions](https://fidel.uk/legal) in your region, you will be prompted to go through the Reimbursement product activation.
+If your account is set up in the US or UK and you are using an older API version (reimbursement requires version 2021-09-28 or later) or haven't agreed to the [Terms & Conditions](https://fidelapi.com/legal) in your region, you will be prompted to go through the Reimbursement product activation.
 
 ![Reimbursement Activation](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursement-activation.gif "Reimbursement Activation")
 
@@ -91,7 +91,7 @@ When a currency balance drops to _25%_ of the balance amount you had on your las
 
 ### Low Balance Webhook
 
-The `credits.balance.low` webhook notifies on the _[Low Balance Notification](https://fidel.uk/docs/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
+The `credits.balance.low` webhook notifies on the _[Low Balance Notification](https://fidelapi.com/docs/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
 
 ```json
 fileName:credits-balance.json
@@ -209,7 +209,7 @@ fileName:transaction.json
 
 ### Creating a request
 
-After choosing the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. Visa cards have a maximum reimbursement amount limit of _USD $250_. We currently support `USD` or `GBP` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the [create reimbursement endpoint](https://reference.fidel.uk/reference#create-reimbursement).
+After choosing the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. Visa cards have a maximum reimbursement amount limit of _USD $250_. We currently support `USD` or `GBP` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the [create reimbursement endpoint](https://reference.fidel.uk/reference/create-reimbursement).
 
 ![Creating a reimbursement](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursing.gif "Creating a reimbursement")
 
@@ -276,7 +276,7 @@ Find the reimbursement status in the transaction `reimbursement.status` property
 
 - `issued`: scheme executed request successfully;
 
-- `failed`: scheme request failed and `transaction.reimbursement.error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement#errors).
+- `failed`: scheme request failed and `transaction.reimbursement.error` object is created. Retry is possible. [See error list for more information](https://fidelapi.com/docs/reimbursement#errors).
 
 ## Reimbursement by card
 
@@ -378,7 +378,7 @@ Automate reimbursement requests when creating an Offer by toggling the “enable
 
 Reimbursements will be automatically requested whenever a transaction **is both cleared and qualified** for an Offer with `offer.automatedReimbursement.enabled` set to `true`. Optionally, it's also possible to include a Description for the Reimbursement using the `offer.automatedReimbursement.description`.
 
-Read more information on the Offers product [in the documentation page](https://fidel.uk/docs/offers).
+Read more information on the Offers product [in the documentation page](https://fidelapi.com/docs/offers).
 
 ### Tracking before issuing
 
@@ -452,7 +452,7 @@ fileName:transaction-with-offer.json
 
 ### Failed automated reimbursements
 
-Automated reimbursement requests can fail – e.g.: account does not have enough credits, transient issue or transaction is not reimbursement eligible (see [Eligibility](https://fidel.uk/docs/reimbursement#eligibility) section). In these cases, they can be retried as described in the [Retry](https://fidel.uk/docs/reimbursement#retry) section.
+Automated reimbursement requests can fail – e.g.: account does not have enough credits, transient issue or transaction is not reimbursement eligible (see [Eligibility](https://fidelapi.com/docs/reimbursement#eligibility) section). In these cases, they can be retried as described in the [Retry](https://fidelapi.com/docs/reimbursement#retry) section.
 
 ## Webhook
 
@@ -493,7 +493,7 @@ Reimbursement requests can be retried via API or dashboard.
 
 ### API Errors
 
-These errors might be returned in the [request](https://fidel.uk/docs/reimbursement/#request) endpoint.
+These errors might be returned in the [request](https://fidelapi.com/docs/reimbursement/#request) endpoint.
 
 <ReimbursementTable
 headings={['HTTP Status Code', 'Error Code', 'Error Message']}
