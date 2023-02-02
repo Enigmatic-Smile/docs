@@ -1,8 +1,8 @@
 # Webhooks
 
-Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, and `transaction.refund`.
+Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund`, `transaction.reimbursement.status` and `credits.balance.low`.
 
-Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload. 
+Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload.
 
 For example, when a customer makes a payment with a linked Mastercard card, on a participating location, a `transaction.auth` event is sent in real-time to the specified webhook URL, with a payload that contains the Transaction object.
 
@@ -10,7 +10,7 @@ For example, when a customer makes a payment with a linked Mastercard card, on a
 
 There are two ways you can manage your webhooks, i.e., view, create, update, delete, with the Fidel API. You can create them in the [Fidel Dashboard, under the "Webhooks" page](https://dashboard.fidel.uk/webhooks) or make HTTP requests using the [Webhooks API](https://reference.fidel.uk/reference/create-webhook-brand).
 
-As requirements for creation, Fidel API only accepts HTTPS URLs for webhook endpoints, thus your server must support HTTPS and have a valid certificate. 
+As requirements for creation, Fidel API only accepts HTTPS URLs for webhook endpoints, thus your server must support HTTPS and have a valid certificate.
 
 Fidel API sends the data via HTTP POST in JSON format. It will send test events if your Dashboard is in test mode or if you are using test API keys when registering the webhook URLs. To receive live events, flip your switch on the Dashboard to go live, or create the webhooks using a live API key.
 
@@ -433,7 +433,7 @@ fileName:transaction.refund
     "wallet": null,
     "created": "2020-07-08T17:23:13.972Z",
     "accountId": "36081095-2782-4669-8a07-857bbaaeb89b",
-    "cardPresent": false,    
+    "cardPresent": false,
     "cleared": true,
     "updated": "2020-07-08T17:23:13.972Z",
     "programId": "06471dbe-a3c7-429e-8a18-16dc97e5cf35",
@@ -472,7 +472,7 @@ fileName:transaction.refund
 }
 ```
 
-There are three additional transaction webhook events: `transaction.auth.qualified`, `transaction.clearing.qualified` and `transaction.refund.qualified`. They are triggered when an `auth`, `clearing` or a `refund` transaction is qualified for an Offer. 
+There are three additional transaction webhook events: `transaction.auth.qualified`, `transaction.clearing.qualified` and `transaction.refund.qualified`. They are triggered when an `auth`, `clearing` or a `refund` transaction is qualified for an Offer.
 
 `transaction.auth.qualified` and `transaction.clearing.qualified` events are triggered only if transactions they are inside of the offer's period and pass the set of rules defined in the offer. `transaction.refund.qualified` events might be emitted even when the offer has expired due to the complex matching logic of the refund to the original transaction.
 
@@ -503,6 +503,61 @@ curl -X POST \
   }'
 ```
 
+`transaction.reimbursement.status` event is triggered when a reimbursement changes state on a transaction.
+
+The payload for these events includes the `reimbursement` object with the up-to-date status. Read more about it in the [Reimbursement page](/reimbursement/#webhook).
+
+```json
+"reimbursement": {
+    "amount": 2.55,
+    "created": "2021-09-30T11:11:11.000Z",
+    "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
+    "description": "Earned Stars",
+    "status": "issued",
+    "token": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
+  }
+```
+
+### Credits
+
+Fidel Credits can be used to reimburse cardholders. Learn more about Fidel Credits on the [Reimbursement page](/reimbursement/#credits) A `credits.balance.low` event is sent when a currency's credit balance drops below 25% of the amount at the time of the previous credits purchase. The payload for these events is the following:
+
+```json
+{
+  "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
+  "balances": {
+    "AUD": 0,
+    "CHF": 0,
+    "JPY": 0,
+    "EUR": 0,
+    "GBP": 0,
+    "CAD": 0,
+    "USD": 249,
+    "NZD": 0
+  },
+  "lastTotalAmount": {
+    "AUD": 0,
+    "CHF": 0,
+    "JPY": 0,
+    "EUR": 0,
+    "GBP": 0,
+    "CAD": 0,
+    "USD": 1000,
+    "NZD": 0
+  },
+  "lowCreditsNotificationSent": {
+    "AUD": false,
+    "CHF": false,
+    "JPY": false,
+    "EUR": false,
+    "GBP": false,
+    "CAD": false,
+    "USD": true,
+    "NZD": false
+  }
+}
+```
+
 ## Signatures
 
 If you want to confirm that incoming requests on your webhook URL are coming from the Fidel API, we recommend verifying webhook signatures. We send the `x-fidel-signature` and `x-fidel-timestamp` HTTP headers for each request we make to a webhook URL.
@@ -512,8 +567,9 @@ Fidel API generates a unique secret key for each webhook you register. The key i
 Replay attacks are a common MITM attack vector where a valid payload and its signature is intercepted and re-transmitted. If you want to safeguard against them, you can use the `x-fidel-timestamp` header and confirm that the timestamp is not too old. We recommend you validate the requests in a 5-minute gap. In the case of retries, a new signature and timestamp are generated for each retry request.
 
 The valuation/verification can be conducted as follows:
-1. Create a string concatenating the body of the request, the webhook URL and the timestamp value from the `x-fidel-timestamp` header.  
-2. Double hash the resulting string using the webhook `secretKey` with HMAC-SHA256 and encode it in Base-64.  
+
+1. Create a string concatenating the body of the request, the webhook URL and the timestamp value from the `x-fidel-timestamp` header.
+2. Double hash the resulting string using the webhook `secretKey` with HMAC-SHA256 and encode it in Base-64.
 3. Compare the signature you generated with the signature provided in the `x-fidel-signature` header.
 
 ### Example JavaScript implementation
