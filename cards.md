@@ -112,7 +112,9 @@ fileName:cardResponse.json
 
 ## Metadata
 
-The Card object can also have associated metadata, with an `id` property that is a *non-unique index*.  When creating a card, you can set the `id` property of the metadata to a custom identifier, for example `my-brand-name-cards`. Later you can use our Cards API to retrieve a list of cards by using the metadata `ID`. You can read more about this in our API Reference for the [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference/list-cards-from-metadata-id) endpoint.
+The Card object can also have associated metadata, i.e., auxiliary data to better describe or help tracking and working with cards. The metadata field requires an `id` mandatory property, which works as a *non-unique index* for retrieval purposes. We recommend that no confidential or sensitive data regarding the cardholder be stored in clear in this property.
+
+When creating a card, you can set the `id` property of the metadata to a custom identifier, for example `my-brand-name-cards` (API Reference [Create Card](https://reference.fidel.uk/reference/create-card) endpoint). You can also update a card's metadata at any time. For more information, refer to the API Reference for the [Update Card Metadata](https://reference.fidel.uk/reference/update-card-metadata) endpoint. Additionally, you can retrieve a list of cards by using the metadata `id`. You can read more about this in our API Reference for the [List Cards from Metadata ID](https://reference.fidel.uk/v1/reference/list-cards-from-metadata-id) endpoint.
 
 ## API Reference
 
