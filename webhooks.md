@@ -1,6 +1,6 @@
 # Webhooks
 
-Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund`, `reimbursement.status` and `credits.balance.low`.
+Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund`, `reimbursement.pending`, `reimbursement.issued`, `reimbursement.failed` and `credits.balance.low`.
 
 Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload.
 
@@ -503,7 +503,7 @@ curl -X POST \
   }'
 ```
 
-`reimbursement.status` event is triggered when a reimbursement changes state.
+`reimbursement.pending`, `reimbursement.issued`, `reimbursement.failed` events are triggered when a reimbursement changes state. The `reimbursement.pending` when the new state is `pending`, `reimbursement.issued` when a new state is `issued`, and `reimbursement.failed` when a new state is `failed`
 
 The payload for these events includes the `reimbursement` object with the up-to-date status. Read more about it in the [Reimbursement page](/reimbursement/#webhook).
 
