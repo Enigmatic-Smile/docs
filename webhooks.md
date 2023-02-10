@@ -515,8 +515,8 @@ The payload for these events includes the `reimbursement` object with the up-to-
   "description": "Earned Stars",
   "status": "issued",
   "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
-  "updated": "2020-07-08T17:23:13.972Z",
-  "transactionId: "5ec08ca8-38c6-42e1-9fa5-32c67e4135b2"
+  "updated": "2021-09-30T11:12:11.000Z",
+  "transactionId": "5ec08ca8-38c6-42e1-9fa5-32c67e4135b2"
 }
 ```
 
