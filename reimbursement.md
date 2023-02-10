@@ -153,6 +153,61 @@ A transaction is said to be eligible when it meets the following criteria:
 
 - Transaction `time` date is newer than 90 days.
 
+### Finding Eligible Transactions by Card
+
+Find eligible card transactions with `cardId` for a specific `amount` and `currency`. Optionally pass `brandId` to find transactions in a specific brand.
+
+Transactions are sorted automatically in descending order by the best available, following the eligibility criteria, giving more emphasis on the transaction time and then amount. Read more information on the [find eligible reimbursement transactions endpoint](https://reference.fidel.uk/reference/get-transactions-for-reimbursement-by-card).
+
+![Reimbursement by Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimburse-card.gif "Reimbursement by Card")
+
+### Eligible Transactions Example
+
+Example `amount` set to `5`, `currency` to `USD` and `brandId` to `Star`.
+
+```sh
+curl -X GET \
+  GET https://api.fidel.uk/v1/cards/{cardId}/transactions/reimbursement?amount={amount}&currency={currency}&brandId={brandId} \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>'
+```
+
+```json
+fileName:transaction.json
+{
+  "count": 2,
+  "items": [
+    {
+      // For the purpose of this example, only selected properties are shown
+      "amount": 10,
+      "cleared": true,
+      "currency": "USD",
+      "card": {
+        // For the purpose of this example, only selected properties are shown
+        "scheme": "visa",
+      },
+      "datetime": "2021-08-20T11:11:11",
+      "id": "cf0a2949-8603-4609-8d29-03b9ae5a446b"
+    },
+    {
+      // For the purpose of this example, only selected properties are shown
+      "amount": 20,
+      "cleared": true,
+      "currency": "USD",
+      "card": {
+        // For the purpose of this example, only selected properties are shown
+        "scheme": "visa",
+      },
+      "datetime": "2021-10-20T11:11:11",
+      "id": "53ad6957-3a28-499a-a206-558b89ca0d45"
+    }
+  ],
+  "resource": "/v1/cards/{cardId}/transactions/reimbursement",
+  "status": 200,
+  "execution": 26.392104
+}
+```
+
 ## Request
 
 ### Creating a request
@@ -167,36 +222,28 @@ Example `amount` set to `2.55` and custom `description` to `Earned Stars`.
 
 ```sh
 curl -X POST \
-  https://api.fidel.uk/v1/reimbursement \
+  https://api.fidel.uk/v1/transactions/{transactionId}reimbursement \
   -H 'Content-Type: application/json' \
   -H 'Fidel-Key: <KEY>' \
   -d '{
     "amount": 2.55,
     "description": "Earned Stars",
-    "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130"
   }'
 ```
 
-After the reimbursement request is received by the card scheme, the full transaction is returned with the newly created `transaction.reimbursement` object with `pending` status, and also a `reimbursement.token` string, representing the unique identifier for that reimbursement request.
+After the reimbursement request is received by the card scheme, the full transaction is returned with the newly created `id`, representing the unique identifier for that reimbursement request.
 
 ```json
-fileName:transaction.json
+fileName:reimbursement.json
 {
     "items": [
         {
-          "amount": 2.55,
-          "created": "2021-09-30T11:11:11.000Z",
-          "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
-          "description": "Earned Stars",
-          "status": "pending",
-          "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
-          "updated": "2021-09-30T11:12:11.000Z",
-          "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130",
+          "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92"
         }
     ],
     "execution": 120.856835,
-    "resource": "/v1/reimbursement",
-    "status": 200
+    "resource": "/v1/transactions/{transactionId}reimbursement",
+    "status": 202
 }
 ```
 
@@ -217,6 +264,40 @@ Find the reimbursement status in the reimbursement's `status` property:
 - `issued`: scheme executed request successfully;
 
 - `failed`: scheme request failed and `error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement#errors).
+
+## Reimbursement by card
+
+In some cases, you may want to reimburse a card (and not a specific transaction). However, as card networks allow reimbursements only on specific transactions, the reimbursement request needs to be based on a transaction. The `POST https://api.fidel.uk/v1/cards/{cardId}/reimbursement` endpoint helps you to find such a transaction for this case. You can simply define the `cardId`, and Fidel API will search for the most suitable transaction, and apply the reimbursement on that one.
+
+The request to this endpoint would require an amount and a currency (and also other optional properties):
+
+```json
+fileName: request.json
+{
+  "amount": 5,
+  "currency": "USD",
+  "description": "Earned Stars", //optional
+  "brandId": "518c746f-fbf4-420a-8d37-c591adc39684" // optional
+}
+```
+
+The endpoint would then respond with unique identifier for the reimbursement that will be created for the most suitable transaction on the card.
+
+```json
+fileName: response.json
+{
+  "items": [
+    {
+      "id": "3c0c4ed5-b821-4390-8a9e-e7c140ec8358"
+    }
+  ],
+  "resource": "/v1/cards/bc538b71-31c5-4699-840a-6d4a08693314/reimbursement",
+  "status": 200,
+  "execution": 19.980616
+}
+```
+
+For more info, please visit the [API reference](https://reference.fidel.uk/reference/create-reimbursement-by-card) for this particular endpoint.
 
 ## Automation
 
@@ -279,8 +360,8 @@ fileName:transaction-with-offer.json
   "issuingOfferId": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
   "status": "pending",
   "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
-  "transactionId": ""
   "updated": "2021-09-30T11:12:11.000Z",
+  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130",
 }
 ```
 
@@ -290,10 +371,10 @@ Automated reimbursement requests can fail – e.g.: account does not have enough
 
 ## Webhook
 
-When a reimbursement status is updated from `pending` to `issued` or `failed` the webhook named `reimbursement.status` is triggered. The webhook will send the full reimbursement object with the updated `status`. See the example below with the update to `issued` status:
+When a reimbursement status is updated from `pending` to `issued` or `failed` the webhook named `reimbursement.pending` or `reimbursement.issued` or `reimbursement.failed` is triggered (corresponding to the new status). The webhook will send the full reimbursement object with the updated `status`. See the example below with the update to `reimbursement.issued` webhook:
 
 ```json
-fileName:transaction.json
+fileName:reimbursement.json
 {
   "amount": 2.55,
   "created": "2021-09-30T11:11:11.000Z",
@@ -380,7 +461,7 @@ rows={[
 ### Status Error Example
 
 ```json
-fileName:transaction.json
+fileName:reimbursement.json
 {
   "amount": 2.55,
   "created": "2021-09-30T11:11:11.000Z",
