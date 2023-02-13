@@ -342,22 +342,16 @@ Transactions with expected automated reimbursement attempts are shown in the das
 
 ### Tracking after issuing
 
-Automated reimbursement attempts have the same payloads as regular reimbursements requests and also include three new properties to provide the user with more information on how and why they were requested - `automated`, `issuingBrandId`, `issuingOfferId`.
+Automated reimbursement attempts have the same payloads as regular reimbursements.
 
-The `automated` property states whether that reimbursement request was issued automatically. Automated reimbursements are those that were not triggered directly by the user (via API or dashboard).
-
-The `issuingBrandId` and `issuingOfferId` properties are informative properties which only exist for automated reimbursements and inform the user of what context the reimbursement was requested in.
 
 ```json
 fileName:transaction-with-offer.json
 {
   "amount": 2.55,
-  "automated": true,
   "created": "2021-09-30T11:11:11.000Z",
   "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
   "description": "Earned Stars",
-  "issuingBrandId": "459170aa-7490-467d-bb4d-19b35139e325",
-  "issuingOfferId": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
   "status": "pending",
   "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
   "updated": "2021-09-30T11:12:11.000Z",
