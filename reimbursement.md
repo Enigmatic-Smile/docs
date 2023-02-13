@@ -227,7 +227,7 @@ curl -X POST \
   -H 'Fidel-Key: <KEY>' \
   -d '{
     "amount": 2.55,
-    "description": "Earned Stars",
+    "description": "Earned Stars"
   }'
 ```
 
@@ -361,7 +361,7 @@ fileName:transaction-with-offer.json
   "status": "pending",
   "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
   "updated": "2021-09-30T11:12:11.000Z",
-  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130",
+  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130"
 }
 ```
 
@@ -434,7 +434,7 @@ fileName:reimbursement-request.json
         "metadata": {}
     },
     "execution": 105.254359,
-    "resource": "/v1/reimbursement",
+    "resource": "/v1/transactions/{transactionId}reimbursement",
     "status": 400
 }
 ```
