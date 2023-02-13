@@ -222,7 +222,7 @@ Example `amount` set to `2.55` and custom `description` to `Earned Stars`.
 
 ```sh
 curl -X POST \
-  https://api.fidel.uk/v1/transactions/{transactionId}reimbursement \
+  https://api.fidel.uk/v1/transactions/{transactionId}/reimbursement \
   -H 'Content-Type: application/json' \
   -H 'Fidel-Key: <KEY>' \
   -d '{
@@ -242,7 +242,7 @@ fileName:reimbursement.json
         }
     ],
     "execution": 120.856835,
-    "resource": "/v1/transactions/{transactionId}reimbursement",
+    "resource": "/v1/transactions/{transactionId}/reimbursement",
     "status": 202
 }
 ```
