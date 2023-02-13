@@ -231,7 +231,7 @@ curl -X POST \
   }'
 ```
 
-After the reimbursement request is received by the card scheme, the full transaction is returned with the newly created `id`, representing the unique identifier for that reimbursement request.
+After the reimbursement request is received by the card scheme, the newly created `id` is returned, representing the unique identifier for that reimbursement request.
 
 ```json
 fileName:reimbursement.json
@@ -257,7 +257,7 @@ Reimbursement `status` is set to `pending` while waiting for the card scheme to 
 
 ### Status
 
-Find the reimbursement status in the reimbursement's `status` property:
+The `status` property represents the possible reimbursement statuses:
 
 - `pending`: scheme is executing request;
 
@@ -281,7 +281,7 @@ fileName: request.json
 }
 ```
 
-The endpoint would then respond with unique identifier for the reimbursement that will be created for the most suitable transaction on the card.
+The endpoint would then respond with the unique identifier for the reimbursement that will be created for the most suitable transaction on the card.
 
 ```json
 fileName: response.json
