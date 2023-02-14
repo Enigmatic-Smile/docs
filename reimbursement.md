@@ -38,45 +38,44 @@ curl -X GET \
 ```json
 fileName:credits-balance.json
 {
-    "items": [
-        {
-          "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
-          "balances": {
-            "AUD": 0,
-            "CHF": 0,
-            "JPY": 0,
-            "EUR": 0,
-            "GBP": 0,
-            "CAD": 0,
-            "USD": 1000,
-            "NZD": 0
-          },
-          "lastTotalAmount": {
-            "AUD": 0,
-            "CHF": 0,
-            "JPY": 0,
-            "EUR": 0,
-            "GBP": 0,
-            "CAD": 0,
-            "USD": 1000,
-            "NZD": 0
-          },
-          "lowCreditsNotificationSent": {
-            "AUD": false,
-            "CHF": false,
-            "JPY": false,
-            "EUR": false,
-            "GBP": false,
-            "CAD": false,
-            "USD": true,
-            "NZD": false
-          }
-        }
-    ],
-    "execution": 135.265058,
-    "resource": "/v1/accounts/{accountId}/credits/balance",
-    "status": 200
-  }
+  "items": [
+    {
+      "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
+      "balances": {
+        "AUD": 0,
+        "CHF": 0,
+      "JPY": 0,
+        "EUR": 0,
+        "GBP": 0,
+        "CAD": 0,
+        "USD": 1000,
+        "NZD": 0
+      },
+      "lastTotalAmount": {
+        "AUD": 0,
+        "CHF": 0,
+        "JPY": 0,
+        "EUR": 0,
+        "GBP": 0,
+        "CAD": 0,
+        "USD": 1000,
+        "NZD": 0
+      },
+      "lowCreditsNotificationSent": {
+        "AUD": false,
+        "CHF": false,
+        "JPY": false,
+        "EUR": false,
+        "GBP": false,
+        "CAD": false,
+        "USD": true,
+        "NZD": false
+      }
+    }
+  ],
+  "execution": 135.265058,
+  "resource": "/v1/accounts/61741c3-3dc9-45f5-8e7c-db1dd649afab/credits/balance",
+  "status": 200
 }
 ```
 
@@ -173,7 +172,7 @@ curl -X GET \
 ```
 
 ```json
-fileName:transaction.json
+fileName:reimburse-eligible-transactions.json
 {
   "count": 2,
   "items": [
@@ -186,7 +185,6 @@ fileName:transaction.json
         // For the purpose of this example, only selected properties are shown
         "scheme": "visa",
       },
-      "datetime": "2021-08-20T11:11:11",
       "id": "cf0a2949-8603-4609-8d29-03b9ae5a446b"
     },
     {
@@ -198,11 +196,10 @@ fileName:transaction.json
         // For the purpose of this example, only selected properties are shown
         "scheme": "visa",
       },
-      "datetime": "2021-10-20T11:11:11",
       "id": "53ad6957-3a28-499a-a206-558b89ca0d45"
     }
   ],
-  "resource": "/v1/cards/{cardId}/transactions/reimbursement",
+  "resource": "/v1/cards/bc538b71-31c5-4699-840a-6d4a08693314/transactions/reimbursement",
   "status": 200,
   "execution": 26.392104
 }
@@ -242,7 +239,7 @@ fileName:reimbursement.json
         }
     ],
     "execution": 120.856835,
-    "resource": "/v1/transactions/{transactionId}/reimbursement",
+    "resource": "/v1/transactions/489a79b9-92c7-4338-81ef-1529ee7bd130/reimbursement",
     "status": 202
 }
 ```
@@ -344,16 +341,17 @@ Transactions with expected automated reimbursement attempts are shown in the das
 
 Automated reimbursement attempts have the same payloads as regular reimbursements.
 
-
 ```json
 fileName:transaction-with-offer.json
 {
+  "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
   "amount": 2.55,
   "created": "2021-09-30T11:11:11.000Z",
   "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
   "description": "Earned Stars",
   "status": "pending",
   "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
+  "scheme": "visa",
   "updated": "2021-09-30T11:12:11.000Z",
   "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130"
 }
@@ -370,12 +368,14 @@ When a reimbursement status is updated from `pending` to `issued` or `failed` th
 ```json
 fileName:reimbursement.json
 {
+  "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
   "amount": 2.55,
   "created": "2021-09-30T11:11:11.000Z",
   "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
   "description": "Earned Stars",
   "status": "issued",
   "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
+  "scheme": "visa",
   "updated": "2021-09-30T11:12:11.000Z",
   "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130"
 }
@@ -428,7 +428,7 @@ fileName:reimbursement-request.json
         "metadata": {}
     },
     "execution": 105.254359,
-    "resource": "/v1/transactions/{transactionId}reimbursement",
+    "resource": "/v1/transactions/489a79b9-92c7-4338-81ef-1529ee7bd130/reimbursement",
     "status": 400
 }
 ```
@@ -457,6 +457,7 @@ rows={[
 ```json
 fileName:reimbursement.json
 {
+  "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
   "amount": 2.55,
   "created": "2021-09-30T11:11:11.000Z",
   "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
@@ -468,6 +469,7 @@ fileName:reimbursement.json
   "description": "Earned Stars",
   "status": "failed",
   "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
+  "scheme": "visa",
   "updated": "2021-09-30T11:12:11.000Z",
   "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130"
 }
