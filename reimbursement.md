@@ -4,17 +4,16 @@ Fidel Reimbursement is an add-on product to _Transaction_ tracking capability, t
 
 ## Availability
 
-Reimbursement supports both debit and credit cards by Visa and Mastercard in the US. Your account must be set up in the US to have access to the Reimbursement product.
-
+Reimbursement supports both debit and credit cards by Visa and Mastercard in the US or UK. Your account must be set up either in the US or the UK to have access to the Reimbursement product.
 ## Activation
 
-If your account is set up in the US and you are using an older [API version](https://reference.fidel.uk/docs/version-log) (reimbursement requires version `2021-09-28` or later) or haven't agreed to the _North America_ [Terms & Conditions](https://fidel.uk/legal) (_17 Jun 2021_), you will be prompted to go through the Reimbursement product activation.
+If your account is set up in the US or UK and you are using an older API version (reimbursement requires version 2021-09-28 or later) or haven't agreed to the [Terms & Conditions](https://fidelapi.com/legal) in your region, you will be prompted to go through the Reimbursement product activation.
 
 ![Reimbursement Activation](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursement-activation.gif "Reimbursement Activation")
 
 ## Credits
 
-Before reimbursing cardholders you will need to buy Fidel Credits. To be able to make a reimbursement request you need to have enough credits in your balance to deduct the reimbursement amount. Credits currently support USD currency denominations only and must be purchased by bank transfer to FIDEL LIMITED’s beneficiary account using your unique reference code in the description. Find yours under the [Credits view in the dashboard](https://dashboard.fidel.uk/account/credits).
+Before reimbursing cardholders you will need to buy Fidel Credits. To be able to make a reimbursement request you need to have enough credits in your balance to deduct the reimbursement amount. Credits currently support USD or GBP currency denominations only and must be purchased by bank transfer to FIDEL LIMITED’s beneficiary account using your unique reference code in the description. Find yours under the [Credits view in the dashboard](https://dashboard.fidel.uk/account/credits).
 
 Fidel Credits are non refundable and non transferable. Take into consideration possible bank transfer delays that can take between 2-3 business days.
 
@@ -26,7 +25,7 @@ Your credit balance is updated every time you purchase credits or spend by using
 
 ### Credits Balance Example
 
-Balances are denominated in multiple currencies to support other countries in the future. Currently we support `USD` and in this example `balances.USD` value is `$1000`.
+Balances are denominated in multiple currencies to support other countries in the future. Currently, we support either `USD` or `GBP` and in this example `balances.USD` value is `$1000`.
 
 ```sh
 curl -X GET \
@@ -91,7 +90,7 @@ When a currency balance drops to _25%_ of the balance amount you had on your las
 
 ### Low Balance Webhook
 
-The `credits.balance.low` webhook notifies on the _[Low Balance Notification](https://fidel.uk/docs/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
+The `credits.balance.low` webhook notifies on the _[Low Balance Notification](https://fidelapi.com/docs/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
 
 ```json
 fileName:credits-balance.json
@@ -142,7 +141,7 @@ The reimbursement request is done towards a cardholder transaction with the para
 
 A transaction is said to be eligible when it meets the following criteria:
 
-- Transaction `currency` is `USD`;
+- Transaction `currency` is `USD` or `GBP`;
 
 - Transaction `reimbursement` is `undefined` or `reimbursement.status` is `failed`;
 
@@ -209,7 +208,7 @@ fileName:reimburse-eligible-transactions.json
 
 ### Creating a request
 
-After choosing the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. Visa cards have a maximum reimbursement amount limit of _USD $250_. We currently support `USD` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the [create reimbursement endpoint](https://reference.fidel.uk/reference/create-reimbursement).
+After choosing the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. Visa cards have a maximum reimbursement amount limit of _USD $250_ or _GBP £250_, depending on the currency. We currently support `USD` or `GBP` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the [create reimbursement endpoint](https://reference.fidel.uk/reference/create-reimbursement).
 
 ![Creating a reimbursement](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursing.gif "Creating a reimbursement")
 
@@ -298,13 +297,13 @@ For more info, please visit the [API reference](https://reference.fidel.uk/refer
 
 ## Automation
 
-Automate reimbursement requests when creating an Offer by toggling the “enable automatic reimbursements” checkbox. This toggle will be available if the reimbursement product is active and the Offer’s country is the `USA`.
+Automate reimbursement requests when creating an Offer by toggling the “enable automatic reimbursements” checkbox. This toggle will be available if the reimbursement product is active and the Offer’s country is either `USA` (United States of America) or `GBR` (United Kingdom).
 
 ![Automatic reimbursement with Offers](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/offers-automatic-reimbursement.gif "Automatic reimbursement with Offers")
 
 Reimbursements will be automatically requested whenever a transaction **is both cleared and qualified** for an Offer with `offer.automatedReimbursement.enabled` set to `true`. Optionally, it's also possible to include a Description for the Reimbursement using the `offer.automatedReimbursement.description`.
 
-Read more information on the Offers product [in the documentation page](https://fidel.uk/docs/offers).
+Read more information on the Offers product [in the documentation page](https://fidelapi.com/docs/offers).
 
 ### Tracking before issuing
 
@@ -359,7 +358,7 @@ fileName:transaction-with-offer.json
 
 ### Failed automated reimbursements
 
-Automated reimbursement requests can fail – e.g.: account does not have enough credits, transient issue or transaction is not reimbursement eligible (see [Eligibility](https://fidel.uk/docs/reimbursement#eligibility) section). In these cases, they can be retried as described in the [Retry](https://fidel.uk/docs/reimbursement#retry) section.
+Automated reimbursement requests can fail – e.g.: account does not have enough credits, transient issue or transaction is not reimbursement eligible (see [Eligibility](https://fidelapi.com/docs/reimbursement#eligibility) section). In these cases, they can be retried as described in the [Retry](https://fidelapi.com/docs/reimbursement#retry) section.
 
 ## Webhook
 
@@ -393,7 +392,7 @@ Reimbursement requests can be retried via API or dashboard.
 
 ### API Errors
 
-These errors might be returned in the [request](https://fidel.uk/docs/reimbursement/#request) endpoint.
+These errors might be returned in the [request](https://fidelapi.com/docs/reimbursement/#request) endpoint.
 
 <ReimbursementTable
 headings={['HTTP Status Code', 'Error Code', 'Error Message']}
