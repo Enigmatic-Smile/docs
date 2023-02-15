@@ -38,45 +38,44 @@ curl -X GET \
 ```json
 fileName:credits-balance.json
 {
-    "items": [
-        {
-          "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
-          "balances": {
-            "AUD": 0,
-            "CHF": 0,
-            "JPY": 0,
-            "EUR": 0,
-            "GBP": 0,
-            "CAD": 0,
-            "USD": 1000,
-            "NZD": 0
-          },
-          "lastTotalAmount": {
-            "AUD": 0,
-            "CHF": 0,
-            "JPY": 0,
-            "EUR": 0,
-            "GBP": 0,
-            "CAD": 0,
-            "USD": 1000,
-            "NZD": 0
-          },
-          "lowCreditsNotificationSent": {
-            "AUD": false,
-            "CHF": false,
-            "JPY": false,
-            "EUR": false,
-            "GBP": false,
-            "CAD": false,
-            "USD": true,
-            "NZD": false
-          }
-        }
-    ],
-    "execution": 135.265058,
-    "resource": "/v1/accounts/{accountId}/credits/balance",
-    "status": 200
-  }
+  "items": [
+    {
+      "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
+      "balances": {
+        "AUD": 0,
+        "CHF": 0,
+      "JPY": 0,
+        "EUR": 0,
+        "GBP": 0,
+        "CAD": 0,
+        "USD": 1000,
+        "NZD": 0
+      },
+      "lastTotalAmount": {
+        "AUD": 0,
+        "CHF": 0,
+        "JPY": 0,
+        "EUR": 0,
+        "GBP": 0,
+        "CAD": 0,
+        "USD": 1000,
+        "NZD": 0
+      },
+      "lowCreditsNotificationSent": {
+        "AUD": false,
+        "CHF": false,
+        "JPY": false,
+        "EUR": false,
+        "GBP": false,
+        "CAD": false,
+        "USD": true,
+        "NZD": false
+      }
+    }
+  ],
+  "execution": 135.265058,
+  "resource": "/v1/accounts/61741c3-3dc9-45f5-8e7c-db1dd649afab/credits/balance",
+  "status": 200
 }
 ```
 
@@ -139,7 +138,7 @@ In the Credits dashboard view you have access to your credit purchases in _Purch
 
 ## Eligibility
 
-The reimbursement request is done towards a cardholder transaction with the path parameter `transactionId` and it needs to meet the eligibility criteria.
+The reimbursement request is done towards a cardholder transaction with the parameter `transactionId` and it needs to meet the eligibility criteria.
 
 A transaction is said to be eligible when it meets the following criteria:
 
@@ -173,7 +172,7 @@ curl -X GET \
 ```
 
 ```json
-fileName:transaction.json
+fileName:reimburse-eligible-transactions.json
 {
   "count": 2,
   "items": [
@@ -186,7 +185,7 @@ fileName:transaction.json
         // For the purpose of this example, only selected properties are shown
         "scheme": "visa",
       },
-      "datetime": "2021-08-20T11:11:11",
+      "id": "cf0a2949-8603-4609-8d29-03b9ae5a446b"
     },
     {
       // For the purpose of this example, only selected properties are shown
@@ -197,10 +196,10 @@ fileName:transaction.json
         // For the purpose of this example, only selected properties are shown
         "scheme": "visa",
       },
-      "datetime": "2021-10-20T11:11:11",
+      "id": "53ad6957-3a28-499a-a206-558b89ca0d45"
     }
   ],
-  "resource": "/v1/cards/{cardId}/transactions/reimbursement",
+  "resource": "/v1/cards/bc538b71-31c5-4699-840a-6d4a08693314/transactions/reimbursement",
   "status": 200,
   "execution": 26.392104
 }
@@ -229,35 +228,19 @@ curl -X POST \
   }'
 ```
 
-After the reimbursement request is received by the card scheme, the full transaction is returned with the newly created `transaction.reimbursement` object with `pending` status, and also a `reimbursement.token` string, representing the unique identifier for that reimbursement request.
+After the reimbursement request is received by the card scheme, the newly created `id` is returned, representing the unique identifier for that reimbursement request.
 
 ```json
-fileName:transaction.json
+fileName:reimbursement.json
 {
     "items": [
         {
-            // For the purpose of this example, only selected properties are shown
-            "amount": 10,
-            "cleared": true,
-            "currency": "USD",
-            "card": {
-              // For the purpose of this example, only selected properties are shown
-              "scheme": "visa",
-            },
-            "datetime": "2021-08-20T11:11:11",
-            "reimbursement": {
-              "amount": 2.55,
-              "created": "2021-09-30T11:11:11.000Z",
-              "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
-              "description": "Earned Stars",
-              "status": "pending",
-              "token": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
-            }
+          "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92"
         }
     ],
     "execution": 120.856835,
-    "resource": "/v1/transactions/{transactionId}/reimbursement",
-    "status": 200
+    "resource": "/v1/transactions/489a79b9-92c7-4338-81ef-1529ee7bd130/reimbursement",
+    "status": 202
 }
 ```
 
@@ -271,13 +254,13 @@ Reimbursement `status` is set to `pending` while waiting for the card scheme to 
 
 ### Status
 
-Find the reimbursement status in the transaction `reimbursement.status` property:
+The `status` property represents the possible reimbursement statuses:
 
 - `pending`: scheme is executing request;
 
 - `issued`: scheme executed request successfully;
 
-- `failed`: scheme request failed and `transaction.reimbursement.error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement#errors).
+- `failed`: scheme request failed and `error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement#errors).
 
 ## Reimbursement by card
 
@@ -295,72 +278,14 @@ fileName: request.json
 }
 ```
 
-The endpoint would then respond with data that would include card and reimbursement data, etc.
+The endpoint would then respond with the unique identifier for the reimbursement that will be created for the most suitable transaction on the card.
 
 ```json
 fileName: response.json
 {
   "items": [
     {
-      "id": "3c0c4ed5-b821-4390-8a9e-e7c140ec8358",
-      "accountId": "3693ac7e-3e2b-432c-8c60-2b786453ca9b",
-      "programId": "6e38aa0c-b7ef-46bd-b1bd-c07c648d9cba",
-      "datetime": "2021-08-20T11:11:11",
-      "created": "2021-08-20T11:11:11.000Z",
-      "updated": "2021-08-20T11:11:11.000Z",
-      "auth": true,
-      "cleared": true,
-      "amount": 5,
-      "currency": "USD",
-      "wallet": null,
-      "card": {
-        "id": "bc538b71-31c5-4699-840a-6d4a08693314",
-        "firstNumbers": "555500",
-        "lastNumbers": "5001",
-        "scheme": "visa",
-        "metadata": {
-          "customKey1": "customValue1",
-          "customKey2": "customValue2"
-        }
-      },
-      "brand": {
-        "id": "9d136f2e-df99-4a08-a0a5-3bc1534b7db9",
-        "name": "Starbucks",
-        "logoUrl": null
-      },
-      "location": {
-        "id": "7a916fbd-70a0-462f-8dbc-bd7dbfbea160",
-        "address": "5th Avenue",
-        "city": "New York",
-        "postcode": "10016",
-        "countryCode": "USA",
-        "timezone": "America/New_York",
-        "geolocation": {
-          "latitude": 43.9168069,
-          "longitude": -73.3044301
-        },
-        "metadata": {
-          "customKey1": "customValue1",
-          "customKey2": "customValue2"
-        }
-      },
-      "offer": null,
-      "identifiers": {
-        "MID": "123456789",
-        "mastercardTransactionSequenceNumber": "0000000000000",
-        "mastercardRefNumber": "AABBCCDDE",
-        "amexApprovalCode": "AA00BB",
-        "visaAuthCode": "000000",
-        "mastercardAuthCode": null
-      },
-      "reimbursement": {
-        "amount": 2.55,
-        "created": "2021-09-30T11:11:11.000Z",
-        "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
-        "description": "Earned Stars",
-        "status": "pending",
-        "token": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92"
-      }
+      "id": "3c0c4ed5-b821-4390-8a9e-e7c140ec8358"
     }
   ],
   "resource": "/v1/cards/bc538b71-31c5-4699-840a-6d4a08693314/reimbursement",
@@ -406,7 +331,7 @@ fileName:transaction-with-offer.json
 }
 ```
 
-The `offer.automatedReimbursement` states whether a reimbursement request will be attempted for that transaction or not. The reimbursement will have the same amount as the `offer.cashback` property and the same currency as `currency`. Transactions that already have a `reimbursement` object will not have any reimbursements requested automatically.
+The `offer.automatedReimbursement` states whether a reimbursement request will be attempted for that transaction or not. The reimbursement will have the same amount as the `offer.cashback` property and the same currency as `currency`. Transactions that already have a reimbursement created for them will not have any reimbursements requested automatically.
 
 Transactions with expected automated reimbursement attempts are shown in the dashboard with a grey label on the reimbursements column.
 
@@ -414,40 +339,21 @@ Transactions with expected automated reimbursement attempts are shown in the das
 
 ### Tracking after issuing
 
-Automated reimbursement attempts have the same payloads as regular reimbursements requests and also include three new properties to provide the user with more information on how and why they were requested - `automated`, `issuingBrandId`, `issuingOfferId`.
-
-The `reimbursement.automated` property states whether that reimbursement request was issued automatically. Automated reimbursements are those that were not triggered directly by the user (via API or dashboard).
-
-The `reimbursement.issuingBrandId` and `reimbursement.issuingOfferId` properties are informative properties which only exist for automated reimbursements and inform the user of what context the reimbursement was requested in.
+Automated reimbursement attempts have the same payloads as regular reimbursements.
 
 ```json
 fileName:transaction-with-offer.json
 {
-  // For the purpose of this example, only selected properties are shown
-  "amount": 10,
-  "cleared": true,
-  "currency": "USD",
-  "datetime": "2021-08-20T11:11:11",
-  "reimbursement": {
-    "amount": 2.55,
-    "automated": true,
-    "created": "2021-09-30T11:11:11.000Z",
-    "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
-    "description": "Earned Stars",
-    "issuingBrandId": "459170aa-7490-467d-bb4d-19b35139e325",
-    "issuingOfferId": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
-    "status": "pending",
-    "token": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92"
-  },
-  "offer": {
-    "automatedReimbursement": true,
-    "id": "7e55eeae-99d6-4daf-b8c4-ac9ca660e964",
-    "cashback": 20,
-    "message": [],
-    "performanceFee": 3.2,
-    "qualified": false,
-    "qualificationDate": null
-  },
+  "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
+  "amount": 2.55,
+  "created": "2021-09-30T11:11:11.000Z",
+  "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
+  "description": "Earned Stars",
+  "status": "pending",
+  "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
+  "scheme": "visa",
+  "updated": "2021-09-30T11:12:11.000Z",
+  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130"
 }
 ```
 
@@ -457,28 +363,21 @@ Automated reimbursement requests can fail – e.g.: account does not have enough
 
 ## Webhook
 
-When a reimbursement status is updated from `pending` to `issued` or `failed` the webhook named `transaction.reimbursement.status` is triggered. The webhook will send the full transaction object with the updated `reimbursement.status`. See the example below with the update to `issued` status:
+When a reimbursement status is updated from `pending` to `issued` or `failed` the webhook named `reimbursement.pending` or `reimbursement.issued` or `reimbursement.failed` is triggered (corresponding to the new status). The webhook will send the full reimbursement object with the updated `status`. See the example below with the update to `reimbursement.issued` webhook:
 
 ```json
-fileName:transaction.json
+fileName:reimbursement.json
 {
-  // For the purpose of this example, only selected properties are shown
-  "amount": 10,
-  "cleared": true,
-  "currency": "USD",
-  "card": {
-    // For the purpose of this example, only selected properties are shown
-    "scheme": "visa",
-  },
-  "datetime": "2021-08-20T11:11:11",
-  "reimbursement": {
-    "amount": 2.55,
-    "created": "2021-09-30T11:11:11.000Z",
-    "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
-    "description": "Earned Stars",
-    "status": "issued",
-    "token": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
-  }
+  "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
+  "amount": 2.55,
+  "created": "2021-09-30T11:11:11.000Z",
+  "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
+  "description": "Earned Stars",
+  "status": "issued",
+  "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
+  "scheme": "visa",
+  "updated": "2021-09-30T11:12:11.000Z",
+  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130"
 }
 ```
 
@@ -529,7 +428,7 @@ fileName:reimbursement-request.json
         "metadata": {}
     },
     "execution": 105.254359,
-    "resource": "/v1/transactions/{transactionId}/reimbursement",
+    "resource": "/v1/transactions/489a79b9-92c7-4338-81ef-1529ee7bd130/reimbursement",
     "status": 400
 }
 ```
@@ -556,29 +455,23 @@ rows={[
 ### Status Error Example
 
 ```json
-fileName:transaction.json
+fileName:reimbursement.json
 {
-  // For the purpose of this example, only selected properties are shown
-  "cleared": true,
-  "currency": "USD",
-  "card": {
-    // For the purpose of this example, only selected properties are shown
-    "scheme": "visa",
+  "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
+  "amount": 2.55,
+  "created": "2021-09-30T11:11:11.000Z",
+  "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
+  "error": {
+    "code": "reimbursement-network-account-not-found",
+    "message": "Network was unable to find bank account",
+    "status": 404
   },
-  "datetime": "2021-08-20T11:11:11",
-  "reimbursement": {
-    "amount": 2.55,
-    "created": "2021-09-30T11:11:11.000Z",
-    "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
-    "error": {
-      "code": "reimbursement-network-account-not-found",
-      "message": "Network was unable to find bank account",
-      "status": 404
-    },
-    "description": "Earned Stars",
-    "status": "failed",
-    "token": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92"
-  }
+  "description": "Earned Stars",
+  "status": "failed",
+  "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
+  "scheme": "visa",
+  "updated": "2021-09-30T11:12:11.000Z",
+  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130"
 }
 ```
 
