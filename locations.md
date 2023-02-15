@@ -120,7 +120,7 @@ After you've made the transaction, you can link it in the [Fidel API Dashboard](
 
 ## Deleting Locations
 
-You can delete locations in the [Fidel API Dashboard](https://dashboard.fidel.uk/locations), or using the API's [Delete Location](https://reference.fidel.uk/reference/delete-location) endpoint. Only locations that are not syncing can be deleted in the Fidel API Dashboard.
+You can delete locations in the [Fidel API Dashboard](https://dashboard.fidel.uk/locations), or using the API's [Delete Location](https://reference.fidel.uk/reference/delete-location) endpoint.
 
 ```sh
 curl -X DELETE \
