@@ -405,11 +405,10 @@ rows={[
 ['400', 'reimbursement-amount-greater-original-amount', 'Reimbursement amount is greater than original transaction amount'],
 ['400', 'reimbursement-invalid-transaction', 'Transaction is invalid to issue reimbursement'],
 ['500', 'reimbursement-network-internal-error', 'Network responded with internal error'],
-['404', 'reimbursement-transaction-not-found', 'Transaction does not exist'],
+['400', 'reimbursement-transaction-not-eligible', 'Transaction does not meet reimbursement eligibility criteria'],
 ['400', 'reimbursement-unsupported-network', 'Transaction network not supported for reimbursement'],
 ['400', 'reimbursement-unsupported-currency', 'Transaction currency not supported for reimbursement'],
 ['401', 'reimbursement-not-activated', 'The reimbursement product is not activated for this account'],
-['400', 'reimbursement-time-limit-after-transaction', 'Surpassed the time limit after the original transaction to issue a reimbursement'],
 ['400', 'reimbursement-visa-invalid-community-code', 'The transaction community code is invalid'],
 ['400', 'credits-account-not-enough-funds', 'Account does not have enough credits'],
 ]}
