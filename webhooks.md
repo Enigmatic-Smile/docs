@@ -512,11 +512,13 @@ The payload for these events includes the `reimbursement` object with the up-to-
   "amount": 2.55,
   "created": "2021-09-30T11:11:11.000Z",
   "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
+  "currency": "USD",
   "description": "Earned Stars",
   "status": "issued",
   "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
   "updated": "2021-09-30T11:12:11.000Z",
-  "transactionId": "5ec08ca8-38c6-42e1-9fa5-32c67e4135b2"
+  "transactionId": "5ec08ca8-38c6-42e1-9fa5-32c67e4135b2",
+  "programId": "4a9cef62-dc79-4044-b7aa-34425f753830"
 }
 ```
 
