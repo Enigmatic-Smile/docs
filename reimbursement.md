@@ -182,7 +182,6 @@ fileName:reimburse-eligible-transactions.json
       "cleared": true,
       "currency": "USD",
       "card": {
-        // For the purpose of this example, only selected properties are shown
         "scheme": "visa",
       },
       "id": "cf0a2949-8603-4609-8d29-03b9ae5a446b"
@@ -193,7 +192,6 @@ fileName:reimburse-eligible-transactions.json
       "cleared": true,
       "currency": "USD",
       "card": {
-        // For the purpose of this example, only selected properties are shown
         "scheme": "visa",
       },
       "id": "53ad6957-3a28-499a-a206-558b89ca0d45"
@@ -342,18 +340,20 @@ Transactions with expected automated reimbursement attempts are shown in the das
 Automated reimbursement attempts have the same payloads as regular reimbursements.
 
 ```json
-fileName:transaction-with-offer.json
+fileName:reimbursement.json
 {
   "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
   "amount": 2.55,
   "created": "2021-09-30T11:11:11.000Z",
   "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
+  "currency": "USD",
   "description": "Earned Stars",
   "status": "pending",
   "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
   "scheme": "visa",
   "updated": "2021-09-30T11:12:11.000Z",
-  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130"
+  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130",
+  "programId": "4a9cef62-dc79-4044-b7aa-34425f753830"
 }
 ```
 
@@ -372,12 +372,14 @@ fileName:reimbursement.json
   "amount": 2.55,
   "created": "2021-09-30T11:11:11.000Z",
   "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
+  "currency": "USD",
   "description": "Earned Stars",
   "status": "issued",
   "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
   "scheme": "visa",
   "updated": "2021-09-30T11:12:11.000Z",
-  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130"
+  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130",
+  "programId": "4a9cef62-dc79-4044-b7aa-34425f753830"
 }
 ```
 
