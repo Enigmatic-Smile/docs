@@ -337,14 +337,13 @@ Transactions with expected automated reimbursement attempts are shown in the das
 
 ### Tracking after issuing
 
-Automated reimbursement attempts have the same payloads as regular reimbursements, but they also include the optional `automated` property set to `true`.
+Automated reimbursement attempts have the same payloads as regular reimbursements.
 
 ```json
 fileName:offer-automated-reimbursement.json
 {
   "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
   "amount": 2.55,
-  "automated": true,
   "created": "2021-09-30T11:11:11.000Z",
   "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
   "currency": "USD",
