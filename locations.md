@@ -33,7 +33,6 @@ The information required for each location is the Brand (with approved consent),
     If you need to onboard payment facilitators (Square, iZettle, SumUp, etc.), they may be using shared merchant IDs that have an impact on how transactions are monitored. Reach out to Fidel if you work with merchants that use payment facilitators.
 </div>
 
-You can read more about [shared MIDs in this article](https://community.fidel.uk/t/what-is-a-shared-merchant-id-mid/41).
 Once you have added your locations to Fidel, we can begin the process of Location Sync ⚡️. This step requires submitting all of the locations for onboarding with Visa, Mastercard and American Express, so that we may track credit/debit card transactions at each location. During this process, you can monitor and keep track of the status of each location.
 
 ## Location Sync

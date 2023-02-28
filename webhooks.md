@@ -139,10 +139,6 @@ A maximum of 5 custom headers per webhook can be defined, and they need to follo
 ]
 ```
 
-## Events
-
-We are working to extend the list of events. If you require any specific event that is not available yet, please reach out on our [community forum](https://community.fidel.uk/) or email us at [devrel@fidel.uk](mailto:devrel@fidel.uk).
-
 ### Brand
 
 A `brand.consent` event is triggered when Brand consent is “Approved”. In the `test` environment, it will immediately trigger after you create a Brand. In the `live` environment, it will trigger when the Brand User approves the consent request.
