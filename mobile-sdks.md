@@ -68,7 +68,7 @@ Fidel.present(self, onCardLinkedCallback: { (card: LinkResult) in
 })
 ```
 
-If you run into any issues, [check issues on Github](https://github.com/FidelLimited/fidel-ios).
+If you run into a problem, check the [issues section of the SDK repository](https://github.com/FidelLimited/fidel-ios/issues).
 
 ## Android
 
@@ -154,7 +154,7 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 }
 ```
 
-If you run into any issues, [check issues on Github](https://github.com/FidelLimited/fidel-android).
+If you run into a problem, check the [issues section of the SDK repository](https://github.com/FidelLimited/fidel-android/issues).
 
 ## React Native
 
@@ -469,7 +469,7 @@ Amex: `3400000000003**` or `3700000000003**` (the last 2 numbers can be anything
 
 ### Feedback
 
-The React Native SDK is in active development, we welcome your feedback!
+The React Native SDK is in active development, you are welcome to leave feedback!
 
 [GitHub Issues](https://github.com/fidellimited/rn-sdk/issues) — For SDK issues and feedback.
 
