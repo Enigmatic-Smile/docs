@@ -179,22 +179,24 @@ fileName:reimburse-eligible-transactions.json
     {
       // For the purpose of this example, only selected properties are shown
       "amount": 10,
-      "cleared": true,
       "currency": "USD",
       "card": {
         "scheme": "visa",
       },
-      "id": "cf0a2949-8603-4609-8d29-03b9ae5a446b"
+      "id": "cf0a2949-8603-4609-8d29-03b9ae5a446b",
+      "accountId": "d1bc1828-f904-48a3-8492-12272c81c117",
+      "programId": "92a10f41-cbe3-423d-a7b3-61ca4ce5e6c6"
     },
     {
       // For the purpose of this example, only selected properties are shown
       "amount": 20,
-      "cleared": true,
       "currency": "USD",
       "card": {
         "scheme": "visa",
       },
-      "id": "53ad6957-3a28-499a-a206-558b89ca0d45"
+      "id": "53ad6957-3a28-499a-a206-558b89ca0d45",
+      "accountId": "d1bc1828-f904-48a3-8492-12272c81c117",
+      "programId": "92a10f41-cbe3-423d-a7b3-61ca4ce5e6c6"
     }
   ],
   "resource": "/v1/cards/bc538b71-31c5-4699-840a-6d4a08693314/transactions/reimbursement",
