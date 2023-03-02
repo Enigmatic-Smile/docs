@@ -178,24 +178,24 @@ fileName:reimburse-eligible-transactions.json
     {
       // For the purpose of this example, only selected properties are shown
       "amount": 10,
-      "cleared": true,
       "currency": "USD",
       "card": {
-        // For the purpose of this example, only selected properties are shown
         "scheme": "visa",
       },
-      "id": "cf0a2949-8603-4609-8d29-03b9ae5a446b"
+      "id": "cf0a2949-8603-4609-8d29-03b9ae5a446b",
+      "accountId": "d1bc1828-f904-48a3-8492-12272c81c117",
+      "programId": "92a10f41-cbe3-423d-a7b3-61ca4ce5e6c6"
     },
     {
       // For the purpose of this example, only selected properties are shown
       "amount": 20,
-      "cleared": true,
       "currency": "USD",
       "card": {
-        // For the purpose of this example, only selected properties are shown
         "scheme": "visa",
       },
-      "id": "53ad6957-3a28-499a-a206-558b89ca0d45"
+      "id": "53ad6957-3a28-499a-a206-558b89ca0d45",
+      "accountId": "d1bc1828-f904-48a3-8492-12272c81c117",
+      "programId": "92a10f41-cbe3-423d-a7b3-61ca4ce5e6c6"
     }
   ],
   "resource": "/v1/cards/bc538b71-31c5-4699-840a-6d4a08693314/transactions/reimbursement",
@@ -341,18 +341,20 @@ Transactions with expected automated reimbursement attempts are shown in the das
 Automated reimbursement attempts have the same payloads as regular reimbursements.
 
 ```json
-fileName:transaction-with-offer.json
+fileName:offer-automated-reimbursement.json
 {
   "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
   "amount": 2.55,
   "created": "2021-09-30T11:11:11.000Z",
   "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
+  "currency": "USD",
   "description": "Earned Stars",
   "status": "pending",
   "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
   "scheme": "visa",
   "updated": "2021-09-30T11:12:11.000Z",
-  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130"
+  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130",
+  "programId": "4a9cef62-dc79-4044-b7aa-34425f753830"
 }
 ```
 
@@ -371,12 +373,14 @@ fileName:reimbursement.json
   "amount": 2.55,
   "created": "2021-09-30T11:11:11.000Z",
   "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
+  "currency": "USD",
   "description": "Earned Stars",
   "status": "issued",
   "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
   "scheme": "visa",
   "updated": "2021-09-30T11:12:11.000Z",
-  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130"
+  "transactionId": "489a79b9-92c7-4338-81ef-1529ee7bd130",
+  "programId": "4a9cef62-dc79-4044-b7aa-34425f753830"
 }
 ```
 
