@@ -6,7 +6,7 @@ Fidel Offers help you create and manage card-linked offers with various retailer
 
 Offers can be accessed via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending). They are grouped into four categories: Requests, Upcoming, Live and Expired.
 
-![Fidel Dashboard with Offers](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-offers.png "Fidel Dashboard with Offers")
+![Fidel Dashboard with Offers](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-offers.png 'Fidel Dashboard with Offers')
 
 ### Requests
 
@@ -26,7 +26,15 @@ The current date is after the Offer `endDate`. The Offers in this category have 
 
 ## Creating an Offer
 
-There are multiple options for creating a new Offer. Developers can use the [Create Offer endpoint](https://reference.fidel.uk/v1/reference/create-offer) from the Offers API to create an Offer.
+There are multiple options for creating a new Offer. You can create an Offer via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending), in the Offers section. Alternatively, Developers can use the [Create Offer endpoint](https://reference.fidel.uk/v1/reference/create-offer) from the Offers API to create an Offer.
+
+### Create an Offer via Dashboard
+
+![Create Offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-offers.gif 'Create Offer in Fidel Dashboard')
+
+Once you have created an Offer, it will enter the Offer Lifecycle in the Requests category.
+
+### Create an Offer via Offers API
 
 Here's a cURL example of using the endpoint, with only the minimum required parameters:
 
@@ -47,7 +55,7 @@ curl -X POST https://api.fidel.uk/v1/offers \
       }'
 ```
 
-### Required Parameters
+#### Required Parameters
 
 These are the minimum required parameters to create a new Offer:
 
@@ -61,7 +69,7 @@ These are the minimum required parameters to create a new Offer:
 
 Offers with the type `amount` will use the indicated country's currency and apply the value as the amount of the discount, for example, `£20 Off`. The `discount` type applies the value as a percentage discount, for example, `20% Off`.
 
-### Optional Parameters
+#### Optional Parameters
 
 There are a range of optional parameters available, which influence how the Offer behaves on the Fidel platform. You can read more about the endpoint's full specification on our [API Reference](https://reference.fidel.uk/reference/create-offer).
 
@@ -79,13 +87,26 @@ There are a range of optional parameters available, which influence how the Offe
 - `schemes`: Array of schemes for which a Transaction qualifies for the Offer. Possible values are `"amex"`, `"mastercard"` and `"visa"`.
 - `type: maxRewardAmount`: Numeric value of the maximum amount to be awarded for the Offer. Only applies to `discount` type Offers.
 
-### Create an Offer in the Dashboards
+### Multiple Offers on the same Brand and Location
 
-Alternatively, you can create an Offer via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending), in the Offers section. If you have an account in the [Offers Dashboard](https://clo.fidel.uk), you can create an Offer there as well.
+Each Transaction can be rewarded only once. If there is more than one Offer for the same Brand in the same Location for which a Transaction qualifies, the Fidel API platform has to select one of them which will provide the reward.
 
-![Create Offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-offers.gif "Create Offer in Fidel Dashboard")
+The platform uses the following rules to select the Offer that will reward the cardholder:
 
-Once you have created an Offer, it will enter the Offer Lifecycle in the Requests category.
+1.  In case both Offers generate different cashback values, the platform selects and qualifies the most valuable offer;
+
+2.  In case both Offers generate the same cashback values, the platform selects and qualifies the most recent offer.
+
+#### Example:
+
+Let's suppose the following offers are on the same brand and cardholder made a transaction of £100 at a brand’s location.
+
+| Offer 15 % Off:  | Offer £50 Off: |
+| ---------------- | -------------- |
+| name: "discount" | name: "amount" |
+| value: 15        | value: 50      |
+
+Applying the stacking rules, the above transaction will qualify for "Offer £50 Off" according to the first rule.
 
 ## Linking Locations to Offers
 
@@ -117,15 +138,15 @@ curl -X POST \
 
 When you create an Offer in the Fidel Dashboard, the second step of the creation dialogue allows you to link Locations to the newly created Offer.
 
-![Link Locations in Offer Creation](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-offer-location.gif "Link Locations in Offer Creation")
+![Link Locations in Offer Creation](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-offer-location.gif 'Link Locations in Offer Creation')
 
 If you need to link more Locations after you've created an Offer, the [Locations list in the Dashboard](https://dashboard.fidel.uk/locations) has a menu button next to each Location, which opens a contextual menu. Selecting 'Link to offer' in the context menu will open a drawer that lets you select a possible Offer to link.
 
-![Link to offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-link-location.png "Link to Offer in Fidel Dashboard")
+![Link to offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-link-location.png 'Link to Offer in Fidel Dashboard')
 
 Alternatively, you can edit an Offer in the Fidel Dashboard, which will allow you to link more Locations in the second step of the Offer drawer.
 
-![Edit Offer Link Locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-edit-offer.gif "Edit Offer Link Locations")
+![Edit Offer Link Locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-edit-offer.gif 'Edit Offer Link Locations')
 
 ## Offers with Activation
 
@@ -176,11 +197,11 @@ It is not possible to run an activation offer and a non-activation offer at the 
 
 You can create Offers with activation in the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending) as well. When creating an Offer, check the "Enable offer activation" checkbox. That will reveal a "1" transactions field, which you can use to change the number for the qualified transactions limit.
 
-![Create Offer with Activation](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-offers.gif "Create Offer with Activation")
+![Create Offer with Activation](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-offers.gif 'Create Offer with Activation')
 
 To activate an Offer on a Card using the Fidel Dashboard, you'll want to go to the [Cards list](https://dashboard.fidel.uk/cards). Each Card has a menu button next to them, which opens a contextual menu. Selecting 'Activate offer' in the context menu will open a drawer that lets you select a possible Offer to activate on the Card.
 
-![Activate offer on Card in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-activate-offer.png "Activate offer on Card in Fidel Dashboard")
+![Activate offer on Card in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-activate-offer.png 'Activate offer on Card in Fidel Dashboard')
 
 ## Transaction Qualification
 
@@ -485,7 +506,7 @@ fileName:offer.json
       <span><code>priority</code></span>
       <em>number</em>
     </dt>
-    <dd>Number, starting with 1, representing the stacking priority for the publisher. By default, the publisher that invites the Brand gets the top priority, 1.</dd>
+    <dd>Not in use. Its value is always 1.</dd>
   </div>
   <div>
     <dt>
