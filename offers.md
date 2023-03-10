@@ -87,26 +87,26 @@ There are a range of optional parameters available, which influence how the Offe
 - `schemes`: Array of schemes for which a Transaction qualifies for the Offer. Possible values are `"amex"`, `"mastercard"` and `"visa"`.
 - `type: maxRewardAmount`: Numeric value of the maximum amount to be awarded for the Offer. Only applies to `discount` type Offers.
 
-### Offer Stacking
+### Multiple Offers on the same Brand and Location
 
-We can only qualify one Offer per Transaction. Offer stacking are a set of rules to be applied to select an Offer to qualify a transaction once occurs on a certain location where two or more offers from the same brand are linked.
+Each Transaction can be rewarded only once. If there is more than one Offer for the same Brand in the same Location for which a Transaction qualifies, the Fidel API platform has to select one of them which will provide the reward.
 
-#### Stacking Rules:
+The platform uses the following rules to select the Offer that will reward the cardholder:
 
-1.  In case both Offers generate different cashback values, we select and qualify the most valuable offer;
+1.  In case both Offers generate different cashback values, the platform selects and qualifies the most valuable offer;
 
-2.  In case both Offers generate the same cashback values, we select and qualify the most recent one.
+2.  In case both Offers generate the same cashback values, the platform selects and qualifies the most recent offer.
 
 #### Example:
 
-Let's agree the following offers are on the same brand and cardholder made a transaction of £100 at a brand’s location.
+Let's suppose the following offers are on the same brand and cardholder made a transaction of £100 at a brand’s location.
 
-| Offer 15 % Off:  | Offer £100 Off |
+| Offer 15 % Off:  | Offer £50 Off: |
 | ---------------- | -------------- |
 | name: "discount" | name: "amount" |
 | value: 15        | value: 50      |
 
-Applying the stacking rules, the above transaction will qualify for Offer £100 Off according to the 1st rule.
+Applying the stacking rules, the above transaction will qualify for Offer £100 Off according to the first rule.
 
 ## Linking Locations to Offers
 
@@ -356,10 +356,10 @@ fileName:offer.json
 <dl>
   <div>
     <dt>
-      <span><code>Offer 1</code></span>
+      <span><code>id</code></span>
+      <em>string</em>
     </dt>
     <dd>Unique identifier for the object.</dd>
-    </dt> test
   </div>
   <div>
     <dt>
@@ -506,7 +506,7 @@ fileName:offer.json
       <span><code>priority</code></span>
       <em>number</em>
     </dt>
-    <dd>Number, starting with 1, representing the stacking priority for the publisher. Not in use. Its value is always 1.</dd>
+    <dd>Not in use. Its value is always 1.</dd>
   </div>
   <div>
     <dt>
