@@ -106,7 +106,7 @@ Let's suppose the following offers are on the same brand and cardholder made a t
 | name: "discount" | name: "amount" |
 | value: 15        | value: 50      |
 
-Applying the stacking rules, the above transaction will qualify for Offer £100 Off according to the first rule.
+Applying the stacking rules, the above transaction will qualify for "Offer £50 Off" according to the first rule.
 
 ## Linking Locations to Offers
 
