@@ -332,10 +332,6 @@ fileName:transaction-with-offer.json
 
 The `offer.automatedReimbursement` states whether a reimbursement request will be attempted for that transaction or not. The reimbursement will have the same amount as the `offer.cashback` property and the same currency as `currency`. Transactions that already have a reimbursement created for them will not have any reimbursements requested automatically.
 
-Transactions with expected automated reimbursement attempts are shown in the dashboard with a grey label on the reimbursements column.
-
-![Transactions with auto-reimbursements](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/transactions-auto-reimbursements.png "Transactions with auto-reimbursements")
-
 ### Tracking after issuing
 
 Automated reimbursement attempts have the same payloads as regular reimbursements.
