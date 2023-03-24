@@ -414,7 +414,7 @@ fileName:transaction.clearing
 }
 ```
 
-A `transaction.refund` or **refund** transaction event is triggered when a transaction is refunded. Besides the `transaction.refund` event, a refunded transaction also triggers a  `transaction.clearing` event. On both, their auth property is set to false and the amount is negative. Fidel API tries to identify the initial transaction for which the refund was issued, using `cardId`, `locationId`, `merchantId`, `amount` and `datetime`. If an associated initial transaction is identified, the webhook data contains the `originalTransactionId`. If no initial transaction is identified, the data comes in on both webhooks with a negative amount but no `originalTransactionId` property.
+A `transaction.refund` or **refund** transaction event is triggered when a transaction is refunded. Besides the `transaction.refund` event, a refunded transaction also triggers a  `transaction.clearing` event. On both, their `auth` property is set to `false` and the amount is negative. Fidel API tries to identify the initial transaction for which the refund was issued, using `cardId`, `locationId`, `merchantId`, `amount` and `datetime`. If an associated initial transaction is identified, the webhook data contains the `originalTransactionId`. If no initial transaction is identified, the data comes in on both webhooks with a negative amount but no `originalTransactionId` property.
 
 ```json
 fileName:transaction.refund
