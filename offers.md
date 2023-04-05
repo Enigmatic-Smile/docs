@@ -80,12 +80,12 @@ There are a range of optional parameters available, which influence how the Offe
 - `endDate`: The date to automatically end the Offer. Same as `startDate`, the time will be a local time relative to the Location where the Offer was active.
 - `funded: id`: Unique identifier for the account that funds the Offer. For self-funded Offers, this is not required. In the test environment, all Offers are self-funded, so this will always be the same as your `accountId`.
 - `funded: type`: Type of Offer funding. Possible values are `"merchant"`, `"card-linking"` and `"affiliate"`. In the test environment, you can only create card-linked Offers, so the funding type will always be `"card-linking"`.
-- `maxTransactionAmount`: Maximum transaction amount generating a proportional reward. For example, a 10% reward with a max transaction amount of £100 can't generate a reward larger than £10, even if the transaction amount is higher than £100.
+- `maxTransactionAmount`: Deprecated in favor of `type: maxRewardAmount`. For example, a 10% reward with a max transaction amount of £100 can't generate a reward larger than £10, even if the transaction amount is higher than £100. The new value for maxRewardAmount will be 10 since we want to limit the reward to £10.
 - `minTransactionAmount`: Minimum transaction amount to qualify for the offer. For example, if your offer is to save 25% on purchases over £50, then the Offer should have a `minTransactionAmount` of £50.
 - `metadata`: Object with your own metadata, will be returned on the Offer object.
 - `returnPeriod`: Number of days between when a Transaction was created and when a Transaction qualifies for the Offer. The qualified Transaction will have the `offer.qualificationDate` set to the creation date plus the number of days in the return period.
 - `schemes`: Array of schemes for which a Transaction qualifies for the Offer. Possible values are `"amex"`, `"mastercard"` and `"visa"`.
-- `type: maxRewardAmount`: Numeric value of the maximum amount to be awarded for the Offer. Only applies to `discount` type Offers.
+- `type: maxRewardAmount`: Numeric value of the maximum amount to be awarded for the Offer. This only applies to `discount` type offers. For example, a 10% reward with a max reward amount of 10 can't generate a reward larger than £10, even if the transaction amount is higher than £100.
 
 ### Multiple Offers on the same Brand and Location
 
