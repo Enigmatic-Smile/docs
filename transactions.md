@@ -48,9 +48,9 @@ One transaction event occurs at authorisation time. The other transaction event 
 | `programId` | The identifier of the Fidel API program that this transaction is linked to | string |
 | `refundTransactionId` | The identifier of the transaction that was refunded by this transaction, if applies | string |
 | `updated` | The date and time when this transaction was last time updated (authorized/cleared) | string, in ISO format |
-| `wallet` | This property has been deprecated since August 2019 because of privacy concerns, and will always return `null` on transactions created after that date. If you're retrieving a transaction that was created before August 2019, the property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`. | null |
+| `wallet` | This property has been deprecated since August 2019 because of privacy concerns, and will always return `null` on transactions created after that date. If you're retrieving a transaction that was created before August 2019, the property could be one of: `"apple-pay", "google-pay", or "samsung-pay"`. | null |
 
-The identifiers object includes the following properties, all of them being of string type or null:
+The `identifiers` object includes the following properties, all of them being of string type or null:
 
 - `identifiers.amexApprovalCode`: Unique code that is sent along with the authorization of the transaction by Amex. It mirrors the approvalCode property.
 - `identifiers.mastercardAuthCode`: Unique code that is sent along with the authorization of the transaction by Mastercard. It mirrors the authCode property.
