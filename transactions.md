@@ -78,6 +78,10 @@ fileName:transaction.json
 
 > The `authCode` property is present only for Mastercard and Visa transactions, and will mirror the `identifiers.mastercardAuthCode` or `identifiers.visaAuthCode` properties, depending on the issuing card for the transaction. The `approvalCode` property is present only for Amex transactions and will mirror the `identifier.amexApprovalCode` property.
 
+> The `identifiers.mastercardRefNumber` is present for Mastercard transactions. This property holds a globally unique number by the transaction date and is used by Fidel API to try to match a given clearing transaction with the corresponding authorisation transaction.
+
+> The `identifiers.mastercardTransactionSequenceNumber`  is present for Mastercard transactions and available only in clearings.
+
 > The `wallet` property has been deprecated since August 2019 because of privacy concerns, and will always return `null` on transactions created after that date. If you're retrieving a transaction that was created before August 2019, the property could be one of: `"apple-pay" | "google-pay" | "samsung-pay"`.
 
 ```json
