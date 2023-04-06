@@ -8,7 +8,7 @@ One transaction event occurs at authorisation time. The other transaction event 
 
 # Transaction Object - Select Transactions
 
-| **Field name** | **Description** | **Type** |
+| <div style="width:300px">**Field name**</div> | **Description** | **Type** |
 | --- | ------ | --- |
 | `accountId` | The unique identifier of the user account at Fidel API | string |
 | `amount` | The amount of the transaction in the currency it was charged in | number |
@@ -47,8 +47,7 @@ One transaction event occurs at authorisation time. The other transaction event 
 | `location.timezone` | The time zone of the location where the purchase was made | string |
 | `merchantCategoryCode` | The merchant category code (MCC) provided by the card network. It is used to classify businesses by the types of goods provided or services rendered. May not be present in all transactions. | string |
 | `offer.cashback` | The amount of money that can be refunded to the cardholder according to the offer | number |
-| `offer.id` | The identifier of the offer. The location where the transaction was made is linked to the offer.
- If the transaction qualifies for more than one offer, the one with highest reward for the cardholder is added to the transaction. If none of the offers apply, the most recently created is added to the transaction. | string |
+| `offer.id` | The identifier of the offer. The location where the transaction was made is linked to the offer. If the transaction qualifies for more than one offer, the one with highest reward for the cardholder is added to the transaction. If none of the offers apply, the most recently created is added to the transaction. | string |
 | `offer.message` | If the transaction doesn't qualify for the offer, the message field explains why | string (or null) |
 | `offer.performanceFee` | Fee paid to Fidel API for the service | number |
 | `offer.qualificationDate` | The date when the offer will become qualified, depending on the return period. If the offer has a return period, transactions will only qualify for the offer after the return period has passed. | string |
