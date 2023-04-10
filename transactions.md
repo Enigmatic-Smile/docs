@@ -8,46 +8,46 @@ One transaction event occurs at authorisation time. The other transaction event 
 
 | **Field name** | **Description** | **Type** |
 | --- | ------ | --- |
-| `accountId` | The unique identifier of the user account at Fidel API | string |
-| `amount` | The amount of the transaction in the currency it was charged in | number |
+| `accountId` | The unique identifier of the user account at Fidel API. | string |
+| `amount` | The amount of the transaction in the currency it was charged in. | number |
 | `approvalCode` | Unique code that is sent along with the authorization of the transaction by Amex. It mirrors the identifiers.amexApprovalCode property. | string (or null) |
-| `auth` | Indicates whether Fidel API received an authorization event for this transaction | boolean |
+| `auth` | Indicates whether Fidel API received an authorization event for this transaction. | boolean |
 | `authCode` | Unique code that is sent along with the authorization of the transaction by Visa and Mastercard. It is sent by the issuer/the PCN on the issuer's behalf when approving a transaction. It mirrors the identifiers.mastercardAuthCode or identifiers.visaAuthCode properties, depending on the issuing card for the transaction. | string (or null) |
-| `brand.id` | The identifier of the brand at Fidel API | string |
-| `brand.logoURL` | The URL of the logo for the brand | string (or null) |
-| `brand.name` | The name of the merchant where the purchase was made | string |
-| `brand.metadata` | Customized information you added to the brand | (can be null) |
-| `card.firstNumbers` | The first numbers of the card, used for helping users identify their cards | string |
-| `card.id` | The tokenized card identifier created by Fidel API | string |
-| `card.lastNumbers` | The last numbers of the card, used for helping users identify their cards | string |
-| `card.metadata` | Customized information you added to the card | (can be null) |
-| `card.scheme` | The payment network (Visa, Mastercard or Amex) | string |
+| `brand.id` | The identifier of the brand at Fidel API. | string |
+| `brand.logoURL` | The URL of the logo for the brand. | string (or null) |
+| `brand.name` | The name of the merchant where the purchase was made. | string |
+| `brand.metadata` | Customized information you added to the brand. | object (or null) |
+| `card.firstNumbers` | The first numbers of the card, used for helping users identify their cards. | string |
+| `card.id` | The tokenized card identifier created by Fidel API. | string |
+| `card.lastNumbers` | The last numbers of the card, used for helping users identify their cards. | string |
+| `card.metadata` | Customized information you added to the card. | object (or null) |
+| `card.scheme` | The payment network (Visa, Mastercard or Amex). | string |
 | `cardPresent` | Indicates whether the transaction was in store (as opposed to online). Only available in Visa transactions, and only if the transaction data received from Visa contains this information. In test transactions, this field is always null. | boolean (or null) |
-| `cleared` | Indicates whether Fidel API received a clearing event for this transaction | boolean |
-| `created` | The time when the transaction object was created in the Fidel API database | string, in ISO format |
-| `currency` | The currency of the purchase | string, in ISO 4217 format |
-| `datetime` | The time of the transaction (local time of the merchant) | string, in ISO format |
-| `id` | The unique identifier of the transaction | string |
+| `cleared` | Indicates whether Fidel API received a clearing event for this transaction. | boolean |
+| `created` | The time when the transaction object was created in the Fidel API database. | string, in ISO format |
+| `currency` | The currency of the purchase. | string, in ISO 4217 format |
+| `datetime` | The time of the transaction (local time of the merchant). | string, in ISO format |
+| `id` | The unique identifier of the transaction. | string |
 | `identifiers` | See the definition of the identifiers object below. | object |
-| `location.address` | The street address of the location where the purchase was made | string |
-| `location.city` | The city of the location where the purchase was made | string |
+| `location.address` | The street address of the location where the purchase was made. | string |
+| `location.city` | The city of the location where the purchase was made. | string |
 | `location.countryCode` | The country code of the location where the purchase was made. | string, Alpha3 format of [ISO 3166-1](https://en.wikipedia.org/wiki/List_of_ISO_3166_country_codes) |
-| `location.` `geolocation.latitude` | The latitude of the location where the purchase was made | number |
-| `location.` `geolocation.longitude` | The longitude of the location where the purchase was made | number |
-| `location.id` | The identifier of the location where the purchase was made | string |
-| `location.metadata` | Custom metadata that you added to the location | (can be null) |
-| `location.postcode` | The postcode of the location where the purchase was made | string |
-| `location.timezone` | The time zone of the location where the purchase was made | string |
+| `location.` `geolocation.latitude` | The latitude of the location where the purchase was made. | number |
+| `location.` `geolocation.longitude` | The longitude of the location where the purchase was made. | number |
+| `location.id` | The identifier of the location where the purchase was made. | string |
+| `location.metadata` | Custom metadata that you added to the location. | object (or null) |
+| `location.postcode` | The postcode of the location where the purchase was made. | string |
+| `location.timezone` | The time zone of the location where the purchase was made. | string |
 | `merchantCategoryCode` | The merchant category code (MCC) provided by the card network. It is used to classify businesses by the types of goods provided or services rendered. May not be present in all transactions. | string |
-| `offer.cashback` | The amount of money that can be refunded to the cardholder according to the offer | number |
+| `offer.cashback` | The amount of money that can be refunded to the cardholder according to the offer. | number |
 | `offer.id` | The identifier of the offer. The location where the transaction was made is linked to the offer. If the transaction qualifies for more than one offer, the one with highest reward for the cardholder is added to the transaction. If none of the offers apply, the most recently created is added to the transaction. | string |
-| `offer.message` | If the transaction doesn't qualify for the offer, the message field explains why | string (or null) |
-| `offer.performanceFee` | Fee paid to Fidel API for the service | number |
+| `offer.message` | If the transaction doesn't qualify for the offer, the message field explains why. | string (or null) |
+| `offer.performanceFee` | Fee paid to Fidel API for the service. | number |
 | `offer.qualificationDate` | The date when the offer will become qualified, depending on the return period. If the offer has a return period, transactions will only qualify for the offer after the return period has passed. | string |
-| `offer.qualified` | Indicates whether the transaction is qualified for the offer | boolean |
-| `programId` | The identifier of the Fidel API program that this transaction is linked to | string |
-| `refundTransactionId` | The identifier of the transaction that was refunded by this transaction, if applies | string |
-| `updated` | The date and time when this transaction was last time updated (authorized/cleared) | string, in ISO format |
+| `offer.qualified` | Indicates whether the transaction is qualified for the offer. | boolean |
+| `programId` | The identifier of the Fidel API program that this transaction is linked to. | string |
+| `refundTransactionId` | The identifier of the transaction that was refunded by this transaction, if applies. | string |
+| `updated` | The date and time when this transaction was last time updated (authorized/cleared). | string, in ISO format |
 | `wallet` | This property has been deprecated since August 2019 because of privacy concerns, and will always return `null` on transactions created after that date. If you're retrieving a transaction that was created before August 2019, the property could be one of: `"apple-pay"`, `"google-pay"`, or `"samsung-pay"`. | null |
 
 The `identifiers` object includes the following properties, all of them being of string type or null:
