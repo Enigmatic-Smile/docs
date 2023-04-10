@@ -10,9 +10,9 @@ One transaction event occurs at authorisation time. The other transaction event 
 | --- | ------ | --- |
 | `accountId` | The unique identifier of the user account at Fidel API. | string |
 | `amount` | The amount of the transaction in the currency it was charged in. | number |
-| `approvalCode` | Unique code that is sent along with the authorization of the transaction by Amex. It mirrors the identifiers.amexApprovalCode property. | string (or null) |
+| `approvalCode` | Unique code that is sent along with the authorization of the transaction by Amex. It mirrors the `identifiers.amexApprovalCode` property. | string (or null) |
 | `auth` | Indicates whether Fidel API received an authorization event for this transaction. | boolean |
-| `authCode` | Unique code that is sent along with the authorization of the transaction by Visa and Mastercard. It is sent by the issuer/the PCN on the issuer's behalf when approving a transaction. It mirrors the identifiers.mastercardAuthCode or identifiers.visaAuthCode properties, depending on the issuing card for the transaction. | string (or null) |
+| `authCode` | Unique code that is sent along with the authorization of the transaction by Visa and Mastercard. It is sent by the issuer/the PCN on the issuer's behalf when approving a transaction. It mirrors the `identifiers.mastercardAuthCode` or `identifiers.visaAuthCode` properties, depending on the issuing card for the transaction. | string (or null) |
 | `brand.id` | The identifier of the brand at Fidel API. | string |
 | `brand.logoURL` | The URL of the logo for the brand. | string (or null) |
 | `brand.name` | The name of the merchant where the purchase was made. | string |
@@ -24,9 +24,9 @@ One transaction event occurs at authorisation time. The other transaction event 
 | `card.scheme` | The payment network (Visa, Mastercard or Amex). | string |
 | `cardPresent` | Indicates whether the transaction was in store (as opposed to online). Only available in Visa transactions, and only if the transaction data received from Visa contains this information. In test transactions, this field is always null. | boolean (or null) |
 | `cleared` | Indicates whether Fidel API received a clearing event for this transaction. | boolean |
-| `created` | The time when the transaction object was created in the Fidel API database. | string, in ISO format |
-| `currency` | The currency of the purchase. | string, in ISO 4217 format |
-| `datetime` | The time of the transaction (local time of the merchant). | string, in ISO format |
+| `created` | The time when the transaction object was created in the Fidel API database. | string, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format |
+| `currency` | The currency of the purchase. | string, alpha code format of [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) |
+| `datetime` | The time of the transaction (local time of the merchant). | string, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format |
 | `id` | The unique identifier of the transaction. | string |
 | `identifiers` | See the definition of the identifiers object below. | object |
 | `location.address` | The street address of the location where the purchase was made. | string |
@@ -47,17 +47,17 @@ One transaction event occurs at authorisation time. The other transaction event 
 | `offer.qualified` | Indicates whether the transaction is qualified for the offer. | boolean |
 | `programId` | The identifier of the Fidel API program that this transaction is linked to. | string |
 | `refundTransactionId` | The identifier of the transaction that was refunded by this transaction, if applies. | string |
-| `updated` | The date and time when this transaction was last time updated (authorized/cleared). | string, in ISO format |
+| `updated` | The date and time when this transaction was last time updated (authorized/cleared). | string, in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format |
 | `wallet` | This property has been deprecated since August 2019 because of privacy concerns, and will always return `null` on transactions created after that date. If you're retrieving a transaction that was created before August 2019, the property could be one of: `"apple-pay"`, `"google-pay"`, or `"samsung-pay"`. | null |
 
 The `identifiers` object includes the following properties, all of them being of string type or null:
 
-- `identifiers.amexApprovalCode`: Unique code that is sent along with the authorization of the transaction by Amex. It mirrors the approvalCode property.
-- `identifiers.mastercardAuthCode`: Unique code that is sent along with the authorization of the transaction by Mastercard. It mirrors the authCode property.
+- `identifiers.amexApprovalCode`: Unique code that is sent along with the authorization of the transaction by Amex. It mirrors the `approvalCode` property.
+- `identifiers.mastercardAuthCode`: Unique code that is sent along with the authorization of the transaction by Mastercard. It mirrors the `authCode` property.
 - `identifiers.mastercardRefNumber`: Unique identifier of the transaction provided by Mastercard. It is generated by Mastercard when the authorization request is received from the issuer. This is used by Fidel API to try to match a given clearing transaction with the corresponding authorization transaction.
 - `identifiers.mastercardTransactionSequenceNumber`: Transaction sequence number provided by Mastercard. This is generated by Mastercard to identify the sequence of the transaction for a given PAN in a calendar day. Available only in clearing transactions.
 - `identifiers.MID`: Card terminal identifier in a brand's location that may or may not be unique. MIDs can be different between auth and clearing.
-- `identifiers.visaAuthCode`: Unique code that is sent along with the authorization of the transaction by Visa. It mirrors the authCode property.
+- `identifiers.visaAuthCode`: Unique code that is sent along with the authorization of the transaction by Visa. It mirrors the `authCode` property.
 
 ```json
 summary:Example of a transaction in JSON format (API version is 2022-07-13)
