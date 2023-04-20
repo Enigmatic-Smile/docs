@@ -89,3 +89,42 @@ fileName:index.html
 ```
 
 Check the [Web SDK documentation](/web-sdk/v3) section for more information about all available parameters, customization options, and the metadata nested object.
+
+
+## Transaction Life Cycle
+To understand how the Transaction Select API works and the data it provides to you, it’s important to understand the authorization processes and fund movements that happen when a cardholder makes a purchase.
+
+### [Authorization, clearing](/transactions/#transaction-event-types)
+When a cardholder uses a credit or debit card to make a purchase, the funds are not immediately transferred to the merchant’s account. There are two important events that need to happen for the funds to be transferred: authorization and clearing. Here’s how these events occur:
+<ol>
+  <li>
+  When the cardholder initiates the transaction, their bank (issuing bank, issuer) needs to authorize it. For this, the authorization request must travel from the merchant through the merchant’s bank (acquirer) and through the card network to the issuing bank.
+  <div style="text-align:center">
+    <img src="https://files.readme.io/5767dae-auth1.jpg" />
+  </div>
+  </li>
+
+  <li>
+  If the cardholder has the necessary funds, the issuing bank sends back on the same path the authorization response containing the authorization code (auth code), which means that the cardholder can make the purchase.
+  At this point, the payment amount is still on the cardholder’s account. However, the merchant can safely provide the purchased goods or services, as the transaction was authorized. Usually, the merchant places an authorization hold on the cardholder’s account for the authorized amount of the sale.
+  <div style="text-align:center">
+    <img src="https://files.readme.io/03181bd-auth2.jpg" />
+  </div>
+  </li>
+
+  <li>
+  The next step is the clearing request, which initiates the administrative process of the payment.
+  Typically, clearing occurs at the end of the day, when the acquirer bank collects all the transaction information (amounts, auth codes, etc.) from all payment endpoints of the merchant. Then, on its own processing schedule, the acquirer starts processing the payments with the respective issuing banks.
+  <div style="text-align:center">
+    <img src="https://files.readme.io/41460ea-clearing1.jpg" />
+  </div>
+  </li>
+
+  <li>
+  The issuing bank sends back the clearing response, and the funds are moved to the merchant’s account.
+  Note that at Fidel API both cleared and settled transactions are referred to as cleared transactions.
+  <div style="text-align:center">
+    <img src="https://files.readme.io/ff40166-clearing2.jpg" />
+  </div>
+  </li>
+</ol>
