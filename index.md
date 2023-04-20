@@ -128,3 +128,15 @@ When a cardholder uses a credit or debit card to make a purchase, the funds are 
   </div>
   </li>
 </ol>
+
+
+### Where does Fidel API enter the picture?
+As we saw, all the transaction events go through the card networks. This is where Fidel API comes into play.
+
+When a cardholder links a card to a Fidel API program, Fidel API verifies the card with the associated card network and creates a token to represent that card, thereby not storing sensitive information about the cardholder or card itself. Using this token-based identification, after you verify that the user has access to the card, the card network starts sending the transactions made on that card to Fidel API.
+
+You can then retrieve the collected data using the Transaction Select API. You can also register webhooks to be notified about the card’s transaction events (new authorization, clearing, etc.).
+
+<div style="text-align:center">
+  <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/trx-life-cycle-5.png" />
+</div>
