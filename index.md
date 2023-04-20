@@ -100,7 +100,7 @@ When a cardholder uses a credit or debit card to make a purchase, the funds are 
   <li>
   When the cardholder initiates the transaction, their bank (issuing bank, issuer) needs to authorize it. For this, the authorization request must travel from the merchant through the merchant’s bank (acquirer) and through the card network to the issuing bank.
   <div style="text-align:center">
-    <img src="https://files.readme.io/5767dae-auth1.jpg" />
+    <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/trx-life-cycle-1.png" />
   </div>
   </li>
 
@@ -108,7 +108,7 @@ When a cardholder uses a credit or debit card to make a purchase, the funds are 
   If the cardholder has the necessary funds, the issuing bank sends back on the same path the authorization response containing the authorization code (auth code), which means that the cardholder can make the purchase.
   At this point, the payment amount is still on the cardholder’s account. However, the merchant can safely provide the purchased goods or services, as the transaction was authorized. Usually, the merchant places an authorization hold on the cardholder’s account for the authorized amount of the sale.
   <div style="text-align:center">
-    <img src="https://files.readme.io/03181bd-auth2.jpg" />
+    <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/trx-life-cycle-2.png" />
   </div>
   </li>
 
@@ -116,7 +116,7 @@ When a cardholder uses a credit or debit card to make a purchase, the funds are 
   The next step is the clearing request, which initiates the administrative process of the payment.
   Typically, clearing occurs at the end of the day, when the acquirer bank collects all the transaction information (amounts, auth codes, etc.) from all payment endpoints of the merchant. Then, on its own processing schedule, the acquirer starts processing the payments with the respective issuing banks.
   <div style="text-align:center">
-    <img src="https://files.readme.io/41460ea-clearing1.jpg" />
+    <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/trx-life-cycle-3.png" />
   </div>
   </li>
 
@@ -124,7 +124,7 @@ When a cardholder uses a credit or debit card to make a purchase, the funds are 
   The issuing bank sends back the clearing response, and the funds are moved to the merchant’s account.
   Note that at Fidel API both cleared and settled transactions are referred to as cleared transactions.
   <div style="text-align:center">
-    <img src="https://files.readme.io/ff40166-clearing2.jpg" />
+    <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/trx-life-cycle-4.png" />
   </div>
   </li>
 </ol>
