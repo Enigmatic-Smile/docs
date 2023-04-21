@@ -135,7 +135,7 @@ In the life cycle of a transaction, there are multiple transaction events. One t
 Fidel API currently supports three types of transactions: [authorization transactions](#authorization), [clearing transactions](#clearing) and [refund transactions](#refund).
 
 ## Authorization 
-Authorization transactions are processed when a purchase is made on a linked card at an auth-enabled location (either in-store or online). For example, when a customer makes a purchase at an auth-enabled location with their linked card, the `transaction.auth` webhook will be triggered and the transaction object will be sent to your specified URL in real time.
+Authorization transactions are processed when a purchase is made on a linked card at a location (either in-store or online). For example, when a customer makes a purchase at a location with their linked card, the `transaction.auth` webhook will be triggered and the transaction object will be sent to your specified URL in real time.
 
 ## Clearing
 Clearing transactions - also known as settled transactions - are processed when a payment transaction settles. This usually happens 48 to 72 hours after a payment is made. Clearing transactions trigger the `transaction.clearing` webhook event. 
@@ -144,8 +144,6 @@ Clearing transactions - also known as settled transactions - are processed when 
 Refund transactions are processed when a payment is refunded, i.e., when a purchased item is returned and the payment reverses. A refunded transaction triggers two webhook events: `transaction.clearing` and `transaction.refund`, with the `auth` property set to `false`. The amount on both events is negative. Fidel API tries to identify the initial transaction for which the refund was issued using `cardId`, `locationId`, `merchantId`, `amount` and `datetime`. If an associated initial transaction is identified, the webhook data contains the `originalTransactionId`. If no initial transaction is identified, the data comes in on both webhooks with a negative amount but no `originalTransactionId` property.
 
 The original transaction has a `refundTransactionId` property set to the `transactionId` of the refunded transaction. Updates on the original transaction will not trigger a webhook event.
-
-You will receive both `transaction.auth` events in real time and `transaction.clearing` events (in the next 48 to 72 hours). When clearing transactions are processed, Fidel API matches the clearing transaction to the corresponding authorization transaction if it exists by updating the cleared property from false to true.
 
 If you need the updated information about the original transaction, you can retrieve it using the [Get Transaction endpoint](https://reference.fidel.uk/reference/get-transaction), with the originalTransactionId from the refunded transaction object.
 
