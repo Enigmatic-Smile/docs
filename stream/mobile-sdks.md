@@ -14,7 +14,7 @@ To integrate the iOS mobile SDK in your project, execute the following steps:
 
 1. Add the SDK from the `em` branch, by using the following statements:
 
-```
+```ruby
 target 'YouriOSTarget' do
 use_frameworks!
 pod 'Fidel', :git => 'https://github.com/FidelLimited/fidel-ios', :branch => 'em'
