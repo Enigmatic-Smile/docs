@@ -16,7 +16,7 @@
 </div>
 <div class="row">
   <div class="column">
-    <a href="/stream/web-sdk" data-path="/web-sdk/v3" class="content">
+    <a href="/stream/web-sdk/v3" data-path="/stream/web-sdk/v3" class="content">
       <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/web_sdk.svg" />
       <h2 data-no-link>Web SDK</h2>
       <h3>Learn to integrate a secure Javascript SDK to link cards on your website</h3>
@@ -112,4 +112,4 @@ Start your Fidel API journey by creating an account. Read the [Getting Started](
 
 You can see an example implementation for integrating the Fidel APIs and Web SDK in our [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app).
 
-Check out the [API Reference](https://transaction-stream.reference.fidel.uk/reference/intro) to see all available requests, code examples and response payloads.
+Check out the [API Reference](https://transaction-stream.fidel.uk/reference/introduction-1) to see all available requests, code examples and response payloads.

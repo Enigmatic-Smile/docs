@@ -112,7 +112,7 @@ The following sections give you an overview of how to create a test card with th
 
 #### SDKs
 
-We recommend you use the secure and PCI-compliant [Web SDK](/stream/web-sdk) or [Mobile SDKs](/stream/mobile-sdks) to create cards in Fidel API environments. The SDKs work in both the live and test environment and they use your SDK keys. You can find your SDK keys (live and test) in your [Dashboard Account Settings](https://dashboard.fidel.uk/account/plan).
+We recommend you use the secure and PCI-compliant [Web SDK](/stream/web-sdk/v3) or [Mobile SDKs](/stream/mobile-sdks) to create cards in Fidel API environments. The SDKs work in both the live and test environment and they use your SDK keys. You can find your SDK keys (live and test) in your [Dashboard Account Settings](https://dashboard.fidel.uk/account/plan).
 
 All of Fidel API's SDKs require a user to enter their card number and expiration date, along with the country of issue for the card. The SDKs won't require the CVV number, and will not make any active card checks against the cards. The SDKs will pre-populate the countryCode and the programId of the Program you want to link the card to. The card numbers are tokenized and transmitted directly from our secure pre-built SDKs to the API on submission. This way, your servers are never exposed to sensitive information, removing all PCI compliance requirements for you.
 

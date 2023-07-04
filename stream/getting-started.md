@@ -153,7 +153,7 @@ curl -X POST \
 
 You can use the web and mobile SDKs to link your user's card to your program without having to implement additional security measures on your server-side code. The [tutorial](doc:tutorial) walks you through the necessary steps to start using the APIs and SDKs.
 
-Learn how to use the [web](https://fidelapi.com/docs/stream/web-sdk/v3) and [mobile](https://fidelapi.com/docs/stream/mobile-sdks) SDKs in your applications, how to customize the UI and capture card details securely on your website or mobile applications.
+Learn how to use the [web](/stream/web-sdk/v3) and [mobile](/stream/mobile-sdks) SDKs in your applications, how to customize the UI and capture card details securely on your website or mobile applications.
 
 Check the [Programs](/stream/programs), [Cards](/stream/cards), [Transactions](/stream/transactions) and [Webhooks](/stream/webhooks) sections to get an overview of the Transaction Stream API object structure.
 
@@ -161,5 +161,5 @@ Check the [Programs](/stream/programs), [Cards](/stream/cards), [Transactions](/
 
 - Read more about the objects of the platform: [Programs](/stream/programs), [Cards](/stream/cards), [Transactions](/stream/transactions) and [Webhooks](/stream/webhooks)
 - Walk through our [tutorial](/stream/tutorial) to start using the APIs and SDKs
-- Learn about the [web](/stream/web-sdk) and [mobile](/stream/mobile-sdks) SDKs
-- Check out the [API reference docs](https://transaction-stream.fidel.uk/reference)
+- Learn about the [web](/stream/web-sdk/v3) and [mobile](/stream/mobile-sdks) SDKs
+- Check out the [API reference docs](https://transaction-stream.fidel.uk/reference/introduction-1)
