@@ -27,7 +27,7 @@ When linking a card, cardholders are required to complete a verification process
 
 ###### Example: Card verification via the Web SDK
 
-![](https://files.readme.io/92a2208-Screenshot_2023-02-09_at_17.33.50.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/92a2208-Screenshot_2023-02-09_at_17.33.50.png)
 
 Additionally, below are the key points for consideration related to the card verification process.
 

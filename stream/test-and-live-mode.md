@@ -14,12 +14,12 @@ After signing the contract with Fidel API and receiving the approval of your use
 
 Click on the **Upgrade to go live** button in the bottom left corner to access the live environment. The launch process will request business details, use case description and a card for billing purposes. The go-live request will be sent to Fidel API for review and approval.
 
-![](https://files.readme.io/ec40182-upgrade-to-go-live-button.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/upgrade-to-go-live-button.png)
 
 ## Switching Between Test and Live Mode
 
 After the approval of your request, you can switch between the test and live environments by using the **Live mode** toggle in the bottom left corner on the Fidel API dashboard.
 
-![](https://files.readme.io/af4721c-live-mode-toggle.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/live-mode-toggle.png)
 
 In your code, using the live environment means using the live API and SDK keys instead of the test keys. You get access to your live API and SDK keys when going live. You can find your keys on the **Account settings** page.

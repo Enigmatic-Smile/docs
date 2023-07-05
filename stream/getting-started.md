@@ -2,7 +2,7 @@
 
 The following image shows an overview of your journey with Fidel API to using real-time transaction data to provide your users a seamless experience:
 
-![](https://files.readme.io/cd8d799-customer-journey.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/customer-journey.png)
 
 This page describes how to get started with the first step: testing the platform in the sandbox environment.
 
@@ -21,19 +21,19 @@ The Fidel API dashboard is based on the following concepts:
 
 **Programs** are used to group cards and transactions. **Webhooks** allow you to react to transaction events of a certain program.
 
-![Programs in the Fidel API dashboard](https://files.readme.io/381fb3f-programs.png "Programs in the Fidel API dashboard")
+![Programs in the Fidel API dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programs.png "Programs in the Fidel API dashboard")
 
 Note that the pages of **Brands** and **Offers** don’t play any role in the Transaction Stream API, they apply only to the Select Transactions API.
 
 In each program you can see the cards, transactions and webhooks that belong to that program.
 
-![Cards, transactions and webhooks of a program](https://files.readme.io/98fe6b6-transactions-stream-highlight.png "Cards, transactions and webhooks of a program")
+![Cards, transactions and webhooks of a program](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/transactions-stream-highlight.png "Cards, transactions and webhooks of a program")
 
 ### Account Settings
 
 You can manage your Fidel API account in the **Account settings** page. To navigate there, open the drop-down menu next to your account name.
 
-![](https://files.readme.io/75f008e-account-settings-navigation.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/account-settings-navigation.png)
 
 Under **Account settings**, you can find the following information:
 
@@ -42,7 +42,7 @@ Under **Account settings**, you can find the following information:
 - Users (inviting users, granting privileges)
 - Security settings (password, card number obfuscation settings, etc.)
 
-![](https://files.readme.io/92f8fbe-account-settings.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/account-settings.png)
 
 ## Configuring Your Account
 
@@ -76,17 +76,17 @@ See how card linking and verification works by linking a test card to your progr
    - Expiry date: any date in the future
    - Country of issue: United States
 
-![](https://files.readme.io/332785b-cards-create-stream-2-filled.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/cards-create-stream-2-filled.png)
 
 4. Mark the checkbox to accept the terms and conditions, and click **Next**.
 5. To verify the card, type `0.67` as the amount of the microcharge, and click **Verify**.  
    (In a real-life scenario, users get this value by accessing their bank account and checking the value of the microcharge from “Card Verification”. The microcharge should appear on the user’s account within a few minutes.)
 
-![](https://files.readme.io/31e73d8-cards-create-stream-3-filled.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/cards-create-stream-3-filled.png)
 
 6. After the successful card verification, the card will be displayed on the Cards page:
 
-![](https://files.readme.io/4695506-cards-create-stream-4.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/cards-create-stream-4.png)
 
 ### Creating a Test Transaction
 
@@ -107,7 +107,7 @@ To see how transactions look like in the Fidel API platform, complete the follow
 8. Close the **Transaction details** section to go back to the transaction list.  
    As you can see there, new test transactions are waiting for authorization. Simulate the clearing by selecting the **…** menu and then clicking **Clear**.
 
-![](https://files.readme.io/b2cf1af-transactions-more.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/transactions-more.png)
 
 ## Test Card Numbers
 

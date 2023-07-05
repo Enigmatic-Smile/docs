@@ -46,15 +46,15 @@ To understand how the Transaction Stream API works and the data it provides to y
 When a cardholder uses a credit or debit card to make a purchase, the funds are not immediately transferred to the merchant’s account. There are two important events that need to happen for the funds to be transferred: authorization and clearing. Here’s how these events occur:
 
 1. When the cardholder initiates the transaction, their bank (issuing bank, issuer) needs to authorize it. For this, the **authorization request** must travel from the merchant through the merchant’s bank (acquirer) and through the card network to the issuing bank.  
-   ![](https://files.readme.io/762659d-trx-life-cycle-1.png)
+   ![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/trx-life-cycle-1.png)
 2. If the cardholder has the necessary funds, the issuing bank sends back on the same path the **authorization response** containing the authorization code (auth code), which means that the cardholder can make the purchase.  
    At this point, the payment amount is still on the cardholder’s account. However, the merchant can safely provide the purchased goods or services, as the transaction was authorized. Usually, the merchant places an authorization hold on the cardholder’s account for the authorized amount of the sale.  
-   ![](https://files.readme.io/e8e03a8-trx-life-cycle-2.png)
+   ![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/trx-life-cycle-2.png)
 3. The next step is the **clearing request**, which initiates the administrative process of the payment.  
    Typically, clearing occurs at the end of the day, when the acquirer bank collects all the transaction information (amounts, auth codes, etc.) from all payment endpoints of the merchant. Then, on its own processing schedule, the acquirer starts processing the payments with the respective issuing banks.  
-   ![](https://files.readme.io/d357180-trx-life-cycle-3.png)
+   ![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/trx-life-cycle-3.png)
 4. The issuing bank sends back the **clearing response**, and the funds are moved to the merchant’s account.  
-   ![](https://files.readme.io/26d61c4-trx-life-cycle-4.png)
+   ![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/trx-life-cycle-4.png)
 
 Note that at Fidel API both cleared and settled transactions are referred to as cleared transactions.
 
@@ -66,7 +66,7 @@ When a cardholder links a card to a Fidel API program, Fidel API verifies the ca
 
 You can then retrieve the collected data using the Transaction Stream API. You can also register webhooks to be notified about the card’s transaction events (new authorization, clearing, etc.).
 
-![](https://files.readme.io/170459f-trx-life-cycle-5.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/trx-life-cycle-5.png)
 
 ## Collected Data
 

@@ -8,7 +8,7 @@ To be able to use the Transaction Stream API, you need to create a program first
 
 ##### Hierarchy diagram of the Fidel API object structure.
 
-![](https://files.readme.io/7e19538-object-diagram.png "object-diagram.png")
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/object-diagram.png "object-diagram.png")
 
 ## Create a Program
 
@@ -18,7 +18,7 @@ To create a new program on the Fidel API dashboard, go to the **Programs** page 
 
 ##### Go to the Programs page on the dashboard to create a new program.
 
-![](https://files.readme.io/5180f23-createProgram.png "createProgram.png")
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/createProgram.png "createProgram.png")
 
 ## For Developers
 
