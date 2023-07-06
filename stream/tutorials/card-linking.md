@@ -417,11 +417,7 @@ A transaction has a type and information about the currency, amount, card scheme
 import React from "react";
 
 import { formatCard } from "../utils";
-
-import { ReactComponent as Amex } from "../assets/amex-icon.svg";
 import { ReactComponent as Visa } from "../assets/visa-icon.svg";
-import { ReactComponent as Mastercard } from "../assets/mastercard-icon.svg";
-
 import TransactionStatus from "./TransactionStatus";
 
 const Transaction = ({ transaction, type, transactions }) => {
@@ -437,9 +433,7 @@ const Transaction = ({ transaction, type, transactions }) => {
             <span className="text-gray-400">--</span>
         </td>
         <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">
-            {(transaction?.card?.scheme.toUpperCase() === "AMEX") && (<Amex />)}
             {(transaction?.card?.scheme.toUpperCase() === "VISA") && (<Visa />)}
-            {(transaction?.card?.scheme.toUpperCase() === "MASTERCARD") && (<Mastercard />)}
         </td>
         <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm text-gray-400">{formatCard(transaction?.card)}</td>
         <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">{transaction?.brand?.name}</td>
@@ -491,38 +485,7 @@ const TransactionStatus = ({ status }) => (
 export default TransactionStatus;
 ```
 
-You'll also need to create the icons for the three card networks in the assets folder as SVGs, the same way as you did for the Fidel API logo. 
-
-First, create the Amex icon.
-
-```sh
-touch src/assets/amex-icon.svg
-```
-
-```html
-<svg width="34" height="8" viewBox="0 0 34 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M30.8291 0L29.0156 2.53729L27.2136 0H25L27.951 3.99979L25.0099 8H27.1602L28.9735 5.42863L30.7864 8H33L30.0379 3.96571L32.9789 0H30.8291Z" fill="#2D6EB6"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M19 0V8H25V6.38813H20.8003V4.77733H24.9038V3.17724H20.8003V1.62323H25V0H19Z" fill="#2D6EB6"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.895 0L13.5001 5.66873L12.0946 0H9V8H10.7101V2.53765L10.6678 0.37783L12.7028 8H14.2976L16.3322 0.423478L16.2905 2.52586V8H18V0H14.895Z" fill="#2D6EB6"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.29308 0L0 8H1.96474L2.61245 6.28552H6.26715L6.92556 8H9L5.71824 0H3.29308ZM3.87452 2.98299L4.43455 1.48624L4.99396 2.98299L5.6744 4.75448H3.2052L3.87452 2.98299Z" fill="#2D6EB6"/>
-</svg>
-```
-
-Second, create the Mastercard icon.
-
-```sh
-touch src/assets/mastercard-icon.svg
-```
-
-```html
-<svg width="21" height="13" viewBox="0 0 21 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M7.64941 11.4892H13.32V1.3754H7.64941V11.4892Z" fill="#F75B1B"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.01018 6.43222C8.01018 4.38046 8.97821 2.5532 10.4854 1.37531C9.38287 0.513856 7.99213 0 6.48032 0C2.90126 0 0 2.87996 0 6.43222C0 9.98447 2.90126 12.8644 6.48032 12.8644C7.99213 12.8644 9.38287 12.3506 10.4854 11.4891C8.97821 10.3113 8.01018 8.48397 8.01018 6.43222Z" fill="#E20025"/>
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M20.769 10.4177V10.1683H20.7032L20.6278 10.34L20.5524 10.1683H20.4866V10.4177H20.5327V10.2294L20.6035 10.3919H20.6517L20.7225 10.229V10.4177H20.769ZM20.353 10.4177V10.2106H20.4372V10.1686H20.2228V10.2106H20.3069V10.4177H20.353ZM20.9713 6.43179C20.9713 9.98447 18.07 12.864 14.491 12.864C12.9792 12.864 11.5884 12.3501 10.4863 11.4887C11.9935 10.3113 12.9612 8.48361 12.9612 6.43179C12.9612 4.38003 11.9935 2.55278 10.4863 1.37489C11.5884 0.513856 12.9792 0 14.491 0C18.07 0 20.9713 2.87954 20.9713 6.43179Z" fill="#F0A029"/>
-</svg>
-```
-
-And third, the Visa icon.
+You'll also need to create the icon for Visa in the assets folder as SVGs, the same way as you did for the Fidel API logo. 
 
 ```sh
 touch src/assets/visa-icon.svg
