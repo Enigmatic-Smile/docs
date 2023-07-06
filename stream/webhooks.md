@@ -4,7 +4,7 @@ Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to automaticall
 
 There are several webhooks available to use with Fidel API, each corresponding to an event happening in your account: `card.linked`, `card.failed`, `card.data.sharing.started`, `card.data.sharing.ended`, `card.verification.started`, `card.verification.time.exhausted`, `card.verification.failed`, `transaction.auth`, `transaction.clearing`, and `transaction.refund`. Each of them requires an HTTPS URL to be registered.
 
-Fidel API will notify your registered webhook URLs as the event happens via a HTTP POST request. The HTTP request payload contains the event object. For example, when a customer makes a payment with a linked Mastercard card, a `transaction.auth` event is sent in real time to the specified webhook URL. The HTTP request payload contains the transaction object.
+Fidel API will notify your registered webhook URLs as the event happens via a HTTP POST request. The HTTP request payload contains the event object. For example, when a customer makes a payment with a linked card, a `transaction.auth` event is sent in real time to the specified webhook URL. The HTTP request payload contains the transaction object.
 
 ## Creating Webhooks
 
@@ -133,8 +133,8 @@ A `card.failed` event is triggered when card linking fails. This payload include
         "lastNumbers": "6015",
         "live": true,
         "programId": "06471dbe-a3c7-429e-8a18-16dc97e5cf35",
-        "scheme": "mastercard",
-        "type": "mastercard",
+        "scheme": "visa",
+        "type": "visa",
         "updated": "2018-10-29T17:34:56.380Z"
 
     },
@@ -277,7 +277,7 @@ A `transaction.auth` or **authorization transaction event** is triggered when a 
 
 ```
 
-A `transaction.clearing` or **clearing transaction event** is triggered when a transaction is settled and usually occurs 48 to 72 hours after a payment is made. Fidel API's processes for clearing transactions and triggering the `transaction.clearing` webhook events run daily at 12:00 UTC for Mastercard and multiple times per day for Visa. Only one transaction is sent per event.
+A `transaction.clearing` or **clearing transaction event** is triggered when a transaction is settled and usually occurs 48 to 72 hours after a payment is made. Fidel API's processes for clearing transactions and triggering the `transaction.clearing` webhook events run multiple times per day for Visa. Only one transaction is sent per event.
 
 ```json
 {

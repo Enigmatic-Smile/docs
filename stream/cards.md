@@ -84,15 +84,7 @@ The **Delete Card** option works similarly, with the difference being that you a
 
 ## Test Card Numbers
 
-For security purposes, the Fidel API test environment doesn't accept live card numbers. Fidel API has a range of test card numbers you can use while integrating or testing the API. The test card numbers work in the [Fidel Dashboard Playground](https://dashboard.fidel.uk/playground), with the Fidel API SDKs and with the Cards APIs.
-
-Visa: `4444000000004***`
-
-Mastercard: `5555000000005***`
-
-Amex: `3400000000003**` and `3700000000003**`
-
-Where `*` can be any digit. For example, `4444000000004278`, `5555000000005093`, `340000000000301` and `370000000000388` are all valid test card numbers.
+For security purposes, the Fidel API test environment doesn't accept live card numbers. Fidel API has a range of test card numbers you can use while integrating or testing the API: `4444000000004***` where `*` can be any digit. For example, `4444000000004278` is a valid test card number. The test card numbers work in the [Playground](https://dashboard.fidel.uk/playground), with the Fidel API SDKs and with the Cards APIs.
 
 When linking a Fidel API test card, type in `$0.67` for verification.
 

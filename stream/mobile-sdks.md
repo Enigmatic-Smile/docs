@@ -89,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Fidel.privacyPolicyURL = "https://www.fidel.uk/"
         Fidel.termsAndConditionsURL = "https://fidel.uk/docs/"
         Fidel.deleteInstructions = "contacting our support team"
-        Fidel.supportedCardSchemes = [.visa, .mastercard, .americanExpress]
+        Fidel.supportedCardSchemes = [.visa]
         Fidel.thirdPartyVerificationChoice = true
         Fidel.onResult = self.onResult
         Fidel.onCardVerificationStarted = {
@@ -247,7 +247,7 @@ class MainActivity : AppCompatActivity() {
         Fidel.programId = "Your Program ID"
         Fidel.sdkKey = "Your SDK key"
         Fidel.shouldAutoScanCard = false
-        Fidel.supportedCardSchemes = setOf(CardScheme.VISA, CardScheme.MASTERCARD, CardScheme.AMERICAN_EXPRESS)
+        Fidel.supportedCardSchemes = setOf(CardScheme.VISA)
         Fidel.companyName = "[Developer company]"
         Fidel.termsAndConditionsUrl = "https://fidel.uk"
         Fidel.privacyPolicyUrl = "https://fidel.uk"
@@ -409,9 +409,7 @@ export default class App extends React.Component {
         //this is the default value for supported card schemes,
         //but you can remove the support for some of the card schemes if you need to
         const cardSchemes = [
-        Fidel.CardScheme.visa,
-        Fidel.CardScheme.mastercard,
-        Fidel.CardScheme.americanExpress,
+        Fidel.CardScheme.visa
         ];
 
         const countries = [

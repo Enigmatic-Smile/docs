@@ -111,15 +111,9 @@ To see how transactions look like in the Fidel API platform, complete the follow
 
 ## Test Card Numbers
 
-Fidel API has a range of test card numbers you can use while integrating or testing the API:
+For security purposes, the Fidel API test environment doesn't accept live card numbers. Fidel API has a range of test card numbers you can use while integrating or testing the API: `4444000000004***` where `*` can be any digit. For example, `4444000000004278` is a valid test card number. The test card numbers work in the [Playground](https://dashboard.fidel.uk/playground), with the Fidel API SDKs and with the Cards APIs.
 
-- Visa: `4444000000004***`
-- Mastercard: `5555000000005***`  
-  where \* can be any digit. For example, `4444000000004278` and `5555000000005093` are valid test card numbers.
-
-The test card numbers work in the [Fidel Dashboard Playground](https://dashboard.fidel.uk/playground), with the Fidel API SDKs and with the Cards APIs. They cannot be used outside of the Fidel API platform to create any kind of transaction.
-
-When linking a Fidel API test card, type in $0.67 for verification.
+When linking a Fidel API test card, type in `$0.67` for verification.
 
 ## For Developers
 
