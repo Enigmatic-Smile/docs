@@ -4,6 +4,20 @@ The following image shows an overview of your journey with Fidel API to using re
 
 ![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/customer-journey.png)
 
+In a high-level overview, you will go through the following steps:
+
+1. Create a Fidel API account and explore the platform.
+
+2. Validate the feasibility of the solution with Fidel API's Sales team and sign the contract.
+
+3. Document your use case and your application for the card network's approval.
+
+4. Integrate your application with Fidel API's platform.
+
+5. Test your application with real transactions of test users.
+
+6. Launch your application to your audience.
+
 This page describes how to get started with the first step: testing the platform in the sandbox environment.
 
 ## Creating an Account
