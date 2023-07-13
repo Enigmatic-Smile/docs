@@ -56,8 +56,6 @@ Under **Account settings**, you can find the following information:
 - Users (inviting users, granting privileges)
 - Security settings (password, card number obfuscation settings, etc.)
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/account-settings.png)
-
 ## Configuring Your Account
 
 This section walks you through creating a program and adding users to your account.
@@ -121,7 +119,7 @@ To see how transactions look like in the Fidel API platform, complete the follow
 8. Close the **Transaction details** section to go back to the transaction list.  
    As you can see there, new test transactions are waiting for authorization. Simulate the clearing by selecting the **…** menu and then clicking **Clear**.
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/transactions-more.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/transactions-more-button.png)
 
 ## Test Card Numbers
 
@@ -136,8 +134,6 @@ When linking a Fidel API test card, type in `$0.67` for verification.
 On the [Account page](https://dashboard.fidel.uk/account) you will find two SDK and two API keys. The SDK keys are used to link the web and mobile SDKs to your account and the API keys enable you to access the API endpoints directly. Use the test keys to access the [test environment](/stream/test-mode-and-live-mode#test-mode) data, and live keys to access the [live environment](/stream/test-mode-and-live-mode#live-mode) data.
 
 Note that due to security reasons, **the secret API key should not be used in a mobile application or a front-end web app**.
-
-![API keys](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/api-keys.png "API keys")
 
 When you're ready to [go live](/stream/test-mode-and-live-mode#the-go-live-process) with your integration and test with credit/debit cards, you can request access to the live keys by clicking the **Upgrade to go live** button at the bottom left of the dashboard.
 

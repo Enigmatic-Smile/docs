@@ -6,9 +6,7 @@ To be able to participate in your program, users must link their cards to it fir
 
 By using Fidel API's SDKs to link cards to a program, card details are sent directly to Fidel API through an encrypted connection without exposing your servers to sensitive information. The SDKs also take care of all relevant PCI compliance requirements.
 
-Note that to use the APIs (without the SDK) to create cards, you must be PCI compliant. [Contact Us](https://fidelapi.com/contact) to find out more.
-
-![Preview of the web and mobile Fidel card linking UI](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks_main.png "Preview of the web and mobile Fidel card linking UI")
+Note that to use the APIs (without the SDK) to create cards, you must be PCI compliant. [Contact us](https://fidelapi.com/contact) to find out more.
 
 ### Tokenization
 
@@ -24,10 +22,6 @@ When linking a card, cardholders are required to complete a verification process
 2. Fidel API will charge the card for a nominal amount (equivalent to USD$0.50-1.00), which will be refunded within 72 hours.
 3. A person with access to the card statement will identify the charged amount from the statement.
 4. Consent is verified by inputting the exact amount charged to the card in the SDK or in the Verify Consent endpoint. After this, the card will be fully linked to the program, and transactions will start coming through.
-
-###### Example: Card verification via the Web SDK
-
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/92a2208-Screenshot_2023-02-09_at_17.33.50.png)
 
 Additionally, below are the key points for consideration related to the card verification process.
 
