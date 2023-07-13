@@ -26,95 +26,95 @@ The original transaction has a `refundTransactionId` property set to the `transa
 
 You will receive both `transaction.auth` events in real time and `transaction.clearing` events (in the next 48 to 72 hours). When clearing transactions are processed, Fidel API matches the clearing transaction to the corresponding authorization transaction if it exists by updating the `cleared` property from `false` to `true`.
 
-If you need the updated information about the original transaction, you can retrieve it using the  [Get Transaction](https://transaction-stream.fidel.uk/reference/get-transaction) endpoint, with the `originalTransactionId` from the refunded transaction object.
+If you need the updated information about the original transaction, you can retrieve it using the [Get Transaction](https://transaction-stream.fidel.uk/reference/get-transaction) endpoint, with the `originalTransactionId` from the refunded transaction object.
 
 ## Transaction Object
 
 The transaction object contains the following data:
 
-| **Field name** | **Description** | **Type** |
-| --- | ------ | --- |
-| `accountId` | The unique identifier of the user account at Fidel API. | string |
-| `amount` | The amount of the transaction in the currency it was charged in. In the case of international transactions, the transaction has both `amount` and `billingAmount` fields filled in and their value may differ due to the conversion. | number |
-| `auth` | Indicates whether the transaction was authorized by the issuing bank. | boolean |
-| `authCode` | Unique code that authorizes a transaction, sent by the issuer/the PCN on the issuer's behalf when approving a transaction. It mirrors the `identifiers.visaAuthCode` property. You can use the authorization code in combination with the card number to match an authorization event and a clearing event when the transaction ID is different. | string (or null) |
-| `billingAmount` | The amount in the currency of the country of issuance, converted from the original purchase currency. In the case of international transactions, the transaction has both `amount` and `billingAmount` fields filled in and their value may differ due to the conversion. | number (or null) |
-| `billingCurrency` | The currency of the country of issuance. | string in ISO 4217 format (or null) |
-| `brand.name` | The name of the merchant where the purchase was made. | string |
-| `card.firstNumbers` | The first numbers of the card, used for helping users identify their cards. | string |
-| `card.id` | The tokenized card identifier used by Fidel API. | string |
-| `card.lastNumbers` | The last numbers of the card, used for helping users identify their cards. | string |
-| `card.scheme` | The payment network (Visa). | string |
-| `cardPresent` | Not in use | null |
-| `cleared` | Indicates whether the transaction was cleared. | boolean |
-| `created` | The timestamp in UTC format when the transaction object was created in the Fidel API database. | string, timestamp in UTC format |
-| `currency` | The original currency of the purchase. | string in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format |
-| `datetime` | The timestamp (in the local timezone of the merchant/acquirer) of the transaction. | string, timestamp in UTC format |
-| `id` | The unique identifier of the transaction. | string |
-| `identifiers.amexApprovalCode` | Not in use in Transaction Stream programs. | null |
-| `identifiers.mastercardAuthCode` | Not in use in Transaction Stream programs. | null |
-| `identifiers.mastercardRefNumber` | Not in use in Transaction Stream programs. | null |
-| `identifiers.mastercardTransactionSequenceNumber` | Not in use in Transaction Stream programs. | null |
-| `identifiers.visaAuthCode` | Unique code that is sent along with the authorization of the transaction by Visa. It mirrors the `authCode` property. | string (or null) |
-| `location` | Details of the merchant where the purchase was made:
-`location.city`, `location.countryCode`, `location.postcode`, `location.state`. | string (city, postcode, and state can be null) |
-| `merchantCategoryCode` | The merchant category code (MCC) provided by the card network. It is used to classify businesses by the types of goods provided or services rendered. | string |
-| `programId` | The identifier of the Fidel API program that this transaction is linked to. | string |
-| `programType` | The type of the Fidel API program that this transaction is linked to (`transaction-stream`). | string |
-| `updated` | The date and time when this transaction was last time updated (authorized/cleared/reimbursed). | string, timestamp in UTC format |
-| `wallet` | Not in use. | null |
+| **Field name**                                                                  | **Description**                                                                                                                                                                                                                                                                                                                                  | **Type**                                                            |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------- |
+| `accountId`                                                                     | The unique identifier of the user account at Fidel API.                                                                                                                                                                                                                                                                                          | string                                                              |
+| `amount`                                                                        | The amount of the transaction in the currency it was charged in. In the case of international transactions, the transaction has both `amount` and `billingAmount` fields filled in and their value may differ due to the conversion.                                                                                                             | number                                                              |
+| `auth`                                                                          | Indicates whether the transaction was authorized by the issuing bank.                                                                                                                                                                                                                                                                            | boolean                                                             |
+| `authCode`                                                                      | Unique code that authorizes a transaction, sent by the issuer/the PCN on the issuer's behalf when approving a transaction. It mirrors the `identifiers.visaAuthCode` property. You can use the authorization code in combination with the card number to match an authorization event and a clearing event when the transaction ID is different. | string (or null)                                                    |
+| `billingAmount`                                                                 | The amount in the currency of the country of issuance, converted from the original purchase currency. In the case of international transactions, the transaction has both `amount` and `billingAmount` fields filled in and their value may differ due to the conversion.                                                                        | number (or null)                                                    |
+| `billingCurrency`                                                               | The currency of the country of issuance.                                                                                                                                                                                                                                                                                                         | string in ISO 4217 format (or null)                                 |
+| `brand.name`                                                                    | The name of the merchant where the purchase was made.                                                                                                                                                                                                                                                                                            | string                                                              |
+| `card.firstNumbers`                                                             | The first numbers of the card, used for helping users identify their cards.                                                                                                                                                                                                                                                                      | string                                                              |
+| `card.id`                                                                       | The tokenized card identifier used by Fidel API.                                                                                                                                                                                                                                                                                                 | string                                                              |
+| `card.lastNumbers`                                                              | The last numbers of the card, used for helping users identify their cards.                                                                                                                                                                                                                                                                       | string                                                              |
+| `card.scheme`                                                                   | The payment network (Visa).                                                                                                                                                                                                                                                                                                                      | string                                                              |
+| `cardPresent`                                                                   | Not in use                                                                                                                                                                                                                                                                                                                                       | null                                                                |
+| `cleared`                                                                       | Indicates whether the transaction was cleared.                                                                                                                                                                                                                                                                                                   | boolean                                                             |
+| `created`                                                                       | The timestamp in UTC format when the transaction object was created in the Fidel API database.                                                                                                                                                                                                                                                   | string, timestamp in UTC format                                     |
+| `currency`                                                                      | The original currency of the purchase.                                                                                                                                                                                                                                                                                                           | string in [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) format |
+| `datetime`                                                                      | The timestamp (in the local timezone of the merchant/acquirer) of the transaction.                                                                                                                                                                                                                                                               | string, timestamp in UTC format                                     |
+| `id`                                                                            | The unique identifier of the transaction.                                                                                                                                                                                                                                                                                                        | string                                                              |
+| `identifiers.amexApprovalCode`                                                  | Not in use in Transaction Stream programs.                                                                                                                                                                                                                                                                                                       | null                                                                |
+| `identifiers.mastercardAuthCode`                                                | Not in use in Transaction Stream programs.                                                                                                                                                                                                                                                                                                       | null                                                                |
+| `identifiers.mastercardRefNumber`                                               | Not in use in Transaction Stream programs.                                                                                                                                                                                                                                                                                                       | null                                                                |
+| `identifiers.mastercardTransactionSequenceNumber`                               | Not in use in Transaction Stream programs.                                                                                                                                                                                                                                                                                                       | null                                                                |
+| `identifiers.visaAuthCode`                                                      | Unique code that is sent along with the authorization of the transaction by Visa. It mirrors the `authCode` property.                                                                                                                                                                                                                            | string (or null)                                                    |
+| `location`                                                                      | Details of the merchant where the purchase was made:                                                                                                                                                                                                                                                                                             |
+| `location.city`, `location.countryCode`, `location.postcode`, `location.state`. | string (city, postcode, and state can be null)                                                                                                                                                                                                                                                                                                   |
+| `merchantCategoryCode`                                                          | The merchant category code (MCC) provided by the card network. It is used to classify businesses by the types of goods provided or services rendered.                                                                                                                                                                                            | string                                                              |
+| `programId`                                                                     | The identifier of the Fidel API program that this transaction is linked to.                                                                                                                                                                                                                                                                      | string                                                              |
+| `programType`                                                                   | The type of the Fidel API program that this transaction is linked to (`transaction-stream`).                                                                                                                                                                                                                                                     | string                                                              |
+| `updated`                                                                       | The date and time when this transaction was last time updated (authorized/cleared/reimbursed).                                                                                                                                                                                                                                                   | string, timestamp in UTC format                                     |
+| `wallet`                                                                        | Not in use.                                                                                                                                                                                                                                                                                                                                      | null                                                                |
 
 Example of a transaction in JSON format:
 
 ```json
 {
-    "accountId": "f61741c3-3dc9-45f5-8e7c-123456789012",
-    "amount": 486,
-    "auth": true,
-    "authCode": "00856I",
-    "billingAmount": 4.43,
-    "billingCurrency": "USD",
-    "brand": {
-        "name": "My Coffee Company"
-    },
-    "card": {
-        "firstNumbers": "123456",
-        "id": "159cad70-8187-4d01-8b67-123456789012",
-        "lastNumbers": "1234",
-        "scheme": "visa"
-    },
-    "cardPresent": null,
-    "cleared": true,
-    "created": "2021-08-05T20:10:31.746Z",
-    "currency": "JPY",
-    "datetime": "2021-08-05T20:10:28",
-    "id": "a6e9759c-525b-4942-aa56-123456789012",
-    "identifiers": {
-        "amexApprovalCode": null,
-        "mastercardAuthCode": null,
-        "mastercardRefNumber": null,
-        "mastercardTransactionSequenceNumber": null,
-        "visaAuthCode": "00856I"
-    },
-    "location": {
-        "countryCode": "JPN",
-        "postcode": "340-0144",
-        "state": "SAITAMA"
-    },
-    "merchantCategoryCode": "4816",
-    "merchantDescriptor": "My Coffee Company",
-    "programId": "9ba1adb2-22e8-4c7e-b100-123456789012",
-    "programType": "transaction-stream",
-    "updated": "2021-08-11T11:31:18.543Z",
-    "wallet": null
+  "accountId": "f61741c3-3dc9-45f5-8e7c-123456789012",
+  "amount": 486,
+  "auth": true,
+  "authCode": "00856I",
+  "billingAmount": 4.43,
+  "billingCurrency": "USD",
+  "brand": {
+    "name": "My Coffee Company"
+  },
+  "card": {
+    "firstNumbers": "123456",
+    "id": "159cad70-8187-4d01-8b67-123456789012",
+    "lastNumbers": "1234",
+    "scheme": "visa"
+  },
+  "cardPresent": null,
+  "cleared": true,
+  "created": "2021-08-05T20:10:31.746Z",
+  "currency": "JPY",
+  "datetime": "2021-08-05T20:10:28",
+  "id": "a6e9759c-525b-4942-aa56-123456789012",
+  "identifiers": {
+    "amexApprovalCode": null,
+    "mastercardAuthCode": null,
+    "mastercardRefNumber": null,
+    "mastercardTransactionSequenceNumber": null,
+    "visaAuthCode": "00856I"
+  },
+  "location": {
+    "countryCode": "JPN",
+    "postcode": "340-0144",
+    "state": "SAITAMA"
+  },
+  "merchantCategoryCode": "4816",
+  "merchantDescriptor": "My Coffee Company",
+  "programId": "9ba1adb2-22e8-4c7e-b100-123456789012",
+  "programType": "transaction-stream",
+  "updated": "2021-08-11T11:31:18.543Z",
+  "wallet": null
 }
 ```
 
 ## Creating a Test Transaction on the Dashboard
 
-For testing purposes, you can use the [**API Playground**](https://dashboard.fidel.uk/playground) in the Fidel API test environment to create test transactions and test your application logic. Alternatively, you can use the [Create Test Transaction](https://reference.fidel.uk/reference/create-transaction-test) endpoint to create authorization test transactions. 
+For testing purposes, you can use the [**API Playground**](https://dashboard.fidel.uk/playground) in the Fidel API test environment to create test transactions and test your application logic. Alternatively, you can use the [Create Test Transaction](https://reference.fidel.uk/reference/create-transaction-test) endpoint to create authorization test transactions.
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-a-test-trx.png "create-a-test-trx.png")
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-test-transaction.png "create-test-transaction.png")
 
 To create a test transaction, you will need to have a program and a test card already linked to it.  
 Then, follow these steps to create a test transaction:

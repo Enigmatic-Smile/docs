@@ -121,7 +121,7 @@ To see how transactions look like in the Fidel API platform, complete the follow
 8. Close the **Transaction details** section to go back to the transaction list.  
    As you can see there, new test transactions are waiting for authorization. Simulate the clearing by selecting the **…** menu and then clicking **Clear**.
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/transactions-more.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/transactions-more-button.png)
 
 ## Test Card Numbers
 
