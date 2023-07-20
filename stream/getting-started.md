@@ -4,6 +4,15 @@ The following image shows an overview of your journey with Fidel API to using re
 
 ![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/customer-journey.png)
 
+In a high-level overview, you will go through the following steps:
+
+1. Create a Fidel API account and explore the platform.
+2. Validate the feasibility of the solution with Fidel API's Sales team and sign the contract.
+3. Document your use case and your application for the card network's approval.
+4. Integrate your application with Fidel API's platform.
+5. Test your application with real transactions of test users.
+6. Launch your application to your audience.
+
 This page describes how to get started with the first step: testing the platform in the sandbox environment.
 
 ## Creating an Account
@@ -41,8 +50,6 @@ Under **Account settings**, you can find the following information:
 - Billing information (billing period, billing history)
 - Users (inviting users, granting privileges)
 - Security settings (password, card number obfuscation settings, etc.)
-
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/account-settings.png)
 
 ## Configuring Your Account
 
@@ -107,7 +114,7 @@ To see how transactions look like in the Fidel API platform, complete the follow
 8. Close the **Transaction details** section to go back to the transaction list.  
    As you can see there, new test transactions are waiting for authorization. Simulate the clearing by selecting the **…** menu and then clicking **Clear**.
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/transactions-more.png)
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/transactions-more-button.png)
 
 ## Test Card Numbers
 
@@ -122,8 +129,6 @@ When linking a Fidel API test card, type in `$0.67` for verification.
 On the [Account page](https://dashboard.fidel.uk/account) you will find two SDK and two API keys. The SDK keys are used to link the web and mobile SDKs to your account and the API keys enable you to access the API endpoints directly. Use the test keys to access the [test environment](/stream/test-mode-and-live-mode#test-mode) data, and live keys to access the [live environment](/stream/test-mode-and-live-mode#live-mode) data.
 
 Note that due to security reasons, **the secret API key should not be used in a mobile application or a front-end web app**.
-
-![API keys](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/api-keys.png "API keys")
 
 When you're ready to [go live](/stream/test-mode-and-live-mode#the-go-live-process) with your integration and test with credit/debit cards, you can request access to the live keys by clicking the **Upgrade to go live** button at the bottom left of the dashboard.
 

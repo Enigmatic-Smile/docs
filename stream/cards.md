@@ -2,13 +2,11 @@
 
 ## Card Linking
 
-To be able to participate in your program, users must link their cards to it first. You can implement this in your application using Fidel API's SDKs and APIs.
+To be able to participate in your program, users must link their cards to it first. You can implement this in your application using Fidel API's [SDKs](/sdks) and APIs.
 
 By using Fidel API's SDKs to link cards to a program, card details are sent directly to Fidel API through an encrypted connection without exposing your servers to sensitive information. The SDKs also take care of all relevant PCI compliance requirements.
 
-Note that to use the APIs (without the SDK) to create cards, you must be PCI compliant. [Contact Us](https://fidelapi.com/contact) to find out more.
-
-![Preview of the web and mobile Fidel card linking UI](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks_main.png "Preview of the web and mobile Fidel card linking UI")
+Note that to use the APIs (without the SDK) to create cards, you must be PCI compliant. [Contact us](https://fidelapi.com/contact) to find out more.
 
 ### Tokenization
 
@@ -24,10 +22,6 @@ When linking a card, cardholders are required to complete a verification process
 2. Fidel API will charge the card for a nominal amount (equivalent to USD$0.50-1.00), which will be refunded within 72 hours.
 3. A person with access to the card statement will identify the charged amount from the statement.
 4. Consent is verified by inputting the exact amount charged to the card in the SDK or in the Verify Consent endpoint. After this, the card will be fully linked to the program, and transactions will start coming through.
-
-###### Example: Card verification via the Web SDK
-
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/92a2208-Screenshot_2023-02-09_at_17.33.50.png)
 
 Additionally, below are the key points for consideration related to the card verification process.
 
@@ -98,13 +92,13 @@ There are multiple ways you can test card linking on the Fidel API platform befo
 - With the Fidel API SDKs
 - With API calls using the Cards API
 
-For integrating card linking into your application, we recommend using one of Fidel API’s PCI-compliant SDKs. You can choose from Web (JavaScript) and Mobile (iOS, Android, ReactNative) SDKs. Fidel API also provides a Cards API that can be used for linking cards to your program, but it requires you to be PCI compliant before using it. [Contact us](https://fidelapi.com/contact) for more information.
+For integrating card linking into your application, we recommend using one of Fidel API’s PCI-compliant [SDKs](/sdks). You can choose from Web (JavaScript) and Mobile (iOS, Android, ReactNative) SDKs. Fidel API also provides a Cards API that can be used for linking cards to your program, but it requires you to be PCI compliant before using it. [Contact us](https://fidelapi.com/contact) for more information.
 
 The following sections give you an overview of how to create a test card with the Fidel API SDKs and API endpoints. The possible test card numbers that you can use are listed in the [Test Card Numbers](#test-card-numbers) section above.
 
 #### SDKs
 
-We recommend you use the secure and PCI-compliant [Web SDK](/stream/web-sdk/v3) or [Mobile SDKs](/stream/mobile-sdks) to create cards in Fidel API environments. The SDKs work in both the live and test environment and they use your SDK keys. You can find your SDK keys (live and test) in your [Dashboard Account Settings](https://dashboard.fidel.uk/account/plan).
+We recommend you use the secure and PCI-compliant Web SDK or the Mobile SDKs to create cards in Fidel API environments. The [SDKs](/sdks) work in both the live and test environment and they use your SDK keys. You can find your SDK keys (live and test) in your [Dashboard Account Settings](https://dashboard.fidel.uk/account/plan).
 
 All of Fidel API's SDKs require a user to enter their card number and expiration date, along with the country of issue for the card. The SDKs won't require the CVV number, and will not make any active card checks against the cards. The SDKs will pre-populate the countryCode and the programId of the Program you want to link the card to. The card numbers are tokenized and transmitted directly from our secure pre-built SDKs to the API on submission. This way, your servers are never exposed to sensitive information, removing all PCI compliance requirements for you.
 

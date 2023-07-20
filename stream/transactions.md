@@ -114,7 +114,7 @@ Example of a transaction in JSON format:
 
 For testing purposes, you can use the [**API Playground**](https://dashboard.fidel.uk/playground) in the Fidel API test environment to create test transactions and test your application logic. Alternatively, you can use the [Create Test Transaction](https://reference.fidel.uk/reference/create-transaction-test) endpoint to create authorization test transactions. 
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-a-test-trx.png "create-a-test-trx.png")
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-test-transaction.png "create-test-transaction.png")
 
 To create a test transaction, you will need to have a program and a test card already linked to it.  
 Then, follow these steps to create a test transaction:

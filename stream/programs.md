@@ -8,17 +8,13 @@ To be able to use the Transaction Stream API, you need to create a program first
 
 ##### Hierarchy diagram of the Fidel API object structure.
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/object-diagram.png "object-diagram.png")
+![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/program-objects-hierarchy.png "program-objects-hierarchy.png")
 
 ## Create a Program
 
 You can create a program through the Fidel API dashboard or via API. In [test mode](/stream/test-mode-and-live-mode#test-mode), you can create programs that use either Select Transactions API or Transaction Stream API, and in [live mode](/stream/test-mode-and-live-mode#live-mode), you can create programs that use the API type that your account is approved for. Once a program is created, a program identifier will be generated and is used as a data property when using the SDKs and APIs to link cards to this program. Cards are linked to programs and consequently are able to track all purchases in the program.
 
 To create a new program on the Fidel API dashboard, go to the **Programs** page and click the **New program** button. If in test mode, choose the API type and enter a name for the new program.
-
-##### Go to the Programs page on the dashboard to create a new program.
-
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/createProgram.png "createProgram.png")
 
 ## For Developers
 
