@@ -1,13 +1,177 @@
 # React Native SDK reference
 
-1. [Fidel class](#class-fidel)
-2. [Properties](#properties)
-3. [Methods](#methods)
-4. [Callbacks](#callbacks)
+1. [Example](#example) with all properties set
+2. [Fidel class](#class-fidel)
+3. [Properties](#properties)
+4. [Methods](#methods)
+5. [Callbacks](#callbacks)
+
+## Example
+
+The following is an example with all properties of the React Native SDK set:
+
+```javascript
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isShown: true,
+    };
+    this.configureFidel();
+  }
+
+  configureFidel() {
+    const myImage = require('./demo_images/your_banner.png');
+    const resolveAssetSource = require('react-native/Libraries/Image/resolveAssetSource');
+    const resolvedImage = resolveAssetSource(myImage);
+
+    const countries = [
+      Fidel.Country.unitedKingdom,
+      Fidel.Country.unitedStates,
+      Fidel.Country.canada,
+    ];
+
+    Fidel.setup ({
+      sdkKey: 'Your SDK Key', // mandatory
+      programId: 'Your program ID', // mandatory
+      programType: Fidel.ProgramType.transactionStream,
+      options: {
+        bannerImage: resolvedImage,
+        allowedCountries: countries,
+        supportedCardSchemes: [Fidel.CardScheme.visa],
+        shouldAutoScanCard: false,
+        enableCardScanner: false,
+        metaData: { id: 'your-metadata-id', userId: 1234 },
+        thirdPartyVerificationChoice: false //set to true if you need to enable third party verification
+      },
+      consentText: {
+        termsAndConditionsUrl: 'https://yourwebsite.com/terms', // mandatory
+        companyName: 'Your Company Name', // mandatory
+        privacyPolicyUrl: 'https://yourwebsite.com/privacy-policy',
+        deleteInstructions: "following our delete instructions",
+      },
+      onCardVerificationStarted: consentDetails => {
+        console.log('card verification started: ' + JSON.stringify(consentDetails));
+      },
+      onCardVerificationChoiceSelected: verificationChoice => {
+        switch (verificationChoice.CardVerificationChoice) {
+          case Fidel.CardVerificationChoice.onTheSpot:
+            console.log('card verification choice: on the spot');
+            break;
+          case Fidel.CardVerificationChoice.delegatedToThirdParty:
+            console.log('card verification choice: delegated to third party');
+            break;
+          }
+        },
+     }, (result) => {
+      switch (result.type) {
+        case ENROLLMENT_RESULT:
+          console.log("card was enrolled: " + result.enrollmentResult.cardId);
+          break;
+        case ERROR:
+          this.handleError(result.error);
+          break;
+        case VERIFICATION_RESULT:
+          console.log('card verification was successful 🎉: ' + result.verificationResult.cardId);
+          break;
+      }
+    });
+  }
+
+  onButtonPress = () => {
+    Fidel.start();
+  }
+
+  handleError = (error) => {
+    console.log("Error message: " + error.message);
+    switch (error.type) {
+      case Fidel.ErrorType.userCanceled:
+        console.log("User canceled the process");
+        break;
+      case Fidel.ErrorType.sdkConfigurationError:
+        console.log("Please configure the Fidel SDK correctly");
+        break;
+      case Fidel.ErrorType.enrollmentError:
+        this.handleEnrollmentError(error);
+        break;
+      case Fidel.ErrorType.verificationError:
+        this.handleVerificationError(error);
+        break;
+    }
+  }
+
+  handleEnrollmentError = (enrollmentError) => {
+    switch (enrollmentError.subtype) {
+      case Fidel.EnrollmentErrorType.cardAlreadyExists:
+        console.log("This card was already enrolled.");
+        break;
+      case Fidel.EnrollmentErrorType.invalidProgramId:
+        console.log("Please configure Fidel with a valid program ID.");
+        break;
+      case Fidel.EnrollmentErrorType.invalidSdkKey:
+        console.log("Please configure Fidel with a valid SDK Key.");
+        break;
+      case Fidel.EnrollmentErrorType.inexistentProgram:
+        console.log("Please configure Fidel with a valid program ID.");
+        break;
+      case Fidel.EnrollmentErrorType.unexpected:
+        console.log("Unexpected enrollment error occurred.");
+        break;
+    }
+  }
+
+  handleVerificationError = (verificationError) => {
+    switch (verificationError.subtype) {
+      case Fidel.VerificationErrorType.unauthorized:
+        console.log("You are not authorized to do card verification.");
+        break;
+      case Fidel.VerificationErrorType.incorrectAmount:
+        console.log("The card verification amount entered is not correct.");
+        break;
+      case Fidel.VerificationErrorType.maximumAttemptsReached:
+        console.log("You have reached the maximum attempts allowed to verify this card.");
+        break;
+      case Fidel.VerificationErrorType.cardAlreadyVerified:
+        console.log("This card was already verified.");
+        break;
+      case Fidel.VerificationErrorType.cardNotFound:
+        console.log("This card is not found.");
+        break;
+      case Fidel.VerificationErrorType.verificationNotFound:
+        console.log("Verification not found.");
+        break;
+      case Fidel.VerificationErrorType.genericError:
+        console.log("Generic error.");
+        break;
+      case Fidel.VerificationErrorType.unexpected:
+        console.log("Unexpected card verification error occurred.");
+        break;
+    }
+  }
+
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.welcome}>Fidel React Native SDK example</Text>
+        <Text style={styles.instructions}>To get started, tap the button below.</Text>
+        <Button
+          onPress={this.onButtonPress}
+          title="Link a card"
+          color="#3846ce"
+        />
+      </View>
+    );
+  }
+};
+```
 
 ## class Fidel
 
 This class is designed as a facade, used to configure the (verified) card enrollment process, via many of its [static properties](#properties), and start [different flows](#methods). It's also the class that provides [callbacks](#callbacks) that might be useful for your application.
+
+All the properties are expected to be set once, during the lifecycle of your app, as soon as the application finished launching. You can find [an example](#example) with all the properties and callbacks being set at the bottom of this page.
+
+As you can see in the example, all properties are set via the `setup` function. Some properties are grouped logically in the `consentText` and `options` child objects. In this reference we will prefix their names with their respective parent objects.
 
 ## Properties
 
@@ -15,25 +179,33 @@ This class is designed as a facade, used to configure the (verified) card enroll
 
 These are properties that must be set correctly. In the case where one of these properties are not set or they are set incorrectly, the SDK will return an error in the [`onResult`](#onresult) callback (of type: [`FidelErrorType.sdkConfigurationError`](#enum-fidelerrortype)).
 
-#### sdkKey: String
+#### sdkKey
 
-This key is used to authenticate your Fidel API account. Get it from your Fidel API dashboard -> Account Settings -> SDK Keys section.
+Expected type: `string`
+
+The SDK Key is used to authenticate your Fidel API account. Get it from your Fidel API dashboard -> Account Settings -> SDK Keys section.
 
 > Important note: Make sure that you store this key securely (not on the client side).
 
 > Note: If you use a **test SDK Key**, your users can only enroll [test card numbers](/docs/stream/cards#test-card-numbers).
 
-#### programID: String
+#### programId
+
+Expected type: `string`
 
 The program ID indicates the Fidel API program in which the cards will be enrolled. Get the program ID by navigating to the Fidel API dashboard -> Programs section -> Click on the ID of the program you want to use. Clicking on it will copy the ID in your pasteboard.
 
-#### companyName: String
+#### consentText.companyName
+
+Expected type: `string`
 
 By setting this property we customize the consent text, that the cardholder needs to read and agree with, before enrolling a card.
 
 The maximum number of characters allowed for this property is `60`.
 
-#### termsAndConditionsURL: String
+#### consentText.termsAndConditionsUrl
+
+Expected type: `string`
 
 By setting this property we add a link to your Terms & Conditions in the consent text. The cardholder needs to read and agree with your terms, before enrolling a card.
 
@@ -41,75 +213,25 @@ By setting this property we add a link to your Terms & Conditions in the consent
 
 The following properties are technically not mandatory to be set. However, in order to make your Expense Management use case work with your Transaction Stream program, please consider setting them correctly.
 
-#### programType: ProgramType
+#### programType
 
-Default value: `.transactionSelect`
+Default value: `Fidel.ProgramType.transactionSelect`
 
-It specifies the type of program you want to enroll cards into. The `ProgramType` influences the flow that the SDK will show to cardholders when enrolling cards. 
+It specifies the type of program you want to enroll cards into. It also influences the flow that the SDK will show to cardholders when enrolling cards.
 
-> Note: For your Expense Management application, you need to use a Transaction Stream program, so you need to set this property to `.transactionStream`.
+> Note: For your Expense Management application, you need to use a Transaction Stream program, so you need to set this property to `Fidel.ProgramType.transactionStream`.
 
-#### supportedCardSchemes: Set\<CardScheme\>
+#### consentText.deleteInstructions
 
-Default value: `[.visa, .mastercard, .americanExpress]`
+Expected type: `string`.
 
-> Important: For Expense Management use cases via Transaction Stream programs, only Visa cards are supported. So you need to set this property to `[.visa]`.
-
-Sets a list of supported card schemes. If a card scheme is supported, cardholders will be able to enroll and verify their card. If a card scheme is not in the list, then the cardholders will see an error message while typing or pasting the unsupported card number.
-
-If you set a `nil` value, you will not be able to start the Fidel SDK verified enrollment flow. In this case, immediately after attempting to start the flow, you will receive an error in the [`onResult`](#onresult) callback (of type: [`FidelErrorType.sdkConfigurationError`](#enum-fidelerrortype)).
-
-See more: [CardScheme](#enum-cardscheme)
-
-##### enum CardScheme
-
-Cases:
-
-- `visa`, `mastercard`, `americanExpress`
-
-> Important: For Expense Management use cases via Transaction Stream programs, only `visa` cards are supported.
-
-#### allowedCountries: Set\<Country\>
-
-Default value: `[.canada, .ireland, .japan, .unitedKingdom, .unitedStates, .sweden, .unitedArabEmirates, .norway]`
-
-> Important: For Expense Management use cases via Transaction Stream programs, please set only a subset of the following countries: `.unitedKingdom`, `.unitedStates`, `.canada`, as these are the only supported countries.
-
-Sets the list of countries that cardholders can pick to be the card issuing country. When two or more countries are set, cardholders will be able to select the card issuing country with our country selection UI.
-
-If you set a value with only one country (`count` of this set == 1), the country selection UI will not be displayed in the card enrollment screen. The country that you set will be considered the card issuing country for all cards enrolled in your Fidel API program using the SDK.
-
-If you set an empty value, you will not be able to start the verified enrollment flow. Instead you will receive an error in the [`onResult`](#onresult) callback ([`FidelErrorType.sdkConfigurationError`](#enum-fidelerrortype)), immediately after the attempt to start.
-
-See more: [Country](#enum-country)
-
-##### enum Country
-
-Cases:
-
-- `canada`, `ireland`, `norway`, `sweden`, `unitedArabEmirates`, `unitedKingdom`, `unitedStates`
-
-> Important: For Expense Management use cases via Transaction Stream programs, only cards issued in `canada`, `unitedKingdom`, `unitedStates` are supported.
-
-#### deleteInstructions: String
-
-Default value: `"going to your account settings"`
+Default value: `'going to your account settings'`
 
 This text informs the cardholder how to opt out of transaction monitoring in your program. It is appended at the end of the consent text. The maximum number of characters allowed for this property is `60`.
 
-#### defaultSelectedCountry: Country
+#### consentText.privacyPolicyURL
 
-Default value: `.unitedKingdom`
-
-> Important: For Expense Management use cases via Transaction Stream programs, please use one of the following cases: `.unitedKingdom`, `.unitedStates`, `.canada`, as these are the only supported countries.
-
-Sets the `Country` that will be selected by default when the user opens the card enrollment screen. If the `defaultSelectedCountry` is not part of the `allowedCountries` list, then the first country in the `allowedCountries` list will be selected.
-
-See more: [Country](#enum-country)
-
-#### privacyPolicyURL: String?
-
-Default value: `nil`.
+Expected type: `string`
 
 If you provide a value for this parameter, the card enrollment consent text will include a phrase that will provide the user with more privacy related information at the URL that you provide.
 
@@ -117,35 +239,73 @@ When the value of this parameter remains `nil` no such phrase will be displayed 
 
 If you provide an invalid URL string, you will not be able to start the card enrollment flow. Instead you will receive an error in the [`onResult`](#onresult) callback ([`FidelErrorType.sdkConfigurationError`](#enum-fidelerrortype)), immediately after attempting to start the verified card enrollment flow.
 
+#### options.supportedCardSchemes
+
+Expected type: `array`
+
+Default value: `[Fidel.CardScheme.visa, Fidel.CardScheme.mastercard, Fidel.CardScheme.americanExpress]`
+
+> Important: For Expense Management use cases via Transaction Stream programs, only Visa cards are supported. So you need to set this property to `[Fidel.CardScheme.visa]`.
+
+Sets a list of supported card schemes. If a card scheme is supported, cardholders will be able to enroll and verify their card. If a card scheme is not in the list, then the cardholders will see an error message while typing or pasting the unsupported card number.
+
+If you set a `null` value, you will not be able to start the Fidel SDK verified enrollment flow. In this case, immediately after attempting to start the flow, you will receive an error in the [`onResult`](#onresult) callback (of type: [`FidelErrorType.sdkConfigurationError`](#enum-fidelerrortype)).
+
+#### options.allowedCountries
+
+Expected type: `array`
+
+Default value: `[Fidel.Country.canada, Fidel.Country.ireland, Fidel.Country.japan, Fidel.Country.norway, Fidel.Country.sweden, Fidel.Country.unitedArabEmirates, Fidel.Country.unitedKingdom, Fidel.Country.unitedStates]`
+
+> Important: For Expense Management use cases via Transaction Stream programs, please set only a subset of the following countries: `Fidel.Country.unitedKingdom`, `Fidel.Country.unitedStates`, `Fidel.Country.canada`, as these are the only supported countries.
+
+Sets the list of countries that cardholders can pick to be the card issuing country. When two or more countries are set, cardholders will be able to select the card issuing country with our country selection UI.
+
+If you set a value with only one country, the country selection UI will not be displayed in the card enrollment screen. The country that you set will be considered the card issuing country for all cards enrolled in your Fidel API program using the SDK.
+
+If you set an empty value, you will not be able to start the verified enrollment flow. Instead you will receive an error in the main [`callback`](#main-callback) ([`Fidel.ErrorType.sdkConfigurationError`](#enum-fidelerrortype)), immediately after the attempt to start.
+
+#### options.defaultSelectedCountry
+
+Default value: `Fidel.Country.unitedKingdom`
+
+> Important: For Expense Management use cases via Transaction Stream programs, please use one of the following cases: `Fidel.Country.unitedKingdom`, `Fidel.Country.unitedStates`, `Fidel.Country.canada`, as these are the only supported countries.
+
+Sets the `Fidel.Country` that will be selected by default when the user opens the card enrollment screen. If the `defaultSelectedCountry` is not part of the `allowedCountries` list, then the first country in the `allowedCountries` list will be selected.
+
 ### Optional properties
 
-#### thirdPartyVerificationChoice: Bool
+#### options.thirdPartyVerificationChoice
 
-Default value: `false`.
+Expected type: `boolean`
+
+Default value: `false`
 
 When set to `true`, after enrolling the card, the cardholder will enter a screen from which it is possible to choose to continue the experience based on whether the cardholder:
 1. Has access to the card statement. In this case the experience will continue with the card verification screen allowing the cardholder to complete the process on the spot.
 2. Does not have access to the card statement. In this case the verification of the card will not be done by the cardholder. It needs to be delegated to a third party entity. Usually, in a corporate card setting, the third party entity is a corporate card administrator.
 
-#### metaData: [String: Any]?
+#### options.metaData
 
-This is a dictionary that you can use to associate custom data with an enrolled card.
+Expected type: an object.
 
-We advise setting an `"id"` key -> value pair in this dictionary. Later, it might be useful for you to use our [List Cards from Metadata ID](https://transaction-stream.fidel.uk/reference/list-cards-from-metadata-id) API Endpoint to query for cards using this ID.
+This is an object that you can use to associate custom data to an enrolled card.
+
+We advise setting an `id` value for this object. Later, it might be useful for you to use our [List Cards from Metadata ID](https://transaction-stream.fidel.uk/reference/list-cards-from-metadata-id) API Endpoint to query for cards using this ID.
 
 Example of meta data that you can set:
 
-```swift
-Fidel.metaData = [
-    "id": "this-is-the-metadata-id",
-    "myUserId": "123",
-    "customKey1": "customValue1"
-]
+```javascript
+metaData: {
+    id: "this-is-the-metadata-id",
+    userId: "123",
+    customKey: 456
+}
 ```
 
 You would receive a dictionary equal to this one, after successfully enrolling a card, in the [onResult](#onresult) callback, in the [EnrollmentResult](#struct-enrollmentresult) object.
 
-#### bannerImage
+#### options.bannerImage
 
 Will display the banner image that you set in this parameter at the top of the card details screen. Your custom asset needs to be resolved in order to be passed to our native module:
 
@@ -167,40 +327,51 @@ You need to provide the image for all screen densities (x1, x2 and x3).
 
 Depending on what you want to display in the banner image, you might need to experiment a bit to make sure that nothing important from the image is hidden. The most important information should be displayed in the centre of the banner image.
 
-#### enableCardScanner: Bool
+#### enableCardScanner
 
-Default value: `false`.
+Expected type: `boolean`
 
-When set to `true`, enables card camera scanning feature in the card details screen. Cardholders will be able to click a button to scan their card using their iPhone camera. After card scanning is finalized, the user will go to our normal card enrollment UI with the card details prefilled. When `false`, the [`shouldAutoScanCard`](#shouldautoscancard-bool) property will be ignored.
+Default value: `false`
+
+When set to `true`, enables card camera scanning feature in the card details screen. Cardholders will be able to click a button to scan their card using their iPhone camera. After card scanning is finalized, the user will go to our normal card enrollment UI with the card details prefilled. When `false`, the [`shouldAutoScanCard`](#shouldautoscancard) property will be ignored.
 
 > Note: The card scanning feature does not work well with all types of cards.
 
-#### shouldAutoScanCard: Bool
+#### shouldAutoScanCard
 
-Default value: `false`.
+Expected type: `boolean`
 
-When set to `true` and when [`enableCardScanner`](#enablecardscanner-bool) is set to `true`, this will automatically starts card camera scanning UI, in the card details screen. After card scanning is finalized, the user will go to our normal card enrollment UI with the card details prefilled.
+Default value: `false`
+
+When set to `true` and when [`enableCardScanner`](#enablecardscanne) is set to `true`, this will automatically starts card camera scanning UI, in the card details screen. After card scanning is finalized, the user will go to our normal card enrollment UI with the card details prefilled.
 
 ### Properties that are not in use for Transaction Stream programs
 
 The following properties are only useful when enrolling cards in a Select Transactions program.
 
-#### programName: String
+#### consentText.programName
 
-Default value: `"our"`
+Expected type: `string`
+
+Default value: `'our'`
 
 This value is used in the consent text when enrolling a card issued in a United States or Canada, in a Select Transactions program.
 
 ## Methods
 
-### start(from:)
+### Fidel.setup(params, callback)
 
-Starts a card enrollment flow. If you set the [`programType`](#programtype-programtype) to:
-1. `.transactionStream`, a verified card enrollment flow will be started, for your Transaction Stream program (usually used by Expense Management applications).
-2. `.transactionSelect`, a regular card enrollment flow will be started, for your Transaction Select program (usually used by Loyalty applications).
+It sets up all the [properties](#properties) and [callbacks](#callbacks). This function is designed to be called only **once** during the lifecycle of your app.
 
-#### Parameters
-- `startingViewController: UIViewController`: the `UIViewController` that will start the card enrollment flow. This is a *mandatory* parameter.
+Parameters:
+- `params`: a JavaScript object containing all the [properties](#properties) useful for your application.
+- `callback`: the main callback in which you will receive different types of results as received during the card enrollment flow.
+
+### Fidel.start()
+
+Starts a card enrollment flow. If you set the [`programType`](#programtype) to:
+1. `Fidel.ProgramType.transactionStream`, a verified card enrollment flow will be started, for your Transaction Stream program (usually used by Expense Management applications).
+2. `Fidel.ProgramType.transactionSelect`, a regular card enrollment flow will be started, for your Transaction Select program (usually used by Loyalty applications).
 
 ### verifyCard(from:cardVerificationConfiguration:)
 
@@ -246,18 +417,18 @@ Cases:
 A result that can be received via the [`onResult`](#onresult) callback, after a card is successfully enrolled in your Fidel API program.
 
 Properties:
-- `cardID: String`: The identifier of the card enrolled with your Fidel API program.
-- `accountID: String`: The Fidel API account identifier.
-- `programID: String`: The identifier of the program that the card was enrolled into.
-- `enrollmentDate: Date`: The date when the card was enrolled.
-- `scheme: CardScheme`: The enrolled card's scheme. See more: [CardScheme](#enum-cardscheme)
-- `isLive: Bool`: This property will be `true` when your Fidel API account is live and the card was enrolled in your `live` Fidel API program. If the program that you enrolled the card into is not a `live` one, then this property will be `false`.
-- `cardFirstNumbers: String?`: If available, this property will be populated with the first 6 numbers of the enrolled card. To turn on or off receiving these numbers, please check your Fidel API account's settings.
-- `cardLastNumbers: String?`: If available, this property will be populated with the last 4 numbers of the enrolled card. To turn on or off receiving these numbers, please check your Fidel API account's settings.
-- `cardExpirationYear: Int`: The expiration year of the enrolled card. The values are four digit year values (ex: 2031), **not** shortened, two digit values (ex: 31).
-- `cardExpirationMonth: Int`: The expiration month of the enrolled card. The values start with `1` (January) and end with `12` (December).
-- `cardIssuingCountry: Country`: The country where the enrolled card was issued. See more: [Country](#enum-country).
-- `metaData: [String: Any]?`: Custom data assigned to the enrolled card via the [`metaData`](#metadata-string-any) SDK property.
+- `cardID`: The identifier of the card enrolled with your Fidel API program.
+- `accountID`: The Fidel API account identifier.
+- `programID`: The identifier of the program that the card was enrolled into.
+- `enrollmentDate`: The date when the card was enrolled.
+- `scheme`: The enrolled card's scheme. For Transaction Stream programs, for now, the only possible value is `Fidel.CardScheme.visa`.
+- `isLive`: This property will be `true` when your Fidel API account is live and the card was enrolled in your `live` Fidel API program. If the program that you enrolled the card into is not a `live` one, then this property will be `false`.
+- `cardFirstNumbers`: If available, this property will be populated with the first 6 numbers of the enrolled card. To turn on or off receiving these numbers, please check your Fidel API account's settings.
+- `cardLastNumbers`: If available, this property will be populated with the last 4 numbers of the enrolled card. To turn on or off receiving these numbers, please check your Fidel API account's settings.
+- `cardExpirationYear`: The expiration year of the enrolled card. The values are four digit year values (ex: 2031), **not** shortened, two digit values (ex: 31).
+- `cardExpirationMonth`: The expiration month of the enrolled card. The values start with `1` (January) and end with `12` (December).
+- `cardIssuingCountry`: The country where the enrolled card was issued.
+- `metaData`: Custom data assigned to the enrolled card via the [`metaData`](#metadata-string-any) SDK property.
 
 ##### struct VerificationResult
 
