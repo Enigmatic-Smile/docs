@@ -1,26 +1,28 @@
-# 2.0.0-beta18
+# iOS SDK v2 Releases
+
+## 2.0.0-beta18
 
 - Make the Fidel API requests ephemeral.
 
-# 2.0.0-beta17
+## 2.0.0-beta17
 
 - Updated the micro-charge descriptor text to the correct one.
 
-# 2.0.0-beta16
+## 2.0.0-beta16
 
 - Fixed a bug that prevented corporate cardholders to delegate card verification to a third party, but later change their minds and verify the card (using the `Fidel.verifyCard` function), on the same device.
 
-# 2.0.0-beta15
+## 2.0.0-beta15
 
 - Added Norway to the countries supported by the SDK.
   - If you specified the `allowedCountries` property, remember to add Norway, to have it in the `Country of issue` field.
   - If you didn't customize the `allowedCountries` property, Norway will automatically show up in the `Country of issue` field after you integrate the newest version of the SDK.
 
-# 2.0.0-beta14
+## 2.0.0-beta14
 
 - Card scanning will now be disabled by default, use `Fidel.enableCardScanner = true` to enable card scanning.
 
-# 2.0.0-beta13
+## 2.0.0-beta13
 
 - Useful features for corporate card enrollment, but not only:
   - The `Fidel.thirdPartyVerificationChoice` property to allow cardholders to choose between verifying the card on the spot (as previously available) or indicate that the cardholder does not have access to the card statement and needs to delegate card verification to a third-party entity.
@@ -30,41 +32,41 @@
 - Changes in the verification screen text that gives a better description on how the micro-charge will be displayed in the card statement
 - Removes the currency symbol during the input of the verification token (the micro-charge amount).
 
-# 2.0.0-beta12
+## 2.0.0-beta12
 
 - This version displays better text to cardholders explaining that card verification micro-charges will be refunded within 72 hours.
 
-# 2.0.0-beta11
+## 2.0.0-beta11
 
 - Fixes error with Result not properly sent.
 
-# 2.0.0-beta10
+## 2.0.0-beta10
 
 - This version provides a comprehensive error message in case the micro-charge fails. You don't need to make any changes to your code in order to use this version.
 
-# 2.0.0-beta9
+## 2.0.0-beta9
 
 - Removed the `FidelResult.verificationSuccessful`. Replaced with `FidelResult.verificationResult`.
 - We are now providing `cardID` as part of the `FidelResult.verificationResult`.
 
-# 2.0.0-beta8
+## 2.0.0-beta8
 
 - We've now blocked the SDK for cardholders that use insecure devices. If a cardholder has an insecure device, you'll receive the `.deviceNotSecure` error via the `onResult` closure/parameter that you can set. Please treat this error in the most appropriate way for your app.
 - We stopped allowing copying card details from our SDK's input fields. Only the "Paste" operation is allowed.
 
-# 2.0.0-beta7
+## 2.0.0-beta7
 
 Support card verification in GBP for UK issued cards.
 
-# 2.0.0-beta6
+## 2.0.0-beta6
 
 We updated the "Fidel" name to "Fidel API".
 
-# 2.0.0-beta5
+## 2.0.0-beta5
 
 We updated the Fidel logo.
 
-# 2.0.0-beta4
+## 2.0.0-beta4
 
 We merged a few changes that we did in our public SDK:
 
@@ -72,13 +74,13 @@ We merged a few changes that we did in our public SDK:
 2. Removed the scanned card information confirmation screen. The card information is displayed immediately in the card enrollment screen after card scanning.
 3. Fixed the bug that does not allow enrollment for cards that expire in the current month.
 
-# 2.0.0-beta3
+## 2.0.0-beta3
 
 1. If the user did not complete the card verification step (but did succeed to enroll a card) the SDK opens the card verification step when the app is re-opened. We made a few changes related to this process:
    - Before opening the card verification step automatically, when the app is re-launched, we make sure that the Fidel SDK is configured correctly. If it is not configured correctly (it misses parameters or they are not valid) then you'll receive an appropriate error, if you're using the `Fidel.onResult` closure. In case the SDK was not configured correctly, the card verification step will not be opened automatically.
    - If the user did not complete the card verification step, closed the flow at this step, but does not quit your app and attempts to re-connect the card (by pressing on the button in your app), we'll take the user directly to the card verification step, to continue the process. Previously the user had to enroll the card again, which would have caused an error. By letting the user continuing the card verification process, we avoid errors in this scenario.
 
-# 2.0.0-beta2
+## 2.0.0-beta2
 
 1. Renamed the `present` function (which opened the Fidel card connection) UI to `start`, in order to align with the web SDK.
 2. We made the `companyName` property mandatory, as it is reflected in the consent text the user has to agree with before enrolling a card, so it made sense to make it mandatory. If the property is not set, you will not be able to open the Fidel card connection UI, but receive an error result immediately after the attempt to start the card connection process.
@@ -129,7 +131,7 @@ We merged a few changes that we did in our public SDK:
    12. All properties of possible responses are correctly optional or non-optional
    13. It’s possible to handle errors with the type `.userCanceled` during any stage of the card verification flow, if the user cancels it.
 
-# 2.0.0-beta1
+## 2.0.0-beta1
 
 - Renamed the `apiKey` property to `sdkKey`.
 - Added the `programType` property and the `ProgramType` enum to specify the program type that you'll use in your app.

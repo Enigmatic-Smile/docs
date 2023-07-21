@@ -1,4 +1,4 @@
-# iOS SDK reference
+# React Native SDK reference
 
 1. [Fidel class](#class-fidel)
 2. [Properties](#properties)
@@ -13,7 +13,7 @@ This class is designed as a facade, used to configure the (verified) card enroll
 
 ### Mandatory properties
 
-These are properties that must be set correctly. In the case where one of these properties are not set or they are set incorrectly, the SDK will return an error in the [`onResult`](#onresult) callback (of type: [`FidelErrorType.sdkConfigurationError`](#struct-fidelerrortype)).
+These are properties that must be set correctly. In the case where one of these properties are not set or they are set incorrectly, the SDK will return an error in the [`onResult`](#onresult) callback (of type: [`FidelErrorType.sdkConfigurationError`](#enum-fidelerrortype)).
 
 #### sdkKey: String
 
@@ -57,7 +57,7 @@ Default value: `[.visa, .mastercard, .americanExpress]`
 
 Sets a list of supported card schemes. If a card scheme is supported, cardholders will be able to enroll and verify their card. If a card scheme is not in the list, then the cardholders will see an error message while typing or pasting the unsupported card number.
 
-If you set a `nil` value, you will not be able to start the Fidel SDK verified enrollment flow. In this case, immediately after attempting to start the flow, you will receive an error in the [`onResult`](#onresult) callback (of type: [`FidelErrorType.sdkConfigurationError`](#struct-fidelerrortype)).
+If you set a `nil` value, you will not be able to start the Fidel SDK verified enrollment flow. In this case, immediately after attempting to start the flow, you will receive an error in the [`onResult`](#onresult) callback (of type: [`FidelErrorType.sdkConfigurationError`](#enum-fidelerrortype)).
 
 See more: [CardScheme](#enum-cardscheme)
 
@@ -79,7 +79,7 @@ Sets the list of countries that cardholders can pick to be the card issuing coun
 
 If you set a value with only one country (`count` of this set == 1), the country selection UI will not be displayed in the card enrollment screen. The country that you set will be considered the card issuing country for all cards enrolled in your Fidel API program using the SDK.
 
-If you set an empty value, you will not be able to start the verified enrollment flow. Instead you will receive an error in the [`onResult`](#onresult) callback ([`FidelErrorType.sdkConfigurationError`](#struct-fidelerrortype)), immediately after the attempt to start.
+If you set an empty value, you will not be able to start the verified enrollment flow. Instead you will receive an error in the [`onResult`](#onresult) callback ([`FidelErrorType.sdkConfigurationError`](#enum-fidelerrortype)), immediately after the attempt to start.
 
 See more: [Country](#enum-country)
 
@@ -115,7 +115,7 @@ If you provide a value for this parameter, the card enrollment consent text will
 
 When the value of this parameter remains `nil` no such phrase will be displayed in the card enrolling consent text.
 
-If you provide an invalid URL string, you will not be able to start the card enrollment flow. Instead you will receive an error in the [`onResult`](#onresult) callback ([`FidelErrorType.sdkConfigurationError`](#struct-fidelerrortype)), immediately after attempting to start the verified card enrollment flow.
+If you provide an invalid URL string, you will not be able to start the card enrollment flow. Instead you will receive an error in the [`onResult`](#onresult) callback ([`FidelErrorType.sdkConfigurationError`](#enum-fidelerrortype)), immediately after attempting to start the verified card enrollment flow.
 
 ### Optional properties
 
@@ -145,20 +145,23 @@ Fidel.metaData = [
 
 You would receive a dictionary equal to this one, after successfully enrolling a card, in the [onResult](#onresult) callback, in the [EnrollmentResult](#struct-enrollmentresult) object.
 
-#### bannerImage: UIImage?
+#### bannerImage
 
-Default value: `nil`.
+Will display the banner image that you set in this parameter at the top of the card details screen. Your custom asset needs to be resolved in order to be passed to our native module:
 
-Will display the banner image that you set in this parameter at the top of the card details screen.
+```javascript
+const myImage = require('./images/your_banner.png');
+const resolveAssetSource = require('react-native/Libraries/Image/resolveAssetSource');
+const resolvedImage = resolveAssetSource(myImage);
+```
 
 The banner image will take the device's width, but it has a fixed height of 100 pts.
 The image view has an `Aspect Fill` content mode, which means that the banner image that you set will fill its entire predefined area, while keeping the aspect ratio.
 
 For the banner image that you can set, we suggest to use the aspect ratio of the smallest devices that you support. On wider devices, the banner image will be cropped from top and bottom sides. This is because of the `Aspect Fill` content mode that we set for the image view.
 
-If you support 4" iPhones (iPhone 5s, 5c etc.), the aspect ratio would be *320 : 100*.
-If the smallest device that you support is 4.7" iPhones (iPhone 6, 7, 8 etc.),
-the aspect ratio of your banner image would be *375 : 100*.
+If a device that opens the SDK has 320dp in width, the aspect ratio of the image view would be *320 : 100*.
+If a device that opens the SDK has 475dp in width, the aspect ratio of your banner image would be *475 : 100*.
 
 You need to provide the image for all screen densities (x1, x2 and x3).
 
@@ -272,9 +275,9 @@ Properties:
 
 - `message: String`: An error message explaining more details about the error. It is not localized.
 - `date: Date`: When the error occurred.
-- `type: FidelErrorType`: The type of the error. See more: [FidelErrorType](#struct-fidelerrortype).
+- `type: FidelErrorType`: The type of the error. See more: [FidelErrorType](#enum-fidelerrortype).
 
-###### struct FidelErrorType
+###### enum FidelErrorType
 
 Cases:
 
