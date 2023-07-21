@@ -1,0 +1,13 @@
+<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="0.000366211" width="60" height="60" rx="8" fill="#001B74"/>
+    <mask id="mask0_2431_22408" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="61" height="60">
+    <rect x="0.000610352" width="60" height="60" rx="8" fill="#8C7AFB"/>
+    </mask>
+    <g mask="url(#mask0_2431_22408)">
+    <rect x="43.9282" y="41.4565" width="58.6498" height="36" transform="rotate(135 43.9282 41.4565)" fill="#8C7AFB"/>
+    <ellipse cx="17.591" cy="18.439" rx="17.591" ry="18.439" transform="matrix(1.02325 0 0 -0.976194 12.9981 47.0024)" fill="white"/>
+    <path d="M31.6538 21V28.4319" stroke="#001B74" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M36.3476 21.6063C37.9025 22.6181 39.0887 24.1053 39.7295 25.8462C40.3703 27.5871 40.4314 29.4884 39.9036 31.2669C39.3759 33.0453 38.2876 34.6056 36.8009 35.7151C35.3143 36.8247 33.5089 37.4242 31.6538 37.4242C29.7987 37.4242 27.9933 36.8247 26.5067 35.7151C25.02 34.6056 23.9317 33.0453 23.404 31.2669C22.8762 29.4884 22.9373 27.5871 23.5781 25.8462C24.2189 24.1053 25.4051 22.6181 26.9599 21.6063" stroke="#001B74" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+</svg>
+    
