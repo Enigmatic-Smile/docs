@@ -210,9 +210,9 @@ Opens the card enrollment form.
 
 You can set a `callback` parameter via the `Fidel.openForm` function.
 
-Arguments:
-1. `result`: An object that includes information about a successful card enrollment. Please check details of this object below.
-2. `error`: An object that includes information about a card enrollment error. Please check details of this object below.
+Arguments (in order):
+1. `error`: An object that includes information about a card enrollment error. Please check details of this object below.
+2. `result`: An object that includes information about a successful card enrollment. Please check details of this object below.
 
 #### Successful card enrollment result
 
