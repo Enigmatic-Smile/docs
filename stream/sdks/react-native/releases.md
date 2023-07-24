@@ -1,4 +1,4 @@
-# iOS SDK v2 Releases
+# React Native SDK v2 Releases
 
 ## 2.0.0-beta13
 
