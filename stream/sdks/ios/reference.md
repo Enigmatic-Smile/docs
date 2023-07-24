@@ -49,7 +49,9 @@ It specifies the type of program you want to enroll cards into. The `ProgramType
 
 > Note: For your Expense Management application, you need to use a Transaction Stream program, so you need to set this property to `.transactionStream`.
 
-#### supportedCardSchemes: Set<CardScheme>
+#### supportedCardSchemes
+
+Type: `Set<CardScheme>`
 
 Default value: `[.visa, .mastercard, .americanExpress]`
 
@@ -69,7 +71,9 @@ Cases:
 
 > Important: For Expense Management use cases via Transaction Stream programs, only `visa` cards are supported.
 
-#### allowedCountries: Set<Country>
+#### allowedCountries
+
+Type: `Set<Country>`
 
 Default value: `[.canada, .ireland, .japan, .unitedKingdom, .unitedStates, .sweden, .unitedArabEmirates, .norway]`
 

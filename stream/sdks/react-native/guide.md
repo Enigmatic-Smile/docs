@@ -22,7 +22,7 @@ If you didn't create a program for your application yet, please create a Transac
     yarn add https://github.com/FidelLimited/rn-sdk#em
     ```
 
-- In your iOS project’s `Podfile`, add the following line before the `post_install` part of the script::
+- In your iOS project’s `Podfile`, add the following line before the `post_install` part of the script:
 
 ```ruby
 fileName:ios/Podfile
