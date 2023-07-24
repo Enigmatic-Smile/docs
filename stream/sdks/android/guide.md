@@ -42,7 +42,7 @@ If you didn't create a program for your application yet, please create a Transac
     }
     ```
 
-- Check what's the latest version of the Fidel API Android SDK in our [Releases](./releases) page.
+- Check what's the latest version of the Fidel API Android SDK in our Releases page.
 
 - Add the latest version of our SDK as a dependency in your app's module `build.gradle` file:
 
@@ -152,11 +152,11 @@ Fidel.onMainActivityCreate(this)
 
 In order to be notified about different, useful events (a card was linked, card verification started, card verification failed and others) that happen during a verified enrollment process, we recommend using our [webhooks](/docs/stream/webhooks).
 
-If client side notifications are useful for your application, make sure to check our [SDK callbacks reference](../reference#callbacks) documentation.
+If client side notifications are useful for your application, make sure to check our SDK callbacks reference documentation.
 
 # Enroll and verify a card
 
-Call the [`start`](./reference#startcontext-context) function to open the UI and start a verified card enrollment process:
+Call the `Fidel.start` function to open the UI and start a verified card enrollment process:
 
 ```kotlin
 Fidel.start(context)
@@ -164,9 +164,9 @@ Fidel.start(context)
 
 ### Verified card enrollment flow
 
-The following is a short description of the flow that the cardholders will experience, after calling the [`start`](./reference#startcontext-context) method. You can take these steps as well to test the verified card enrollment flow, by [setting a Test SDK Key](#4-set-your-sdk-key) and by using the Fidel API [test card numbers](/docs/stream/cards#test-card-numbers).
+The following is a short description of the flow that the cardholders will experience, after calling the `Fidel.start` method. You can take these steps as well to test the verified card enrollment flow, by setting a test SDK Key and by using the Fidel API [test card numbers](/docs/stream/cards#test-card-numbers).
 
-If your Fidel API account is `live` then cardholders can also enroll real, live cards. Make sure that you set a [Live SDK Key](#4-set-your-sdk-key), in order to allow live verified card enrollments.
+If your Fidel API account is `live` then cardholders can also enroll real, live cards. Make sure that you set a live SDK Key, in order to allow live verified card enrollments.
 
 Description of the flow:
 
@@ -175,7 +175,7 @@ Description of the flow:
 3. The SDK will also immediately create a consent object for the card that is enrolled. This is what triggers the start of the verification process.
 4. After this step, a card verification screen will be presented. In this screen the cardholder will be able to input the verification token (the micro-charge amount) and complete the verification process.
 
-> Note: If the cardholders using your app do not have access to the card statement (usually, in a corporate setting), preventing them from verifying the card, you can set up the experience to involve a [third-party entity](#optional-configure-card-verification-executed-by-a-third-party-entity) (usually, a corporate card administrator) to verify the card.
+> Note: If the cardholders using your app do not have access to the card statement (usually, in a corporate setting), preventing them from verifying the card, you can set up the experience to involve a third-party entity (usually, a corporate card administrator) to verify the card.
 
 ### Card verification can be interrupted
 
@@ -234,19 +234,19 @@ val cardVerificationConfiguration = CardVerificationConfiguration(
 Fidel.verifyCard(context, cardVerificationConfiguration)
 ```
 
-For more details about this method, please check the [reference docs of the `verifyCard`](./reference#verifycardfromcardverificationconfiguration) function and its parameters.
+For more details about this method, please check the Reference docs of the `Fidel.verifyCard` function and its parameters.
 
 > Important note: In order for card verification to be done successfully, make sure that you have set the `sdkKey` and `programID` properties correctly, as explained in this guide.
 
 # Optional: Set any of the other useful properties
 
-Please check our [SDK reference](./reference) for details about any other SDK properties that might be useful for your application.
+Please check our SDK Reference for details about any other SDK properties that might be useful for your application.
 
 # Frequently asked questions
 
 ### How can I upgrade the Android SDK to the latest version?
 
-- Check what's the latest version of the Fidel API Android SDK in our [Releases](./releases) page.
+- Check what's the latest version of the Fidel API Android SDK in our Releases documentation page.
 
 - Add the latest version of our SDK as a dependency in your app's module `build.gradle` file:
 
@@ -257,4 +257,4 @@ implementation 'com.github.FidelLimited:android-sdk:{latestFidelSDKVersion}'
 
 ### Can I customize the UI of the Android SDK?
 
-The Android SDK offers the [`bannerImage`](./reference#bannerimage-bitmap) property for you to set a custom, branded banner image that will be displayed during the card enrollment process.
+The Android SDK offers the `bannerImage` property for you to set a custom, branded banner image that will be displayed during the card enrollment process. Please check our Reference documentation for more details.

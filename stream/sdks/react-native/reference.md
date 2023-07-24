@@ -11,7 +11,7 @@
 The following is an example with all properties of the React Native SDK set:
 
 ```javascript
-`import Fidel, { ENROLLMENT_RESULT, ERROR, VERIFICATION_RESULT } from 'fidel-react-native';`
+import Fidel, { ENROLLMENT_RESULT, ERROR, VERIFICATION_RESULT } from 'fidel-react-native';
 //...
 
 export default class App extends React.Component {
@@ -369,7 +369,7 @@ This value is used in the consent text when enrolling a card issued in a United 
 It sets up all the [properties](#properties) and [callbacks](#callbacks). This function is designed to be called only **once** during the lifecycle of your app.
 
 Parameters:
-- `params`: a JavaScript object containing all the [properties](#properties) useful for your application.
+- `params`: a JavaScript object containing all the [properties](#properties) and [callbacks](#callbacks) useful for your application.
 - `callback`: the main callback in which you will receive different types of results as received during the card enrollment flow.
 
 ### Fidel.start()
@@ -392,11 +392,7 @@ Starts a card verification flow.
 
 ## Callbacks
 
-The iOS SDK provides the following callbacks:
-
-1. [Main results callback](#main-results-callback)
-2. [onCardVerificationStarted](#oncardverificationstarted)
-3. [onCardVerificationChoiceSelected](#oncardverificationchoiceselected-experimental)  _(experimental feature)_
+The React Native SDK provides the following callbacks:
 
 ### Main results callback
 
@@ -434,7 +430,7 @@ The results are objects received in the main callback of the SDK after specific 
 
 - `verificationResult`. An object that is defined only when the `type` property is `VERIFICATION_RESULT`. The only property of this object is `cardId`, representing the card identifier for which verification was completed.
 
-##### Enrollment result object
+#### Enrollment result object
 
 A result that can be received via the main results callback, after a card is successfully enrolled in your Fidel API program.
 
@@ -452,7 +448,7 @@ Properties:
 - `cardIssuingCountry`: The country where the enrolled card was issued.
 - `metaData`: Custom data assigned to the enrolled card via the [`metaData`](#metadata-string-any) SDK property.
 
-##### Card verification result object
+#### Card verification result object
 
 A result that can be received via the main result callback, after a card is successfully verified.
 
@@ -460,7 +456,7 @@ Properties:
 
 - `cardId`: The identifier of the card that was successfully verified.
 
-##### Error result object
+#### Error result object
 
 An error can occur during the card enrollment, card consent creation or card verification processes. You can handle the errors via the main results callback of the SDK.
 
@@ -471,7 +467,7 @@ Properties:
 - `type`: The type of the error. See more details about error types below.
 - `subtype`: The subtype of the error. See more details about error subtypes below.
 
-###### Error types
+#### Error types
 
 - `Fidel.ErrorType.sdkConfigurationError`: The SDK [properties](#properties) configuration is incorrect or incomplete. You can receive this error as soon as you attempt to start a flow using the SDK [methods](#methods).
 - `Fidel.ErrorType.userCanceled`: The user canceled the verified card enrollment flow at any stage.
@@ -479,7 +475,7 @@ Properties:
 - `Fidel.ErrorType.enrollmentError`. An error type that is received when card enrollment or consent creation fail. Check all the possible error `subtype`s below.
 - `Fidel.ErrorType.verificationError`. An error type that is received when card verification fails. Check all the possible errors: Check all the possible card verification error `subtype`s below.
 
-###### Enrollment error subtypes
+#### Enrollment error subtypes
 
 - `Fidel.EnrollmentErrorType.cardAlreadyExists`: The card was already enrolled in your Fidel API program. This error is equivalent to the Fidel API error with the code `map.already.exists`.
 - `Fidel.EnrollmentErrorType.invalidProgramId`: The program ID used to configure the SDK is not valid. If you receive this error, please make sure that you set a valid program ID via the `programId` property. This error is equivalent to the Fidel API error with the code `map.already.exists`.
@@ -494,11 +490,7 @@ Properties:
 - `Fidel.EnrollmentErrorType.cardLimitExceededError`: When starting the card verification process, the enrolled card has exceeded its limit for transactions when processing the micro-charge. This error is equivalent to the Fidel API Create Consent error with the code `card-consent-card-limit-exceeded`.
 - `Fidel.EnrollmentErrorType.unexpected`: An unexpected error during the card enrollment step.
 
-###### Card verification error subtypes
-
-An enum containing some of the cases of card verification errors.
-
-Cases:
+#### Card verification error subtypes
 
 - `Fidel.VerificationErrorType.invalidSDKKey`: The SDK Key used to configure the Fidel SDK is not valid. If you receive this error, please make sure that you set a valid SDK Key via the `sdkKey` property. This error is equivalent to the Fidel API error with the code `credential`.
 - `Fidel.VerificationErrorType.incorrectAmount`: The verification token is incorrect and the card cannot be verified. This error is equivalent to the Fidel API error with the code `verification-incorrect-amount`.
@@ -556,7 +548,6 @@ Fidel.setup ({
 })
 ```
 
-Parameter:
-- a card verification choice, as expressed by the cardholder. Possible values:
-    - `Fidel.CardVerificationChoice.onTheSpot`: It means that the cardholder acknowledges that the verification token can be accessed and card verification can be done on the spot.
-    - `Fidel.CardVerificationChoice.delegatedToThirdParty`: The cardholder acknowledges that the verification token cannot be accessed and card verification cannot be done on the spot. A third party entity must be involved to verify the card.
+The parameter is a card verification choice, as expressed by the cardholder. Possible values:
+- `Fidel.CardVerificationChoice.onTheSpot`: It means that the cardholder acknowledges that the verification token can be accessed and card verification can be done on the spot.
+- `Fidel.CardVerificationChoice.delegatedToThirdParty`: The cardholder acknowledges that the verification token cannot be accessed and card verification cannot be done on the spot. A third party entity must be involved to verify the card.

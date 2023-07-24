@@ -13,7 +13,7 @@ This class is designed as a facade, used to configure the (verified) card enroll
 
 ### Mandatory properties
 
-These are properties that must be set correctly. In the case where one of these properties are not set or they are set incorrectly, the SDK will return an error in the [`onResult`](#onresult-onresultobserver) callback (of type: [`FidelErrorType.SdkConfigurationError`](#sealed-class-fidelerrortype)).
+These are properties that must be set correctly. In the case where one of these properties are not set or they are set incorrectly, the SDK will return an error in the `onResult` callback (of type: `FidelErrorType.SdkConfigurationError`).
 
 #### sdkKey: String
 
@@ -59,17 +59,13 @@ Default value: `setOf(CardScheme.VISA, CardScheme.MASTERCARD, CardScheme.AMERICA
 
 Sets a list of supported card schemes. If a card scheme is supported, cardholders will be able to enroll and verify their card. If a card scheme is not in the list, then the cardholders will see an error message while typing or pasting the unsupported card number.
 
-If you set a `null` value, you will not be able to start the Fidel SDK verified enrollment flow. In this case, immediately after attempting to start the flow, you will receive an error in the [`onResult`](#onresult-onresultobserver) callback (of type: [`FidelErrorType.SdkConfigurationError`](#sealed-class-fidelerrortype)).
+If you set a `null` value, you will not be able to start the Fidel SDK verified enrollment flow. In this case, immediately after attempting to start the flow, you will receive an error in the `onResult` callback (of type: `FidelErrorType.SdkConfigurationError`).
 
-See more: [CardScheme](#enum-class-cardscheme)
-
-##### enum class CardScheme
+#### enum class CardScheme
 
 Cases:
 
 - `VISA`, `MASTERCARD`, `AMERICAN_EXPRESS`
-
-> Important: For Expense Management use cases via Transaction Stream programs, only `VISA` cards are supported.
 
 #### allowedCountries
 
@@ -83,9 +79,7 @@ Sets the list of countries that cardholders can pick to be the card issuing coun
 
 If you set a value with only one country (`size` of this set == 1), the country selection UI will not be displayed in the card enrollment screen. The country that you set will be considered the card issuing country for all cards enrolled in your Fidel API program using the SDK.
 
-If you set an empty value, you will not be able to start the verified enrollment flow. Instead you will receive an error in the [`onResult`](#onresult-onresultobserver) callback ([`FidelErrorType.SdkConfigurationError`](#sealed-class-fidelerrortype)), immediately after the attempt to start.
-
-See more: [Country](#enum-class-country)
+If you set an empty value, you will not be able to start the verified enrollment flow. Instead you will receive an error in the `onResult` callback (`FidelErrorType.SdkConfigurationError`), immediately after the attempt to start.
 
 ##### enum class Country
 
@@ -109,8 +103,6 @@ Default value: `UNITED_KINGDOM`
 
 Sets the `Country` that will be selected by default when the user opens the card enrollment screen. If the `defaultSelectedCountry` is not part of the `allowedCountries` list, then the first country in the `allowedCountries` list will be selected.
 
-See more: [Country](#enum-class-country)
-
 #### privacyPolicyUrl: String?
 
 Default value: `null`.
@@ -119,7 +111,7 @@ If you provide a value for this parameter, the card enrollment consent text will
 
 When the value of this parameter remains `null` no such phrase will be displayed in the card enrolling consent text.
 
-If you provide an invalid URL string, you will not be able to start the card enrollment flow. Instead you will receive an error in the [`onResult`](#onresult-onresultobserver) callback ([`FidelErrorType.SdkConfigurationError`](#sealed-class-fidelerrortype)), immediately after attempting to start the verified card enrollment flow.
+If you provide an invalid URL string, you will not be able to start the card enrollment flow. Instead you will receive an error in the `onResult` callback (`FidelErrorType.SdkConfigurationError`), immediately after attempting to start the verified card enrollment flow.
 
 ### Optional properties
 
@@ -147,7 +139,7 @@ jsonMetaData.put("customKey", "customValue")
 Fidel.metaData = jsonMetaData
 ```
 
-You would receive a JSONObject that is equal to this one, after successfully enrolling a card, in the [onResult](#onresult-onresultobserver) callback, in the [EnrollmentResult](#data-class-enrollmentresult) object.
+You would receive a JSONObject that is equal to this one, after successfully enrolling a card, in the `onResult` callback, in the `EnrollmentResult` object.
 
 #### bannerImage: Bitmap?
 
@@ -171,7 +163,7 @@ Depending on what you want to display in the banner image, you might need to exp
 
 Default value: `false`.
 
-When set to `true`, enables card camera scanning feature in the card details screen. Cardholders will be able to click a button to scan their card using their device's camera. After card scanning is finalized, the user will go to our normal card enrollment UI with the card details prefilled. When `false`, the [`shouldAutoScanCard`](#shouldautoscancard-boolean) property will be ignored.
+When set to `true`, enables card camera scanning feature in the card details screen. Cardholders will be able to click a button to scan their card using their device's camera. After card scanning is finalized, the user will go to our normal card enrollment UI with the card details prefilled. When `false`, the `shouldAutoScanCard` property will be ignored.
 
 > Note: The card scanning feature does not work well with all types of cards.
 
@@ -179,7 +171,7 @@ When set to `true`, enables card camera scanning feature in the card details scr
 
 Default value: `false`.
 
-When set to `true` and when [`enableCardScanner`](#enablecardscanner-boolean) is set to `true`, this will automatically starts card camera scanning UI, in the card details screen. After card scanning is finalized, the user will go to our normal card enrollment UI with the card details prefilled.
+When set to `true` and when `enableCardScanner` is set to `true`, this will automatically starts card camera scanning UI, in the card details screen. After card scanning is finalized, the user will go to our normal card enrollment UI with the card details prefilled.
 
 ### Properties that are not in use for Transaction Stream programs
 
@@ -195,11 +187,12 @@ This value is used in the consent text when enrolling a card issued in a United 
 
 ### start(context: Context)
 
-Starts a card enrollment flow. If you set the [`programType`](#programtype-programtype) to:
+Starts a card enrollment flow. If you set the `programType` to:
 1. `TRANSACTION_STREAM`, a verified card enrollment flow will be started, for your Transaction Stream program (usually used by Expense Management applications).
 2. `TRANSACTION_SELECT`, a regular card enrollment flow will be started, for your Transaction Select program (usually used by Loyalty applications).
 
 #### Parameters
+
 - `context: Context`: the `Context` that will start the card enrollment flow. This is a *mandatory* parameter.
 
 ### verifyCard(context: Context, cardVerificationConfiguration: CardVerificationConfiguration)
@@ -211,7 +204,7 @@ Starts a card verification flow.
 - `context: Context`: the `Context` that will start the card verification flow. This is a *mandatory* parameter.
 - `cardVerificationConfiguration: CardVerificationConfiguration`: the configuration, as defined below, that should be used to start the Fidel SDK card verification flow. This is a *mandatory* parameter.
 
-##### data class CardVerificationConfiguration
+#### data class CardVerificationConfiguration
 
 It represents the configuration that you need to prepare in order to start a card verification flow.
 
@@ -225,10 +218,6 @@ Properties:
 
 The SDK provides the following callbacks:
 
-1. [onResult](#onresult-onresultobserver)
-2. [onCardVerificationStarted](#oncardverificationstarted-oncardverificationstartedobserver)
-3. [onCardVerificationChoiceSelected](#oncardverificationchoiceselected-oncardverificationchoiceselectedobserver-experimental)  _(experimental feature)_
-
 ### onResult: OnResultObserver
 
 The `OnResultObserver` interface has a single function.
@@ -237,72 +226,72 @@ The `OnResultObserver` interface has a single function.
 fun onResultAvailable(result: FidelResult)
 ```
 
-It will be called when a [`FidelResult`](#sealed-class-fidelresult) is available, during the verified card enrollment process. It can be called multiple times with different types of results.
+It will be called when a `FidelResult` is available, during the verified card enrollment process. It can be called multiple times with different types of results.
 
 #### sealed class FidelResult
 
 Types of results:
 
-- `Enrollment(val enrollmentResult: EnrollmentResult)`: Received after successfully enrolling the card in your Fidel API program (the card is not yet verified). Result details: [EnrollmentResult](#data-class-enrollmentresult).
-- `Verification(val verificationResult: VerificationResult)`. Received after successfully verifying the card that was enrolled in your Fidel API program. Result details: [VerificationResult](#data-class-verificationresult).
-- `Error(val error: FidelError)`. An error occurred either during the card enrollment, card consent creation or card verification processes. Error object details: [FidelError](#data-class-fidelerror).
+- `Enrollment(val enrollmentResult: EnrollmentResult)`: Received after successfully enrolling the card in your Fidel API program (the card is not yet verified). Please find details about `EnrollmentResult` below.
+- `Verification(val verificationResult: VerificationResult)`. Received after successfully verifying the card that was enrolled in your Fidel API program. Please find details about `VerificationResult` below.
+- `Error(val error: FidelError)`. An error occurred either during the card enrollment, card consent creation or card verification processes. Please find details about `FidelError` below.
 
-##### data class EnrollmentResult
+#### data class EnrollmentResult
 
-A result that can be received via the [`onResult`](#onresult-onresultobserver) callback, after a card is successfully enrolled in your Fidel API program.
+A result that can be received via the `onResult` callback, after a card is successfully enrolled in your Fidel API program.
 
 Properties:
 - `cardId: String`: The identifier of the card enrolled with your Fidel API program.
 - `accountId: String`: The Fidel API account identifier.
 - `programId: String`: The identifier of the program that the card was enrolled into.
 - `enrollmentDate: Long`: The date and time when the card was enrolled, expressed as a `Long` value, that you can use with your preferred date & time APIs.
-- `scheme: CardScheme`: The enrolled card's scheme. See more: [CardScheme](#enum-class-cardscheme)
+- `scheme: CardScheme`: The enrolled card's scheme.
 - `isLive: Boolean`: This property will be `true` when your Fidel API account is live and the card was enrolled in your `live` Fidel API program. If the program that you enrolled the card into is not a `live` one, then this property will be `false`.
 - `cardFirstNumbers: String?`: If available, this property will be populated with the first 6 numbers of the enrolled card. To turn on or off receiving these numbers, please check your Fidel API account's settings.
 - `cardLastNumbers: String?`: If available, this property will be populated with the last 4 numbers of the enrolled card. To turn on or off receiving these numbers, please check your Fidel API account's settings.
 - `cardExpirationYear: Int`: The expiration year of the enrolled card. The values are four digit year values (ex: 2031), **not** shortened, two digit values (ex: 31).
 - `cardExpirationMonth: Int`: The expiration month of the enrolled card. The values start with `1` (January) and end with `12` (December).
-- `cardIssuingCountry: Country`: The country where the enrolled card was issued. See more: [Country](#enum-class-country).
-- `metaData: JSONObject?`: Custom data assigned to the enrolled card via the [`metaData`](#metadata-orgjsonjsonobject) SDK property.
+- `cardIssuingCountry: Country`: The country where the enrolled card was issued.
+- `metaData: JSONObject?`: Custom data assigned to the enrolled card via the `metaData` SDK property.
 
-##### data class VerificationResult
+#### data class VerificationResult
 
-A result that can be received via the [`onResult`](#onresult-onresultobserver) callback, after a card is successfully verified.
+A result that can be received via the `onResult` callback, after a card is successfully verified.
 
 Properties:
 
 - `cardId: String`: The identifier of the card that was successfully verified.
 
-##### data class FidelError
+#### data class FidelError
 
-A FidelError can occur during the card enrollment, card consent creation or card verification processes. You can handle them via the [`onResult`](#onresult-onresultobserver) callback.
+A FidelError can occur during the card enrollment, card consent creation or card verification processes. You can handle them via the `onResult` callback.
 
 Properties:
 
 - `message: String`: An error message explaining more details about the error. It is not localized.
 - `date: Long`: The date and time when the error occurred, expressed as a `Long` value. You can use it with your preferred date & time APIs.
-- `type: FidelErrorType`: The type of the error. See more: [FidelErrorType](#sealed-class-fidelerrortype).
+- `type: FidelErrorType`: The type of the error. Please check more details about `FidelErrorType` below.
 
-###### sealed class FidelErrorType
+#### sealed class FidelErrorType
 
 Types of errors:
 
 - `SdkConfigurationError`: The SDK [properties](#properties) configuration is incorrect or incomplete. You can receive this error as soon as you attempt to start a flow using the SDK [methods](#methods).
 - `UserCanceled`: The user canceled the verified card enrollment flow at any stage.
 - `DeviceNotSecure`: The device that the SDK is running on is not secure (for example, when it is rooted).
-- `EnrollmentError(val type: EnrollmentErrorType)`. An error that is received during card enrollment or during consent creation. Check all the possible errors: [EnrollmentErrorType](#enum-class-enrollmenterrortype).
-- `VerificationError(val type: VerificationErrorType)`. Check all the possible errors: [VerificationErrorType](#enum-class-verificationerrortype).
+- `EnrollmentError(val type: EnrollmentErrorType)`. An error that is received during card enrollment or during consent creation. Please check more details about `EnrollmentErrorType` below.
+- `VerificationError(val type: VerificationErrorType)`.  An error received when card verification fails. Please check more details about `VerificationErrorType` below.
 
-###### enum class EnrollmentErrorType
+#### enum class EnrollmentErrorType
 
 An enum containing some of the cases of card enrollment errors.
 
 Cases:
 
 - `CARD_ALREADY_EXISTS`: The card was already enrolled in your Fidel API program. This error is equivalent to the Fidel API error with the code `map.already.exists`.
-- `INVALID_PROGRAM_ID`: The program ID used to configure the SDK is not valid. If you receive this error, please make sure that you set a valid program ID via the [`programId`](#programid-string) property. This error is equivalent to the Fidel API error with the code `map.already.exists`.
-- `INVALID_SDK_KEY`: The SDK Key used to configure the Fidel SDK is not valid. If you receive this error, please make sure that you set a valid SDK Key via the [`sdkKey`](#sdkkey-string) property. This error is equivalent to the Fidel API error with the code `credential`.
-- `INEXISTENT_PROGRAM`: The program ID used to configure the Fidel SDK is of a program that does not exist. If you receive this error, please make sure that you set the correct program ID via the [`programId`](#programid-string) property. This error is equivalent to the Fidel API error with the code `item-exists`.
+- `INVALID_PROGRAM_ID`: The program ID used to configure the SDK is not valid. If you receive this error, please make sure that you set a valid program ID via the `programId` property. This error is equivalent to the Fidel API error with the code `map.already.exists`.
+- `INVALID_SDK_KEY`: The SDK Key used to configure the Fidel SDK is not valid. If you receive this error, please make sure that you set a valid SDK Key via the `sdkKey` property. This error is equivalent to the Fidel API error with the code `credential`.
+- `INEXISTENT_PROGRAM`: The program ID used to configure the Fidel SDK is of a program that does not exist. If you receive this error, please make sure that you set the correct program ID via the `programId` property. This error is equivalent to the Fidel API error with the code `item-exists`.
 - `UNAUTHORIZED`: The card enrollment process is not authorized. This error is equivalent to the Fidel API error with the code `Unauthorized`.
 - `CARD_CONSENT_ISSUER_PROCESSING_CHARGE_ERROR`: When starting the card verification process, there was an issue encountered by the card issuer when processing the micro-charge. This error is equivalent to the Fidel API Create Consent error with the code `card-consent-issuer-processing-charge`.
 - `CARD_CONSENT_DUPLICATE_TRANSACTION_ERROR`: When starting the card verification process, a duplicated transaction encountered when processing the micro-charge. This error is equivalent to the Fidel API Create Consent error with the code `card-consent-duplicate-card-transaction`.
@@ -313,7 +302,7 @@ Cases:
 - `CARD_CONSENT_ERROR_GENERIC`: An unknown error occurring when creating a consent object.
 - `UNEXPECTED`: An unexpected error during the card enrollment step.
 
-###### enum class VerificationErrorType
+#### enum class VerificationErrorType
 
 An enum containing some of the cases of card verification errors.
 
@@ -341,7 +330,7 @@ fun onCardVerificationStarted(details: ConsentDetails)
 Will be called when the card verification process has started. This callback is similar to the `card.verification.started` webhook that Fidel API is providing. We advise using the webhook, in most situations, to understand when card verification has started for a card that was enrolled.
 
 Parameters:
-- a [ConsentDetails](#data-class-consentdetails) object, representing the details of the consent that the SDK creates after enrolling the card. This is what triggers the verification process to start.
+- a `ConsentDetails` object, representing the details of the consent that the SDK creates after enrolling the card. This is what triggers the verification process to start.
 
 #### data class ConsentDetails
 
@@ -360,14 +349,14 @@ The `OnCardVerificationChoiceSelectedObserver` has only one function:
 fun onCardVerificationChoiceSelected(choice: CardVerificationChoice)
 ```
 
-This is an _experimental_ feature. It will be called when you set [`thirdPartyVerificationChoice`](#thirdpartyverificationchoice-boolean) property to `true` and the cardholder makes a card verification choice.
+This is an _experimental_ feature. It will be called when you set `thirdPartyVerificationChoice` property to `true` and the cardholder makes a card verification choice.
 
 Parameters:
- - a [`CardVerificationChoice`](#enum-class-cardverificationchoice-experimental) case.
+ - a `CardVerificationChoice` case.
 
  #### enum class CardVerificationChoice _(!Experimental)_
 
-A card verification choice expressed by the cardholder, when [the choice is enabled](#thirdpartyverificationchoice-boolean).
+A card verification choice expressed by the cardholder, when a third party verification choice is enabled.
 
 Cases:
 - `ON_THE_SPOT`: It means that the cardholder acknowledges that the verification token can be accessed and card verification can be done on the spot.

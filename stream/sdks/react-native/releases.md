@@ -12,9 +12,9 @@
 
 - Added the `thirdPartyVerificationChoice` property to allow cardholders to choose between verifying the card on the spot (as previously available) or indicate that the cardholder does not have access to the card statement and needs to delegate card verification to a third-party entity.
 - Added the `onCardVerificationStarted` callback which communicates that card verification has started for a card that was enrolled in a Fidel program. This callback provides the _consent details_ that are created. Use these details to start the card verification.
-- Added the [`Fidel.verifyCard` function](https://transaction-stream.fidel.uk/docs/mobile-sdk#verifying-a-card-in-react-native) to attempt card verification for a previously enrolled card. This function can be used for either the cardholder or a third-party entity (that cannot enroll cards, but can verify cards).
-- Changes in the verification screen text that gives a better description on how the microcharge will be displayed in the card statement
-- Removes the currency symbol during the input of the verification token (the microcharge amount).
+- Added the `Fidel.verifyCard` function to attempt card verification for a previously enrolled card. This function can be used for either the cardholder or a third-party entity (that cannot enroll cards, but can verify cards).
+- Changes in the verification screen text that gives a better description on how the micro-charge will be displayed in the card statement
+- Removes the currency symbol during the input of the verification token (the micro-charge amount).
 - Added Norway to the countries supported by the SDK.
   - If you specified the `allowedCountries` property, remember to add Norway, to have it in the `Country of issue` list.
   - If you didn't customize the `allowedCountries` property, Norway will automatically show up in the `Country of issue` field after you integrate the newest version of the SDK.

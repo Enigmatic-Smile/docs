@@ -19,11 +19,11 @@
 
 - Useful features for corporate card enrollment, but not only:
   - The `Fidel.thirdPartyVerificationChoice` property to allow cardholders to choose between verifying the card on the spot (as previously available) or indicate that the cardholder does not have access to the card statement and needs to delegate card verification to a third-party entity.
-  - The [`Fidel.verifyCard` function](https://transaction-stream.fidel.uk/docs/mobile-sdk#verifying-a-card-in-android) to attempt card verification for a previously enrolled card. This function can be used for either the cardholder or a third-party entity (that cannot enroll cards, but can verify cards).
+  - The `Fidel.verifyCard` function to attempt card verification for a previously enrolled card. This function can be used for either the cardholder or a third-party entity (that cannot enroll cards, but can verify cards).
   - _(Experimental feature)_ The `Fidel.onCardVerificationChoiceSelected` callback that communicates the cardholder's choice and intention to either verify the card on the spot (because the cardholder has access to the card statement) or to express the intention to delegate card verification to a third-party entity.
 - Adds the `Fidel.onCardVerificationStarted` callback which communicates that card verification has started for a card that was enrolled in a Fidel program. This callback provides the consent details that are created, in order to start the card verification.
-- Changes in the verification screen text that gives a better description on how the microcharge will be displayed in the card statement
-- Removes the currency symbol during the input of the verification token (the microcharge amount).
+- Changes in the verification screen text that gives a better description on how the micro-charge will be displayed in the card statement
+- Removes the currency symbol during the input of the verification token (the micro-charge amount).
 
 ## 2.0.0-beta13
 

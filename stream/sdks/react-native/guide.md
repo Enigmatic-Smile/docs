@@ -112,7 +112,7 @@ Fidel.setup ({
     ...
     consentText: {
         companyName: 'Your Company Name',
-        termsAndConditionsURL: 'https://yourwebsite.com/terms',
+        termsAndConditionsUrl: 'https://yourwebsite.com/terms',
     },
 });
 ```
@@ -126,7 +126,7 @@ Fidel.setup ({
     ...
     consentText: {
         companyName: 'Your Company Name',
-        termsAndConditionsURL: 'https://yourwebsite.com/terms',
+        termsAndConditionsUrl: 'https://yourwebsite.com/terms',
         deleteInstructions: "how can the cardholder opt out",
     },
 });
@@ -139,9 +139,9 @@ Fidel.setup ({
     ...
     consentText: {
         companyName: 'Your Company Name',
-        termsAndConditionsURL: 'https://yourwebsite.com/terms',
+        termsAndConditionsUrl: 'https://yourwebsite.com/terms',
         deleteInstructions: 'how can the cardholder opt out',
-        privacyPolicyURL: 'https://yourwebsite.com/privacy-policy',
+        privacyPolicyUrl: 'https://yourwebsite.com/privacy-policy',
     },
 });
 ```
@@ -188,7 +188,7 @@ Fidel.setup ({
 
 ### 10. Check your setup
 
-You should have the SDK set up as the following example shows:
+You should have the SDK set up similar to what you see in the example below:
 
 ```javascript
 const countries = [
@@ -197,7 +197,7 @@ const countries = [
     Fidel.Country.canada,
 ];
 
-// for now, we support calling this function only once
+// for now, we support calling this function only once during the lifecycle of your app
 Fidel.setup({
     sdkKey: 'Your SDK Key',
     programId: 'Your program ID',
@@ -219,7 +219,7 @@ Fidel.setup({
 
 In order to be notified about different, useful events (a card was linked, card verification started, card verification failed and others) that happen during a verified enrollment process, we recommend using our [webhooks](/docs/stream/webhooks).
 
-If client side notifications are useful for your application, make sure to check our [SDK callbacks reference](./reference#callbacks) documentation.
+If client side notifications are useful for your application, make sure to check our SDK callbacks reference documentation.
 
 # Enroll and verify a card
 
@@ -231,9 +231,9 @@ Fidel.start();
 
 ### Verified card enrollment flow
 
-The following is a short description of the flow that the cardholders will experience, after calling the `start` method. You can take these steps as well to test the verified card enrollment flow, by [setting a Test SDK Key](#4-start-setting-up-the-sdk-by-setting-the-sdk-key) and by using the Fidel API [test card numbers](/docs/stream/cards#test-card-numbers).
+The following is a short description of the flow that the cardholders will experience, after calling the `start` method. You can take these steps as well to test the verified card enrollment flow, by setting a test SDK Key and by using the Fidel API [test card numbers](/docs/stream/cards#test-card-numbers).
 
-If your Fidel API account is `live` then cardholders can also enroll real, live cards. Make sure that you set a [Live SDK Key](#4-start-setting-up-the-sdk-by-setting-the-sdk-key), in order to allow live verified card enrollments.
+If your Fidel API account is `live` then cardholders can also enroll real, live cards. Make sure that you set a live SDK Key, in order to allow live verified card enrollments.
 
 Description of the flow:
 
@@ -242,7 +242,7 @@ Description of the flow:
 3. The SDK will also immediately create a consent object for the card that is enrolled. This is what triggers the start of the verification process.
 4. After this step, a card verification screen will be presented. In this screen the cardholder will be able to input the verification token (the micro-charge amount) and complete the verification process.
 
-> Note: If the cardholders using your app do not have access to the card statement (usually, in a corporate setting), preventing them from verifying the card, you can set up the experience to involve a [third-party entity](#optional-configure-card-verification-executed-by-a-third-party-entity) (usually, a corporate card administrator) to verify the card.
+> Note: If the cardholders using your app do not have access to the card statement (usually, in a corporate setting), preventing them from verifying the card, you can set up the experience to involve a third-party entity (usually, a corporate card administrator) to verify the card.
 
 ### Card verification can be interrupted
 
@@ -302,13 +302,13 @@ Fidel.verifyCard({
 });
 ```
 
-For more details about this method, please check the [reference docs of the `verifyCard`](./reference#verifycardfromcardverificationconfiguration) function and its parameters.
+For more details about this method, please check the reference docs of the `Fidel.verifyCard` function and its parameters.
 
 > Important note: In order for card verification to be done successfully, make sure that you have set the `sdkKey` and `programId` properties correctly, as explained in this guide.
 
 # Optional: Set any of the other useful properties
 
-Please check our [SDK reference](./reference) for details about any other SDK properties that might be useful for your application.
+Please check our SDK reference page for details about any other SDK properties that might be useful for your application.
 
 # Frequently asked questions
 
@@ -327,4 +327,4 @@ pod update Fidel
 
 ### Can I customize the UI of the SDK?
 
-The React Native SDK offers the [`bannerImage`](./reference#bannerimage) property for you to set a custom, branded banner image that will be displayed during the card enrollment process.
+The React Native SDK offers the `options.bannerImage` property for you to set a custom, branded banner image that will be displayed during the card enrollment process. Please check our Reference documentation for more details.
