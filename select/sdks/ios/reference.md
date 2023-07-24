@@ -1,4 +1,4 @@
-# Android SDK reference
+# iOS SDK reference
 
 1. [Fidel class](#class-fidel)
 2. [Properties](#properties)
@@ -39,7 +39,7 @@ By setting this property we add a link to your Terms & Conditions in the consent
 
 ### Optional properties (but we recommend to set them)
 
-The following properties are technically not mandatory to be set. However, in order to make your Expense Management use case work with your Transaction Select program, please consider setting them correctly.
+The following properties are technically not mandatory to be set. However, in order to make your Loyalty use case work with your Transaction Select program, please consider setting them correctly.
 
 #### companyName: String
 

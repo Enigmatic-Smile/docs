@@ -308,7 +308,7 @@ metaData: {
 }
 ```
 
-You would receive a dictionary equal to this one, after successfully enrolling a card, in the main callback of the SDK.
+You would receive an object equal to this one, after successfully enrolling a card, in the main callback of the SDK.
 
 #### options.bannerImage
 
