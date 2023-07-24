@@ -87,7 +87,7 @@ See more: [Country](#enum-country)
 
 Cases:
 
-- `canada`, `ireland`, `norway`, `sweden`, `unitedArabEmirates`, `unitedKingdom`, `unitedStates`
+- `canada`, `ireland`, `japan`, `norway`, `sweden`, `unitedArabEmirates`, `unitedKingdom`, `unitedStates`
 
 #### deleteInstructions: String
 
