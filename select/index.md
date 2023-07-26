@@ -1,32 +1,32 @@
 <div class="row">
   <div class="column">
-    <a href="/getting-started" class="content" data-path="/getting-started">
-      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/get-started.svg" />
+    <a href="/select/getting-started" class="content" data-path="/getting-started">
+      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/get-started-icon.svg" />
       <h2 data-no-link>Get Started</h2>
       <h3>Start building card-linked applications with our quickstart guide</h3>
     </a>
   </div>
   <div class="column">
-    <a href="/tutorials/card-linking" class="content">
-      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/playground.svg" />
-      <h2 data-no-link>Tutorials</h2>
-      <h3>Learn how to build a card-linking feature into your applications.</h3>
+    <a href="https://dashboard.fidel.uk/playground" class="content">
+      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/playground-icon.svg" />
+      <h2 data-no-link>API Playground</h2>
+      <h3>Test API requests in real-time and see how we format the returned data.</h3>
     </a>
   </div>
 </div>
 <div class="row">
   <div class="column">
-    <a href="/web-sdk/v3" data-path="/web-sdk/v3" class="content">
-      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/web_sdk.svg" />
-      <h2 data-no-link>Web SDK</h2>
-      <h3>Learn to integrate a secure Javascript SDK to link cards on your website</h3>
+    <a href="/select/tutorials/card-linking" class="content">
+      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/tutorials-icon.svg" />
+      <h2 data-no-link>Tutorials</h2>
+      <h3>Learn how to build a card-linking feature into your applications.</h3>
     </a>
   </div>
   <div class="column">
-    <a href="/mobile-sdks" class="content" data-path="/mobile-sdks">
-      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/mobile_sdk.svg" />
-      <h2 data-no-link>Mobile SDKs</h2>
-      <h3>PCI Compliant native SDKs for iOS, Android and React Native</h3>
+    <a href="/select/web-sdk/v3" data-path="/web-sdk/v3" class="content">
+       <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks-icon.svg" />
+      <h2 data-no-link>SDKs</h2>
+      <h3>Take the easy and secure way to add card enrollment capabilities into your application.</h3>
     </a>
   </div>
 </div>
@@ -90,7 +90,6 @@ fileName:index.html
 
 Check the [Web SDK documentation](/web-sdk/v3) section for more information about all available parameters, customization options, and the metadata nested object.
 
-
 ## Transaction Life Cycle
 To understand how the Transaction Select API works and the data it provides to you, it’s important to understand the authorization processes and fund movements that happen when a cardholder makes a purchase.
 
@@ -128,7 +127,6 @@ When a cardholder uses a credit or debit card to make a purchase, the funds are 
   </div>
   </li>
 </ol>
-
 
 ### Where does Fidel API enter the picture?
 As we saw, all the transaction events go through the card networks. This is where Fidel API comes into play.
