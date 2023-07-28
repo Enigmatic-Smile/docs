@@ -23,7 +23,7 @@
     </a>
   </div>
   <div class="column">
-    <a href="/select/web-sdk/v3" data-path="/web-sdk/v3" class="content">
+    <a href="/select/sdks/web/v3" data-path="/select/sdks/web/v3" class="content">
        <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks-icon.svg" />
       <h2 data-no-link>SDKs</h2>
       <h3>Take the easy and secure way to add card enrollment capabilities into your application.</h3>
@@ -46,6 +46,7 @@ You can see an example implementation for integrating the Fidel APIs and Web SDK
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 
 ## Card Linking
+
 The [iOS](/mobile-sdks/#ios), [Android](/mobile-sdks/#android) and [Web](/web-sdk/v3) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
 By using Fidel API SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements. [Our Card-Linking tutorial](/tutorials/card-linking) explains in detail all the steps required to build a card-linking feature into your application using the Fidel API SDKs.
@@ -61,8 +62,8 @@ Your apps will receive an `id` back that identifies the card in each transaction
 </div>
 
 <button id="link-card-button" class="with-icon" type="submit" onClick={() => window.location.href = "/docs/web-sdk/v3/#web-sdk-codepen"}>
-  <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/eye.svg" />
-  <span>View demo</span>
+<img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/eye.svg" />
+<span>View demo</span>
 </button>
 
 Use one of our [test card](/cards/#testing-card-numbers) numbers (for example `4444000000004004`) and enter an expiry date in the future.
@@ -91,10 +92,13 @@ fileName:index.html
 Check the [Web SDK documentation](/web-sdk/v3) section for more information about all available parameters, customization options, and the metadata nested object.
 
 ## Transaction Life Cycle
+
 To understand how the Transaction Select API works and the data it provides to you, it’s important to understand the authorization processes and fund movements that happen when a cardholder makes a purchase.
 
 ### [Authorization, clearing](/transactions/#transaction-event-types)
+
 When a cardholder uses a credit or debit card to make a purchase, the funds are not immediately transferred to the merchant’s account. There are two important events that need to happen for the funds to be transferred: authorization and clearing. Here’s how these events occur:
+
 <ol>
   <li>
   When the cardholder initiates the transaction, their bank (issuing bank, issuer) needs to authorize it. For this, the authorization request must travel from the merchant through the merchant’s bank (acquirer) and through the card network to the issuing bank.
@@ -129,6 +133,7 @@ When a cardholder uses a credit or debit card to make a purchase, the funds are 
 </ol>
 
 ### Where does Fidel API enter the picture?
+
 As we saw, all the transaction events go through the card networks. This is where Fidel API comes into play.
 
 When a cardholder links a card to a Fidel API program, Fidel API verifies the card with the associated card network and creates a token to represent that card, thereby not storing sensitive information about the cardholder or card itself. Using this token-based identification, the card network starts sending the transactions made on that card to Fidel API.
