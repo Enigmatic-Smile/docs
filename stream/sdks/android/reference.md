@@ -159,20 +159,6 @@ You need to provide the image for all screen densities.
 
 Depending on what you want to display in the banner image, you might need to experiment a bit to make sure that nothing important from the image is hidden. The most important information should be displayed in the centre of the banner image.
 
-#### enableCardScanner: Boolean
-
-Default value: `false`.
-
-When set to `true`, enables card camera scanning feature in the card details screen. Cardholders will be able to click a button to scan their card using their device's camera. After card scanning is finalized, the user will go to our normal card enrollment UI with the card details prefilled. When `false`, the `shouldAutoScanCard` property will be ignored.
-
-> Note: The card scanning feature does not work well with all types of cards.
-
-#### shouldAutoScanCard: Boolean
-
-Default value: `false`.
-
-When set to `true` and when `enableCardScanner` is set to `true`, this will automatically starts card camera scanning UI, in the card details screen. After card scanning is finalized, the user will go to our normal card enrollment UI with the card details prefilled.
-
 ### Properties that are not in use for Transaction Stream programs
 
 The following properties are only useful when enrolling cards in a Select Transactions program.

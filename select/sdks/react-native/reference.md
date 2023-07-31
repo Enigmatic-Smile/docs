@@ -58,7 +58,6 @@ Fidel.setOptions({
   allowedCountries: countries,
   defaultSelectedCountry: Fidel.Country.unitedStates,
   supportedCardSchemes: cardSchemes,
-  autoScan: false,
   metaData: { id: "your-metadata-id", customKey: "customValue" },
   companyName: "My RN Company",
   deleteInstructions: "Your custom delete instructions!",
@@ -179,14 +178,6 @@ If a device that opens the SDK has 475dp in width, the aspect ratio of your bann
 You need to provide the image for all screen densities (x1, x2 and x3).
 
 Depending on what you want to display in the banner image, you might need to experiment a bit to make sure that nothing important from the image is hidden. The most important information should be displayed in the centre of the banner image.
-
-#### autoScan
-
-Expected type: `boolean`
-
-Default value: `false`.
-
-When set to `true`, the enrollment flow will automatically start a card camera scanning UI. After card scanning is finalized, the user will go to our normal card enrollment UI with the card details prefilled.
 
 #### programName
 
