@@ -141,12 +141,6 @@ You need to provide the image for all screen densities.
 
 Depending on what you want to display in the banner image, you might need to experiment a bit to make sure that nothing important from the image is hidden. The most important information should be displayed in the centre of the banner image.
 
-#### autoScan: Boolean
-
-Default value: `false`.
-
-When set to `true`, the enrollment flow will automatically start a card camera scanning UI. After card scanning is finalized, the user will go to our normal card enrollment UI with the card details prefilled.
-
 #### programName: String
 
 Default value: `"our"`
