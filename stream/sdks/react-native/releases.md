@@ -1,5 +1,10 @@
 # React Native SDK v2 Releases
 
+## 2.0.0-beta14
+
+- Card scanning is no longer supported. 
+- The options `enableCardScanner` and `shouldAutoScanCard` were removed.
+
 ## 2.0.0-beta13
 
 - Updated the micro-charge descriptor text to the correct one.
