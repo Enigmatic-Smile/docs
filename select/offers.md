@@ -380,7 +380,7 @@ fileName:offer.json
       <span><code>additionalTerms</code></span>
       <em>string</em>
     </dt>
-    <dd>Support for additional Terms & Conditions related to the Offer. <code>null</code> by default. Accepts Markdown link syntax. E.g. [Additional Terms](https://fidel.uk/terms).</dd>
+    <dd>Support for additional Terms & Conditions related to the Offer. <code>null</code> by default.</dd>
   </div>
   <div>
     <dt>
