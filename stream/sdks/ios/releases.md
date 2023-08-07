@@ -4,6 +4,10 @@
 
 - Removed card scanning feature, please make sure to delete the `Fidel.enableCardScanner` and `Fidel.shouldAutoScanCard` configuration.
 
+## 2.0.0-beta19
+
+- Improve the security of the SDK secrets.
+
 ## 2.0.0-beta18
 
 - Make the Fidel API requests ephemeral.
