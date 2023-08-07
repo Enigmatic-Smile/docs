@@ -6,7 +6,7 @@
 
 ## 2.0.0-beta19
 
-- Improve the security of the SDK secrets
+- Improve the security of the SDK secrets.
 
 ## 2.0.0-beta18
 
