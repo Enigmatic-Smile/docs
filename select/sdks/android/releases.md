@@ -1,3 +1,19 @@
+# Android SDK v2 Releases
+
+## 2.0.0
+- Removed card scanning so `Fidel.autoScan` has been removed.
+- Renamed some fields
+  - `Fidel.apiKey` was renamed to `Fidel.sdkKey`.
+  - `Fidel.termsConditionsURL` was renamed to `Fidel.termsAndConditionsUrl`.
+  - `Fidel.privacyURL` was renamed to `privacyPolicyUrl`.
+- Other changes
+  - `Country` and `CardScheme` have been moved out of `Fidel`.
+  - `Fidel.setCardLinkingObserver`, `FidelCardLinkingObserver`, `LinkResultError` and `LinkResult`.
+  - `onActitivityResult` is no longer used to get results.
+  - `Fidel.start()` replaces `Fidel.present()`.
+  - `Fidel.onMainActivityCreate(Activity)` needs to be called at the end of the setup.
+  - The new package name is `com.fidelapi` instead of `com.fidel.sdk` for all the SDK classes.
+
 # Android SDK v1 Releases
 
 ## 1.7.5
