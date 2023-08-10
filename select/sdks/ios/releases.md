@@ -1,3 +1,17 @@
+# iOS SDK v2 Releases
+
+## 2.0.0
+- Removed card scanning so `Fidel.autoScan` has been removed.
+- Renamed some fields
+  - `Fidel.apiKey` was renamed to `Fidel.sdkKey`.
+  - `Fidel.programId` was renamed to `Fidel.programID`.
+  - `Fidel.termsConditionsURL` was renamed to `Fidel.termsAndConditionsUrl`.
+  - `Fidel.privacyURL` was renamed to `privacyPolicyUrl`.
+- Other changes
+  - `Fidel.start(...)` replaces `Fidel.present(...)`.
+  - `onCardLinkedCallback`, `onCardLinkFailedCallback`, `LinkResult` and `LinkError` have been removed.
+  - Use `Fidel.onResult` and `FidelResult` for enrollment results or errors.
+  
 # iOS SDK v1 Releases
 
 ## 1.10.3

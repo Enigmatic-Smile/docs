@@ -1,5 +1,9 @@
 # iOS SDK v2 Releases
 
+## 2.0.0
+
+- Stable release, stream is no longer in beta
+
 ## 2.0.0-beta20
 
 - Removed card scanning feature, please make sure to delete the `Fidel.enableCardScanner` and `Fidel.shouldAutoScanCard` configuration.
