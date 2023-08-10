@@ -36,7 +36,7 @@ curl -X POST https://api.fidel.uk/v1/programs \
 
 ## Learn More
 
-- After setting up your program, you can go ahead and [create test cards](https://transaction-stream.fidel.uk/docs/cards) and [webhooks](https://transaction-stream.fidel.uk/docs/webhooks), and [create test transactions](https://transaction-stream.fidel.uk/docs/transactions) to see how Fidel API works.
-- Walk through our [tutorial](https://transaction-stream.fidel.uk/docs/tutorial) to start using the APIs and SDKs.
-- Learn about the [web](https://fidelapi.com/docs/web-sdk/v3) and [mobile](https://fidelapi.com/docs/mobile-sdks) SDKs.
+- After setting up your program, you can go ahead and [create test cards](https://fidelapi.com/docs/stream/cards) and [webhooks](https://fidelapi.com/docs/stream/webhooks), and [create test transactions](https://fidelapi.com/docs/stream/transactions) to see how Fidel API works.
+- Walk through our [tutorial](https://fidelapi.com/docs/stream/tutorials/card-linking) to start using the APIs and SDKs.
+- Learn about the [web](https://fidelapi.com/docs/stream/sdks/web/v3) and [mobile](https://fidelapi.com/docs/stream/sdks/ios/guide) SDKs.
 - Check out the [API reference docs](https://transaction-stream.fidel.uk/reference/introduction-1).
