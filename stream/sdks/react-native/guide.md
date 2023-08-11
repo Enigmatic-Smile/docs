@@ -52,11 +52,13 @@ import Fidel from 'fidel-react-native';
 - Go to the `Plan` tab and copy your `Test` or `Live` SDK Key.
 - Set your SDK Key in your app:
 
+> Important note: For security reasons, please do not store the SDK Key in your codebase. Follow our [SDK security guide](/docs/stream/sdks/sdk-security-guidelines) for detailed recommendations.
+
 > Note: For now, we support calling the `setup` function only once throughout the lifecycle of your app.
 
 ```javascript
 Fidel.setup ({
-    sdkKey: 'Your-SDK-Key',
+    sdkKey: yourSdkKey,
 });
 ```
 
@@ -69,7 +71,7 @@ Fidel.setup ({
 
 ```javascript
 Fidel.setup ({
-    sdkKey: 'Your-SDK-Key',
+    sdkKey: yourSdkKey,
     programId: 'Your-program-ID',
 });
 ```
@@ -80,7 +82,7 @@ For your Expense Management application you'll need to use a Transaction Stream 
 
 ```javascript
 Fidel.setup ({
-    sdkKey: 'Your-SDK-Key',
+    sdkKey: yourSdkKey,
     programId: 'Your-program-ID',
     programType: Fidel.ProgramType.transactionStream,
 });
@@ -96,7 +98,7 @@ You can use the `consentText` object to set the following properties:
 
 ```javascript
 Fidel.setup ({
-    sdkKey: 'Your-SDK-Key',
+    sdkKey: yourSdkKey,
     programId: 'Your-program-ID',
     programType: Fidel.ProgramType.transactionStream,
     consentText: {
@@ -199,7 +201,7 @@ const countries = [
 
 // for now, we support calling this function only once during the lifecycle of your app
 Fidel.setup({
-    sdkKey: 'Your SDK Key',
+    sdkKey: yourSdkKey, // make sure to store it securely
     programId: 'Your program ID',
     programType: Fidel.ProgramType.transactionStream,
     options: {
