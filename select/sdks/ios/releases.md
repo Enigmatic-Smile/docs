@@ -1,3 +1,35 @@
+# iOS SDK v2 Releases
+
+## 2.0.0
+- Removed card scanning so `Fidel.autoScan` has been removed.
+- Changes in the `Fidel` class:
+  - Made the `companyName` property mandatory
+  - `Fidel.apiKey` was renamed to `Fidel.sdkKey`.
+  - `Fidel.programId` was renamed to `Fidel.programID`.
+  - `Fidel.termsConditionsURL` was renamed to `Fidel.termsAndConditionsUrl`.
+  - `Fidel.privacyURL` was renamed to `privacyPolicyUrl`.
+- `Fidel.present(...)` has been renamed to `Fidel.start(...)`.
+- Instead of providing just one type of result, `LinkResult`, the SDK now provides a generic `FidelResult` enum which incorporates different type of results: `.enrollementResult` and `.error`. Each one of them provides the appropriate object for developers: `EnrollementResult` and `FidelError`.
+- Introduced a new property called `onResult` which retains a closure to be called every time a result is available.
+- Changes in the old `LinkResult` which is now `EnrollmentResult`:
+  - Renamed `id` to `cardID`.
+  - The data type for `created` property is now a `Date`, not a `String`. Renamed property to `enrollmentDate`.
+  - The data type for `scheme `is now `CardScheme`, not `String`. Renamed property to `cardScheme`.
+  - Renamed property `programId` to `programID`.
+  - Renamed property `live` to `isLive`.
+  - `firstNumbers` was renamed to `cardFirstNumbers`.
+  - `lastNumbers` was renamed to `cardLastNumbers`.
+  - `expYear` was renamed to card `cardExpirationYear`.
+  - `expMonth` should be renamed to `cardExpirationMonth`.
+  - `expDate` string property was removed. 
+  - `countryCode` was  renamed to `cardIssuingCountry` and its data type is now `Country`.
+  - Renamed `accountId` to `accountID`.
+- Changes to the LinkResultError class:
+  - Renamed to FidelError. 
+  - The date property now has a `Date` data type, not `String`.
+  - The (error) code property is now an enum. It has 2 cases: `.enrollmentError` and `.verificationError` (the last one not relevant to the Transaction Select API)
+- Dropped support for Objective-C.
+  
 # iOS SDK v1 Releases
 
 ## 1.10.3
