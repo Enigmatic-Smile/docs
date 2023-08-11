@@ -1,6 +1,6 @@
 # Webhooks
 
-Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund`, `reimbursement.pending`, `reimbursement.issued`, `reimbursement.failed` and `credits.balance.low`.
+Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund`, `reimbursement.pending`, `reimbursement.issued`, `reimbursement.failed` and `credits.balance.low`.
 
 Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload.
 
@@ -414,7 +414,7 @@ fileName:transaction.clearing
 }
 ```
 
-A `transaction.refund` or **refund** transaction event is triggered when a transaction is refunded. Besides the `transaction.refund` event, a refunded transaction also triggers a  `transaction.clearing` event. On both, their `auth` property is set to `false` and the amount is negative. Fidel API tries to identify the initial transaction for which the refund was issued, using `cardId`, `locationId`, `merchantId`, `amount` and `datetime`. If an associated initial transaction is identified, the webhook data contains the `originalTransactionId`. If no initial transaction is identified, the data comes in on both webhooks with a negative amount but no `originalTransactionId` property.
+A `transaction.refund` or **refund** transaction event is triggered when a transaction is refunded. Besides the `transaction.refund` event, a refunded transaction also triggers a `transaction.clearing` event. On both, their `auth` property is set to `false` and the amount is negative. Fidel API tries to identify the initial transaction for which the refund was issued, using `cardId`, `locationId`, `merchantId`, `amount` and `datetime`. If an associated initial transaction is identified, the webhook data contains the `originalTransactionId`. If no initial transaction is identified, the data comes in on both webhooks with a negative amount but no `originalTransactionId` property.
 
 ```json
 fileName:transaction.refund
