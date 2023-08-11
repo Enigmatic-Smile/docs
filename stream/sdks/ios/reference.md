@@ -37,7 +37,7 @@ The maximum number of characters allowed for this property is `60`.
 
 By setting this property we add a link to your Terms & Conditions in the consent text. The cardholder needs to read and agree with your terms, before enrolling a card.
 
-### Optional properties (but we recommend to set them)
+### Optional properties (but we recommend setting them)
 
 The following properties are technically not mandatory to be set. However, in order to make your Expense Management use case work with your Transaction Stream program, please consider setting them correctly.
 
@@ -245,7 +245,7 @@ Properties:
 
 #### struct FidelError
 
-A FidelError can occur during the card enrollment, card consent creation or card verification processes. You can handle them via the `onResult` callback.
+A FidelError can occur during the card enrollment, card consent creation or card verification processes. You can handle it via the `onResult` callback.
 
 Properties:
 

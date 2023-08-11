@@ -1,4 +1,4 @@
-# A guide for card enrollment with the iOS SDK
+# A guide for card enrollment with the iOS SDK <a style="color: #111;" class="improve-docs" href="/select/sdks/ios/guide-v1">v1</a> <a style="margin-right: auto; border-bottom: 2px solid #0048ff;" class="improve-docs" href="/select/sdks/ios/guide-v2">v2</a>
 
 Please take the following steps to integrate and configure the SDK for your Loyalty use case application.
 
@@ -32,7 +32,7 @@ pod 'Fidel'
 Your `Podfile` should have a structure similar to the following:
 ```ruby
 fileName:Podfile
-platform :ios, '14'
+platform :ios, '9.1'
 
 target 'YouriOSTarget' do
     use_frameworks!
@@ -88,7 +88,7 @@ import Fidel
 - Set your SDK Key in your app:
 
 ```swift
-Fidel.apiKey = "Your-SDK-Key"
+Fidel.sdkKey = "Your-SDK-Key"
 ```
 
 ### 5. Set your Program ID
@@ -116,10 +116,10 @@ Fidel.companyName = "Your Company Name"
 
 You need to set your terms and conditions URL if you would like to:
 a. support all the countries that Fidel API supports
-b. set a specific `allowedCountries` set of countries AND include US or Canada in your set of allowed countries.
+b. set a specific `allowedCountries` set of countries AND include US or Canada in it.
 
 ```swift
-Fidel.termsConditionsURL = "https://yourwebsite.com/terms"
+Fidel.termsAndConditionsURL = "https://yourwebsite.com/terms"
 ```
 
 #### Explain how the cardholder can opt out (optional, but recommended)
@@ -130,10 +130,10 @@ Please inform the cardholder about how to opt out of transaction monitoring in y
 Fidel.deleteInstructions = "how can the cardholder opt out"
 ```
 
-#### Set your privacy policy (optional, but recommended)
+#### Set your privacy policy URL (optional, but recommended)
 
 ```swift
-Fidel.privacyURL = "https://yourwebsite.com/privacy-policy"
+Fidel.privacyPolicyURL = "https://yourwebsite.com/privacy-policy"
 ```
 
 # Enrollment notifications
@@ -144,14 +144,10 @@ If client side notifications are useful for your application, make sure to check
 
 # Enroll a card
 
-Call the `Fidel.present` function to open the UI and start a card enrollment process:
+Call the `Fidel.start` function to open the UI and start a card enrollment process:
 
 ```swift
-Fidel.present(yourViewController, onCardLinkedCallback: { (card: LinkResult) in
-    print(card.id)
-}, onCardLinkFailedCallback: { (err: LinkError) in
-    print(err.message)
-})
+Fidel.start(from: yourViewController)
 ```
 You can test the card enrollment flow, by setting a test SDK Key and by using the Fidel API [test card numbers](/docs/select/cards#test-card-numbers).
 
@@ -175,7 +171,7 @@ If you integrated the SDK manually, please repeat all the steps from the manual 
 
 ### Can I customize the UI of the iOS SDK?
 
-The iOS SDK offers the `bannerImage` property for you to set a custom, branded banner image that will be displayed during the card enrollment process. Please check our Reference documentation for more details.
+The iOS SDK offers the `Fidel.bannerImage` property for you to set a custom, branded banner image that will be displayed during the card enrollment process. Please check our Reference documentation for more details.
 
 ### How do I configure the consent text correctly?
 
@@ -183,27 +179,27 @@ In order to properly set the consent text, please follow these steps:
 
 1. **Set the company name**
 
-The `companyName` property is optional, but we recommended setting it. If you don't set a company name, we'll show the default value in the consent text: `Your Company Name`.
+The `Fidel.companyName` property is optional, but we recommended setting it. If you don't set a company name, we'll show the default value in the consent text: `Your Company Name`.
 
 2. **Set the privacy policy URL**
 
-The `privacyURL` property is optional. It is added as a hyperlink to the `privacy policy` text. Please check the full behavior below.
+The `Fidel.privacyPolicyURL` property is optional. It is added as a hyperlink to the `privacy policy` text. Please check the full behavior below.
 
 3. **Set the delete instructions**
 
-The `deleteInstructions` property is optional. The default value is `going to your account settings`. This default value is applied for both consent texts that the SDK forms.
+The `Fidel.deleteInstructions` property is optional. The default value is `going to your account settings`. This default value is applied for both consent texts that the SDK forms.
 
 4. **Set the card scheme name**
 
-You can do so via the `supportedCardSchemes` property. By default, we allow the user to input card numbers from either Visa, Mastercard or American Express, but you can control which card networks you accept. The consent text changes based on what you define or based on what the user inputs. Please check the full behavior below.
+You can do so via the `Fidel.supportedCardSchemes` property. By default, we allow the user to input card numbers from either Visa, Mastercard or American Express, but you can control which card networks you accept. The consent text changes based on what you define or based on what the user inputs. Please check the full behavior below.
 
 5. **Set the program name (applied to the consent text specific to the US and Canada)**
 
-The `programName` property is taken into account only for the consent text specific to USA and Canada. If you don't plan to support USA nor Canada, you can ignore this property. The default value for program name is `our`.
+The `Fidel.programName` property is taken into account only for the consent text specific to USA and Canada. If you don't plan to support USA nor Canada, you can ignore this property. The default value for program name is `our`.
 
 6. **Set the terms and conditions URL (applied to the consent text only for USA and Canada)**
 
-The `termsConditionsURL` property is mandatory for the SDK if you plan to support USA and Canada issued cards. Once set, it will be applied as a hyperlink on the `Terms and Conditions` text.
+The `Fidel.termsAndConditionsURL` property is mandatory for the SDK if you plan to support USA and Canada issued cards. Once set, it will be applied as a hyperlink on the `Terms and Conditions` text.
 
 ### How is the SDK's consent text formed?
 
@@ -214,8 +210,8 @@ The SDK forms two distinct consent texts, depending on the country the cardholde
 #### Consent text for United States and Canada
 
 You are allowing US and Canada issued cards when you:
-1. set United States and/or Canada as `allowedCountries`
-2. don't set a value for the `allowedCountries` property, which means that all countries supported by Fidel API will be included in your SDK implementation (including US & Canada).
+1. set United States and/or Canada as allowed countries, via the `Fidel.allowedCountries` property.
+2. don't set a value for the `Fidel.allowedCountries` property, which means that all countries supported by Fidel API will be included in your SDK implementation (including US & Canada).
 
 For USA & Canada, the following would be an example consent text for `Cashback Inc` (an example company) that uses `Awesome Bonus` as their program name:
 

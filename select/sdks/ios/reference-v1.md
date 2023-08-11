@@ -1,4 +1,4 @@
-# iOS SDK reference
+# iOS SDK reference <a style="border-bottom: 2px solid #0048ff;" class="improve-docs" href="/select/sdks/ios/reference-v1">v1</a> <a style="margin-right: auto; color: #111;" class="improve-docs" href="/select/sdks/ios/reference-v2">v2</a>
 
 1. [Fidel class](#class-fidel)
 2. [Properties](#properties)
@@ -33,11 +33,11 @@ You need to set your terms and conditions URL if you would like to:
 
 1. support all the countries that Fidel API supports
 
-2. set a specific `allowedCountries` set of countries AND include US or Canada in your set of allowed countries.
+2. set a specific `allowedCountries` set of countries AND include US or Canada in it.
 
 By setting this property we add a link to your Terms & Conditions in the consent text. The cardholder needs to read and agree with your terms, before enrolling a card.
 
-### Optional properties (but we recommend to set them)
+### Optional properties (but we recommend setting them)
 
 The following properties are technically not mandatory to be set. However, in order to make your Loyalty use case work with your Transaction Select program, please consider setting them correctly.
 
@@ -148,6 +148,12 @@ Depending on what you want to display in the banner image, you might need to exp
 Default value: `"our"`
 
 This value is used in the consent text when enrolling a card issued in United States or Canada. Please set it to a maximum of `60` characters.
+
+#### autoScan: Bool
+
+Default value: `false`
+
+When set to `true`, automatically starts the card camera scanning UI. After card scanning is finalized, the user will go to the expected card enrollment screen, with the card details prefilled.
 
 ## Methods
 
