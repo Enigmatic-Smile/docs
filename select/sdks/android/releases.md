@@ -2,17 +2,36 @@
 
 ## 2.0.0
 - Removed card scanning so `Fidel.autoScan` has been removed.
-- Renamed some fields
+- Changes in the `Fidel` class:
+  - Made the `companyName` property mandatory
   - `Fidel.apiKey` was renamed to `Fidel.sdkKey`.
   - `Fidel.termsConditionsURL` was renamed to `Fidel.termsAndConditionsUrl`.
   - `Fidel.privacyURL` was renamed to `privacyPolicyUrl`.
-- Other changes
-  - `Country` and `CardScheme` have been moved out of `Fidel`.
-  - `Fidel.setCardLinkingObserver`, `FidelCardLinkingObserver`, `LinkResultError` and `LinkResult`.
-  - `onActitivityResult` is no longer used to get results.
-  - `Fidel.start()` replaces `Fidel.present()`.
-  - `Fidel.onMainActivityCreate(Activity)` needs to be called at the end of the setup.
-  - The new package name is `com.fidelapi` instead of `com.fidel.sdk` for all the SDK classes.
+  - `getInstance()` has been removed
+- `Fidel.present(...)` has been renamed to `Fidel.start(...)`.
+- `Country`, `ProgramType` and `CardScheme` have been moved out of the `Fidel` class.
+- `onActitivityResult` will no longer be used to get results.
+- Instead of providing just one type of result, `LinkResult`, the SDK now provides a generic `Result` sealed class which incorporates different types of results: `EnrollementResult`, `VerificationSuccessful` (not relevant for Select Transaction API), `ErrorResult`. Each provides the appropriate objects for developers: `EnrollementResult`, `FidelError`.
+- Changes in the `LinkResult` class:
+  - Rename to `EnrollmentResult`
+  - Rename `id` to `cardId`
+  - The data type for `created` property is now `Date` not `String`. Renamed the property to `enrollmentDate`.
+  - The data type for `scheme` property is now `CardScheme`, not `String`. Renamed property to `cardScheme`.
+  - Renamed property `live` to `isLive`.
+  - Renamed `firstNumbers` to `cardFirstNumbers`.
+  - Renamed `lastNumbers` to `cardLastNumbers`.
+  - Renamed `expYear` to `cardExpirationYear`.
+  - Renamed `expMonth` to `cardExpirationMonth`.
+  - The `expDate` string property has been removed.
+  - The `countryCode` property was renamed to `cardIssuingCountry` and its data type is now `Country`.
+  - The `error` property and the `getError` function have been removed.
+- Changes to the `LinkResultError` class:
+  - Renamed to `FidelError`.
+  - The `date` property now has a `Date` data type, not `String`.
+  - The (error) code property has been renamed to `type` and it is now a sealed class. It has 2 cases: `EnrollmentError` and `VerificationError` (not relevant for Select Transaction API)
+  - Each error type now has a subtype.
+- `Fidel.onMainActivityCreate(Activity)` needs to be called at the end of the setup.
+- The new package name is `com.fidelapi` instead of `com.fidel.sdk` for all the SDK classes.
 
 # Android SDK v1 Releases
 

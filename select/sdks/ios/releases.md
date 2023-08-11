@@ -13,8 +13,8 @@
 - Introduced a new property called `onResult` which retains a closure to be called every time a result is available.
 - Changes in the old `LinkResult` which is now `EnrollmentResult`:
   - Renamed `id` to `cardID`.
-  - The data type for created property is now a `Date`, not a `String`. Renamed property to `enrollmentDate`.
-  - The data type for scheme is now `CardScheme`, not `String`. Renamed property to `cardScheme`.
+  - The data type for `created` property is now a `Date`, not a `String`. Renamed property to `enrollmentDate`.
+  - The data type for `scheme `is now `CardScheme`, not `String`. Renamed property to `cardScheme`.
   - Renamed property `programId` to `programID`.
   - Renamed property `live` to `isLive`.
   - `firstNumbers` was renamed to `cardFirstNumbers`.
@@ -27,7 +27,7 @@
 - Changes to the LinkResultError class:
   - Renamed to FidelError. 
   - The date property now has a `Date` data type, not `String`.
-  - The (error) code property is now an enum. It has 2 cases: `.enrollmentError` and `.verificationError` (the last one not relevant to the Transaction Stream API)
+  - The (error) code property is now an enum. It has 2 cases: `.enrollmentError` and `.verificationError` (the last one not relevant to the Transaction Select API)
 - Dropped support for Objective-C.
   
 # iOS SDK v1 Releases
