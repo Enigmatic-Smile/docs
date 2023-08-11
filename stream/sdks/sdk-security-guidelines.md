@@ -10,11 +10,11 @@ Your SDK key allows you to enroll cards into your program and verify them. That'
 
 > Important note: Do NOT store the SDK key in your client-side application's codebase or commit it in your repository. Of course, the same applies for your API key. 
 
-1. We recommend adding an endpoint to your server (if you don't already have one that you can use) that securely retrieves the Fidel API SDK key for your application to use and configure the Fidel API SDK.
+- We recommend adding an endpoint to your server (if you don't already have one that you can use) that securely retrieves the Fidel API SDK key for your application to use and configure the Fidel API SDK.
 
-2. Using obfuscation techniques with your SDK key is also preferable.
+- Using obfuscation techniques with your SDK key is also preferable.
 
-3. It is more secure to NOT store your SDK key on the device (in a local storage/database, shared preferences, user defaults or Keychain etc.), but, if you have to, please use a secure on-device storage (like the Keychain or KeyStore).
+- It is more secure to NOT store your SDK key on the device (in a local storage/database, shared preferences, user defaults or Keychain etc.), but, if you have to, please use a secure on-device storage (like the Keychain or KeyStore).
 
 > Note: Another security benefit for using your server-side endpoint is that you can easily rotate the key, when it's necessary to do so.
 
