@@ -1,5 +1,11 @@
 # Android SDK v2 Releases
 
+## 2.0.0
+
+- Transaction Stream Android SDK is now Stable!
+  We are thrilled to announce a significant milestone in our journey – the Transaction Stream SDK has officially transitioned from its beta phase to a stable release!
+  After months of rigorous testing, we are confident that Transaction Stream SDK is ready to empower your projects so you can create more valuable, engaging experiences for your customers.
+
 ## 2.0.0-beta18
 
 - Removed card scanning feature, please make sure to delete the `Fidel.enableCardScanner` and `Fidel.shouldAutoScanCard` configuration.

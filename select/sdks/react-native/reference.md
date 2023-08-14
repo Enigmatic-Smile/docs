@@ -34,7 +34,7 @@ This key is used to authenticate your Fidel API account. Get it from your Fidel 
 
 The program ID indicates the Fidel API program in which the cards will be enrolled. Get the program ID by navigating to the Fidel API dashboard -> Programs section -> Click on the ID of the program you want to use. Clicking on it will copy the ID in your pasteboard.
 
-### Optional properties (but we recommend to set them)
+### Optional properties (but we recommend setting them)
 
 The following properties are technically not mandatory to be set. However, in order to make your Loyalty use case work with your Transaction Select program, please consider setting them correctly. The following is an example:
 

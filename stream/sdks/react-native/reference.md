@@ -210,7 +210,7 @@ Expected type: `string`
 
 By setting this property we add a link to your Terms & Conditions in the consent text. The cardholder needs to read and agree with your terms, before enrolling a card.
 
-### Optional properties (but we recommend to set them)
+### Optional properties (but we recommend setting them)
 
 The following properties are technically not mandatory to be set. However, in order to make your Expense Management use case work with your Transaction Stream program, please consider setting them correctly.
 
@@ -439,7 +439,7 @@ Properties:
 
 #### Error result object
 
-An error can occur during the card enrollment, card consent creation or card verification processes. You can handle the errors via the main results callback of the SDK.
+An error can occur during the card enrollment, card consent creation or card verification processes. You can handle it via the main results callback of the SDK.
 
 Properties:
 

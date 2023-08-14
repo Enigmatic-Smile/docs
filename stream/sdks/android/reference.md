@@ -37,7 +37,7 @@ The maximum number of characters allowed for this property is `60`.
 
 By setting this property we add a link to your Terms & Conditions in the consent text. The cardholder needs to read and agree with your terms, before enrolling a card.
 
-### Optional properties (but we recommend to set them)
+### Optional properties (but we recommend setting them)
 
 The following properties are technically not mandatory to be set. However, in order to make your Expense Management use case work with your Transaction Stream program, please consider setting them correctly.
 
@@ -200,6 +200,14 @@ Properties:
 - `consentId: String` - The card consent identifier used for card verification.
 - `last4Digits: String?` - The last 4 digits of a card. If set, the verification screen will display them to visually help the the card verifier identify which card is being verified. If not set, the verification screen will be more generic. This property is *optional*.
 
+### onMainActivityCreate(context: Context)
+
+It reports to the SDK that the main Activity of your application was created. At this function call, for card verification success purposes, the SDK might decide to resume the verification process for a card didn't finish it.
+
+#### Parameters
+
+- `context: Context`. This is a *mandatory* parameter.
+
 ## Callbacks
 
 The SDK provides the following callbacks:
@@ -250,7 +258,7 @@ Properties:
 
 #### data class FidelError
 
-A FidelError can occur during the card enrollment, card consent creation or card verification processes. You can handle them via the `onResult` callback.
+A FidelError can occur during the card enrollment, card consent creation or card verification processes. You can handle it via the `onResult` callback.
 
 Properties:
 
