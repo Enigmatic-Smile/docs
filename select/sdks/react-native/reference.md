@@ -15,22 +15,24 @@ This class is designed as a facade, used to configure the card enrollment proces
 
 These are properties that must be set correctly. In the case where one of these properties are not set or they are set incorrectly, the SDK will return an error immediately via its callback.
 
+> Important note: For security reasons, please do not store the SDK Key in your codebase. Follow our [SDK security guide](/docs/stream/sdks/sdk-security-guidelines) for detailed recommendations.
+
 ```javascript
 Fidel.setup ({
-    apiKey: 'Your-SDK-Key',
+    apiKey: yourSdkKey,
     programId: 'Your-program-ID',
 });
 ```
 
-#### apiKey: String
+#### apiKey: string
 
 This key is used to authenticate your Fidel API account. Get it from your Fidel API dashboard -> Account Settings -> SDK Keys section.
 
-> Important note: Make sure that you store this key securely (not on the client side).
+> Important note: For security reasons, please do not store the SDK Key in your codebase. Follow our [SDK security guide](/docs/stream/sdks/sdk-security-guidelines) for detailed recommendations.
 
 > Note: If you use a **test SDK Key**, your users can only enroll [test card numbers](/docs/select/cards#test-card-numbers).
 
-#### programId: String
+#### programId: string
 
 The program ID indicates the Fidel API program in which the cards will be enrolled. Get the program ID by navigating to the Fidel API dashboard -> Programs section -> Click on the ID of the program you want to use. Clicking on it will copy the ID in your pasteboard.
 
@@ -67,9 +69,7 @@ Fidel.setOptions({
 });
 ```
 
-#### termsConditionsUrl
-
-Expected type: `string`.
+#### termsConditionsUrl: string
 
 You need to set your terms and conditions URL if you would like to:
 
@@ -79,25 +79,19 @@ You need to set your terms and conditions URL if you would like to:
 
 By setting this property we add a link to your Terms & Conditions in the consent text. The cardholder needs to read and agree with your terms, before enrolling a card.
 
-#### companyName
-
-Expected type: `string`.
+#### companyName: string
 
 By setting this property we customize the consent text, that the cardholder needs to read and agree with, before enrolling a card.
 
 The maximum number of characters allowed for this property is `60`.
 
-#### deleteInstructions
-
-Expected type: `string`.
+#### deleteInstructions: string
 
 Default value: `"going to your account settings"`
 
 This text informs the cardholder how to opt out of transaction monitoring in your program. It is appended at the end of the consent text. The maximum number of characters allowed for this property is `60`.
 
-#### privacyUrl
-
-Expected type: `string`.
+#### privacyUrl: string
 
 If you provide a value for this parameter, the card enrollment consent text will include a phrase that will provide the user with more privacy related information at the URL that you provide.
 
@@ -179,9 +173,7 @@ You need to provide the image for all screen densities (x1, x2 and x3).
 
 Depending on what you want to display in the banner image, you might need to experiment a bit to make sure that nothing important from the image is hidden. The most important information should be displayed in the centre of the banner image.
 
-#### programName
-
-Expected type: `string`
+#### programName: string
 
 Default value: `"our"`
 
@@ -230,5 +222,5 @@ Properties:
 Properties:
 
 - `message`: An error message explaining more details about the error. It is not localized.
-- `date`: The date and time when the error occurred, expressed as a `String` value. Example value: `2021-05-19T16:34:20.497Z`.
+- `date`: The date and time when the error occurred, expressed as a `string` value. Example value: `2021-05-19T16:34:20.497Z`.
 - `code`.

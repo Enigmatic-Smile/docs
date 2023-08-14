@@ -36,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     private func configureFidel() {
+        // It is recommended to store the SDK key on your backend and retrieve it
+        // before starting to use the SDK.
         Fidel.sdkKey = "Your Fidel SDK Key" //was apiKey
         Fidel.programID = "Your program ID" //was programId
         Fidel.bannerImage = UIImage(named: "fdl_test_banner")

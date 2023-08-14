@@ -4,7 +4,7 @@ The Fidel API SDKs provide a secure way for you to add card-linking capabilities
 
 ## Secure your SDK key
 
-Your SDK key allows you to enroll cards into your program and verify them. That's why it is important for your application to protect it by applying the best secret management practices.
+Your SDK key allows you to enroll cards into your program. That's why it is important for your application to protect it by applying the best secret management practices.
 
 ### Best SDK key management practices
 
