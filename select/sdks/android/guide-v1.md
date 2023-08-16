@@ -60,7 +60,7 @@ implementation 'com.github.FidelLimited:android-sdk:1.7.5'
 - Go to the `Plan` tab and copy your `Test` or `Live` SDK Key.
 - Set your SDK Key in your app:
 
-> Important note: For security reasons, please do not store the SDK Key in your codebase. Follow our [SDK security guide](/docs/stream/sdks/sdk-security-guidelines) for detailed recommendations.
+> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/docs/stream/sdks/sdk-security-guidelines) for detailed recommendations.
 
 ```kotlin
 Fidel.apiKey = yourSdkKey // make sure to store it safely
