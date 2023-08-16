@@ -35,7 +35,7 @@ export default class App extends React.Component {
     ];
 
     Fidel.setup ({
-      sdkKey: 'Your SDK Key', // mandatory
+      sdkKey: yourSdkKey, // mandatory; make sure to store it securely
       programId: 'Your program ID', // mandatory
       programType: Fidel.ProgramType.transactionStream,
       options: {
@@ -186,7 +186,7 @@ Expected type: `string`
 
 The SDK Key is used to authenticate your Fidel API account. Get it from your Fidel API dashboard -> Account Settings -> SDK Keys section.
 
-> Important note: Make sure that you store this key securely (not on the client side).
+> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/docs/stream/sdks/sdk-security-guidelines) for detailed recommendations.
 
 > Note: If you use a **test SDK Key**, your users can only enroll [test card numbers](/docs/stream/cards#test-card-numbers).
 
@@ -381,7 +381,7 @@ Will be called when an enrollment process result is available, during the verifi
 
 ```javascript
 Fidel.setup ({
-      sdkKey: 'Your SDK Key',
+      sdkKey: yourSdkKey, // make sure to store it securely
       programId: 'Your program ID',
       // other properties ...
      }, (result) => {
@@ -492,7 +492,7 @@ A callback set via the `setup` function's `params`. Will be called when the card
 
 ```javascript
 Fidel.setup ({
-    sdkKey: 'Your SDK Key',
+    sdkKey: yourSdkKey, // make sure to store it securely
     programId: 'Your program ID',
     // ... other properties
     onCardVerificationStarted: consentDetails => {
@@ -513,7 +513,7 @@ This is an _experimental_ feature. This callback is set via the `setup` function
 
 ```javascript
 Fidel.setup ({
-    sdkKey: 'Your SDK Key',
+    sdkKey: yourSdkKey, // make sure to store it securely
     programId: 'Your program ID',
     // ... other properties
     onCardVerificationChoiceSelected: verificationChoice => {

@@ -45,10 +45,10 @@ class MainActivity : AppCompatActivity() {
         Fidel.programId = "Your Program ID"
         
         /*
-         * It is recommended to store the SDK key on your backend and retrieve it
-         * before starting to use the SDK.
+         * We recommend storing the SDK key on your server. Please use one of your endpoints to retrieve it 
+         * and then configure the sdkKey property with it.
          */
-        Fidel.sdkKey = "Your SDK key" // previously apiKey
+        Fidel.sdkKey = yourSdkKey // previously apiKey
         // remove Fidel.autoScan
         Fidel.allowedCountries = setOf(Country.CANADA, Country.UNITED_STATES, Country.UNITED_KINGDOM)
         Fidel.supportedCardSchemes = setOf(CardScheme.VISA, CardScheme.MASTERCARD, CardScheme.AMERICAN_EXPRESS)

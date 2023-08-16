@@ -43,11 +43,11 @@ import Fidel from 'fidel-react-native';
 - Go to the `Plan` tab and copy your `Test` or `Live` SDK Key.
 - Set your SDK Key in your app:
 
-> Note: For now, we support calling the `setup` function only once throughout the lifecycle of your app.
+> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/docs/stream/sdks/sdk-security-guidelines) for detailed recommendations.
 
 ```javascript
 Fidel.setup({
-    apiKey: 'Your-SDK-Key',
+    apiKey: yourSdkKey,
 });
 ```
 
@@ -60,7 +60,7 @@ Fidel.setup({
 
 ```javascript
 Fidel.setup ({
-    apiKey: 'Your-SDK-Key',
+    apiKey: yourSdkKey,
     programId: 'Your-program-ID',
 });
 ```
@@ -123,7 +123,7 @@ You should have the SDK set up similar to what you see in the example below:
 
 ```javascript
 Fidel.setup ({
-    apiKey: 'Your-SDK-Key',
+    apiKey: yourSdkKey,
     programId: 'Your-program-ID',
 });
 
