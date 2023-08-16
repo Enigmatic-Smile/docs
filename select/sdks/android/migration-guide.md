@@ -45,7 +45,8 @@ class MainActivity : AppCompatActivity() {
         Fidel.programId = "Your Program ID"
         
         /*
-         * We recommend storing the SDK key on your server. Please use one of your endpoints to retrieve it and then * configure the sdkKey property with it.
+         * We recommend storing the SDK key on your server. Please use one of your endpoints to retrieve it 
+         * and then configure the sdkKey property with it.
          */
         Fidel.sdkKey = yourSdkKey // previously apiKey
         // remove Fidel.autoScan
