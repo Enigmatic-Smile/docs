@@ -1,6 +1,6 @@
 # Transactions
 
-The Fidel API `Transaction` object is the central piece of data in your card-linked application. When a user makes a purchase with a linked card in a program participating brand location, Fidel captures the transaction event in real-time. The Fidel API then sends the data to your server in JSON format through [webhooks](/webhooks).
+The Fidel API `Transaction` object is the central piece of data in your card-linked application. When a user makes a purchase with a linked card in a program participating brand location, Fidel captures the transaction event in real-time. The Fidel API then sends the data to your server in JSON format through [webhooks](/select/webhooks).
 
 One transaction event occurs at authorisation time. The other transaction event occurs when the transaction has cleared. These are two distinct events, and Fidel processes both of them, even if you're not registering webhooks to listen for both event types. Because we bill based on transaction events, and we process both of them, you'll get charged for both of them, regardless of the number or type of webhooks you have registered with Fidel.
 
@@ -159,7 +159,7 @@ If you need the updated information about the original transaction, you can retr
 
 For testing purposes, you can use the [**API Playground**](https://dashboard.fidel.uk/playground) in the Fidel Dashboard test environment to create test transactions and test your application logic. Alternatively, you can use the [Create Test Transaction](https://reference.fidel.uk/reference/create-transaction-test) API endpoint to create authorisation test transaction. You can see an example implementation for creating and clearing test transactions via the API in our [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app/blob/main/server/controllers/transactions.js).
 
-To create a test transaction, you will need a [Program](/programs), a [Location](/locations) and a test [Card](/cards) linked to the program.
+To create a test transaction, you will need a [Program](/select/programs), a [Location](/select/locations) and a test [Card](/select/cards) linked to the program.
 
 ##### Create Test Transactions Using the API
 

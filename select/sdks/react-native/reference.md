@@ -15,7 +15,7 @@ This class is designed as a facade, used to configure the card enrollment proces
 
 These are properties that must be set correctly. In the case where one of these properties are not set or they are set incorrectly, the SDK will return an error immediately via its callback.
 
-> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/docs/stream/sdks/sdk-security-guidelines) for detailed recommendations.
+> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/select/sdks/security-guidelines) for detailed recommendations.
 
 ```javascript
 Fidel.setup ({
@@ -28,9 +28,9 @@ Fidel.setup ({
 
 This key is used to authenticate your Fidel API account. Get it from your Fidel API dashboard -> Account Settings -> SDK Keys section.
 
-> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/docs/stream/sdks/sdk-security-guidelines) for detailed recommendations.
+> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/select/sdks/security-guidelines) for detailed recommendations.
 
-> Note: If you use a **test SDK Key**, your users can only enroll [test card numbers](/docs/select/cards#test-card-numbers).
+> Note: If you use a **test SDK Key**, your users can only enroll [test card numbers](/select/cards/#test-card-numbers).
 
 #### programId: string
 
@@ -137,7 +137,7 @@ Default value: `null`.
 
 This is an object that you can use to associate custom data to an enrolled card.
 
-We advise setting an `id` value for this object. Later, it might be useful for you to use our [List Cards from Metadata ID](https://transaction-stream.fidel.uk/reference/list-cards-from-metadata-id) API Endpoint to query for cards using this ID.
+We advise setting an `id` value for this object. Later, it might be useful for you to use our [List Cards from Metadata ID](https://reference.fidel.uk/reference/list-cards-from-metadata-id) API Endpoint to query for cards using this ID.
 
 Example of meta data that you can set:
 

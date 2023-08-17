@@ -52,7 +52,7 @@ import Fidel from 'fidel-react-native';
 - Go to the `Plan` tab and copy your `Test` or `Live` SDK Key.
 - Set your SDK Key in your app:
 
-> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/docs/stream/sdks/sdk-security-guidelines) for detailed recommendations.
+> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/stream/sdks/security-guidelines) for detailed recommendations.
 
 > Note: For now, we support calling the `setup` function only once throughout the lifecycle of your app.
 
@@ -219,7 +219,7 @@ Fidel.setup({
 
 # Verified enrollment notifications
 
-In order to be notified about different, useful events (a card was linked, card verification started, card verification failed and others) that happen during a verified enrollment process, we recommend using our [webhooks](/docs/stream/webhooks).
+In order to be notified about different, useful events (a card was linked, card verification started, card verification failed and others) that happen during a verified enrollment process, we recommend using our [webhooks](/stream/webhooks).
 
 If client side notifications are useful for your application, make sure to check our SDK callbacks reference documentation.
 
@@ -233,7 +233,7 @@ Fidel.start();
 
 ### Verified card enrollment flow
 
-The following is a short description of the flow that the cardholders will experience, after calling the `start` method. You can take these steps as well to test the verified card enrollment flow, by setting a test SDK Key and by using the Fidel API [test card numbers](/docs/stream/cards#test-card-numbers).
+The following is a short description of the flow that the cardholders will experience, after calling the `start` method. You can take these steps as well to test the verified card enrollment flow, by setting a test SDK Key and by using the Fidel API [test card numbers](/stream/cards/#test-card-numbers).
 
 If your Fidel API account is `live` then cardholders can also enroll real, live cards. Make sure that you set a live SDK Key, in order to allow live verified card enrollments.
 

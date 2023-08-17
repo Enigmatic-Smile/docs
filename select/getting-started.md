@@ -38,9 +38,9 @@ Click on the links below to see how to use the web and mobile SDKs in your appli
   </div>
 </div>
 
-The [Card-Linking tutorial](/tutorials/card-linking) walks you through all the necessary steps to start using the Fidel APIs and SDKs.
+The [Card-Linking tutorial](/select/tutorials/card-linking) walks you through all the necessary steps to start using the Fidel APIs and SDKs.
 
-Follow the links above to access more detailed documentation and integration instructions for the [Web SDK](/web-sdk/v3) and [mobile SDKs](/mobile-sdks), learn how to customize the UI and capture card details securely on your website or mobile applications. Check [Brands](/brands), [Programs](/programs), [Cards](/cards), [Transactions](/transactions) and [Webhooks](/webhooks) sections to get an overview of the Fidel API object structure.
+Follow the links above to access more detailed documentation and integration instructions for the [SDKs](/select/sdks/web/v3), learn how to customize the UI and capture card details securely on your website or mobile applications. Check [Brands](/select/brands), [Programs](/select/programs), [Cards](/select/cards), [Transactions](/select/transactions) and [Webhooks](/select/webhooks) sections to get an overview of the Fidel API object structure.
 
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 
