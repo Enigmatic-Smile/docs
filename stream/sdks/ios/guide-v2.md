@@ -60,7 +60,7 @@ pod update Fidel
 
 #### Manual framework integration
 
-> Info: If you prefer to use Cocoapods, please check our instructions about [integrating the SDK using Cocoapods](#using-cocoapods).
+> Info: If you prefer to use Cocoapods, please check our instructions about integrating the SDK using Cocoapods, above.
 
 - Download the latest version of the `Fidel.xcframework` artefact from the `em` branch of our [GitHub repo](https://github.com/FidelLimited/fidel-ios/tree/em).
 
