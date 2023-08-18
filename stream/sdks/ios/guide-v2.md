@@ -1,10 +1,8 @@
-# A guide for verified card enrollment with the Android SDK
+# A guide for verified card enrollment with the iOS SDK
 
 Our SDK is built to also support other use cases (other than Expense Management). Please take the following steps to integrate and configure the SDK for your Expense Management application.
 
-> Note: All code examples in this guide and other Android SDK pages will be written in Kotlin, but our SDK works well in Java projects as well.
-
-> Note: If an example project helps with your SDK integration & configuration, please check the `em` branch of our [GitHub repository](https://github.com/FidelLimited/fidel-android/tree/em).
+> Note: If an example project helps with your SDK integration & configuration, please check the `em` branch of our [GitHub repository](https://github.com/FidelLimited/fidel-ios/tree/em).
 
 ### 1. Set up your Fidel API account & your Transaction Stream program
 
@@ -12,56 +10,76 @@ To get started, you'll need a Fidel API account. [Sign up](https://dashboard.fid
 
 If you didn't create a program for your application yet, please create a Transaction Stream program from your Fidel API dashboard (or via the API).
 
-### 2. Integrate the Android SDK into your project
+### 2. Integrate the iOS SDK into your project
 
-#### From the remote repository (JitPack)
+#### Using Cocoapods
+> Info: If you prefer *not* to use Cocoapods, please check our instructions about integrating the SDK manually below.
 
-- Add the JitPack repository to your Android project.
-    - If your repositories are declared in your project's `build.gradle` file, add the JitPack repository:
+- Install [CocoaPods](https://cocoapods.org/), if you haven't already.
 
-    ```groovy
-    fileName:build.gradle
-    allprojects {
-        repositories {
-            ...
-            maven { url 'https://jitpack.io' }
-        }
-    }
-    ```
+- If your iOS project does not use Cocoapods (it does not contain a `Podfile` file), run the following command to initialize it:
 
-    - If your project centrally declares repositories, add the JitPack repository in your `settings.gradle` file:
-
-    ```groovy
-    fileName:settings.gradle
-    dependencyResolutionManagement {
-        repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-        repositories {
-            ...
-            maven { url 'https://jitpack.io' }
-        }
-    }
-    ```
-
-- Check what's the latest version of the Fidel API Android SDK in our Releases page.
-
-- Add the latest version of our SDK as a dependency in your app's module `build.gradle` file:
-
-```groovy
-fileName:app/build.gradle
-implementation 'com.github.FidelLimited:android-sdk:2.0.0-beta18'
+```
+pod init
 ```
 
-- In the future, to update to the latest Android SDK version, please update the version in your `app/build.gradle` file and `Sync` your Android project again.
+- Add the following line in your `Podfile`, representing the Fidel API iOS SDK dependency that you're adding to your project:
 
-### 3. Import the Fidel class
+```ruby
+pod 'Fidel', :git => 'https://github.com/FidelLimited/fidel-ios', :branch => 'em'
+```
 
-> Important note: The following SDK configuration steps need to be done as soon as the application has finished launching, so in your main Activity’s `onCreate(savedInstanceState: Bundle?)` function.
+Your `Podfile` should have a structure similar to the following:
+```ruby
+fileName:Podfile
+platform :ios, '14'
 
-In your main `Activity` and in other places where you'd want to use the Fidel API Android SDK, please import the SDK's entry point, the `Fidel` class:
+target 'YouriOSTarget' do
+    use_frameworks!
 
-```kotlin
-fileName:MainActivity.kt
-import com.fidelapi.Fidel
+    pod 'Fidel', :git => 'https://github.com/FidelLimited/fidel-ios', :branch => 'em'
+    # ... other pods, if you're using Cocoapods already
+end
+```
+
+- Run the following command to install the Fidel API iOS SDK dependency:
+
+```
+pod install
+```
+
+- To start working with the Fidel API iOS SDK in your project, from now on, please don't forget to open your project's `.xcworkspace` file, not the `.xcodeproj` file. The `.xcworkspace` file is created by Cocoapods, when running the previous command.
+
+- In the future, to update to the latest iOS SDK version, please run:
+
+```
+pod update Fidel
+```
+
+> Note: For information about all the Fidel API iOS SDK versions, that were used by expense management applications, please check our Releases page.
+
+#### Manual framework integration
+
+> Info: If you prefer to use Cocoapods, please check our instructions about integrating the SDK using Cocoapods, above.
+
+- Download the latest version of the `Fidel.xcframework` artefact from the `em` branch of our [GitHub repo](https://github.com/FidelLimited/fidel-ios/tree/em).
+
+- Open your iOS app project in Xcode.
+
+- Right click on your project and then on the `Add Files to "YourProjectName"...` button.
+
+- Select the `Fidel.xcframework` artefact. Make sure to select the `Copy items if needed` option.
+
+- In the future, to update to the latest version of our SDK, repeat the previous steps.
+
+### 3. Import the SDK module
+
+> Important note: The following SDK configuration steps need to be done as soon as the application has finished launching (usually in the `application(_:didFinishLaunchingWithOptions:)` method in the object that implements the `AppDelegate` protocol)
+
+In the Swift class that you want to use the SDK, please import our SDK module:
+
+```swift
+import Fidel
 ```
 
 ### 4. Set your SDK Key
@@ -71,10 +89,10 @@ import com.fidelapi.Fidel
 - Go to the `Plan` tab and copy your `Test` or `Live` SDK Key.
 - Set your SDK Key in your app:
 
-> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/docs/stream/sdks/sdk-security-guidelines) for detailed recommendations.
+> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/stream/sdks/security-guidelines) for detailed recommendations.
 
-```kotlin
-Fidel.sdkKey = // set your SDK Key
+```swift
+Fidel.sdkKey = // Set your SDK key
 ```
 
 ### 5. Set your Program ID
@@ -84,16 +102,16 @@ Fidel.sdkKey = // set your SDK Key
 - Click on the `Program ID` of the program that you want to enroll cards into. The program ID will be copied to your pasteboard.
 - Set your Program ID in your app:
 
-```kotlin
-Fidel.programId = "Your-Program-ID"
+```swift
+Fidel.programID = "Your-Program-ID"
 ```
 
 ### 6. Set the program type
 
 For your Expense Management application you'll need to use a Transaction Stream program, so please set:
 
-```kotlin
-Fidel.programType = ProgramType.TRANSACTION_STREAM
+```swift
+Fidel.programType = .transactionStream
 ```
 
 ### 7. Configure the cardholder consent management feature
@@ -102,71 +120,63 @@ Asking for consent from the cardholder to enroll the card in your program is an 
 
 #### Set your company name
 
-```kotlin
+```swift
 Fidel.companyName = "Your Company Name"
 ```
 
 #### Set your terms and conditions
 
-```kotlin
-Fidel.termsAndConditionsUrl = "https://yourwebsite.com/terms"
+```swift
+Fidel.termsAndConditionsURL = "https://yourwebsite.com/terms"
 ```
 
 #### Explain how the cardholder can opt out (optional, but recommended)
 
 Please inform the cardholder about how to opt out of transaction monitoring in your program.
 
-```kotlin
+```swift
 Fidel.deleteInstructions = "how can the cardholder opt out"
 ```
 
 #### Set your privacy policy (optional, but recommended)
 
-```kotlin
-Fidel.privacyPolicyUrl = "https://yourwebsite.com/privacy-policy"
+```swift
+Fidel.privacyPolicyURL = "https://yourwebsite.com/privacy-policy"
 ```
 
 ### 8. Set the allowed country(ies) of card issuance
 
 During card enrollment process, the cardholder needs to select the country where the card was issued. Expense Management use cases can be activated only for cards issued in the **United States**, **Canada** and **United Kingdom**. Please configure the SDK with the following allowed countries or a subset of these countries, depending on the countries where your application is available. If the subset contains a single country, the cardholders will not need to pick the country. The country that you set will be the default country of issue for the cards that are enrolled in your program.
 
-```kotlin
-Fidel.allowedCountries = setOf(Country.CANADA, Country.UNITED_KINGDOM, Country.UNITED_STATES)
+```swift
+Fidel.allowedCountries = [.unitedStates, .unitedKingdom, .canada]
 ```
 
 ### 9. Set Visa as the only supported card scheme
 
 For Expense Management applications, for now, only Visa card schemes are supported. Please configure the SDK with the following property:
 
-```kotlin
-Fidel.supportedCardSchemes = setOf(CardScheme.VISA)
-```
-
-### 10. Communicate your main activity's creation
-
-To handle incomplete card verifications, add the following line in the `onCreate(savedInstanceState: Bundle?)` function, after you finished all the configuration steps from above.
-
-```kotlin
-Fidel.onMainActivityCreate(this)
+```swift
+Fidel.supportedCardSchemes = [.visa]
 ```
 
 # Verified enrollment notifications
 
-In order to be notified about different, useful events (a card was linked, card verification started, card verification failed and others) that happen during a verified enrollment process, we recommend using our [webhooks](/docs/stream/webhooks).
+In order to be notified about different, useful events (a card was linked, card verification started, card verification failed and others) that happen during a verified enrollment process, we recommend using our [webhooks](/stream/webhooks).
 
-If client side notifications are useful for your application, make sure to check our SDK callbacks reference documentation.
+If client side notifications are useful for your application, make sure to check our SDK callbacks Reference documentation.
 
 # Enroll and verify a card
 
-Call the `Fidel.start` function to open the UI and start a verified card enrollment process:
+Call the following function to open the UI and start a verified card enrollment process:
 
-```kotlin
-Fidel.start(context)
+```swift
+Fidel.start(from: yourViewController)
 ```
 
 ### Verified card enrollment flow
 
-The following is a short description of the flow that the cardholders will experience, after calling the `Fidel.start` method. You can take these steps as well to test the verified card enrollment flow, by setting a test SDK Key and by using the Fidel API [test card numbers](/docs/stream/cards#test-card-numbers).
+The following is a short description of the flow that the cardholders will experience, after calling the `start` method. You can take these steps as well to test the verified card enrollment flow, by setting a test SDK Key and by using the Fidel API [test card numbers](/stream/cards/#test-card-numbers).
 
 If your Fidel API account is `live` then cardholders can also enroll real, live cards. Make sure that you set a live SDK Key, in order to allow live verified card enrollments.
 
@@ -196,7 +206,7 @@ If the cardholder enrolls a card, but does not complete the verification journey
 - The cardholder attempts to enroll a (new) card (your app calls the `Fidel.start` method, as indicated above)
 - Your application is relaunched
 
-> Important note: To make sure that the cardholder completes the card verification process, as described above, you must configure the SDK as soon as the app launches, i.e. in the `onCreate(savedInstanceState: Bundle?)` function of your main `Activity`.
+> Important note: To make sure that the cardholder completes the card verification process, as described above, you must configure the SDK as soon as the app launches, i.e. in the `application(_:didFinishLaunchingWithOptions:)` method in the object that implements the `AppDelegate` protocol.
 
 > How this is done: The SDK knows when to resume card verification, because it stores the card ID (and other useful information) securely on the device. When your application is re-launched, we check if there is an unverified card ID saved. If there is, we'll open the card verification flow.
 
@@ -215,7 +225,7 @@ Please follow all the steps written above to integrate the SDK and configure it 
 
 The following property set to `true` will give the choice to the cardholder to either verify the card on the spot or delegate it to a third-party entity. That depends on wether they have access to the card statement or not.
 
-```kotlin
+```swift
 Fidel.thirdPartyVerificationChoice = true
 ```
 
@@ -223,17 +233,20 @@ Fidel.thirdPartyVerificationChoice = true
 
 If the cardholder has access to the card statement, verification will possibly be completed on the spot. If not, you can call the following function for the third-party entity to complete the card verification process:
 
-```kotlin
+```swift
 // Create the configuration for card verification
-val cardVerificationConfiguration = CardVerificationConfiguration(
-    id = "the-card-to-be-verified",
-    consentId = "the-consent-id-of-the-card-to-be-verified",
-    last4Digits = "7890",
+let corporateCardVerificationConfiguration = CardVerificationConfiguration(
+    cardID: "the-enrolled-card-id",
+    consentID: "the-consent-id-obtained-when-card-verification-started",
+    last4Digits: "7890"
 )
 
-// Start card verification from your context, 
+// Start card verification from your view controller, 
 // using the configuration you created
-Fidel.verifyCard(context, cardVerificationConfiguration)
+Fidel.verifyCard(
+    from: viewController,
+    cardVerificationConfiguration: corporateCardVerificationConfiguration
+)
 ```
 
 For more details about this method, please check the Reference docs of the `Fidel.verifyCard` function and its parameters.
@@ -246,17 +259,16 @@ Please check our SDK Reference for details about any other SDK properties that m
 
 # Frequently asked questions
 
-### How can I upgrade the Android SDK to the latest version?
+### How can I upgrade the iOS SDK to the latest version?
 
-- Check what's the latest version of the Fidel API Android SDK in our Releases documentation page.
+If you integrated the Fidel API iOS SDK into your project using Cocoapods, please run:
 
-- Add the latest version of our SDK as a dependency in your app's module `build.gradle` file:
+`pod update Fidel`
 
-```groovy
-fileName:app/build.gradle
-implementation 'com.github.FidelLimited:android-sdk:{latestFidelSDKVersion}'
-```
+from the folder where your `Podfile` is stored.
 
-### Can I customize the UI of the Android SDK?
+If you integrated the SDK manually, please repeat all the steps from the manual framework integration section.
 
-The Android SDK offers the `bannerImage` property for you to set a custom, branded banner image that will be displayed during the card enrollment process. Please check our Reference documentation for more details.
+### Can I customize the UI of the iOS SDK?
+
+The iOS SDK offers the `bannerImage` property for you to set a custom, branded banner image that will be displayed during the card enrollment process. Please check our Reference documentation for more details.

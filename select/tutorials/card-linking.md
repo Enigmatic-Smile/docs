@@ -99,7 +99,7 @@ function App() {
             </div>
             <div className="md:flex flex-col md:flex-row md:-mx-4">
               <a
-                href="https://fidel.uk/docs/web-sdk"
+                href="https://fidel.uk/docs/select/sdks/web/v3"
                 className="my-1 hover:text-gray-800 text-blue-700 md:mx-4 md:my-0"
               >
                 Documentation ↗
@@ -255,7 +255,7 @@ Because you've added the `PORT` environment variable, your application will now 
 
 ### Test Card Numbers
 
-Because you're using the Test SDK key in your application, you won't be able to link a real card in the SDK. There are a few options for test card numbers available in the [documentation](https://fidel.uk/docs/cards/#test-card-numbers). You can add a test Visa card, for example, by using the card number `4444 0000 0000 4001` and set an expiration date in the future, with a participating country of issue from the dropdown.
+Because you're using the Test SDK key in your application, you won't be able to link a real card in the SDK. There are a few options for test card numbers available in the [documentation](/select/cards/#test-card-numbers). You can add a test Visa card, for example, by using the card number `4444 0000 0000 4001` and set an expiration date in the future, with a participating country of issue from the dropdown.
 
 Congratulation, you have successfully added the ability to register cards to your React application and used it to link your first card on the Fidel platform!
 
@@ -572,7 +572,7 @@ Congratulations, you can now display incoming transactions from Fidel!
 
 ## Simulate Transactions
 
-Because you're using a Test Fidel key, and because you're using test cards, you won't receive live transactions. There are [different ways you can simulate test transactions](https://fidel.uk/docs/transactions/#test-transactions) on the Fidel platform thought to test this tutorial. One of the simplest ones is to use the [API Playground](https://dashboard.fidel.uk/playground) in the Fidel Dashboard. Go in there and use the `transactions /create` endpoint to create a few different transactions. If you create one with a positive amount, followed by one with a similar but negative amount, it will be matched as a refunded transaction. This way, you'll get to experience all three transaction statuses in the UI. Because you've set up the webhook endpoints already, all transactions you create are passed from Fidel to your ngrok URL, to your local server and then to your React client via socket.io. You should see them showing up in the UI, similar to this.
+Because you're using a Test Fidel key, and because you're using test cards, you won't receive live transactions. There are [different ways you can simulate test transactions](/select/transactions/#test-transactions) on the Fidel platform thought to test this tutorial. One of the simplest ones is to use the [API Playground](https://dashboard.fidel.uk/playground) in the Fidel Dashboard. Go in there and use the `transactions /create` endpoint to create a few different transactions. If you create one with a positive amount, followed by one with a similar but negative amount, it will be matched as a refunded transaction. This way, you'll get to experience all three transaction statuses in the UI. Because you've set up the webhook endpoints already, all transactions you create are passed from Fidel to your ngrok URL, to your local server and then to your React client via socket.io. You should see them showing up in the UI, similar to this.
 
 ![Card-Linked Application Demo](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/tutorial-card-linking.png "Card-Linked Application Demo")
 

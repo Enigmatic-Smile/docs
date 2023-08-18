@@ -90,7 +90,7 @@ When a currency balance drops to _25%_ of the balance amount you had on your las
 
 ### Low Balance Webhook
 
-The `credits.balance.low` webhook notifies on the _[Low Balance Notification](https://fidelapi.com/docs/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
+The `credits.balance.low` webhook notifies on the _[Low Balance Notification](/select/reimbursement/#low-balance-notification)_ event that happens when the credits balance is running low. Use this webhook to automate credit purchases on your end without the risk of service disruption due to insufficient balance. See the example below with the webhook object triggered by the low USD balance:
 
 ```json
 fileName:credits-balance.json
@@ -259,7 +259,7 @@ The `status` property represents the possible reimbursement statuses:
 
 - `issued`: scheme executed request successfully;
 
-- `failed`: scheme request failed and `error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement#errors).
+- `failed`: scheme request failed and `error` object is created. Retry is possible. [See error list for more information](/select/reimbursement#errors).
 
 ## Reimbursement by card
 
@@ -303,7 +303,7 @@ Automate reimbursement requests when creating an Offer by toggling the “enable
 
 Reimbursements will be automatically requested whenever a transaction **is both cleared and qualified** for an Offer with `offer.automatedReimbursement.enabled` set to `true`. Optionally, it's also possible to include a Description for the Reimbursement using the `offer.automatedReimbursement.description`.
 
-Read more information on the Offers product [in the documentation page](https://fidelapi.com/docs/offers).
+Read more information on the Offers product [in the documentation page](/select/offers).
 
 ### Tracking before issuing
 
@@ -356,7 +356,7 @@ fileName:offer-automated-reimbursement.json
 
 ### Failed automated reimbursements
 
-Automated reimbursement requests can fail – e.g.: account does not have enough credits, transient issue or transaction is not reimbursement eligible (see [Eligibility](https://fidelapi.com/docs/reimbursement#eligibility) section). In these cases, they can be retried as described in the [Retry](https://fidelapi.com/docs/reimbursement#retry) section.
+Automated reimbursement requests can fail – e.g.: account does not have enough credits, transient issue or transaction is not reimbursement eligible (see [Eligibility](/select/reimbursement#eligibility) section). In these cases, they can be retried as described in the [Retry](/select/reimbursement#retry) section.
 
 ## Webhook
 
@@ -392,7 +392,7 @@ Reimbursement requests can be retried via API or dashboard.
 
 ### API Errors
 
-These errors might be returned in the [request](https://fidelapi.com/docs/reimbursement/#request) endpoint.
+These errors might be returned in the [request](/select/reimbursement/#request) endpoint.
 
 <ReimbursementTable
 headings={['HTTP Status Code', 'Error Code', 'Error Message']}

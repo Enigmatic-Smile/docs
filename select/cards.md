@@ -4,7 +4,7 @@ Payment cards are the cornerstone of Fidel APIs. You can receive Fidel Transacti
 
 After the card is linked successfully, we will monitor any purchase made by this card at any of the program’s physical or online locations. The transaction object will be sent to a webhook URL specified by you.
 
-Developers can use [our APIs](https://reference.fidel.uk/reference/create-card) or SDKs - we have [JavaScript](/web-sdk/v3), [Android, iOS and ReactNative SDKs](/mobile-sdks) - to register debit or credit cards on the Fidel platform, link them to a [Program](/programs) and start receiving transaction made with the card in the Program locations.
+Developers can use [our APIs](https://reference.fidel.uk/reference/create-card) or SDKs - we have [JavaScript](/select/sdks/web/v3), [Android](/select/sdks/android/guide-v2), [iOS](/select/sdks/ios/guide-v2) and [React Native](/select/sdks/react-native/guide) SDKs - to register debit or credit cards on the Fidel platform, link them to a [Program](/select/programs) and start receiving transaction made with the card in the Program locations.
 
 ## Test Card Numbers
 
@@ -38,7 +38,7 @@ The `/delete` Card endpoint works similarly, with the difference being that you 
 
 ### SDKs
 
-We recommend you use the secure and PCI compliant [Web SDK](/web-sdk/v3) or [Mobile SDKs](/mobile-sdks) to create Cards in the Fidel environments. The SDKs work in both the live and test environment and use your SDK key. You can find your SDK keys (Live and Test) in your [Dashboard Account Settings](https://dashboard.fidel.uk/account/plan).
+We recommend you use the secure and PCI compliant [SDKs](/select/sdks/web/v3) to create Cards in the Fidel environments. The SDKs work in both the live and test environment and use your SDK key. You can find your SDK keys (Live and Test) in your [Dashboard Account Settings](https://dashboard.fidel.uk/account/plan).
 
 All our SDKs require a user to enter their card number and expiry date, along with the country of issue for the card. The SDKs won't require the CVV number, and will not make any active card checks against the cards. The SDKs will pre-populate the `countryCode` and the `programId` of the Program you want to link the card to. The card numbers are tokenised and transmitted directly from our secure pre-built SDKs to our API on submission. This way, your servers are never exposed to sensitive information, removing all PCI compliance requirements for you.
 

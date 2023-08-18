@@ -472,7 +472,7 @@ There are three additional transaction webhook events: `transaction.auth.qualifi
 
 `transaction.auth.qualified` and `transaction.clearing.qualified` events are triggered only if transactions they are inside of the offer's period and pass the set of rules defined in the offer. `transaction.refund.qualified` events might be emitted even when the offer has expired due to the complex matching logic of the refund to the original transaction.
 
-The payload for these events includes the `offer` object with the results of the qualification, and you can read more about it in the [Offers API](/offers/#transaction-qualification) documentation.
+The payload for these events includes the `offer` object with the results of the qualification, and you can read more about it in the [Offers API](/select/offers/#transaction-qualification) documentation.
 
 ```json
 "offer": {
@@ -501,7 +501,7 @@ curl -X POST \
 
 `reimbursement.pending`, `reimbursement.issued`, `reimbursement.failed` events are triggered when a reimbursement changes state. The `reimbursement.pending` when the new state is `pending`, `reimbursement.issued` when a new state is `issued`, and `reimbursement.failed` when a new state is `failed`
 
-The payload for these events includes the `reimbursement` object with the up-to-date status. Read more about it in the [Reimbursement page](/reimbursement/#webhook).
+The payload for these events includes the `reimbursement` object with the up-to-date status. Read more about it in the [Reimbursement page](/select/reimbursement/#webhook).
 
 ```json
 {
@@ -520,7 +520,7 @@ The payload for these events includes the `reimbursement` object with the up-to-
 
 ### Credits
 
-Fidel Credits can be used to reimburse cardholders. Learn more about Fidel Credits on the [Reimbursement page](/reimbursement/#credits) A `credits.balance.low` event is sent when a currency's credit balance drops below 25% of the amount at the time of the previous credits purchase. The payload for these events is the following:
+Fidel Credits can be used to reimburse cardholders. Learn more about Fidel Credits on the [Reimbursement page](/select/reimbursement/#credits) A `credits.balance.low` event is sent when a currency's credit balance drops below 25% of the amount at the time of the previous credits purchase. The payload for these events is the following:
 
 ```json
 {

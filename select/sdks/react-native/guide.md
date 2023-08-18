@@ -43,7 +43,7 @@ import Fidel from 'fidel-react-native';
 - Go to the `Plan` tab and copy your `Test` or `Live` SDK Key.
 - Set your SDK Key in your app:
 
-> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/docs/stream/sdks/sdk-security-guidelines) for detailed recommendations.
+> Important note: For security reasons, please DO NOT store the SDK Key in your codebase. Follow our [SDK security guide](/select/sdks/security-guidelines) for detailed recommendations.
 
 ```javascript
 Fidel.setup({
@@ -154,7 +154,7 @@ Fidel.openForm((error, result) => {
   }
 });
 ```
-You can test the card enrollment flow, by setting a test SDK Key and by using the Fidel API [test card numbers](/docs/select/cards#test-card-numbers).
+You can test the card enrollment flow, by setting a test SDK Key and by using the Fidel API [test card numbers](/select/cards/#test-card-numbers).
 
 If your Fidel API account is `live` then cardholders can also enroll real, live cards. Make sure that you set a live SDK Key, in order to allow live card enrollments.
 

@@ -47,9 +47,9 @@ Check out the [API Reference](https://reference.fidel.uk) to see all available r
 
 ## Card Linking
 
-The [iOS](/mobile-sdks/#ios), [Android](/mobile-sdks/#android) and [Web](/web-sdk/v3) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
+The [iOS](/select/sdks/ios/guide-v2), [Android](/select/sdks/android/guide-v2), [React Native](/select/sdks/react-native/guide) and [Web](/select/sdks/web/v3) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
-By using Fidel API SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements. [Our Card-Linking tutorial](/tutorials/card-linking) explains in detail all the steps required to build a card-linking feature into your application using the Fidel API SDKs.
+By using Fidel API SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements. [Our Card-Linking tutorial](/select/tutorials/card-linking) explains in detail all the steps required to build a card-linking feature into your application using the Fidel API SDKs.
 
 Your apps will receive an `id` back that identifies the card in each transaction.
 
@@ -61,12 +61,12 @@ Your apps will receive an `id` back that identifies the card in each transaction
   />
 </div>
 
-<button id="link-card-button" class="with-icon" type="submit" onClick={() => window.location.href = "/docs/web-sdk/v3/#web-sdk-codepen"}>
+<button id="link-card-button" class="with-icon" type="submit" onClick={() => window.location.href = "/docs/select/sdks/web/v3/#web-sdk-codepen"}>
 <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/eye.svg" />
 <span>View demo</span>
 </button>
 
-Use one of our [test card](/cards/#testing-card-numbers) numbers (for example `4444000000004004`) and enter an expiry date in the future.
+Use one of our [test card](/select/cards/#test-card-numbers) numbers (for example `4444000000004004`) and enter an expiry date in the future.
 
 ##### Web SDK integration script
 
@@ -89,13 +89,13 @@ fileName:index.html
 ></script>
 ```
 
-Check the [Web SDK documentation](/web-sdk/v3) section for more information about all available parameters, customization options, and the metadata nested object.
+Check the [Web SDK documentation](/select/sdks/web/v3) section for more information about all available parameters, customization options, and the metadata nested object.
 
 ## Transaction Life Cycle
 
 To understand how the Transaction Select API works and the data it provides to you, it’s important to understand the authorization processes and fund movements that happen when a cardholder makes a purchase.
 
-### [Authorization, clearing](/transactions/#transaction-event-types)
+### [Authorization, clearing](/select/transactions/#transaction-event-types)
 
 When a cardholder uses a credit or debit card to make a purchase, the funds are not immediately transferred to the merchant’s account. There are two important events that need to happen for the funds to be transferred: authorization and clearing. Here’s how these events occur:
 

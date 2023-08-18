@@ -94,7 +94,7 @@ curl -X POST \
 }'
 ```
 
-Once the sync process is initiated, the Location status is updated to _Syncing_. It then moves to _Active_ when we receive confirmation from the card networks that the location has been successfully on-boarded to your program. If the card networks have an issue with a specific location, the status is set to _Not found_ and a case is opened to resolve the issue. You can also activate a [Virtual Card](/locations#virtual-cards) in your account, and use that to link a transaction to the location.
+Once the sync process is initiated, the Location status is updated to _Syncing_. It then moves to _Active_ when we receive confirmation from the card networks that the location has been successfully on-boarded to your program. If the card networks have an issue with a specific location, the status is set to _Not found_ and a case is opened to resolve the issue. You can also activate a [Virtual Card](/select/locations#virtual-cards) in your account, and use that to link a transaction to the location.
 
 While your locations are syncing you have a progress bar to follow the current status and estimated finish time.
 

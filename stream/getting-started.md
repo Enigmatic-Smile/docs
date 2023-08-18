@@ -126,11 +126,11 @@ When linking a Fidel API test card, type in `$0.67` for verification.
 
 ### Get API keys
 
-On the [Account page](https://dashboard.fidel.uk/account) you will find two SDK and two API keys. The SDK keys are used to link the web and mobile SDKs to your account and the API keys enable you to access the API endpoints directly. Use the test keys to access the [test environment](/stream/test-mode-and-live-mode#test-mode) data, and live keys to access the [live environment](/stream/test-mode-and-live-mode#live-mode) data.
+On the [Account page](https://dashboard.fidel.uk/account) you will find two SDK and two API keys. The SDK keys are used to link the web and mobile SDKs to your account and the API keys enable you to access the API endpoints directly. Use the test keys to access the [test environment](/stream/test-and-live-modes/#test-mode) data, and live keys to access the [live environment](/stream/test-and-live-modes/#live-mode) data.
 
 Note that due to security reasons, **the secret API key should not be used in a mobile application or a front-end web app**.
 
-When you're ready to [go live](/stream/test-mode-and-live-mode#the-go-live-process) with your integration and test with credit/debit cards, you can request access to the live keys by clicking the **Upgrade to go live** button at the bottom left of the dashboard.
+When you're ready to [go live](/stream/test-and-live-modes#the-go-live-process) with your integration and test with credit/debit cards, you can request access to the live keys by clicking the **Upgrade to go live** button at the bottom left of the dashboard.
 
 ### Create a Test Transaction with the API
 
@@ -152,13 +152,13 @@ curl -X POST \
 
 You can use the web and mobile SDKs to link your user's card to your program without having to implement additional security measures on your server-side code. The [tutorial](doc:tutorial) walks you through the necessary steps to start using the APIs and SDKs.
 
-Learn how to use the [web](/stream/web-sdk/v3) and [mobile](/stream/mobile-sdks) SDKs in your applications, how to customize the UI and capture card details securely on your website or mobile applications.
+Learn how to use the [SDKs](/stream/sdks/web/v3) in your applications, how to customize the UI and capture card details securely on your website or mobile applications.
 
 Check the [Programs](/stream/programs), [Cards](/stream/cards), [Transactions](/stream/transactions) and [Webhooks](/stream/webhooks) sections to get an overview of the Transaction Stream API object structure.
 
 ## Learn More
 
 - Read more about the objects of the platform: [Programs](/stream/programs), [Cards](/stream/cards), [Transactions](/stream/transactions) and [Webhooks](/stream/webhooks)
-- Walk through our [tutorial](/stream/tutorial) to start using the APIs and SDKs
-- Learn about the [web](/stream/web-sdk/v3) and [mobile](/stream/mobile-sdks) SDKs
+- Walk through our [tutorial](/stream/tutorials/card-linking) to start using the APIs and SDKs
+- Learn about the [SDKs](/stream/sdks/web/v3)
 - Check out the [API reference docs](https://transaction-stream.fidel.uk/reference/introduction-1)

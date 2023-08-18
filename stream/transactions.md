@@ -6,7 +6,7 @@ This page explains how transactions can be collected and processed with the Fide
 
 ## Transaction Event Types
 
-In the [life cycle of a transaction](https://fidelapi.com/docs/stream/#transaction-life-cycle), there are multiple transaction events. One transaction event occurs at authorization time. Another transaction event occurs when the transaction has cleared, meaning the funds were successfully moved. If a payment gets reimbursed, that results in a third event. These are distinct events, and Fidel API processes all of them, even if you're not registering webhooks to listen for all event types.
+In the [life cycle of a transaction](/stream/#transaction-life-cycle), there are multiple transaction events. One transaction event occurs at authorization time. Another transaction event occurs when the transaction has cleared, meaning the funds were successfully moved. If a payment gets reimbursed, that results in a third event. These are distinct events, and Fidel API processes all of them, even if you're not registering webhooks to listen for all event types.
 
 Fidel API currently supports three types of transactions: authorization transactions, clearing transactions and refund transactions.
 
