@@ -95,7 +95,7 @@ function App() {
                     </div>
                     <div className="md:flex flex-col md:flex-row md:-mx-4">
                         <a
-                        href="https://fidel.uk/docs/web-sdk"
+                        href="https://fidel.uk/docs/select/sdks/web/v3"
                         className="my-1 hover:text-gray-800 text-blue-700 md:mx-4 md:my-0"
                         >
                         Documentation ↗

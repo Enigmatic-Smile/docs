@@ -259,7 +259,7 @@ The `status` property represents the possible reimbursement statuses:
 
 - `issued`: scheme executed request successfully;
 
-- `failed`: scheme request failed and `error` object is created. Retry is possible. [See error list for more information](https://fidel.uk/docs/reimbursement#errors).
+- `failed`: scheme request failed and `error` object is created. Retry is possible. [See error list for more information](/select/reimbursement#errors).
 
 ## Reimbursement by card
 
