@@ -1,5 +1,10 @@
 # React Native SDK v2 Releases
 
+## 2.0.0
+
+- We have released all the changes to the SDK from the beta track as a new major stable version.
+  After months of rigorous testing, we are confident that Transaction Stream SDK is ready to empower your projects so you can create more valuable, engaging experiences for your customers.
+
 ## 2.0.0-beta14
 
 - Card scanning is no longer supported. 

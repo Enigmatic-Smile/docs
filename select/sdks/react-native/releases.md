@@ -1,3 +1,19 @@
+# React Native SDK v2 Releases
+
+## 2.0.0
+- Renamed the `apiKey` property to `sdkKey`.
+- Added the `programType` property to specify the program type that you'll use in your app. This property determines the card enrollment flow that the SDK presents.
+- Removed the `Fidel.setOptions` function. All SDK properties are now being set via the `Fidel.setup` function. Please check our Reference documentation to see a complete list of the SDK properties.
+- The `privacyUrl` property has been renamed to `privacyPolicyUrl`.
+- The `termsConditionsUrl` has been renamed to `termsAndConditionsUrl`.
+- The `Fidel.openForm` function has been renamed to `Fidel.start`. The callback parameter of this function has been moved. It is now the second parameter of the `Fidel.setup` function. The callback received results also have changed. Please check our reference documentation for more details.
+- Removed the card scanning feature of the SDK as it was not working well. That's why we also removed the `autoScan` SDK property.
+- Added support for cards issued in Norway, so you can add the `Fidel.Country.norway` to your `allowedCountries` array.
+- For the Android library:
+   1. It does not use `jCenter()` repository anymore, but `mavenCentral()`.
+   2. Updated `targetSdkVersion` version to `32`.
+- Added a lot of new features for our Transaction Stream product, which requires card verification. These features are not useful for Select Transactions/Loyalty use cases. Please check the Transaction Stream documentation for more details.
+
 # React Native SDK v1 Releases
 
 ## 1.6.4

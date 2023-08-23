@@ -17,9 +17,6 @@ import Fidel, { ENROLLMENT_RESULT, ERROR, VERIFICATION_RESULT } from 'fidel-reac
 export default class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      isShown: true,
-    };
     this.configureFidel();
   }
 
@@ -178,7 +175,7 @@ As you can see in the example above, all properties are set via the `setup` func
 
 ### Mandatory properties
 
-These are properties that must be set correctly. In the case where one of these properties are not set or they are set incorrectly, the SDK will return an error in the [`onResult`](#onresult) callback (of type: [`FidelErrorType.sdkConfigurationError`](#enum-fidelerrortype)).
+These are properties that must be set correctly. In the case where one of these properties are not set or they are set incorrectly, the SDK will return an error in the [`main results callback`](#main-results-callback) callback (of type: `Fidel.ErrorType.sdkConfigurationError`).
 
 #### sdkKey
 
@@ -238,7 +235,7 @@ If you provide a value for this parameter, the card enrollment consent text will
 
 When the value of this parameter remains `nil` no such phrase will be displayed in the card enrollment consent text.
 
-If you provide an invalid URL string, you will not be able to start the card enrollment flow. Instead you will receive an error in the [`onResult`](#onresult) callback ([`FidelErrorType.sdkConfigurationError`](#enum-fidelerrortype)), immediately after attempting to start the verified card enrollment flow.
+If you provide an invalid URL string, you will not be able to start the card enrollment flow. Instead you will receive an error in the [`main results callback`](#main-results-callback) callback (`Fidel.ErrorType.sdkConfigurationError`), immediately after attempting to start the verified card enrollment flow.
 
 #### options.supportedCardSchemes
 
@@ -250,7 +247,7 @@ Default value: `[Fidel.CardScheme.visa, Fidel.CardScheme.mastercard, Fidel.CardS
 
 Sets a list of supported card schemes. If a card scheme is supported, cardholders will be able to enroll and verify their card. If a card scheme is not in the list, then the cardholders will see an error message while typing or pasting the unsupported card number.
 
-If you set a `null` value, you will not be able to start the Fidel SDK verified enrollment flow. In this case, immediately after attempting to start the flow, you will receive an error in the [`onResult`](#onresult) callback (of type: [`FidelErrorType.sdkConfigurationError`](#enum-fidelerrortype)).
+If you set a `null` value, you will not be able to start the Fidel SDK verified enrollment flow. In this case, immediately after attempting to start the flow, you will receive an error in the [`main results callback`](#main-results-callback) callback (of type: `Fidel.ErrorType.sdkConfigurationError`).
 
 #### options.allowedCountries
 
@@ -262,7 +259,7 @@ Sets the list of countries that cardholders can pick to be the card issuing coun
 
 If you set a value with only one country, the country selection UI will not be displayed in the card enrollment screen. The country that you set will be considered the card issuing country for all cards enrolled in your Fidel API program using the SDK.
 
-If you set an empty value, you will not be able to start the verified enrollment flow. Instead you will receive an error in the main [`callback`](#main-callback) ([`Fidel.ErrorType.sdkConfigurationError`](#enum-fidelerrortype)), immediately after the attempt to start.
+If you set an empty value, you will not be able to start the verified enrollment flow. Instead you will receive an error in the main [`callback`](#main-results-callback) (`Fidel.ErrorType.sdkConfigurationError`), immediately after the attempt to start.
 
 > Important: For Expense Management use cases via Transaction Stream programs, please set only a subset of the following countries: `Fidel.Country.unitedKingdom`, `Fidel.Country.unitedStates`, `Fidel.Country.canada`, as these are the only supported countries.
 
@@ -410,6 +407,8 @@ The results are objects received in the main callback of the SDK after specific 
 - `enrollmentResult`. An object that is defined only when the `type` property is `ENROLLMENT_RESULT`. Please check this object's properties below.
 
 - `verificationResult`. An object that is defined only when the `type` property is `VERIFICATION_RESULT`. The only property of this object is `cardId`, representing the card identifier for which verification was completed.
+
+- `error`. An object that is defined only when the `type` property is `ERROR`. Please check this object's properties below.
 
 #### Enrollment result object
 
