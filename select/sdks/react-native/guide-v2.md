@@ -47,7 +47,7 @@ import Fidel from 'fidel-react-native';
 
 ```javascript
 Fidel.setup({
-    apiKey: yourSdkKey,
+    sdkKey: yourSdkKey,
 });
 ```
 
@@ -60,7 +60,7 @@ Fidel.setup({
 
 ```javascript
 Fidel.setup ({
-    apiKey: yourSdkKey,
+    sdkKey: yourSdkKey,
     programId: 'Your-program-ID',
 });
 ```
@@ -74,8 +74,12 @@ You can use the `setOptions` function to set the following properties:
 #### Set your company name
 
 ```javascript
-Fidel.setOptions ({
-    companyName: 'Your Company Name',
+Fidel.setup ({
+    sdkKey: yourSdkKey,
+    programId: 'Your-program-ID',
+    consentText: {
+        companyName: 'Your Company Name',
+    },
 });
 ```
 
@@ -88,9 +92,13 @@ a. support all the countries that Fidel API supports
 b. set a specific `allowedCountries` set of countries AND include US or Canada in your set of allowed countries.
 
 ```javascript
-Fidel.setOptions ({
-    companyName: 'Your Company Name',
-    termsConditionsUrl: 'https://yourwebsite.com/terms',
+Fidel.setup ({
+    sdkKey: yourSdkKey,
+    programId: 'Your-program-ID',
+    consentText: {
+        companyName: 'Your Company Name',
+        termsAndConditionsUrl: 'https://yourwebsite.com/terms',
+    },
 });
 ```
 
@@ -99,21 +107,27 @@ Fidel.setOptions ({
 Please inform the cardholder about how to opt out of transaction monitoring in your program.
 
 ```javascript
-Fidel.setOptions ({
-    companyName: 'Your Company Name',
-    termsConditionsUrl: 'https://yourwebsite.com/terms',
-    deleteInstructions: 'how can the cardholder opt out',
+Fidel.setup ({
+    // ...
+    consentText: {
+        companyName: 'Your Company Name',
+        termsAndConditionsUrl: 'https://yourwebsite.com/terms',
+        deleteInstructions: 'how can the cardholder opt out',
+    },
 });
 ```
 
 #### Set your privacy policy (optional, but recommended)
 
 ```javascript
-Fidel.setOptions ({
-    companyName: 'Your Company Name',
-    termsConditionsUrl: 'https://yourwebsite.com/terms',
-    deleteInstructions: 'how can the cardholder opt out',
-    privacyUrl: 'https://yourwebsite.com/privacy-policy',
+Fidel.setup ({
+    // ...
+    consentText: {
+        companyName: 'Your Company Name',
+        termsAndConditionsUrl: 'https://yourwebsite.com/terms',
+        deleteInstructions: 'how can the cardholder opt out',
+        privacyPolicyUrl: 'https://yourwebsite.com/privacy-policy',
+    },
 });
 ```
 
@@ -123,15 +137,14 @@ You should have the SDK set up similar to what you see in the example below:
 
 ```javascript
 Fidel.setup ({
-    apiKey: yourSdkKey,
+    sdkKey: yourSdkKey,
     programId: 'Your-program-ID',
-});
-
-Fidel.setOptions ({
-    companyName: 'Your Company Name',
-    termsConditionsUrl: 'https://yourwebsite.com/terms',
-    deleteInstructions: 'how can the cardholder opt out',
-    privacyUrl: 'https://yourwebsite.com/privacy-policy',
+    consentText: {
+        companyName: 'Your Company Name',
+        termsAndConditionsUrl: 'https://yourwebsite.com/terms',
+        deleteInstructions: 'how can the cardholder opt out',
+        privacyPolicyUrl: 'https://yourwebsite.com/privacy-policy',
+    },
 });
 ```
 
@@ -146,13 +159,7 @@ If client side notifications are useful for your application, make sure to check
 Call the following function to open the UI and start a card enrollment process:
 
 ```javascript
-Fidel.openForm((error, result) => {
-  if (error) {
-    console.error(error);
-  } else {
-    console.info(result);
-  }
-});
+Fidel.start()
 ```
 You can test the card enrollment flow, by setting a test SDK Key and by using the Fidel API [test card numbers](/select/cards/#test-card-numbers).
 
