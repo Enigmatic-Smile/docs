@@ -6,12 +6,7 @@ This is a guide to help you migrate from version 1.x.x of the Fidel API React Na
 
 ### If you used Cocoapods to integrate iOS SDK
 
-- At the root of your project, run 
-
-`yarn upgrade fidel-react-native` or 
-
-`npm update -g fidel-react-native`.
-
+- At the root of your project, run `yarn upgrade fidel-react-native` or `npm update -g fidel-react-native`.
 - In your `ios` folder, run the following command to update the Fidel dependency:
 ```
 pod update Fidel
