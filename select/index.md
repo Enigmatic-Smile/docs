@@ -47,7 +47,7 @@ Check out the [API Reference](https://reference.fidel.uk) to see all available r
 
 ## Card Linking
 
-The [iOS](/select/sdks/ios/guide-v2), [Android](/select/sdks/android/guide-v2), [React Native](/select/sdks/react-native/guide) and [Web](/select/sdks/web/v3) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
+The [iOS](/select/sdks/ios/guide-v2), [Android](/select/sdks/android/guide-v2), [React Native](/select/sdks/react-native/guide-v2) and [Web](/select/sdks/web/v3) SDKs provide you a secure UI to collect your user’s card details securely on the web or mobile.
 
 By using Fidel API SDKs, card details are sent directly to Fidel API through a secure connection without exposing your servers to sensitive information taking care of all PCI compliance requirements. [Our Card-Linking tutorial](/select/tutorials/card-linking) explains in detail all the steps required to build a card-linking feature into your application using the Fidel API SDKs.
 

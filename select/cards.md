@@ -4,7 +4,7 @@ Payment cards are the cornerstone of Fidel APIs. You can receive Fidel Transacti
 
 After the card is linked successfully, we will monitor any purchase made by this card at any of the program’s physical or online locations. The transaction object will be sent to a webhook URL specified by you.
 
-Developers can use [our APIs](https://reference.fidel.uk/reference/create-card) or SDKs - we have [JavaScript](/select/sdks/web/v3), [Android](/select/sdks/android/guide-v2), [iOS](/select/sdks/ios/guide-v2) and [React Native](/select/sdks/react-native/guide) SDKs - to register debit or credit cards on the Fidel platform, link them to a [Program](/select/programs) and start receiving transaction made with the card in the Program locations.
+Developers can use [our APIs](https://reference.fidel.uk/reference/create-card) or SDKs - we have [JavaScript](/select/sdks/web/v3), [Android](/select/sdks/android/guide-v2), [iOS](/select/sdks/ios/guide-v2) and [React Native](/select/sdks/react-native/guide-v2) SDKs - to register debit or credit cards on the Fidel platform, link them to a [Program](/select/programs) and start receiving transaction made with the card in the Program locations.
 
 ## Test Card Numbers
 
