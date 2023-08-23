@@ -1,4 +1,4 @@
-# React Native SDK reference
+# React Native SDK reference <a style="color: #111;" class="improve-docs" href="/select/sdks/react-native/reference-v1">v1</a> <a style="margin-right: auto; border-bottom: 2px solid #0048ff;" class="improve-docs" href="/select/sdks/react-native/reference-v2">v2</a>
 
 1. [Example](#example) with all properties set
 2. [Fidel class](#class-fidel)
