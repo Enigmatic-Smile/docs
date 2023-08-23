@@ -19,7 +19,7 @@ pod update Fidel
 
 ## Check the following code as your migration guide
 
-Use the following code as a guide related to the changes that to integrate with the Fidel API SDK:
+Use the following code as a guide related to the changes needed to integrate with the Fidel API SDK:
 
 ```javascript
 import Fidel, { ENROLLMENT_RESULT, ERROR } from 'fidel-react-native';
