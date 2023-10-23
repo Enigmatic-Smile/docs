@@ -62,13 +62,13 @@ pod update Fidel
 
 > Info: If you prefer to use Cocoapods, please check our instructions about integrating the SDK using Cocoapods, above.
 
-- Download the latest version of the `Fidel.xcframework` artefact from the `em` branch of our [GitHub repo](https://github.com/FidelLimited/fidel-ios/tree/em).
+- Download the latest version of the `Fidel.xcframework` and `analytics.xcframework` artifacts from the `em` branch of our [GitHub repo](https://github.com/FidelLimited/fidel-ios/tree/em).
 
 - Open your iOS app project in Xcode.
 
 - Right click on your project and then on the `Add Files to "YourProjectName"...` button.
 
-- Select the `Fidel.xcframework` artefact. Make sure to select the `Copy items if needed` option.
+- Select the `Fidel.xcframework` and `analytics.xcframework` artifacts. Make sure to select the `Copy items if needed` option.
 
 - In the future, to update to the latest version of our SDK, repeat the previous steps.
 
