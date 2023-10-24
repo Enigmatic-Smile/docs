@@ -16,8 +16,9 @@ You should see in the log the version to which the iOS SDK is updated to.
 
 ### If you manually integrated the iOS SDK
 
-1. Download the latest `Fidel.xcframework` artefact from the [iOS SDK GitHub repo](https://github.com/FidelLimited/fidel-ios).
+1. Download the latest `Fidel.xcframework` and `analytics.xcframework` artifacts from the [iOS SDK GitHub repo](https://github.com/FidelLimited/fidel-ios).
 2. Replace your existing `Fidel.xcframework` with the one you downloaded.
+3. Add the `analytics.xcframework` to your project.
 
 ## Check the following code as your migration guide
 

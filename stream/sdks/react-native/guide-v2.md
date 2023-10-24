@@ -2,7 +2,7 @@
 
 Our SDK is built to also support other use cases (other than Expense Management). Please take the following steps to integrate and configure the SDK for your Expense Management application.
 
-> Note: If an example project helps with your SDK integration & configuration, please check the `em` branch of our [GitHub repository](https://github.com/FidelLimited/rn-sdk/tree/em).
+> Note: If an example project helps with your SDK integration & configuration, please check our [GitHub repository](https://github.com/FidelLimited/rn-sdk).
 
 ### 1. Set up your Fidel API account & your Transaction Stream program
 
@@ -12,22 +12,15 @@ If you didn't create a program for your application yet, please create a Transac
 
 ### 2. Integrate the React Native SDK into your project
 
-- Add the Fidel API React Native library from the `em` branch of our repository:
+- Add the Fidel API React Native library:
     - using `npm`: 
     ```
-    npm install https://github.com/FidelLimited/rn-sdk#em --save
+    npm install fidel-react-native --save
     ```
     - using `yarn`:
     ```
-    yarn add https://github.com/FidelLimited/rn-sdk#em
+    yarn add fidel-react-native
     ```
-
-- In your iOS project’s `Podfile`, add the following line before the `post_install` part of the script:
-
-```ruby
-fileName:ios/Podfile
-pod 'Fidel', :git => 'https://github.com/FidelLimited/fidel-ios', :branch => 'em'
-```
 
 - In your `ios` folder, run the following command to install the Fidel dependency:
 

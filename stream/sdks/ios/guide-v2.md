@@ -2,7 +2,7 @@
 
 Our SDK is built to also support other use cases (other than Expense Management). Please take the following steps to integrate and configure the SDK for your Expense Management application.
 
-> Note: If an example project helps with your SDK integration & configuration, please check the `em` branch of our [GitHub repository](https://github.com/FidelLimited/fidel-ios/tree/em).
+> Note: If an example project helps with your SDK integration & configuration, please check our [GitHub repository](https://github.com/FidelLimited/fidel-ios).
 
 ### 1. Set up your Fidel API account & your Transaction Stream program
 
@@ -26,7 +26,7 @@ pod init
 - Add the following line in your `Podfile`, representing the Fidel API iOS SDK dependency that you're adding to your project:
 
 ```ruby
-pod 'Fidel', :git => 'https://github.com/FidelLimited/fidel-ios', :branch => 'em'
+pod 'Fidel'
 ```
 
 Your `Podfile` should have a structure similar to the following:
@@ -37,7 +37,7 @@ platform :ios, '14'
 target 'YouriOSTarget' do
     use_frameworks!
 
-    pod 'Fidel', :git => 'https://github.com/FidelLimited/fidel-ios', :branch => 'em'
+    pod 'Fidel'
     # ... other pods, if you're using Cocoapods already
 end
 ```
@@ -62,7 +62,7 @@ pod update Fidel
 
 > Info: If you prefer to use Cocoapods, please check our instructions about integrating the SDK using Cocoapods, above.
 
-- Download the latest version of the `Fidel.xcframework` and `analytics.xcframework` artifacts from the `em` branch of our [GitHub repo](https://github.com/FidelLimited/fidel-ios/tree/em).
+- Download the latest version of the `Fidel.xcframework` and `analytics.xcframework` artifacts from our [GitHub repo](https://github.com/FidelLimited/fidel-ios).
 
 - Open your iOS app project in Xcode.
 
