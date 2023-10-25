@@ -1,5 +1,8 @@
 # Android SDK v2 Releases
 
+## 2.1.0
+- Add card enrollment & verification metrics tracking features to help us improve our services.
+
 ## 2.0.0
 - Removed card scanning so `Fidel.autoScan` has been removed.
 - Changes in the `Fidel` class:
