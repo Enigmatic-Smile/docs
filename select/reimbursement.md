@@ -5,11 +5,12 @@ Fidel Reimbursement is an add-on product to _Transaction_ tracking capability, t
 ## Availability
 
 Reimbursement supports both debit and credit cards by Visa and Mastercard in the US or UK. Your account must be set up either in the US or the UK to have access to the Reimbursement product.
+
 ## Activation
 
 If your account is set up in the US or UK and you are using an older API version (reimbursement requires version 2021-09-28 or later) or haven't agreed to the [Terms & Conditions](https://fidelapi.com/legal) in your region, you will be prompted to go through the Reimbursement product activation.
 
-![Reimbursement Activation](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursement-activation.gif "Reimbursement Activation")
+![Reimbursement Activation](https://docs.fidel.uk/assets/images/gifs/reimbursement-activation.gif "Reimbursement Activation")
 
 ## Credits
 
@@ -133,7 +134,7 @@ fileName:credits-balance.json
 
 In the Credits dashboard view you have access to your credit purchases in _Purchased credits_ and credit spent in _Reimbursements_. Read more information on the [credits history endpoint](https://reference.fidel.uk/reference/get-credits-history).
 
-![Credits history](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/credits-history.gif "Credits history")
+![Credits history](https://docs.fidel.uk/assets/images/gifs/credits-history.gif "Credits history")
 
 ## Eligibility
 
@@ -157,7 +158,7 @@ Find eligible card transactions with `cardId` for a specific `amount` and `curre
 
 Transactions are sorted automatically in descending order by the best available, following the eligibility criteria, giving more emphasis on the transaction time and then amount. Read more information on the [find eligible reimbursement transactions endpoint](https://reference.fidel.uk/reference/get-transactions-for-reimbursement-by-card).
 
-![Reimbursement by Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimburse-card.gif "Reimbursement by Card")
+![Reimbursement by Card](https://docs.fidel.uk/assets/images/gifs/reimburse-card.gif "Reimbursement by Card")
 
 ### Eligible Transactions Example
 
@@ -210,7 +211,7 @@ fileName:reimburse-eligible-transactions.json
 
 After choosing the `transactionId`, the reimbursement `amount` must be equal to or lower than the transaction `amount` and the `currency` is determined by the transaction. Visa cards have a maximum reimbursement amount limit of _USD $250_ or _GBP £250_, depending on the currency. We currently support `USD` or `GBP` currency transactions. Optionally customise the `description` text that will show in the cardholder bank statement. Read more information on the [create reimbursement endpoint](https://reference.fidel.uk/reference/create-reimbursement).
 
-![Creating a reimbursement](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursing.gif "Creating a reimbursement")
+![Creating a reimbursement](https://docs.fidel.uk/assets/images/gifs/reimbursing.gif "Creating a reimbursement")
 
 ### Reimbursement Example
 
@@ -299,7 +300,7 @@ For more info, please visit the [API reference](https://reference.fidel.uk/refer
 
 Automate reimbursement requests when creating an Offer by toggling the “enable automatic reimbursements” checkbox. This toggle will be available if the reimbursement product is active and the Offer’s country is either `USA` (United States of America) or `GBR` (United Kingdom).
 
-![Automatic reimbursement with Offers](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/offers-automatic-reimbursement.gif "Automatic reimbursement with Offers")
+![Automatic reimbursement with Offers](https://docs.fidel.uk/assets/images/gifs/offers-automatic-reimbursement.gif "Automatic reimbursement with Offers")
 
 Reimbursements will be automatically requested whenever a transaction **is both cleared and qualified** for an Offer with `offer.automatedReimbursement.enabled` set to `true`. Optionally, it's also possible to include a Description for the Reimbursement using the `offer.automatedReimbursement.description`.
 
@@ -388,7 +389,7 @@ The reimbursement request and status update can fail for various reasons. Your a
 
 Reimbursement requests can be retried via API or dashboard.
 
-![Retry reimbursement](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/retry-reimbursement.gif "Retry reimbursement")
+![Retry reimbursement](https://docs.fidel.uk/assets/images/gifs/retry-reimbursement.gif "Retry reimbursement")
 
 ### API Errors
 
