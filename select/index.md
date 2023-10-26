@@ -53,14 +53,6 @@ By using Fidel API SDKs, card details are sent directly to Fidel API through a s
 
 Your apps will receive an `id` back that identifies the card in each transaction.
 
-<div>
-  <img
-    src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks_main.png"
-    srcset="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks_main.png, https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks_main@2x.png 2x"
-    alt="Preview of the web and mobile Fidel API card linking UI"
-  />
-</div>
-
 <button id="link-card-button" class="with-icon" type="submit" onClick={() => window.location.href = "/docs/select/sdks/web/v3/#web-sdk-codepen"}>
 <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/eye.svg" />
 <span>View demo</span>
