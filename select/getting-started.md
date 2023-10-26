@@ -14,7 +14,7 @@ After you created an account, in your account page on the dashboard, you will fi
 
 ##### Your SDK and API keys are displayed in your account page
 
-![API keys](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/api-keys.png "API keys")
+![API keys](https://docs.fidel.uk/assets/images/api-keys.png "API keys")
 
 When you're ready to go live with your integration and test with plastic credit/debit cards on VISA, Mastercard and American Express networks you can request access to the live keys by using the test-live switch on your dashboard.
 

@@ -4,7 +4,7 @@ To add a location, select a Program from the [Programs](https://dashboard.fidel.
 
 ##### You can add Locations after creating a Program and a Brand.
 
-![Add locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/add-locations.png "Add locations")
+![Add locations](https://docs.fidel.uk/assets/images/add-locations.png "Add locations")
 
 In the live environment, the Fidel Dashboard has a new feature that allows you to bulk add multiple locations from the same brand. You can see a list of the brands onboarded into your account, and the locations available to us. You can choose all participating locations and add them to your program. Please note, this feature is only available in the live environment.
 
@@ -64,7 +64,7 @@ curl -X POST \
 
 In the live environment, the location begins in an _Idle_ state. In order to initiate a change in status of your location, you must start the syncing process for the entire program. You can start the process by pressing the "Sync locations" button on the Fidel Dashboard. The button is only visible when you have an idle location in your Program. Location Sync can take 1-2 weeks. Only one sync per program can be run at a time, so ensure that you are ready to run this process.
 
-![Sync button](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programsync_button.png "Add locations")
+![Sync button](https://docs.fidel.uk/assets/images/programsync_button.png "Add locations")
 
 You can also start the sync process programmatically by calling the [Update Program](https://reference.fidel.uk/reference/update-program) endpoint of our API. You'll need to add a body parameter of `{ "status" : "syncing" }` to start the process. Because syncing only works for live programs, you'll need to use the `programId` of a live program, and your live API key, when you call the API endpoint. Using a test API key will throw an error.
 

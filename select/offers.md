@@ -6,7 +6,7 @@ Fidel Offers help you create and manage card-linked offers with various retailer
 
 Offers can be accessed via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending). They are grouped into four categories: Requests, Upcoming, Live and Expired.
 
-![Fidel Dashboard with Offers](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-offers.png "Fidel Dashboard with Offers")
+![Fidel Dashboard with Offers](https://docs.fidel.uk/assets/images/dashboard-offers.png "Fidel Dashboard with Offers")
 
 ### Requests
 
@@ -142,7 +142,7 @@ When you create an Offer in the Fidel Dashboard, the second step of the creation
 
 If you need to link more Locations after you've created an Offer, the [Locations list in the Dashboard](https://dashboard.fidel.uk/locations) has a menu button next to each Location, which opens a contextual menu. Selecting 'Link to offer' in the context menu will open a drawer that lets you select a possible Offer to link.
 
-![Link to offer in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-link-location.png "Link to Offer in Fidel API Dashboard")
+![Link to offer in Fidel Dashboard](https://docs.fidel.uk/assets/images/dashboard-link-location.png "Link to Offer in Fidel API Dashboard")
 
 Alternatively, you can edit an Offer in the Fidel Dashboard, which will allow you to link more Locations in the second step of the Offer drawer.
 
@@ -201,7 +201,7 @@ You can create Offers with activation in the [Fidel Dashboard](https://dashboard
 
 To activate an Offer on a Card using the Fidel Dashboard, you'll want to go to the [Cards list](https://dashboard.fidel.uk/cards). Each Card has a menu button next to them, which opens a contextual menu. Selecting 'Activate offer' in the context menu will open a drawer that lets you select a possible Offer to activate on the Card.
 
-![Activate offer on Card in Fidel Dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/dashboard-activate-offer.png "Activate offer on Card in Fidel API Dashboard")
+![Activate offer on Card in Fidel Dashboard](https://docs.fidel.uk/assets/images/dashboard-activate-offer.png "Activate offer on Card in Fidel API Dashboard")
 
 ## Transaction Qualification
 

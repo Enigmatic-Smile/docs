@@ -6,7 +6,7 @@ Fidel makes it simple to add card-linking capabilities to any application. The p
 
 There are two main steps in the process, and this tutorial is going to walk you through building an application with a card-linking feature.
 
-![Card-Linked Application Demo](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/tutorial-card-linking.png "Card-Linked Application Demo")
+![Card-Linked Application Demo](https://docs.fidel.uk/assets/images/tutorial-card-linking.png "Card-Linked Application Demo")
 
 The first requirement is to register user cards on the Fidel platform. Fidel provides SDKs to use within your applications to help you register cards simply and securely. This tutorial will show you how to use the Fidel Web SDK in a React application to register cards.
 
@@ -345,11 +345,11 @@ There are a few other options here. Usually, with production code, you'll have i
 
 Because the server is running on port 3000, you'll start `ngrok` on that port with the `http` option. You'll get back a random-looking URL that is publicly accessible on the Internet, and you can use it as the base of your webhook URLs. For example, `https://a709be896425.ngrok.io`.
 
-![Card-Linking ngrok](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/tutorial-card-linking-ngrok.png "Card-Linking ngrok")
+![Card-Linking ngrok](https://docs.fidel.uk/assets/images/tutorial-card-linking-ngrok.png "Card-Linking ngrok")
 
 After you've got a ngrok URL, you can go ahead and register a couple of webhooks in the [Fidel Dashboard](https://dashboard.fidel.uk/webhooks). For the purposes of this tutorial, register the `transaction.auth` webhook on the "Demo Program" to https://a709be896425.ngrok.io/api/webhooks/transaction.auth. Follow the same URL convention for registering the `transaction.clearing` and `transaction.refund` webhooks as well.
 
-![Card-Linking Webhooks](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/tutorial-card-linking-webhooks.png "Card-Linking Webhooks")
+![Card-Linking Webhooks](https://docs.fidel.uk/assets/images/tutorial-card-linking-webhooks.png "Card-Linking Webhooks")
 
 Congratulations, you've registered your first webhooks with Fidel. You can start receiving transaction data!
 
@@ -687,6 +687,6 @@ Congratulations, you can now display incoming transactions from Fidel!
 
 Because you're using a Test Fidel key, and because you're using test cards, you won't receive live transactions. There are [different ways you can simulate test transactions](/select/transactions/#test-transactions) on the Fidel platform thought to test this tutorial. One of the simplest ones is to use the [API Playground](https://dashboard.fidel.uk/playground) in the Fidel Dashboard. Go in there and use the `transactions /create` endpoint to create a few different transactions. If you create one with a positive amount, followed by one with a similar but negative amount, it will be matched as a refunded transaction. This way, you'll get to experience all three transaction statuses in the UI. Because you've set up the webhook endpoints already, all transactions you create are passed from Fidel to your ngrok URL, to your local server and then to your React client via socket.io. You should see them showing up in the UI, similar to this.
 
-![Card-Linked Application Demo](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/tutorial-card-linking.png "Card-Linked Application Demo")
+![Card-Linked Application Demo](https://docs.fidel.uk/assets/images/tutorial-card-linking.png "Card-Linked Application Demo")
 
 I hope you've had a great time following along this tutorial, and you've learnt the basics of building your first card-linked application on the Fidel platform, using the Fidel Web SDK, Node.js, React and socket.io. If you want to take a look at the code, it's [available on GitHub](https://github.com/FidelLimited/fidel-card-linking-tutorial)!

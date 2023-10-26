@@ -8,7 +8,7 @@ To be able to use the Transaction Stream API, you need to create a program first
 
 ##### Hierarchy diagram of the Fidel API object structure.
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/program-objects-hierarchy.png "program-objects-hierarchy.png")
+![](https://docs.fidel.uk/assets/images/program-objects-hierarchy.png")
 
 ## Create a Program
 

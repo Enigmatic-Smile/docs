@@ -18,7 +18,7 @@ Before reimbursing cardholders you will need to buy Fidel Credits. To be able to
 
 Fidel Credits are non refundable and non transferable. Take into consideration possible bank transfer delays that can take between 2-3 business days.
 
-![Credits view in the dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/credits-view.png "Credits view in the dashboard")
+![Credits view in the dashboard](https://docs.fidel.uk/assets/images/credits-view.png "Credits view in the dashboard")
 
 ### Balance
 
@@ -250,7 +250,7 @@ When you request a reimbursement to an eligible cardholder transaction, we send 
 
 Reimbursement `status` is set to `pending` while waiting for the card scheme to confirm the successful `issued` status, at which point funds normally hit the cardholder’ account. It takes between 48 to 72 hours for the `issued` status to be updated.
 
-![Reimbursement status](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/reimbursement-transactions.png "Reimbursement status")
+![Reimbursement status](https://docs.fidel.uk/assets/images/reimbursement-transactions.png "Reimbursement status")
 
 ### Status
 
