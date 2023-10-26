@@ -83,13 +83,13 @@ See how card linking and verification works by linking a test card to your progr
    - Expiry date: any date in the future
    - Country of issue: United States
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/cards-create-stream-2-filled.png)
+<img src="https://docs.fidel.uk/assets/images/stream-card-linking-form.png" srcset="https://docs.fidel.uk/assets/images/stream-card-linking-form.png, https://docs.fidel.uk/assets/images/stream-card-linking-form@2x.png 2x" alt="Stream Card-Linking Form" />
 
 4. Mark the checkbox to accept the terms and conditions, and click **Next**.
 5. To verify the card, type `0.67` as the amount of the microcharge, and click **Verify**.  
    (In a real-life scenario, users get this value by accessing their bank account and checking the value of the microcharge from “Card Verification”. The microcharge should appear on the user’s account within a few minutes.)
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/cards-create-stream-3-filled.png)
+<img src="https://docs.fidel.uk/assets/images/microcharge.png" srcset="https://docs.fidel.uk/assets/images/microcharge.png, https://docs.fidel.uk/assets/images/microcharge@2x.png 2x" alt="Microcharge" />
 
 6. After the successful card verification, the card will be displayed on the Cards page:
 

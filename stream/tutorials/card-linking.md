@@ -4,7 +4,7 @@ Fidel API makes it simple to add card-linking capabilities to any application. T
 
 ## What Are We Building?
 
-This tutorial will walk you through using the Fidel API to build an application with a card-linking feature. There are two main steps in the card-linking process. 
+This tutorial will walk you through using the Fidel API to build an application with a card-linking feature. There are two main steps in the card-linking process.
 
 The first requirement is to enroll a cardholder into your program by registering their card. Fidel API provides SDKs that enable you to register cards simply and securely. Continue reading below to learn how you can use the Fidel API Web SDK in a React application to register cards.
 
@@ -64,7 +64,10 @@ You should have a new blank React application running in your browser on port 30
 You'll want to create a beautiful application, and for that, a CSS framework is probably the simplest option. Let's go ahead and add [TailwindCSS](https://tailwindcss.com/) to the empty React application. Add a line in the `<head>` section of the `/public/index.html` file:
 
 ```html
-<link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+<link
+  href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+  rel="stylesheet"
+/>
 ```
 
 ### Add Empty Layout
@@ -75,65 +78,64 @@ After you've added Tailwind into the empty project, remove the boilerplate code 
 import { ReactComponent as Logo } from "./assets/logo.svg";
 
 function App() {
-    const headers = ["Amount", "Scheme", "Card", "Status", "Date↓"]
+  const headers = ["Amount", "Scheme", "Card", "Status", "Date↓"];
 
-    return (
-        <div className="App h-full">
-            <div className="h-full overflow-x-hidden">
-                <nav className="bg-white shadow">
-                    <div className="flex flex-col container mx-auto md:flex-row md:items-center md:justify-between">
-                        <div className="flex justify-between items-center">
-                            <div className="flex justify-between items-center">
-                                <a href="https://fidel.uk/docs" className="w-full">
-                                    <Logo style={{ width: "90px", height: "60px" }} />
-                                </a>
-                                <button
-                                className="ml-10 w-full bg-blue-700 hover:bg-blue-900 text-white py-2 px-4 rounded">
-                                Add Card
-                            </button>
-                        </div>
-                    </div>
-                    <div className="md:flex flex-col md:flex-row md:-mx-4">
-                        <a
-                        href="https://fidel.uk/docs/select/sdks/web/v3"
-                        className="my-1 hover:text-gray-800 text-blue-700 md:mx-4 md:my-0"
-                        >
-                        Documentation ↗
-                    </a>
-                </div>
+  return (
+    <div className="App h-full">
+      <div className="h-full overflow-x-hidden">
+        <nav className="bg-white shadow">
+          <div className="flex flex-col container mx-auto md:flex-row md:items-center md:justify-between">
+            <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center">
+                <a href="https://fidel.uk/docs" className="w-full">
+                  <Logo style={{ width: "90px", height: "60px" }} />
+                </a>
+                <button className="ml-10 w-full bg-blue-700 hover:bg-blue-900 text-white py-2 px-4 rounded">
+                  Add Card
+                </button>
+              </div>
             </div>
+            <div className="md:flex flex-col md:flex-row md:-mx-4">
+              <a
+                href="https://fidel.uk/docs/select/sdks/web/v3"
+                className="my-1 hover:text-gray-800 text-blue-700 md:mx-4 md:my-0"
+              >
+                Documentation ↗
+              </a>
+            </div>
+          </div>
         </nav>
-    
+
         <div className="px-6 py-2 py-8">
-            <div className="flex justify-between container mx-auto">
-                <div className="w-full">
-                    <div className="flex items-center justify-between">
-                        <h1 className="text-xl text-gray-700 md:text-2xl">
-                            Transactions
-                        </h1>
-                    </div>
-                    <div className="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 py-2 lg:-mx-8 pr-10 lg:px-8">
-    
-                        <div className="align-middle">
-                            <table className="min-w-full">
-                                <thead>
-                                    <tr>
-                                        {headers.map(header => (
-                                            <th className="px-6 py-2 py-3 text-left text-gray-400 font-light text-sm">{header}</th>
-                                            ))}
-                                        </tr>
-                                    </thead>
-                                    <tbody className="bg-white">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
+          <div className="flex justify-between container mx-auto">
+            <div className="w-full">
+              <div className="flex items-center justify-between">
+                <h1 className="text-xl text-gray-700 md:text-2xl">
+                  Transactions
+                </h1>
+              </div>
+              <div className="-my-2 py-2 overflow-x-auto sm:-mx-6 sm:px-6 py-2 lg:-mx-8 pr-10 lg:px-8">
+                <div className="align-middle">
+                  <table className="min-w-full">
+                    <thead>
+                      <tr>
+                        {headers.map((header) => (
+                          <th className="px-6 py-2 py-3 text-left text-gray-400 font-light text-sm">
+                            {header}
+                          </th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white"></tbody>
+                  </table>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div >
-    );
+      </div>
+    </div>
+  );
 }
 
 export default App;
@@ -152,20 +154,33 @@ Your application is still going to fail to compile, but with a new error. And th
 
 ```html
 <?xml version="1.0" encoding="utf-8"?>
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-width="802px" height="407.6px" viewBox="0 0 802 407.6" style="enable-background:new 0 0 802 407.6;" xml:space="preserve">
-<style type="text/css">
-</style>
-<g>
+<svg
+  version="1.1"
+  id="Layer_1"
+  xmlns="http://www.w3.org/2000/svg"
+  xmlns:xlink="http://www.w3.org/1999/xlink"
+  x="0px"
+  y="0px"
+  width="802px"
+  height="407.6px"
+  viewBox="0 0 802 407.6"
+  style="enable-background:new 0 0 802 407.6;"
+  xml:space="preserve"
+>
+  <style type="text/css"></style>
+  <g>
     <g>
-        <path class="st0" d="M101.3,286.7h45v-65.3h30.8l17.9-36.2h-48.7v-27.5H195v-36.2h-93.7V286.7z M231.7,286.7h45.5V121.5h-45.5
+      <path
+        class="st0"
+        d="M101.3,286.7h45v-65.3h30.8l17.9-36.2h-48.7v-27.5H195v-36.2h-93.7V286.7z M231.7,286.7h45.5V121.5h-45.5
         V286.7z M422.7,141.4c-7.8-6.7-17.1-11.8-27.7-15.2c-10.6-3.4-22.1-5.2-34-5.2h-42.9v165.7H361c14.8,0,27.9-2.2,38.9-6.6
         c10.9-4.3,20-10.4,27.1-17.9c7.1-7.6,12.4-16.5,15.9-26.6c3.5-10.3,5.3-21.3,5.3-32.9c0-13.6-2.3-25.7-6.9-35.9
         C436.7,156.5,430.4,148,422.7,141.4z M392.9,236.9c-6.9,7.9-16.9,11.9-29.7,11.9h-3.6v-90h3.6c26.2,0,40,15.6,40,45.1
         C403.2,218,399.7,229.1,392.9,236.9z M482.3,286.7H576v-37.9h-48.7v-27.4H576v-36.2h-48.7v-27.5H576v-36.2h-93.7V286.7z
-        M660.9,248.8V121.5h-44.9v165.2h84.8v-37.9H660.9z"/>
+        M660.9,248.8V121.5h-44.9v165.2h84.8v-37.9H660.9z"
+      />
     </g>
-</g>
+  </g>
 </svg>
 ```
 
@@ -173,13 +188,13 @@ width="802px" height="407.6px" viewBox="0 0 802 407.6" style="enable-background:
 
 Now that your application compiles successfully, you'll see an empty table layout with a button above that prompts you to "Add Card". At this stage, the button doesn't do anything, so you'll need to add that capability to the React application. This is where the Fidel API Web SDK comes in handy. Add the SDK to the application to start registering cards on the Fidel API Platform.
 
-First, at the top of your `/src/App.js` file, import `useEffect` from React. 
+First, at the top of your `/src/App.js` file, import `useEffect` from React.
 
 ```jsx
 import { useEffect } from "react";
 ```
 
-The Fidel API Web SDK is a JavaScript file hosted at `https://resources.fidel.uk/sdk/js/v3/fidel.js`. The required attributes for functioning correctly are the Fidel API SDK key, the program identifier and the company name. 
+The Fidel API Web SDK is a JavaScript file hosted at `https://resources.fidel.uk/sdk/js/v3/fidel.js`. The required attributes for functioning correctly are the Fidel API SDK key, the program identifier and the company name.
 
 You can find the SDK key in the ["Account" section of the Fidel API Dashboard](https://dashboard.fidel.uk/account/plan). For the purpose of this tutorial, use the test SDK key. It should start with `pk_test_`. The program identifier can be found in the ["Program" section of the Dashboard](https://dashboard.fidel.uk/programs). The Demo Program that comes with each new account has a contextual menu that you can use to copy the program identifier. For the company name, you can use anything you want. For the purposes of this tutorial, use something generic like "Card-Linking Application".
 
@@ -214,19 +229,20 @@ Because you've set `auto-open` to false in the SDK attributes, the SDK overlay w
 
 ```jsx
 <button
-onClick={() => window.Fidel?.openForm(
-    {
-        companyName: "Fidel",
-        sdkKey: "pk_test_demo",
-        programId: "bca59bd9-171b-4d1f-92af-4b2b7305268a",
-        programType: "transaction-stream",
-        callback() {
-            console.log(arguments);
-        },
-    }
-    )}
-    className="ml-10 w-full bg-blue-700 hover:bg-blue-900 text-white py-2 px-4 rounded">
-    Add Card
+  onClick={() =>
+    window.Fidel?.openForm({
+      companyName: "Fidel",
+      sdkKey: "pk_test_demo",
+      programId: "bca59bd9-171b-4d1f-92af-4b2b7305268a",
+      programType: "transaction-stream",
+      callback() {
+        console.log(arguments);
+      },
+    })
+  }
+  className="ml-10 w-full bg-blue-700 hover:bg-blue-900 text-white py-2 px-4 rounded"
+>
+  Add Card
 </button>
 ```
 
@@ -249,11 +265,11 @@ REACT_APP_FIDEL_PROGRAM_ID=
 
 Because you've added the `PORT` environment variable, your application will now run on port 3001 and leave port 3000 open for the server we'll build in a minute. You'll need to restart your application with `npm start`. Your application should compile successfully and run at "<http://localhost:3001/">. If you click the "Add Card" button, a modal should pop up with a form to link a card.
 
-![Card-Linking Form](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/tutorial-card-linking-form.png "Card-Linking Form")
+<img src="https://docs.fidel.uk/assets/images/stream-card-linking-form.png" srcset="https://docs.fidel.uk/assets/images/stream-card-linking-form.png, https://docs.fidel.uk/assets/images/stream-card-linking-form@2x.png 2x" alt="Stream Card-Linking Form" />
 
 ### Test Card Numbers
 
-Because you're using the Test SDK key in your application, you won't be able to link a real card in the SDK. Fidel API has a range of test card numbers you can use while integrating or testing the API. To create a test Visa card, use the following card number pattern: 
+Because you're using the Test SDK key in your application, you won't be able to link a real card in the SDK. Fidel API has a range of test card numbers you can use while integrating or testing the API. To create a test Visa card, use the following card number pattern:
 
 `4444000000004***` where \* can be any digit. For example, 4444000000004278.
 
@@ -272,33 +288,32 @@ touch server.js
 Let's go ahead and implement a fairly standard Node.js server, using `express`, that listens on port 3000. First, install the dependencies with `$ npm install express cors` and then add some boilerplate code to the `server.js` file.
 
 ```jsx
-import express from 'express'
-import { createServer } from 'http'
-import cors from 'cors';
+import express from "express";
+import { createServer } from "http";
+import cors from "cors";
 
-const PORT = 3000
+const PORT = 3000;
 
 const { json } = express;
 
-const app = express()
+const app = express();
 
-app.use(json())
-app.use(cors())
+app.use(json());
+app.use(cors());
 
-const server = createServer(app)
+const server = createServer(app);
 
 server.listen(PORT, () => {
-    console.log(`Server listening at http://localhost:${PORT}`)
-})
+  console.log(`Server listening at http://localhost:${PORT}`);
+});
 ```
 
 The Fidel API platform can register a multitude of webhooks, so let's add a generic catch-all route `/api/webhooks/:type` that deals with webhooks and sends back a `200 OK` response. If your webhook doesn't return a 200 status, the Fidel API platform retries sending the webhook until it receives a 200 status.
 
 ```jsx
-app.post('/api/webhooks/:type', (req, res, next) => {
-
-    res.status(200).end()
-})
+app.post("/api/webhooks/:type", (req, res, next) => {
+  res.status(200).end();
+});
 ```
 
 If you try to run the server as is right now, you'll get an error saying you "Cannot use import statement outside a module". And that's because you're using modern import statements in your Node.js code. You'll need to update the `package.json` with a new line to support imports.
@@ -317,7 +332,7 @@ It would also be helpful if you could run both the React client and the Node.js 
 
 ### Register Webhooks with Fidel API
 
-Now that you have created a server listening for webhooks, it's time to register those webhooks on the Fidel API platform. Your webhooks need to be publicly accessible on the Internet for Fidel API to be able to access them. Sadly, `localhost` is not publicly accessible, so you'll need to use `ngrok` to make it so. 
+Now that you have created a server listening for webhooks, it's time to register those webhooks on the Fidel API platform. Your webhooks need to be publicly accessible on the Internet for Fidel API to be able to access them. Sadly, `localhost` is not publicly accessible, so you'll need to use `ngrok` to make it so.
 
 There are a few other options here. Usually, with production code, you'll have it deployed somewhere with a URL. Or you'll have a load balancer in front of your code, and that will be publicly accessible. But for exposing local code, there aren't many options that don't involve a deployment. This is where ngrok comes in handy. It's a tunneling software that creates a connection between a public URL it hosts, like \`<https://someRandomId.ngrok.io>, and a port on your local machine.
 
@@ -346,28 +361,28 @@ Because the data comes from a webhook, your server doesn't have a lot of control
 You'll need to add the socket mechanism to the server first. Import the `Server` from `socket.io` at the top of your `server.js` file.
 
 ```jsx
-import { Server } from 'socket.io'
+import { Server } from "socket.io";
 ```
 
 Before the webhook route is defined, instantiate a new socket server, and log to the console every time a client connects to the socket. Update the webhook route handler to emit on the socket every time there is new transaction data coming from Fidel API.
 
 ```jsx
 const io = new Server(server, {
-    cors: {
-        origin: "http://localhost:3001",
-        methods: ["GET", "POST"]
-    }
-})
+  cors: {
+    origin: "http://localhost:3001",
+    methods: ["GET", "POST"],
+  },
+});
 
-io.on('connection', (socket) => {
-    console.log('a client connected')
-})
+io.on("connection", (socket) => {
+  console.log("a client connected");
+});
 
-app.post('/api/webhooks/:type', (req, res, next) => {
-    io.emit(req.params.type, req.body)
+app.post("/api/webhooks/:type", (req, res, next) => {
+  io.emit(req.params.type, req.body);
 
-    res.status(200).end()
-})
+  res.status(200).end();
+});
 ```
 
 Now that the server is completed restart it with `npm start`.
@@ -421,28 +436,34 @@ import { ReactComponent as Visa } from "../assets/visa-icon.svg";
 import TransactionStatus from "./TransactionStatus";
 
 const Transaction = ({ transaction, type, transactions }) => {
-    return (
+  return (
     <tr>
-        <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">
-            <div className="flex items-center justify-between">
-                <span className="text-gray-400">{transaction?.currency}</span> 
-                <span>{transaction?.amount}</span>
-            </div>
-        </td>
-        <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">
-            <span className="text-gray-400">--</span>
-        </td>
-        <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">
-            {(transaction?.card?.scheme.toUpperCase() === "VISA") && (<Visa />)}
-        </td>
-        <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm text-gray-400">{formatCard(transaction?.card)}</td>
-        <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">{transaction?.brand?.name}</td>
-        <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">
-            <TransactionStatus status={type} />
-        </td>
-        <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">{new Date(transaction?.created).toLocaleString()}</td>
+      <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">
+        <div className="flex items-center justify-between">
+          <span className="text-gray-400">{transaction?.currency}</span>
+          <span>{transaction?.amount}</span>
+        </div>
+      </td>
+      <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">
+        <span className="text-gray-400">--</span>
+      </td>
+      <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">
+        {transaction?.card?.scheme.toUpperCase() === "VISA" && <Visa />}
+      </td>
+      <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm text-gray-400">
+        {formatCard(transaction?.card)}
+      </td>
+      <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">
+        {transaction?.brand?.name}
+      </td>
+      <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">
+        <TransactionStatus status={type} />
+      </td>
+      <td className="px-6 py-2 whitespace-no-wrap border-b border-gray-200 text-sm">
+        {new Date(transaction?.created).toLocaleString()}
+      </td>
     </tr>
-    );
+  );
 };
 
 export default Transaction;
@@ -460,46 +481,73 @@ A transaction can have three statuses: authorized, cleared and refunded. The inf
 import React from "react";
 
 const TransactionStatus = ({ status }) => (
-<div>
-    {(status === "transaction.auth") && (
-    <span className="relative inline-block px-3 py-1 font-semibold text-yellow-500">
-        <span aria-hidden className="absolute inset-0 bg-yellow-200 opacity-50 rounded-full"></span>
+  <div>
+    {status === "transaction.auth" && (
+      <span className="relative inline-block px-3 py-1 font-semibold text-yellow-500">
+        <span
+          aria-hidden
+          className="absolute inset-0 bg-yellow-200 opacity-50 rounded-full"
+        ></span>
         <span className="relative text-xs">Auth</span>
-    </span>
+      </span>
     )}
-    {(status === "transaction.clearing") && (
-    <span className="relative inline-block px-3 py-1 font-semibold text-green-500">
-        <span aria-hidden className="absolute inset-0 bg-green-200 opacity-50 rounded-full"></span>
+    {status === "transaction.clearing" && (
+      <span className="relative inline-block px-3 py-1 font-semibold text-green-500">
+        <span
+          aria-hidden
+          className="absolute inset-0 bg-green-200 opacity-50 rounded-full"
+        ></span>
         <span className="relative text-xs">Cleared</span>
-    </span>
+      </span>
     )}
-    {(status === "transaction.refund") && (
-    <span className="relative inline-block px-3 py-1 font-semibold text-red-500">
-        <span aria-hidden className="absolute inset-0 bg-red-200 opacity-50 rounded-full"></span>
+    {status === "transaction.refund" && (
+      <span className="relative inline-block px-3 py-1 font-semibold text-red-500">
+        <span
+          aria-hidden
+          className="absolute inset-0 bg-red-200 opacity-50 rounded-full"
+        ></span>
         <span className="relative text-xs">Refund</span>
-    </span>
+      </span>
     )}
-</div>
+  </div>
 );
 
 export default TransactionStatus;
 ```
 
-You'll also need to create the icon for Visa in the assets folder as SVGs, the same way as you did for the Fidel API logo. 
+You'll also need to create the icon for Visa in the assets folder as SVGs, the same way as you did for the Fidel API logo.
 
 ```sh
 touch src/assets/visa-icon.svg
 ```
 
 ```html
-<svg width="29" height="10" viewBox="0 0 29 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M14.7771 3.18797C14.762 4.57733 15.9235 5.35133 16.7987 5.81318C17.6979 6.28578 17.9996 6.5891 17.9962 7.01173C17.9894 7.65913 17.2786 7.94439 16.614 7.95551C15.4534 7.97511 14.7796 7.61668 14.2427 7.34624L13.8247 9.45988C14.3637 9.72733 15.3597 9.96058 16.3923 9.9723C18.8181 9.9723 20.4043 8.67787 20.412 6.67207C20.4222 4.12684 17.1548 3.98636 17.1772 2.84902C17.1846 2.50327 17.4892 2.13551 18.1565 2.04106C18.4871 1.99479 19.3995 1.95869 20.4328 2.47278L20.8385 0.427536C20.2826 0.209585 19.5682 0 18.6783 0C16.3964 0 14.79 1.31105 14.7771 3.18797ZM24.7395 0.176346C24.296 0.176346 23.9223 0.454791 23.7566 0.883759L20.2919 9.82142H22.716L23.1977 8.38041H26.1596L26.4386 9.82142H28.574L26.71 0.176346H24.7395ZM25.0777 2.78243L25.7772 6.40391H23.8622L25.0777 2.78243ZM11.8397 0.176346L9.92964 9.82142H12.2386L14.148 0.176346H11.8397ZM8.42354 0.176346L6.02029 6.74094L5.04824 1.15945C4.93439 0.536328 4.48377 0.176346 3.98336 0.176346H0.054434L0 0.455986C0.80632 0.645602 1.72283 0.951192 2.2779 1.27686C2.61777 1.47628 2.71458 1.65024 2.82632 2.12404L4.66732 9.82142H7.10774L10.8486 0.176346H8.42354Z" fill="url(#paint0_linear)"/>
-    <defs>
-        <linearGradient id="paint0_linear" x1="28.574" y1="0.259826" x2="0" y2="0.259826" gradientUnits="userSpaceOnUse">
-            <stop stop-color="#21489F"/>
-            <stop offset="1" stop-color="#261A5E"/>
-        </linearGradient>
-    </defs>
+<svg
+  width="29"
+  height="10"
+  viewBox="0 0 29 10"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    fill-rule="evenodd"
+    clip-rule="evenodd"
+    d="M14.7771 3.18797C14.762 4.57733 15.9235 5.35133 16.7987 5.81318C17.6979 6.28578 17.9996 6.5891 17.9962 7.01173C17.9894 7.65913 17.2786 7.94439 16.614 7.95551C15.4534 7.97511 14.7796 7.61668 14.2427 7.34624L13.8247 9.45988C14.3637 9.72733 15.3597 9.96058 16.3923 9.9723C18.8181 9.9723 20.4043 8.67787 20.412 6.67207C20.4222 4.12684 17.1548 3.98636 17.1772 2.84902C17.1846 2.50327 17.4892 2.13551 18.1565 2.04106C18.4871 1.99479 19.3995 1.95869 20.4328 2.47278L20.8385 0.427536C20.2826 0.209585 19.5682 0 18.6783 0C16.3964 0 14.79 1.31105 14.7771 3.18797ZM24.7395 0.176346C24.296 0.176346 23.9223 0.454791 23.7566 0.883759L20.2919 9.82142H22.716L23.1977 8.38041H26.1596L26.4386 9.82142H28.574L26.71 0.176346H24.7395ZM25.0777 2.78243L25.7772 6.40391H23.8622L25.0777 2.78243ZM11.8397 0.176346L9.92964 9.82142H12.2386L14.148 0.176346H11.8397ZM8.42354 0.176346L6.02029 6.74094L5.04824 1.15945C4.93439 0.536328 4.48377 0.176346 3.98336 0.176346H0.054434L0 0.455986C0.80632 0.645602 1.72283 0.951192 2.2779 1.27686C2.61777 1.47628 2.71458 1.65024 2.82632 2.12404L4.66732 9.82142H7.10774L10.8486 0.176346H8.42354Z"
+    fill="url(#paint0_linear)"
+  />
+  <defs>
+    <linearGradient
+      id="paint0_linear"
+      x1="28.574"
+      y1="0.259826"
+      x2="0"
+      y2="0.259826"
+      gradientUnits="userSpaceOnUse"
+    >
+      <stop stop-color="#21489F" />
+      <stop offset="1" stop-color="#261A5E" />
+    </linearGradient>
+  </defs>
 </svg>
 ```
 
@@ -514,7 +562,7 @@ Fidel API uses a tokenization mechanism for the card numbers and doesn't store t
 
 ```jsx
 export function formatCard(card) {
-    return `${card?.firstNumbers}******${card?.lastNumbers}`
+  return `${card?.firstNumbers}******${card?.lastNumbers}`
     .match(/.{4}/g)
     .join(" ");
 }
@@ -530,9 +578,14 @@ Inside the render function, there is currently an empty `<tbody>` tag. Replace i
 
 ```jsx
 <tbody className="bg-white">
-    {transactions.map(({ transaction, type }, idx) => (
-    <Transaction key={idx} transaction={transaction} type={type} transactions={transactions} />
-    ))}
+  {transactions.map(({ transaction, type }, idx) => (
+    <Transaction
+      key={idx}
+      transaction={transaction}
+      type={type}
+      transactions={transactions}
+    />
+  ))}
 </tbody>
 ```
 
