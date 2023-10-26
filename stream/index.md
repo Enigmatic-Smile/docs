@@ -1,14 +1,14 @@
 <div class="row">
   <div class="column">
     <a href="/stream/getting-started" class="content" data-path="/getting-started">
-      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/get-started-icon.svg" />
+      <img src="https://docs.fidel.uk/assets/images/svgs/get-started-icon.svg" />
       <h2 data-no-link>Get Started</h2>
       <h3>Start building card-linked applications with our quickstart guide</h3>
     </a>
   </div>
   <div class="column">
     <a href="https://dashboard.fidel.uk/playground" class="content">
-      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/playground-icon.svg" />
+      <img src="https://docs.fidel.uk/assets/images/svgs/playground-icon.svg" />
       <h2 data-no-link>API Playground</h2>
       <h3>Test API requests in real-time and see how we format the returned data.</h3>
     </a>
@@ -17,14 +17,14 @@
 <div class="row">
   <div class="column">
     <a href="/stream/tutorials/card-linking" class="content">
-      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/tutorials-icon.svg" />
+      <img src="https://docs.fidel.uk/assets/images/svgs/tutorials-icon.svg" />
       <h2 data-no-link>Tutorials</h2>
       <h3>Learn how to build a card-linking feature into your applications.</h3>
     </a>
   </div>
   <div class="column">
     <a href="/stream/sdks/web/v3" data-path="/stream/sdks/web/v3" class="content">
-      <img src="https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/sdks-icon.svg" />
+      <img src="https://docs.fidel.uk/assets/images/svgs/sdks-icon.svg" />
       <h2 data-no-link>SDKs</h2>
       <h3>Take the easy and secure way to add card enrollment capabilities into your application.</h3>
     </a>
