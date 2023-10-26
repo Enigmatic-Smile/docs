@@ -24,7 +24,7 @@ There are multiple ways you can test card-linking on the Fidel platform before g
 
 You can create, view, delete or export Cards in any Program in the [Fidel Dashboard](https://dashboard.fidel.uk/cards).
 
-![Fidel Dashboard Create Card](https://docs.fidel.uk/assets/images/dashboard-new-card.gif "Fidel API Dashboard Create Card")
+![Fidel Dashboard Create Card](https://docs.fidel.uk/assets/images/gifs/dashboard-new-card.gif "Fidel API Dashboard Create Card")
 
 ### API Playground
 
