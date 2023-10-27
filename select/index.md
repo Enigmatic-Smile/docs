@@ -24,7 +24,7 @@
   </div>
   <div class="column">
     <a href="/select/sdks/web/v3" data-path="/select/sdks/web/v3" class="content">
-       <img src="https://docs.fidel.uk/assets/images/svgs/sdks-icons.svg" />
+       <img src="https://docs.fidel.uk/assets/images/svgs/sdks-icon.svg" />
       <h2 data-no-link>SDKs</h2>
       <h3>Take the easy and secure way to add card enrollment capabilities into your application.</h3>
     </a>
