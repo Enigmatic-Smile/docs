@@ -4,11 +4,11 @@ To add a location, select a Program from the [Programs](https://dashboard.fidel.
 
 ##### You can add Locations after creating a Program and a Brand.
 
-![Add locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/add-locations.png 'Add locations')
+![Add locations](https://docs.fidel.uk/assets/images/add-locations.png "Add locations")
 
 In the live environment, the Fidel Dashboard has a new feature that allows you to bulk add multiple locations from the same brand. You can see a list of the brands onboarded into your account, and the locations available to us. You can choose all participating locations and add them to your program. Please note, this feature is only available in the live environment.
 
-![Add unique locations](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/add-unique-locations.gif 'Add unique locations')
+![Add unique locations](https://docs.fidel.uk/assets/images/gifs/add-unique-locations.gif "Add unique locations")
 
 ##### You can do the same by using our API.
 
@@ -64,7 +64,7 @@ curl -X POST \
 
 In the live environment, the location begins in an _Idle_ state. In order to initiate a change in status of your location, you must start the syncing process for the entire program. You can start the process by pressing the "Sync locations" button on the Fidel Dashboard. The button is only visible when you have an idle location in your Program. Location Sync can take 1-2 weeks. Only one sync per program can be run at a time, so ensure that you are ready to run this process.
 
-![Sync button](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programsync_button.png 'Add locations')
+![Sync button](https://docs.fidel.uk/assets/images/programsync_button.png "Add locations")
 
 You can also start the sync process programmatically by calling the [Update Program](https://reference.fidel.uk/reference/update-program) endpoint of our API. You'll need to add a body parameter of `{ "status" : "syncing" }` to start the process. Because syncing only works for live programs, you'll need to use the `programId` of a live program, and your live API key, when you call the API endpoint. Using a test API key will throw an error.
 
@@ -107,7 +107,7 @@ Fidel API funds your virtual card free of charge. There is a maximum of $2.00 (o
 
 To activate your virtual card, go to the [Account Settings page](https://dashboard.fidel.uk/account/virtual-cards).
 
-![Activate Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/virtual-card-activate.gif 'Activate Virtual Card')
+![Activate Virtual Card](https://docs.fidel.uk/assets/images/gifs/virtual-card-activate.gif "Activate Virtual Card")
 
 After you've activated your virtual card, use it to make a small transaction in the location you're trying to onboard. This can be done physically in the store (by adding it to your mobile wallet), or by asking your merchant to use the card when processing a transaction remotely.
 
@@ -115,7 +115,7 @@ If you make several transactions on the same day it’s recommended that they ha
 
 After you've made the transaction, you can link it in the [Fidel API Dashboard](https://dashboard.fidel.uk/locations) via the drop-down next to the location status. A drawer will appear, listing the transactions made with your virtual card, and you can select the transaction that matches the one you’ve made at the corresponding location. Linking one location with either Mastercard or Visa will automatically link the other one as well.
 
-![Link location using Virtual Card](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/virtual-card-location.gif "Link location using Virtual Card")
+![Link location using Virtual Card](https://docs.fidel.uk/assets/images/gifs/virtual-card-location.gif "Link location using Virtual Card")
 
 ## Deleting Locations
 
