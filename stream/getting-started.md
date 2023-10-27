@@ -2,7 +2,7 @@
 
 The following image shows an overview of your journey with Fidel API to using real-time transaction data to provide your users a seamless experience:
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/customer-journey.png)
+![](https://docs.fidel.uk/assets/images/customer-journey.png)
 
 In a high-level overview, you will go through the following steps:
 
@@ -30,19 +30,19 @@ The Fidel API dashboard is based on the following concepts:
 
 **Programs** are used to group cards and transactions. **Webhooks** allow you to react to transaction events of a certain program.
 
-![Programs in the Fidel API dashboard](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/programs.png "Programs in the Fidel API dashboard")
+![Programs in the Fidel API dashboard](https://docs.fidel.uk/assets/images/programs.png "Programs in the Fidel API dashboard")
 
 Note that the pages of **Brands** and **Offers** don’t play any role in the Transaction Stream API, they apply only to the Select Transactions API.
 
 In each program you can see the cards, transactions and webhooks that belong to that program.
 
-![Cards, transactions and webhooks of a program](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/transactions-stream-highlight.png "Cards, transactions and webhooks of a program")
+![Cards, transactions and webhooks of a program](https://docs.fidel.uk/assets/images/transactions-stream-highlight.png "Cards, transactions and webhooks of a program")
 
 ### Account Settings
 
 You can manage your Fidel API account in the **Account settings** page. To navigate there, open the drop-down menu next to your account name.
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/account-settings-navigation.png)
+![](https://docs.fidel.uk/assets/images/account-settings-navigation.png)
 
 Under **Account settings**, you can find the following information:
 
@@ -93,7 +93,7 @@ See how card linking and verification works by linking a test card to your progr
 
 6. After the successful card verification, the card will be displayed on the Cards page:
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/cards-create-stream-4.png)
+![](https://docs.fidel.uk/assets/images/cards-create-stream-4.png)
 
 ### Creating a Test Transaction
 
@@ -114,7 +114,7 @@ To see how transactions look like in the Fidel API platform, complete the follow
 8. Close the **Transaction details** section to go back to the transaction list.  
    As you can see there, new test transactions are waiting for authorization. Simulate the clearing by selecting the **…** menu and then clicking **Clear**.
 
-![](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/transactions-more-button.png)
+![](https://docs.fidel.uk/assets/images/transactions-more-button.png)
 
 ## Test Card Numbers
 

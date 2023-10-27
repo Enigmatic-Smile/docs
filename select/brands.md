@@ -8,10 +8,10 @@ Once you create a **Brand**, it cannot be deleted.
 
 ## Create Brand
 
-![Create brand](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/create-brand.gif "Create brand")
-
+![Create brand](https://docs.fidel.uk/assets/images/gifs/create-brand.gif "Create brand")
 
 To add a new Brand, go to the [Brands](https://dashboard.fidel.uk/brands) page on the Fidel Dashboard, click the **Add a brand** button and enter a name. If you can't find the brand in the Fidel Dashboard, you can create a new one. Optionally, you can add a link to the brand website and logo (Note: the links cannot be added later using the Dashboard). You can also [create a Brand](https://reference.fidel.uk/reference/create-brand) with the API:
+
 ```bash
 curl -X POST \
   https://api.fidel.uk/v1/brands \
@@ -26,7 +26,7 @@ curl -X POST \
 
 ## Brand Consent
 
->NOTE: Brand consent is only required in the Live environment. Test Brands are automatically given Brand consent.
+> NOTE: Brand consent is only required in the Live environment. Test Brands are automatically given Brand consent.
 
 All brands must be approved by the authorised Brand Contact. There are two ways that brands are approved. For an external brand, you may request Brand consent either in the dashboard, or with our API. For self-funded Brands, this can be skipped by auto-approving consent.
 
@@ -44,9 +44,9 @@ You can monitor consent status on the dashboard and also set up a `brand.consent
 
 If you're funding your own offers, or you've received direct authorisation from a brand, you can auto-approve the brand's consent:
 
-![Auto approve Brand](https://raw.githubusercontent.com/FidelLimited/docs/master/assets/images/autoapproveConsent.png "auto-approve brand")
+![Auto approve Brand](https://docs.fidel.uk/assets/images/autoapproveConsent.png "auto-approve brand")
 
-Using the [Create Brand User](https://reference.fidel.uk/reference/create-brand-user) endpoint in the Brand Consent API, you can auto-approve your Brand by adding  ```skipInvite: true``` to the JSON request with the brand owner information. Keep in mind this endpoint only works with your Live API Key, the one that starts with `sk_live_`. You'll also need to have a Brand and Program created with the same live API key, before you can use the endpoint. Here's a cURL example, don't forget to replace `{brandId}` and `{programId}` before running it.
+Using the [Create Brand User](https://reference.fidel.uk/reference/create-brand-user) endpoint in the Brand Consent API, you can auto-approve your Brand by adding `skipInvite: true` to the JSON request with the brand owner information. Keep in mind this endpoint only works with your Live API Key, the one that starts with `sk_live_`. You'll also need to have a Brand and Program created with the same live API key, before you can use the endpoint. Here's a cURL example, don't forget to replace `{brandId}` and `{programId}` before running it.
 
 ```sh
 curl -X POST \
