@@ -16,7 +16,30 @@ To facilitate users linking multiple cards, developers can add identifying key-v
 
 ### What Is Card Verification
 
-When linking a card, cardholders are required to complete a verification process to verify card ownership to ensure we protect them. The verification consists of the following steps:
+When linking a card, cardholders are required to complete one of the two available verification processes to verify card ownership to ensure we protect them.
+
+When linking a card, a property `verificationMethod` (included on the response of the create card endpoint) will identify what verification method that card is meant to follow - `3ds` or `microcharge`.
+
+### 3DS (3D Secure)
+
+3D Secure is a card verification method that is meant to enhance security measures for shoppers and vendors alike. This verification process consists of the following steps:
+
+1. The cardholder links their card to a Fidel API program using the Verified Enrollment SDK or via the Create Card and the Create Consent endpoints.
+2. When calling the Create Consent endpoint, you would need to provide more cardholder details (i.e cardholder's name and CVV/CVC)
+3. After inputting that information:
+    1. If the verification is required, it should proceed to the next steps
+    2. If no extra verification is required, the card consent will be verified
+4. Fingerprinting process will take place (this is part of the network's requirements)
+5. When the fingerprinting process completes:
+    1. If there is no need for further verification (frictionless), card consent will be verified
+    2. If there is a need for challenge (consent `status` is `awaiting` ) a challenge prompt will be shown, for the cardholder to input a code from a known device (2FA)
+6. After inputting the correct code, consent will be verified
+
+If for some reason the verification process is interrupted, the cardholder will have to wait an hour for the consent to be automatically revoked (for security reasons).
+
+### Microcharge
+
+This verification process consists of the following steps:
 
 1. The cardholder links their card to a Fidel API program using the Verified Enrollment SDK or via the Create Card and the Create Consent endpoints.
 2. Fidel API will charge the card for a nominal amount (equivalent to USD$0.50-1.00), which will be refunded within 72 hours.
@@ -51,7 +74,7 @@ The Transaction Stream API supports the following card types and transactions:
 Not supported:
 
 - Encryption verification transactions
-- Transactions that don’t travel through the network (e.g. ON-US, some recurring payments, some subscriptions of digital services) \*\*  
+- Transactions that don’t travel through the network (e.g. ON-US, some recurring payments, some subscriptions of digital services) \*\*
 \*\* Specific scenarios are geographically dependent.
 
 ## Creating Test Cards on the Fidel API Dashboard
@@ -63,15 +86,15 @@ To create a card associated to a program, follow these steps:
 1. In the **Playground** area, select the name of the API (`Transaction Stream`) in the dropdown.
 2. Under **CARDS**, select `Create card`.
 3. Select the program to which you want to associate the new card.
-4. Once you select a program, the `/programs/program_id/cards` POST request will be updated with the program identifier for the selected program. 
-5. The request body on the right is already pre-filled with the following information:  
-- the country code,  
-- expiration date,  
-- a card number,  
-- whether the card holder agrees with the terms of service.  
-You can edit all the properties in the request body before running the request. You can use any of the available testing card numbers listed above, an expiry date in the future, and a three-letter `countryCode`. `termsOfUse` is set to true to simulate that the user agreed to the terms of use and opted in. 
+4. Once you select a program, the `/programs/program_id/cards` POST request will be updated with the program identifier for the selected program.
+5. The request body on the right is already pre-filled with the following information:
+- the country code,
+- expiration date,
+- a card number,
+- whether the card holder agrees with the terms of service.
+You can edit all the properties in the request body before running the request. You can use any of the available testing card numbers listed above, an expiry date in the future, and a three-letter `countryCode`. `termsOfUse` is set to true to simulate that the user agreed to the terms of use and opted in.
 6. Click `Run` to execute the request.
-7. If the card was successfully linked, you can inspect the card object in the response section.  
+7. If the card was successfully linked, you can inspect the card object in the response section.
 If the card linking failed, you can inspect the error object in the response section.
 
 The **Delete Card** option works similarly, with the difference being that you also get a dropdown to select the card you want to delete. The request and response objects are empty.
@@ -143,6 +166,8 @@ https://api.fidel.uk/v1/cards/f76ed1be-e434-480b-aa1d-ff48f548f62a/consents \
     "expMonth": 10,
     "expYear": 2025,
     "countryCode": "USA"
+    "cvc": "123", // required if verificationMethod is 3ds
+    "cardholderName": "John Doe" // required if verificationMethod is 3ds
 }'
 ```
 
@@ -154,7 +179,7 @@ https://api.fidel.uk/v1/cards/f76ed1be-e434-480b-aa1d-ff48f548f62a/consents/612f
 -H 'Content-Type: application/json' \
 -H 'Fidel-Key: pk_test_62f02030-0409-4eb5-ab94-6eff05b3d888' \
 -d '{
-    "code": 0.67
+    "code": 0.67 // only if verificationMethod is microcharge
 }'
 ```
 
@@ -185,6 +210,7 @@ The card object includes the following data:
 | scheme             | The card network (scheme) to which the card belongs to                                     | string                          |
 | type               | The card network (scheme) to which the card belongs to. Identical to the scheme field.     | string                          |
 | updated            | The timestamp of the last modification of the card object                                  | string, timestamp in UTC format |
+| verificationMethod | The verification method to be used ("3ds" or "microcharge")                      | string                          |
 | verificationStatus | The status of the verification ("unverified", "verified", or "error")                      | string                          |
 
 An example of the API response when you create a card object:
@@ -212,6 +238,7 @@ An example of the API response when you create a card object:
         "scheme": "visa",
         "type": "visa",
         "updated": "2021-07-28T12:52:46.840Z",
+        "verificationMethod": "microcharge",
         "verificationStatus": "unverified"
     }
     ],
