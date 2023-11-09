@@ -41,7 +41,7 @@ Once a card is enrolled and verified, every payment event (i.e. authorization, c
 
 The Transaction Stream API is available for the following card networks and countries:
 
-![](https://docs.fidel.uk/assets/images/stream-card-coverage.png)
+<img src="https://docs.fidel.uk/assets/images/stream-card-coverage.png" srcset="https://docs.fidel.uk/assets/images/stream-card-coverage.png, https://docs.fidel.uk/assets/images/stream-card-coverage@2x.png 2x" alt="Stream Card Coverage" />
 
 ## Transaction Life Cycle
 
