@@ -1,5 +1,8 @@
 # React Native SDK v2 Releases
 
+## 2.1.0
+- Add card enrollment & verification metrics tracking features to help us improve our services.
+
 ## 2.0.0
 
 - We have released all the changes to the SDK from the beta track as a new major stable version.
