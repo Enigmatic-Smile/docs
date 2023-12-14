@@ -48,7 +48,7 @@ If you didn't create a program for your application yet, please create a Transac
 
 ```groovy
 fileName:app/build.gradle
-implementation 'com.github.FidelLimited:android-sdk:2.1.1'
+implementation 'com.github.FidelLimited:android-sdk:2.1.2'
 ```
 
 - In the future, to update to the latest Android SDK version, please update the version in your `app/build.gradle` file and `Sync` your Android project again.

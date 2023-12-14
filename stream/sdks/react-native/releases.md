@@ -1,5 +1,8 @@
 # React Native SDK v2 Releases
 
+## 2.1.1
+- Updated consent text for Mastercard cards.
+
 ## 2.1.0
 - Add card enrollment & verification metrics tracking features to help us improve our services.
 
