@@ -336,10 +336,6 @@ fileName:offer.json
   "returnPeriod": 15,
   "schemes": ["amex", "mastercard", "visa"],
   "startDate": "2020-06-30T00:00:00",
-  "automatedReimbursement": {
-    "enabled": true,
-    "description": "Reimbursement",
-  },
   "supplier": null,
   "type": {
   	"name": "discount",
@@ -549,13 +545,6 @@ fileName:offer.json
       <em>object</em>
     </dt>
     <dd>Contains an <code>id</code> property, with the unique identifier for the account that supplies the Offer. Also contains a <em>string</em> <code>type</code> property, for the type of account that supplies the Offer. The type can have one of the values <code>"merchant" | "card-linking" | "affiliate"</code>. Defaluts to <code>null</code>.</dd>
-  </div>
-  <div>
-    <dt>
-      <span><code>automatedReimbursement</code></span>
-      <em>object</em>
-    </dt>
-    <dd>This object requires an Account with the Reimbursement product enabled. Has an <code>enabled</code> <em>boolean</em> property, showing if the Automated Reimbursement is active or not. If the <code>enabled</code> flag is set to true, any valid transaction with this Offer will automatically reimburse. This object also contains a <code>description</code>, which is sent to the Reimbursement to facilitate tracking. You can read more about Offers with Automated Reimbursement below.</dd>
   </div>
   <div>
     <dt>

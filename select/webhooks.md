@@ -1,6 +1,6 @@
 # Webhooks
 
-Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund`, `reimbursement.pending`, `reimbursement.issued`, `reimbursement.failed` and `credits.balance.low`.
+Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund` and `credits.balance.low`.
 
 Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload.
 
@@ -499,64 +499,6 @@ curl -X POST \
   }'
 ```
 
-`reimbursement.pending`, `reimbursement.issued`, `reimbursement.failed` events are triggered when a reimbursement changes state. The `reimbursement.pending` when the new state is `pending`, `reimbursement.issued` when a new state is `issued`, and `reimbursement.failed` when a new state is `failed`
-
-The payload for these events includes the `reimbursement` object with the up-to-date status. Read more about it in the [Reimbursement page](/select/reimbursement/#webhook).
-
-```json
-{
-  "amount": 2.55,
-  "created": "2021-09-30T11:11:11.000Z",
-  "creditsTransactionId": "1250ab5a-0661-4a06-a40c-8514093a9241",
-  "currency": "USD",
-  "description": "Earned Stars",
-  "status": "issued",
-  "id": "6c01f956-1f0f-413f-a5db-d1fc8a59ef92",
-  "updated": "2021-09-30T11:12:11.000Z",
-  "transactionId": "5ec08ca8-38c6-42e1-9fa5-32c67e4135b2",
-  "programId": "4a9cef62-dc79-4044-b7aa-34425f753830"
-}
-```
-
-### Credits
-
-Fidel Credits can be used to reimburse cardholders. Learn more about Fidel Credits on the [Reimbursement page](/select/reimbursement/#credits) A `credits.balance.low` event is sent when a currency's credit balance drops below 25% of the amount at the time of the previous credits purchase. The payload for these events is the following:
-
-```json
-{
-  "accountId": "61741c3-3dc9-45f5-8e7c-db1dd649afab",
-  "balances": {
-    "AUD": 0,
-    "CHF": 0,
-    "JPY": 0,
-    "EUR": 0,
-    "GBP": 0,
-    "CAD": 0,
-    "USD": 249,
-    "NZD": 0
-  },
-  "lastTotalAmount": {
-    "AUD": 0,
-    "CHF": 0,
-    "JPY": 0,
-    "EUR": 0,
-    "GBP": 0,
-    "CAD": 0,
-    "USD": 1000,
-    "NZD": 0
-  },
-  "lowCreditsNotificationSent": {
-    "AUD": false,
-    "CHF": false,
-    "JPY": false,
-    "EUR": false,
-    "GBP": false,
-    "CAD": false,
-    "USD": true,
-    "NZD": false
-  }
-}
-```
 
 ## Signatures
 

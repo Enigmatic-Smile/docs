@@ -270,7 +270,6 @@ A `transaction.auth` or **authorization transaction event** is triggered when a 
     "merchantDescriptor": "Purchase",
     "programId": "76b6bd16-f1db-4eef-8636-bf94b2442e40",
     "programType": "transaction-stream",
-    "reimbursementEligible": false,
     "updated": "2022-05-24T14:09:37.321Z",
     "wallet": null
 }
@@ -323,7 +322,6 @@ A `transaction.clearing` or **clearing transaction event** is triggered when a t
     "programId": "76b6bd16-f1db-4eef-8636-bf94b2442e40",
     "programType": "transaction-stream",
     "refundTransactionId": "ebb29156-d3e6-433e-826e-a03745f50a9f",
-    "reimbursementEligible": true,
     "updated": "2022-06-24T14:13:46.757Z",
     "wallet": null
 }
@@ -375,7 +373,6 @@ A `transaction.refund` or **refund transaction event** is triggered when a trans
     "originalTransactionId": "42adf0ef-bdde-436e-a035-3ce142b4f167",
     "programId": "76b6bd16-f1db-4eef-8636-bf94b2442e40",
     "programType": "transaction-stream",
-    "reimbursementEligible": true,
     "updated": "2022-06-07T09:56:24.052Z",
     "wallet": null
 }
