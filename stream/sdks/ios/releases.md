@@ -1,12 +1,19 @@
 # iOS SDK v2 Releases
 
+## 2.2.0
+
+- Migrate to Enigmatic-Smile GitHub organization
+
 ## 2.1.2
+
 - Updated consent text for Mastercard cards.
 
 ## 2.1.1
+
 - Add a few more card verification metrics tracking features to help us improve our services.
 
 ## 2.1.0
+
 - Add card enrollment & verification metrics tracking features to help us improve our services.
 
 ## 2.0.0

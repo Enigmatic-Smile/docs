@@ -4,9 +4,9 @@ This repository is the home for the Fidel documentation located [here](https://f
 
 ## Steps to test the docs on your local machine
 
-1. Clone the [website](https://github.com/FidelLimited/website/) project.
+1. Clone the [website](https://github.com/Enigmatic-Smile/website/) project.
 
-2. Install libraries, dependencies & follow the instructions that indicate how to run the website on your local machine, as written in the [README.md file](https://github.com/FidelLimited/website/blob/master/README.md) of the website project.
+2. Install libraries, dependencies & follow the instructions that indicate how to run the website on your local machine, as written in the [README.md file](https://github.com/Enigmatic-Smile/website/blob/master/README.md) of the website project.
 
 3. From the website's project root folder:
     

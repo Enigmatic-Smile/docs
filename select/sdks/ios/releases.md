@@ -1,15 +1,23 @@
 # iOS SDK v2 Releases
 
+## 2.2.0
+
+- Migrate to Enigmatic-Smile GitHub organization
+
 ## 2.1.2
+
 - No relevant changes for this product
 
 ## 2.1.1
+
 - Add a few more card verification metrics tracking features to help us improve our services.
 
 ## 2.1.0
+
 - Add card enrollment & verification metrics tracking features to help us improve our services.
 
 ## 2.0.0
+
 - Removed card scanning so `Fidel.autoScan` has been removed.
 - Changes in the `Fidel` class:
   - Made the `companyName` property mandatory
@@ -42,15 +50,19 @@
 # iOS SDK v1 Releases
 
 ## 1.10.3
+
 - Updated the consent text for United States and Canadian issued cards.
 
 ## 1.10.2
+
 - Update "Fidel" with "Fidel API" in the consent text and in the code documentation.
 
 ## 1.10.1
+
 - Update Fidel API logo
 
 ## 1.10.0
+
 - Added the `defaultSelectedCountry` property which sets the country that will be selected by default, when opening the card enrollment screen.
 
 ## 1.9.0

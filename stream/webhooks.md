@@ -12,7 +12,7 @@ Fidel API only accepts HTTPS URLs for webhook endpoints. Your webhook server mus
 
 ##### Return a 200 status code
 
-To confirm receipt of a webhook event, your server endpoint should return a <code>200 OK</code>  HTTP status code. Any other response or not receiving any response within 20 seconds will be treated as a failure and the API will retry sending the request twice (i.e. three tries in total), with one-minute wait on the second request and two-minute wait on the third (last) attempt. You can see an example implementation for handling webhooks in the [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app/blob/main/server/routes/webhooks.js).
+To confirm receipt of a webhook event, your server endpoint should return a <code>200 OK</code>  HTTP status code. Any other response or not receiving any response within 20 seconds will be treated as a failure and the API will retry sending the request twice (i.e. three tries in total), with one-minute wait on the second request and two-minute wait on the third (last) attempt. You can see an example implementation for handling webhooks in the [sample application on GitHub](https://github.com/Enigmatic-Smile/fidel-api-sample-app/blob/main/server/routes/webhooks.js).
 
 Fidel API sends the data via HTTP POST in JSON format. It will send test events if your Dashboard is in test mode or if you are using test API keys when registering the webhook URLs. To receive live events, get in touch with Fidel API's support team or create the webhooks using a live API key.
 

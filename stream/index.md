@@ -110,6 +110,6 @@ You can see the JSON format of an example transaction object in the [Transaction
 
 Start your Fidel API journey by creating an account. Read the [Getting Started](/stream/getting-started) page to learn how.
 
-You can see an example implementation for integrating the Fidel APIs and Web SDK in our [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app).
+You can see an example implementation for integrating the Fidel APIs and Web SDK in our [sample application on GitHub](https://github.com/Enigmatic-Smile/fidel-api-sample-app).
 
 Check out the [API Reference](https://transaction-stream.fidel.uk/reference/introduction-1) to see all available requests, code examples and response payloads.
