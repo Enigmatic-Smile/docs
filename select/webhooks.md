@@ -1,6 +1,6 @@
 # Webhooks
 
-Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund` and `credits.balance.low`.
+Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified` and `transaction.refund`.
 
 Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload.
 
