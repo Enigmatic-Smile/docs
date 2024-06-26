@@ -4,7 +4,7 @@ Our SDK is built to also support other use cases (other than Stream). Please tak
 
 > Note: All code examples in this guide and other Android SDK pages will be written in Kotlin, but our SDK works well in Java projects as well.
 
-> Note: If an example project helps with your SDK integration & configuration, please check our [GitHub repository](https://github.com/FidelLimited/fidel-android).
+> Note: If an example project helps with your SDK integration & configuration, please check our [GitHub repository](https://github.com/Enigmatic-Smile/fidel-android).
 
 ### 1. Set up your Fidel API account & your Transaction Stream program
 
@@ -48,7 +48,7 @@ If you didn't create a program for your application yet, please create a Transac
 
 ```groovy
 fileName:app/build.gradle
-implementation 'com.github.FidelLimited:android-sdk:2.1.2'
+implementation 'com.github.Enigmatic-Smile:android-sdk:2.2.0'
 ```
 
 - In the future, to update to the latest Android SDK version, please update the version in your `app/build.gradle` file and `Sync` your Android project again.
@@ -254,7 +254,7 @@ Please check our SDK Reference for details about any other SDK properties that m
 
 ```groovy
 fileName:app/build.gradle
-implementation 'com.github.FidelLimited:android-sdk:{latestFidelSDKVersion}'
+implementation 'com.github.Enigmatic-Smile:android-sdk:{latestFidelSDKVersion}'
 ```
 
 ### Can I customize the UI of the Android SDK?

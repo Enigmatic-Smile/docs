@@ -41,7 +41,7 @@ Fidel API runs on top of global payment networks, so it doesn’t require change
 
 Currently, the API is available in the **United States**, **UK**, **Ireland**, **Canada**, **Sweden** and **UAE**. **Japan** is currently in beta stage. Read the full list of available locations for the [Select Transactions API](https://fidelapi.com/products/select-transactions) and for the [Transaction Stream API](https://fidelapi.com/products/transaction-stream) on the product pages. We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please [contact us](https://fidelapi.com/contact).
 
-You can see an example implementation for integrating the Fidel APIs and Web SDK in our [sample application on GitHub](https://github.com/FidelLimited/fidel-api-sample-app).
+You can see an example implementation for integrating the Fidel APIs and Web SDK in our [sample application on GitHub](https://github.com/Enigmatic-Smile/fidel-api-sample-app).
 
 Check out the [API Reference](https://reference.fidel.uk) to see all available requests, code examples and response payloads.
 

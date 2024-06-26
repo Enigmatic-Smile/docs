@@ -2,7 +2,7 @@
 
 Please take the following steps to integrate and configure the SDK for your Loyalty use case application.
 
-> Note: If an example project helps with your SDK integration & configuration, please check our [GitHub repository](https://github.com/FidelLimited/fidel-ios/).
+> Note: If an example project helps with your SDK integration & configuration, please check our [GitHub repository](https://github.com/Enigmatic-Smile/fidel-ios/).
 
 ### 1. Set up your Fidel API account & your Transaction Select program
 
@@ -62,7 +62,7 @@ pod update Fidel
 
 > Info: If you prefer to use Cocoapods, please check our instructions about integrating the SDK using Cocoapods, above.
 
-- Download the latest version of the `Fidel.xcframework` artifact from the `master` branch of our [GitHub repo](https://github.com/FidelLimited/fidel-ios).
+- Download the latest version of the `Fidel.xcframework` artifact from the `master` branch of our [GitHub repo](https://github.com/Enigmatic-Smile/fidel-ios).
 
 - Open your iOS app project in Xcode.
 

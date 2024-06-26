@@ -2,7 +2,7 @@
 
 Our SDK is built to also support other use cases (other than Stream). Please take the following steps to integrate and configure the SDK for your Stream application.
 
-> Note: If an example project helps with your SDK integration & configuration, please check our [GitHub repository](https://github.com/FidelLimited/rn-sdk).
+> Note: If an example project helps with your SDK integration & configuration, please check our [GitHub repository](https://github.com/Enigmatic-Smile/rn-sdk).
 
 ### 1. Set up your Fidel API account & your Transaction Stream program
 

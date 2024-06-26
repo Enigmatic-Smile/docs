@@ -1,15 +1,23 @@
 # Android SDK v2 Releases
 
+## 2.2.0
+
+- Migrate to Enigmatic-Smile GitHub organization
+
 ## 2.1.2
+
 - No relevant changes for this product
 
 ## 2.1.1
+
 - Add a few more card verification metrics tracking features to help us improve our services.
 
 ## 2.1.0
+
 - Add card enrollment & verification metrics tracking features to help us improve our services.
 
 ## 2.0.0
+
 - Removed card scanning so `Fidel.autoScan` has been removed.
 - Changes in the `Fidel` class:
   - Made the `companyName` property mandatory
@@ -45,21 +53,27 @@
 # Android SDK v1 Releases
 
 ## 1.7.5
+
 - Updated the consent text for United States and Canadian issued cards.
 
 ## 1.7.4
+
 - Allow expiration date editing without switching to country selection.
 
 ## 1.7.3
+
 - Replace "Fidel" with "Fidel API" in the consent text.
 
 ## 1.7.2
+
 - Update Fidel API logo
 
 ## 1.7.1
+
 - Add support for the `resConfigs` optimization parameter. Now, if your app attempts to optimize resources and set the `resConfigs` parameter in gradle (which might remove some of our string resources), our SDK will display either strings in the default language (English) or in one of the languages supported by your app. This also depends on the device language and how the Android system resolves string resources.
 
 ## 1.7.0
+
 - Added the `defaultSelectedCountry` property which sets the country that will be selected by default, when opening the card enrollment screen.
 
 ## 1.6.0
@@ -67,13 +81,16 @@
 - Removed the card scanning confirmation screen. Users can confirm their card information by checking the information in the Fidel card enrollment screen.
 
 ## 1.5.6
+
 - Add United Arab Emirates option as a country of issuance.
 - Country text view shrinks its fonts size, to fit longer country names, on smaller devices.
 
 ## 1.5.5
+
 - Improve French and Swedish language translations to cover more countries.
 
 ## 1.5.4
+
 - Improvements to allow more automation for quality assurance and speed of new SDK version delivery.
 
 ## 1.5.3
@@ -137,6 +154,7 @@ For the rest of the world:
 - Added support for linking American Express cards
 
 ## 1.2.1
+
 - Added the Japan country option.
 - Hidden the PayPal logo in the card scanning UI.
 - Disabled CardIO manual card details entry forms.
@@ -146,6 +164,7 @@ For the rest of the world:
 - If you don't set a banner image, we'll hide the top space reserved for it.
 
 ## 1.2.0
+
 - Added the Sweden country option
 - Returns an error, when the SDK encounters it, with the `LinkResult`. Get it with `linkResult.getError()` getter.
 - Now you can customize the final consent text with the following API:
@@ -166,6 +185,7 @@ For the rest of the world:
 
 
 ## 1.1.0
+
 - Added the United States country option
 - Updated gradle and build tools
 - Removed the 'com.afollestad.material-dialogs:core:0.9.4.5' dependency

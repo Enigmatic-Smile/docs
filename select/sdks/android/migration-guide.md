@@ -7,7 +7,7 @@
 Replace the Fidel dependency inside your app/build.gradle by this one:
 
 ```groovy
-implementation 'com.github.FidelLimited:android-sdk:2.0.0'
+implementation 'com.github.Enigmatic-Smile:android-sdk:2.2.0'
 ```
 
 ### If you manually integrated the Android SDK
