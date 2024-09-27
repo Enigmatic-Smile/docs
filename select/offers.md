@@ -326,7 +326,7 @@ fileName:offer.json
   "maxTransactionAmount": 0,
   "minTransactionAmount": 0,
   "metadata": null,
-  "name": "£5 Off Netflix Every Month",
+  "name": "%5 Off Netflix Every Month",
   "origin": {
     "id": "3693ac7e-3e2b-432c-8c60-2b786453ca9b",
   	"type": "card-linking"
