@@ -77,7 +77,7 @@ Example of a transaction in JSON format:
     "name": "My Coffee Company"
   },
   "card": {
-    "firstNumbers": "123456",
+    "firstNumbers": "401288",
     "id": "159cad70-8187-4d01-8b67-123456789012",
     "lastNumbers": "1234",
     "scheme": "visa"
