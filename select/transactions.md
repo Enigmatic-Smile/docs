@@ -59,7 +59,7 @@ The `identifiers` object includes the following properties, all of them being of
 - `identifiers.visaAuthCode`: Unique code that is sent along with the authorization of the transaction by Visa. It mirrors the `authCode` property.
 
 ```json
-summary:Example of a transaction in JSON format (API version is 2022-07-13)
+summary:Example of a transaction in JSON format (API version is 2024-10-14)
 fileName:transaction.json
 {
   "id": "7fdfd5d8-9589-402f-8477-4a727ad138a2",
