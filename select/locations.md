@@ -100,23 +100,6 @@ While your locations are syncing you have a progress bar to follow the current s
 
 For Locations in the live environment, status can be tracked on the dashboard. A green check ✅ means we have received at least one transaction from this Location confirming the active onboarding status. A **RT** icon will show where we can track real-time authorisation transaction and the **RT** will turn green when we receive the first auth transaction from this Location.
 
-## Virtual Cards
-
-When a location can't be found during the standard network location sync, you can use virtual cards to help onboard it. You can use the same process to verify an already active location.
-Fidel API funds your virtual card free of charge. There is a maximum of $2.00 (or equivalent) per transaction, with a limit of $10.00 per day.
-
-To activate your virtual card, go to the [Account Settings page](https://dashboard.fidel.uk/account/virtual-cards).
-
-![Activate Virtual Card](https://docs.fidel.uk/assets/images/gifs/virtual-card-activate.gif "Activate Virtual Card")
-
-After you've activated your virtual card, use it to make a small transaction in the location you're trying to onboard. This can be done physically in the store (by adding it to your mobile wallet), or by asking your merchant to use the card when processing a transaction remotely.
-
-If you make several transactions on the same day it’s recommended that they have different amounts, to make them easier to identify.
-
-After you've made the transaction, you can link it in the [Fidel API Dashboard](https://dashboard.fidel.uk/locations) via the drop-down next to the location status. A drawer will appear, listing the transactions made with your virtual card, and you can select the transaction that matches the one you’ve made at the corresponding location. Linking one location with either Mastercard or Visa will automatically link the other one as well.
-
-![Link location using Virtual Card](https://docs.fidel.uk/assets/images/gifs/virtual-card-location.gif "Link location using Virtual Card")
-
 ## Deleting Locations
 
 You can delete locations in the [Fidel API Dashboard](https://dashboard.fidel.uk/locations), or using the API's [Delete Location](https://reference.fidel.uk/reference/delete-location) endpoint.
