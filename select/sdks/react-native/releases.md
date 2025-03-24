@@ -1,5 +1,8 @@
 # React Native SDK v2 Releases
 
+## 2.2.0
+- Migrate to Enigmatic-Smile GitHub organization
+
 ## 2.1.1
 - No relevant changes for this product
 
