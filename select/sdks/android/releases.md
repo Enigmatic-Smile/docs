@@ -1,5 +1,9 @@
 # Android SDK v2 Releases
 
+## 2.2.1
+
+- Fix missing translation labels for fr and sv language on program name.
+
 ## 2.2.0
 
 - Migrate to Enigmatic-Smile GitHub organization
@@ -170,17 +174,17 @@ For the rest of the world:
 - Now you can customize the final consent text with the following API:
 
     `Fidel.companyName = "Your Company Name Inc.";` (Maximum 60 characters)
-    
+
     `Fidel.privacyURL = "https://yourcompany.com/privacyURL";` (must be a valid URL)
-    
+
     `Fidel.deleteInstructions = "Your delete instructions";` (Maximum 60 characters)
-    
+
 - If the data above is not valid, the UI will not be displayed and you will get an error with the `LinkResult` in the activity result.
 - Set a default country the SDK should use with `Fidel.country = Fidel.Country.UNITED_KINGDOM`. When you set a default country, the card linking screen will not show the country picker UI.
 - Add support for more test cards. Anything with the following format:
 
     Visa: _4444000000004***_
-    
+
     Mastercard: _5555000000005***_
 
 
