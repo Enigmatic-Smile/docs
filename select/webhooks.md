@@ -1,6 +1,6 @@
 # Webhooks
 
-Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified` and `transaction.refund`.
+Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund.match.qualified` and `transaction.refund`.
 
 Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload.
 
@@ -476,13 +476,13 @@ The payload for these events includes the `offer` object with the results of the
 
 ```json
 "offer": {
-            "qualified": true,
-            "id": "eeefb94b-d11c-44db-81d7-d86a9fcc4069",
-            "message": [],
-            "qualificationDate": null,
-            "cashback": 2.5,
-            "performanceFee": 0.3
-         }
+  "qualified": true,
+  "id": "eeefb94b-d11c-44db-81d7-d86a9fcc4069",
+  "message": [],
+  "qualificationDate": null,
+  "cashback": 2.5,
+  "performanceFee": 0.3
+}
 ```
 
 You can filter transactions from a specific offer by setting the `offerId` optional property when creating a transaction qualification webhook event.
@@ -497,6 +497,28 @@ curl -X POST \
     "url": "https://example.com",
     "offerId": "cf22478e-c700-4f31-b75b-38016605e2a3"
   }'
+```
+
+Additionally, `transaction.refund.matched.qualified` is triggered when a refund transaction is matched with an original transaction that has previously been qualified for an offer. You can read more about refund matching in the [Refunds](https://fidelapi.com/docs/select/transactions/#refund) documentation.
+
+The payload for this event include details about the original transaction.
+
+```json
+"originalTransaction": {
+  "id": "8bbbf56b-3819-473b-877d-cf2175f268f4",
+  "brandId": "966481e7-dd6f-44d2-83fa-98783aaacf40",
+  "programId": "06471dbe-a3c7-429e-8a18-16dc97e5cf35",
+  "amount": 10,
+  "currency": "GBP",
+  "datetime": "2020-07-05T18:23:13",
+  "locationId": "0ff99cfd-9e8b-48fe-af55-2519ffe1c0a4",
+  "cardId": "62744670-f935-4ba3-8e89-be23e31292cf",
+  "offer": {
+    "qualified": true,
+    "id": "eeefb94b-d11c-44db-81d7-d86a9fcc4069",
+    "cashback": 2.5
+  }
+}
 ```
 
 
