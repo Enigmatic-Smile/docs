@@ -499,7 +499,7 @@ curl -X POST \
   }'
 ```
 
-Additionally, `transaction.refund.matched.qualified` is triggered when a refund transaction is matched with an original transaction that has previously been qualified for an offer. You can read more about refund matching in the [Refunds](https://fidelapi.com/docs/select/transactions/#refund) documentation.
+Additionally, `transaction.refund.match.qualified` is triggered when a refund transaction is matched with an original transaction that has previously been qualified for an offer. You can read more about refund matching in the [Refunds](https://fidelapi.com/docs/select/transactions/#refund) documentation.
 
 The payload for this event include details about the original transaction.
 
