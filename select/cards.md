@@ -16,15 +16,15 @@ For security purposes, the Fidel test environment doesn't accept live card numbe
 
 Where `*` can be any digit. For example, `4444000000004278`, `5555000000005093`, `340000000000301` `370000000000388` are all valid test card numbers.
 
-**Stripe test cards** ([docs](https://docs.stripe.com/testing)):
+**Other test cards supported**:
 - Visa: `4242424242424242`
-- Visa (debt): `4000056655665556`
+- Visa: `4000056655665556`
 - Mastercard: `5555555555554444`
-- Mastercard (2-series): `2223003122003222`
-- Mastercard (debit): `5200828282828210`
-- Mastercard (prepaid): `5105105105105100`
-- American Express: `378282246310005`
-- American Express: `371449635398431`
+- Mastercard: `2223003122003222`
+- Mastercard: `5200828282828210`
+- Mastercard: `5105105105105100`
+- Amex: `378282246310005`
+- Amex: `371449635398431`
 
 ## Adding Cards
 
