@@ -16,6 +16,16 @@ For security purposes, the Fidel test environment doesn't accept live card numbe
 
 Where `*` can be any digit. For example, `4444000000004278`, `5555000000005093`, `340000000000301` `370000000000388` are all valid test card numbers.
 
+**Stripe test cards** ([docs](https://docs.stripe.com/testing)):
+- Visa: `4242424242424242`
+- Visa (debt): `4000056655665556`
+- Mastercard: `5555555555554444`
+- Mastercard (2-series): `2223003122003222`
+- Mastercard (debit): `5200828282828210`
+- Mastercard (prepaid): `5105105105105100`
+- American Express: `378282246310005`
+- American Express: `371449635398431`
+
 ## Adding Cards
 
 There are multiple ways you can test card-linking on the Fidel platform before going live: in the Fidel Dashboard, with the Fidel SDKs or with the Fidel Cards API. For integrating card-linking into your application, we recommend using one of our PCI Compliant SDKs. We provide both Web(JavaScript) and Mobile(iOS, Android, ReactNative) SDKs. Fidel also provides a Cards API that can be used for linking cards to your Program, but we require you to be PCI Compliant before using it.
