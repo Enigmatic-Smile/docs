@@ -499,24 +499,71 @@ curl -X POST \
   }'
 ```
 
-Additionally, `transaction.refund.match.qualified` is triggered when a refund transaction is matched with an original transaction that has previously been qualified for an offer. You can read more about refund matching in the [Refunds](https://fidelapi.com/docs/select/transactions/#refund) documentation.
+In order to help clients understand which refund they can debit back to their customers, Fidel has created the `transaction.refund.match.qualified` webhook, which is only triggered if Fidel is able to find a refund for a previously qualified transaction and match it to the originalTransactionId.
 
-The payload for this event include details about the original transaction.
+This means that partial refunds will not be identified as the cashback amount is one of the triggers for Fidel to match the refund to the original transaction. This webhook provides the cashback amount, which the client can then debit to the cardholder. You can read more about refund matching in the [Refunds](https://fidelapi.com/docs/select/transactions/#refund) documentation. Please see the full payload below: 
 
 ```json
-"originalTransaction": {
-  "id": "8bbbf56b-3819-473b-877d-cf2175f268f4",
-  "brandId": "966481e7-dd6f-44d2-83fa-98783aaacf40",
-  "programId": "06471dbe-a3c7-429e-8a18-16dc97e5cf35",
-  "amount": 10,
+{
+  "approvalCode": "AA00BB",
+  "auth": false,
+  "authCode": "A73H890",
   "currency": "GBP",
-  "datetime": "2020-07-05T18:23:13",
-  "locationId": "0ff99cfd-9e8b-48fe-af55-2519ffe1c0a4",
-  "cardId": "62744670-f935-4ba3-8e89-be23e31292cf",
-  "offer": {
-    "qualified": true,
-    "id": "eeefb94b-d11c-44db-81d7-d86a9fcc4069",
-    "cashback": 2.5
+  "id": "5ec08ca8-38c6-42e1-9fa5-32c67e4135b2",
+  "amount": -10,
+  "wallet": null,
+  "created": "2020-07-08T17:23:13.972Z",
+  "accountId": "36081095-2782-4669-8a07-857bbaaeb89b",
+  "cardPresent": false,
+  "cleared": true,
+  "updated": "2020-07-08T17:23:13.972Z",
+  "programId": "06471dbe-a3c7-429e-8a18-16dc97e5cf35",
+  "datetime": "2020-07-08T18:23:13",
+  "originalTransactionId": "8bbbf56b-3819-473b-877d-cf2175f268f4",
+  "originalTransaction": {
+    "id": "8bbbf56b-3819-473b-877d-cf2175f268f4",
+    "brandId": "966481e7-dd6f-44d2-83fa-98783aaacf40",
+    "programId": "06471dbe-a3c7-429e-8a18-16dc97e5cf35",
+    "amount": 10,
+    "currency": "GBP",
+    "datetime": "2020-07-05T18:23:13",
+    "locationId": "0ff99cfd-9e8b-48fe-af55-2519ffe1c0a4",
+    "cardId": "62744670-f935-4ba3-8e89-be23e31292cf",
+    "offer": {
+      "qualified": true,
+      "id": "eeefb94b-d11c-44db-81d7-d86a9fcc4069",
+      "cashback": 2.5
+    }
+  },
+  "card": {
+    "id": "62744670-f935-4ba3-8e89-be23e31292cf",
+    "firstNumbers": "444400",
+    "lastNumbers": "4305",
+    "scheme": "visa"
+  },
+  "location": {
+    "address": "5 Main St",
+    "city": "Bristol",
+    "countryCode": "GBR",
+    "id": "0ff99cfd-9e8b-48fe-af55-2519ffe1c0a4",
+    "geolocation": null,
+    "postcode": "BS2 5BL",
+    "timezone": "Europe/London",
+    "metadata": null
+  },
+  "brand": {
+    "id": "966481e7-dd6f-44d2-83fa-98783aaacf40",
+    "name": "Bob's Cafe",
+    "logoURL": null,
+    "metadata": null
+  },
+  "identifiers": {
+    "MID": "TEST_MID_d74bc1ca-cd6e-409d-ba8e-549a214dfb0a",
+    "mastercardTransactionSequenceNumber": null,
+    "mastercardRefNumber": null,
+    "mastercardAuthCode": null,
+    "amexApprovalCode": "AA00BB",
+    "visaAuthCode": "A73H890"
   }
 }
 ```
