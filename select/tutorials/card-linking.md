@@ -689,4 +689,4 @@ Because you're using a Test Fidel key, and because you're using test cards, you 
 
 ![Card-Linked Application Demo](https://docs.fidel.uk/assets/images/tutorial-card-linking.png "Card-Linked Application Demo")
 
-I hope you've had a great time following along this tutorial, and you've learnt the basics of building your first card-linked application on the Fidel platform, using the Fidel Web SDK, Node.js, React and socket.io. If you want to take a look at the code, it's [available on GitHub](https://github.com/Enigmatic-Smile/fidel-card-linking-tutorial)!
+I hope you've had a great time following along this tutorial, and you've learnt the basics of building your first card-linked application on the Fidel platform, using the Fidel Web SDK, Node.js, React and socket.io.
