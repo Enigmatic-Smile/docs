@@ -33,7 +33,7 @@ To ensure images render correctly in the dashboard, please adhere to the followi
 - **Min dimensions:** `360x360` pixels
 
 ### ⚙️ Dashboard Behavior
-- The dashboard **does not validate or manipulate** the uploaded image—it simply renders what’s provided.
+- The dashboard **does not manipulate** the uploaded image.
 - After upload, users can **zoom and reposition** the image, but **no cropping or resizing is enforced**. Bear in mind that zooming might decrease the image's quality.
 
 ### 🧠 Recommendations for Best Results
