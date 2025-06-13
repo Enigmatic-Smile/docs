@@ -24,6 +24,25 @@ curl -X POST \
   }'
 ```
 
+## Image Upload Rules for the Dashboard
+
+To ensure images render correctly in the dashboard, please adhere to the following constraints and recommendations when handling image uploads:
+
+### ✅ Requirements
+- **Max file size:** `1MB`
+- **Min dimensions:** `360x360` pixels
+
+### ⚙️ Dashboard Behavior
+- The dashboard **does not manipulate** the uploaded image.
+- After upload, users can **zoom and reposition** the image, but **no cropping or resizing is enforced**. Bear in mind that zooming might decrease the image's quality.
+
+### 🧠 Recommendations for Best Results
+- Use an image where the logo **fills** the 360×360 area or has **minimal whitespace**.
+- The uploaded image should be **sharp and high-resolution**.
+- Blurry logos typically mean the **source image is low quality**, or has been **stretched without preserving aspect ratio**.
+
+> ℹ️ Important: It's the uploader’s responsibility to provide a clean, properly sized, and high-quality image. The dashboard won't correct poor inputs.
+
 ## Brand Consent
 
 > NOTE: Brand consent is only required in the Live environment. Test Brands are automatically given Brand consent.
