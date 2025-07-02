@@ -1,5 +1,9 @@
 # Android SDK v2 Releases
 
+## 2.3.0
+
+- Improve consent terms on card linking screen
+
 ## 2.2.1
 
 - Fix missing translation labels for fr and sv language on program name.
