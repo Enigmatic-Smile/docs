@@ -1,5 +1,9 @@
 # iOS SDK v2 Releases
 
+## 2.3.0
+
+- Improve consent terms on card linking screen
+
 ## 2.2.0
 
 - Migrate to Enigmatic-Smile GitHub organization
@@ -38,15 +42,15 @@
   - `lastNumbers` was renamed to `cardLastNumbers`.
   - `expYear` was renamed to card `cardExpirationYear`.
   - `expMonth` should be renamed to `cardExpirationMonth`.
-  - `expDate` string property was removed. 
+  - `expDate` string property was removed.
   - `countryCode` was  renamed to `cardIssuingCountry` and its data type is now `Country`.
   - Renamed `accountId` to `accountID`.
 - Changes to the LinkResultError class:
-  - Renamed to FidelError. 
+  - Renamed to FidelError.
   - The date property now has a `Date` data type, not `String`.
   - The (error) code property is now an enum. It has 2 cases: `.enrollmentError` and `.verificationError` (the last one not relevant to the Transaction Select API)
 - Dropped support for Objective-C.
-  
+
 # iOS SDK v1 Releases
 
 ## 1.10.3
@@ -208,17 +212,17 @@ For the rest of the world:
 - Now you can customize the final consent text with the following API:
 
     `Fidel.companyName = "Your Company Name Inc."` (Maximum 60 characters)
-    
+
     `Fidel.privacyURL = "https://yourcompany.com/privacyURL"` (must be a valid URL)
-    
+
     `Fidel.deleteInstructions = "Your delete instructions"` (Maximum 60 characters)
-    
+
 - If the data above is not valid, the UI will not be displayed and you will get an error.
 - Set a default country the SDK should use with `Fidel.country = .unitedKingdom`. When you set a default country, the card linking screen will not show the country picker UI.
 - Add support for more test cards. Anything with the following format:
 
     Visa: _4444000000004***_
-    
+
     Mastercard: _5555000000005***_
 
 ## 1.3.7
@@ -248,17 +252,17 @@ For the rest of the world:
 - Now you can customize the final consent text with the following API:
 
     `Fidel.companyName = "Your Company Name Inc."` (Maximum 60 characters)
-    
+
     `Fidel.privacyURL = "https://yourcompany.com/privacyURL"` (must be a valid URL)
-    
+
     `Fidel.deleteInstructions = "Your delete instructions"` (Maximum 60 characters)
-    
+
 - If the data above is not valid, the UI will not be displayed and you will get an error.
 - Set a default country the SDK should use with `Fidel.country = .unitedKingdom`. When you set a default country, the card linking screen will not show the country picker UI.
 - Add support for more test cards. Anything with the following format:
 
     Visa: _4444000000004***_
-    
+
     Mastercard: _5555000000005***_
 
 ## 1.3.2
@@ -302,17 +306,17 @@ Compiled with Swift 4.1.2.
 - Now you can customize the final consent text with the following API:
 
     `Fidel.companyName = "Your Company Name Inc."` (Maximum 60 characters)
-    
+
     `Fidel.privacyURL = "https://yourcompany.com/privacyURL"` (must be a valid URL)
-    
+
     `Fidel.deleteInstructions = "Your delete instructions"` (Maximum 60 characters)
-    
+
 - If the data above is not valid, the UI will not be displayed and you will get an error.
 - Set a default country the SDK should use with `Fidel.country = .unitedKingdom`. When you set a default country, the card linking screen will not show the country picker UI.
 - Add support for more test cards. Anything with the following format:
 
     Visa: _4444000000004***_
-    
+
     Mastercard: _5555000000005***_
 
 ## 1.2.3
@@ -359,17 +363,17 @@ Migrated to Swift 4.0.
 - Now you can customize the final consent text with the following API:
 
     `Fidel.companyName = "Your Company Name Inc."` (Maximum 60 characters)
-    
+
     `Fidel.privacyURL = "https://yourcompany.com/privacyURL"` (must be a valid URL)
-    
+
     `Fidel.deleteInstructions = "Your delete instructions"` (Maximum 60 characters)
-    
+
 - If the data above is not valid, the UI will not be displayed and you will get an error.
 - Set a default country the SDK should use with `Fidel.country = .unitedKingdom`. When you set a default country, the card linking screen will not show the country picker UI.
 - Add support for more test cards. Anything with the following format:
 
     Visa: _4444000000004***_
-    
+
     Mastercard: _5555000000005***_
 
 ## 1.1.3
