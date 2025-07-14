@@ -1,5 +1,9 @@
 # React Native SDK v2 Releases
 
+# 2.3.1
+- Update Fidel & Android SDK versions.
+- Fix language on consent terms on card linking screen
+
 # 2.3.0
 - Update Fidel & Android SDK versions.
 - Improve consent terms on card linking screen
