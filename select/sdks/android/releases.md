@@ -1,5 +1,9 @@
 # Android SDK v2 Releases
 
+## 2.3.1
+
+- Fix language on consent terms on card linking screen
+
 ## 2.3.0
 
 - Improve consent terms on card linking screen
