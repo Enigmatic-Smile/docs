@@ -48,7 +48,7 @@ If you didn't create a program for your application yet, please create a Transac
 
 ```groovy
 fileName:app/build.gradle
-implementation 'com.github.Enigmatic-Smile:android-sdk:2.3.2'
+implementation 'com.github.Enigmatic-Smile:android-sdk:2.4.0'
 ```
 
 - In the future, to update to the latest Android SDK version, please update the version in your `app/build.gradle` file and `Sync` your Android project again.

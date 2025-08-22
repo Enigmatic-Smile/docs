@@ -1,5 +1,9 @@
 # Android SDK v2 Releases
 
+## 2.4.0
+
+- Improve consent text on card linking screen
+
 ## 2.3.2
 
 - Fix StringBuilder on consent terms
