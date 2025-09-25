@@ -32,7 +32,7 @@ export default class App extends React.Component {
         Fidel.Country.norway,
         Fidel.Country.sweden,
         Fidel.Country.unitedArabEmirates,
-        Fidel.Country.unitedKingdom, 
+        Fidel.Country.unitedKingdom,
         Fidel.Country.unitedStates
     ];
 
@@ -275,17 +275,9 @@ This value is used in the consent text when enrolling a card issued in a United 
 
 Default value: `Fidel.ProgramType.transactionSelect`
 
-It specifies the type of program you want to enroll cards into. It also influences the flow that the SDK will show to cardholders when enrolling cards. The other supported value of this property is `Fidel.ProgramType.transactionStream`, but it is useful only for cards enrolled for Stream applications.
+It specifies the type of program you want to enroll cards into. It also influences the flow that the SDK will show to cardholders when enrolling cards.
 
 > Note: For your Loyalty application, you don't need to set this property as the default value is the correct one, for your use case.
-
-#### options.thirdPartyVerificationChoice
-
-Expected type: `boolean`
-
-Default value: `false`
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._ 
 
 ## Methods
 
@@ -300,12 +292,7 @@ Parameters:
 ### Fidel.start()
 
 Starts a card enrollment flow. If you set the `programType` to:
-1. `Fidel.ProgramType.transactionStream`, a verified card enrollment flow will be started, for a Transaction Stream program (usually used by Stream applications).
-2. `Fidel.ProgramType.transactionSelect`, a regular card enrollment flow will be started, for your Select Transactions program (usually used by Loyalty applications).
-
-### Fidel.verifyCard(params)
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._ Useful only for cards enrolled in a Transaction Stream program.
+1. `Fidel.ProgramType.transactionSelect`, a regular card enrollment flow will be started, for your Select Transactions program (usually used by Loyalty applications).
 
 ## Callbacks
 
@@ -336,15 +323,13 @@ Fidel.setup ({
 
 The results are objects received in the main callback of the SDK after specific enrollment processes finish. Expect the following properties:
 
-- `type`. This property lets you distinguish the type of result that was sent. Possible values: `ENROLLMENT_RESULT`, `VERIFICATION_RESULT`(_Not useful for Loyalty/Select transactions use cases_), `ERROR`. The possible values are constants defined in the Fidel SDK module: 
+- `type`. This property lets you distinguish the type of result that was sent. Possible values: `ENROLLMENT_RESULT`, `ERROR`. The possible values are constants defined in the Fidel SDK module:
 
     `import Fidel, { ENROLLMENT_RESULT, ERROR } from 'fidel-react-native';`
 
 - `enrollmentResult`. An object that is defined only when the `type` property is `ENROLLMENT_RESULT`. Please check this object's properties below.
 
 - `error`. An object that is defined only when the `type` property is `ERROR`. Please check this object's properties below.
-
-- `verificationResult`. _Not useful for Loyalty/Select transactions use cases_
 
 #### Enrollment result object
 
@@ -390,7 +375,3 @@ Properties:
 - `Fidel.EnrollmentErrorType.inexistentProgram`: The program ID used to configure the Fidel SDK is of a program that does not exist. If you receive this error, please make sure that you set the correct program ID via the `programId` property. This error is equivalent to the Fidel API error with the code `item-exists`.
 - `Fidel.EnrollmentErrorType.unauthorized`: The card enrollment process is not authorized. This error is equivalent to the Fidel API error with the code `Unauthorized`.
 - `Fidel.EnrollmentErrorType.unexpected`: An unexpected error during the card enrollment step.
-
-### onCardVerificationStarted _(!Experimental)_
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment.__Not useful for Loyalty/Select Transactions use cases, at the moment._

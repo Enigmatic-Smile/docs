@@ -1,5 +1,9 @@
 # Android SDK v2 Releases
 
+## 3.0.0
+
+- Remove transaction stream related logic
+
 ## 2.4.0
 
 - Improve consent text on card linking screen

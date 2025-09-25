@@ -147,35 +147,20 @@ This value is used in the consent text when enrolling a card issued in a United 
 
 Default value: `ProgramType.TRANSACTION_SELECT`
 
-It specifies the type of program you want to enroll cards into. The `ProgramType` influences the flow that the SDK will show to cardholders when enrolling cards. 
+It specifies the type of program you want to enroll cards into. The `ProgramType` influences the flow that the SDK will show to cardholders when enrolling cards.
 
 > Note: For your Loyalty application, you need to use a Transaction Select program, so you can either explicitly set the value to `TRANSACTION_SELECT` or not set this property (because its default value is `TRANSACTION_SELECT`).
-
-#### thirdPartyVerificationChoice: Boolean
-
-Default value: `false`.
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._
 
 ## Methods
 
 ### start(context: Context)
 
 Starts a card enrollment flow. If you set the `programType` to:
-1. `TRANSACTION_STREAM`, a card enrollment flow will be started, for a Transaction Stream program (usually used by Stream applications).
-2. `TRANSACTION_SELECT`, a regular card enrollment flow will be started, for your Transaction Select program (usually used by Loyalty applications).
+1. `TRANSACTION_SELECT`, a regular card enrollment flow will be started, for your Transaction Select program (usually used by Loyalty applications).
 
 #### Parameters
 
 - `context: Context`: the `Context` that will start the card enrollment flow. This is a *mandatory* parameter.
-
-### verifyCard(context: Context, cardVerificationConfiguration: CardVerificationConfiguration)
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._
-
-### onMainActivityCreate(context: Context)
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._
 
 ## Callbacks
 
@@ -196,7 +181,6 @@ It will be called when a `FidelResult` is available, during the card enrollment 
 Types of results:
 
 - `Enrollment(val enrollmentResult: EnrollmentResult)`: Received after successfully enrolling the card in your Fidel API program. Please find details about `EnrollmentResult` below.
-- `Verification(val verificationResult: VerificationResult)`._Not useful for Loyalty/Select Transactions use cases, at the moment._
 - `Error(val error: FidelError)`. An error occurred either during the card enrollment process. Please find details about `FidelError` below.
 
 #### data class EnrollmentResult
@@ -217,10 +201,6 @@ Properties:
 - `cardIssuingCountry: Country`: The country where the enrolled card was issued.
 - `metaData: JSONObject?`: Custom data assigned to the enrolled card via the `metaData` SDK property.
 
-#### data class VerificationResult
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._
-
 #### data class FidelError
 
 A FidelError can occur during the card enrollment process. You can handle them via the `onResult` callback.
@@ -239,7 +219,6 @@ Types of errors:
 - `UserCanceled`: The user canceled the card enrollment flow at any stage.
 - `DeviceNotSecure`: The device that the SDK is running on is not secure (for example, when it is rooted).
 - `EnrollmentError(val type: EnrollmentErrorType)`. An error that is received during card enrollment or during consent creation. Please check more details about `EnrollmentErrorType` below.
-- `VerificationError(val type: VerificationErrorType)`. _Not useful for Loyalty/Select Transactions use cases, at the moment._
 
 #### enum class EnrollmentErrorType
 
@@ -253,22 +232,3 @@ Cases:
 - `INEXISTENT_PROGRAM`: The program ID used to configure the Fidel SDK is of a program that does not exist. If you receive this error, please make sure that you set the correct program ID via the `programId` property. This error is equivalent to the Fidel API error with the code `item-exists`.
 - `UNAUTHORIZED`: The card enrollment process is not authorized. This error is equivalent to the Fidel API error with the code `Unauthorized`.
 - `UNEXPECTED`: An unexpected error during the card enrollment step.
-
-The following list of cases are _not used_ by Loyalty/Select Transactions use cases, at the moment, so you can ignore them:
-
-- `CARD_CONSENT_ISSUER_PROCESSING_CHARGE_ERROR`
-- `CARD_CONSENT_DUPLICATE_TRANSACTION_ERROR`
-- `CARD_CONSENT_INSUFFICIENT_FUNDS_ERROR`
-- `CARD_CONSENT_PROCESSING_CHARGE_ERROR`
-- `CARD_CONSENT_INCORRECT_CARD_DETAILS_ERROR`
-- `CARD_CONSENT_CARD_LIMIT_EXCEEDED`
-- `CARD_CONSENT_ERROR_GENERIC`
-
-
-### onCardVerificationStarted: OnCardVerificationStartedObserver
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._
-
-### onCardVerificationChoiceSelected: OnCardVerificationChoiceSelectedObserver _(!Experimental)_
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._
