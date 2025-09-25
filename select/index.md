@@ -39,7 +39,7 @@ Fidel API provides a developer-friendly, secure and reliable API for businesses 
 
 Fidel API runs on top of global payment networks, so it doesn’t require changes to existing merchant infrastructures. No need for new software, POS integrations, staff training or new cards. All the PCI compliance requirements are managed by us so you don’t have to.
 
-Currently, the API is available in the **United States**, **UK**, **Ireland**, **Canada**, **Sweden** and **UAE**. **Japan** is currently in beta stage. Read the full list of available locations for the [Select Transactions API](https://fidelapi.com/products/select-transactions) and for the [Transaction Stream API](https://fidelapi.com/products/transaction-stream) on the product pages. We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please [contact us](https://fidelapi.com/contact).
+Currently, the API is available in the **United States**, **UK**, **Ireland**, **Canada**, **Sweden** and **UAE**. **Japan** is currently in beta stage. Read the full list of available locations for the [Select Transactions API](https://fidelapi.com/products/select-transactions) on the product pages. We work continuously to add support for other countries and networks. If you would like to deploy card-linked applications in other countries please [contact us](https://fidelapi.com/contact).
 
 You can see an example implementation for integrating the Fidel APIs and Web SDK in our [sample application on GitHub](https://github.com/Enigmatic-Smile/fidel-api-sample-app).
 

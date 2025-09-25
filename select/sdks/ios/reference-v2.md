@@ -150,28 +150,19 @@ This value is used in the consent text when enrolling a card issued in a United 
 
 Default value: `.transactionSelect`
 
-It specifies the type of program you want to enroll cards into. The `ProgramType` influences the flow that the SDK will show to cardholders when enrolling cards. 
+It specifies the type of program you want to enroll cards into. The `ProgramType` influences the flow that the SDK will show to cardholders when enrolling cards.
 
 > Note: For your Loyalty application, you need to use a Transaction Select program, so you can either explicitly set the value to `.transactionSelect` or not set this property (because its default value is `.transactionSelect`).
-
-#### thirdPartyVerificationChoice: Bool
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._ 
 
 ## Methods
 
 ### start(from:)
 
 Starts a card enrollment flow. If you set the `programType` to:
-1. `.transactionStream`, a verified card enrollment flow will be started, for a Transaction Stream program (usually used by Stream applications).
-2. `.transactionSelect`, a regular card enrollment flow will be started, for your Select Transactions program (usually used by Loyalty applications).
+1. `.transactionSelect`, a regular card enrollment flow will be started, for your Select Transactions program (usually used by Loyalty applications).
 
 #### Parameters
 - `startingViewController: UIViewController`: the `UIViewController` that will start the card enrollment flow. This is a *mandatory* parameter.
-
-### verifyCard(from:cardVerificationConfiguration:)
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._ Useful only for cards enrolled in a Transaction Stream program.
 
 ## Callbacks
 
@@ -186,7 +177,6 @@ Will be called when a `FidelResult` is available, during the card enrollment pro
 Cases:
 
 - `enrollmentResult(EnrollmentResult)`: Received after successfully enrolling the card in your Fidel API program. Please check more details about `EnrollmentResult` below.
-- `verificationResult(VerificationResult)`. _Not useful for Loyalty/Select Transactions use cases, at the moment._
 - `error(FidelError)`. An error occurred during the card enrollment process. Please check more details about `FidelError` below.
 
 #### struct EnrollmentResult
@@ -207,10 +197,6 @@ Properties:
 - `cardIssuingCountry: Country`: The country where the enrolled card was issued.
 - `metaData: [String: Any]?`: Custom data assigned to the enrolled card via the `metaData` SDK property.
 
-#### struct VerificationResult
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._
-
 #### struct FidelError
 
 A FidelError can occur during the card enrollment process. You can handle it via the `onResult` callback.
@@ -229,7 +215,6 @@ Cases:
 - `userCanceled`: The user canceled the card enrollment flow.
 - `deviceNotSecure`: The device that the SDK is running on is not secure (for example, when it is jailbroken).
 - `enrollmentError(EnrollmentError)`. An error that is received during card enrollment or during consent creation. Please check more details about `EnrollmentError` below.
-- `verificationError(VerificationError)`. _Not useful for Loyalty/Select Transactions use cases, at the moment._
 
 #### enum EnrollmentError
 
@@ -243,20 +228,3 @@ Cases:
 - `inexistentProgram`: The program ID used to configure the Fidel SDK is of a program that does not exist. If you receive this error, please make sure that you set the correct program ID via the `programID` property. This error is equivalent to the Fidel API error with the code `item-exists`.
 - `unauthorized`: The card enrollment process is not authorized. This error is equivalent to the Fidel API error with the code `Unauthorized`.
 - `unexpected`: An unexpected error during the card enrollment step.
-
-The following list of cases are _not used_ by Loyalty/Select Transactions use cases, at the moment, so you can ignore them:
-
-- `issuerProcessingError`
-- `duplicateTransactionError`
-- `insufficientFundsError`
-- `processingChargeError`
-- `cardDetailsError`
-- `cardLimitExceededError`
-
-### onCardVerificationStarted
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._
-
-### onCardVerificationChoiceSelected _(!Experimental)_
-
-_Not useful for Loyalty/Select Transactions use cases, at the moment._

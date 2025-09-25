@@ -1,5 +1,9 @@
 # React Native SDK v2 Releases
 
+## 3.0.0
+- Remove transaction stream related logic
+- Update Fidel & Android SDK versions.
+
 # 2.4.0
 - Update Fidel & Android SDK versions.
 
