@@ -1,5 +1,9 @@
 # React Native SDK v2 Releases
 
+## 3.0.1
+
+- Fix syntax error on android Bridge Library Event
+
 ## 3.0.0
 - Remove transaction stream related logic
 - Update Fidel & Android SDK versions.
