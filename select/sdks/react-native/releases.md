@@ -1,5 +1,9 @@
 # React Native SDK v2 Releases
 
+## 3.0.2
+
+- Fix referenced unused iOS adapter
+
 ## 3.0.1
 
 - Fix syntax error on android Bridge Library Event
