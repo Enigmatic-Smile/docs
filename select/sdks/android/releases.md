@@ -1,5 +1,10 @@
 # Android SDK v2 Releases
 
+## 3.1.1
+
+- Upgrade to API 36
+- Fix UI breakage on card linking screen
+
 ## 3.0.0
 
 - Remove transaction stream related logic
