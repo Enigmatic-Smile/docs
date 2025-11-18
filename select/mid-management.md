@@ -16,7 +16,7 @@ All onboarded MIDs for the selected program are displayed on this page. You can 
 
 ### Onboard MID
 
-Onboard MIDs to existing locations via the [Create MID Request API](https://reference.fidel.uk/reference/create-mid-request#/) or the Fidel Dashboard. Learn more about [what is a MID request](#what-is-a-mid-request).
+Onboard MIDs to existing locations via the [Create MID Request API](https://reference.fidel.uk/reference/create-mid-request#/) or the Fidel Dashboard. Learn more about [what is a MID request](#what-is-a-mid-request?).
 
 To onboard via the Dashboard, click **+ Onboard MID** in the upper right:
 
@@ -113,7 +113,7 @@ Click **Done** to create the request.
 
 A MID request is a workflow instruction to the Fidel platform to source, remove, or re-link a card-network MID for a specific merchant location within a program.
 
-**Supported actions map to the MID lifecycle:**e:**
+**Supported actions map to the MID lifecycle:**
 
 - **✅ onboard**: Ask Fidel to provision or ingest a MID for AMEX, Mastercard, or Visa.
 - **❌ offboard**: Remove an existing MID that should no longer be associated with a location, stopping the transaction ingestion pipeline.
