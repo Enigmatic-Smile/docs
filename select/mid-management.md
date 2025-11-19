@@ -8,7 +8,7 @@ Manage the full lifecycle of Merchant IDs (MIDs) for your card-linked programs. 
 
 View and manage Merchant IDs (MIDs) onboarded for your program by selecting a Program from the Programs page. This opens the 'Merchant IDs' tab in the Fidel Dashboard.
 
-<img src="https://docs.fidel.uk/assets/images/merchantids.png" alt="Merchant IDs" style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+<img src="https://docs.fidel.uk/assets/images/merchantids.png" alt="Merchant IDs" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
 
 All onboarded MIDs for the selected program are displayed on this page. You can also retrieve this information via the API: [Get MID](https://reference.fidel.uk/reference/get-mid#/) | [List MIDs](https://reference.fidel.uk/reference/list-mids#/)
 
@@ -18,17 +18,25 @@ All onboarded MIDs for the selected program are displayed on this page. You can 
 
 Onboard MIDs to existing locations via the [Create MID Request API](https://reference.fidel.uk/reference/create-mid-request#/) or the Fidel Dashboard. Learn more about [what is a MID request](#what-is-a-mid-request?).
 
-To onboard via the Dashboard, click **+ Onboard MID** in the upper right:
+#### Dashboard Walkthrough
 
-<img src="https://docs.fidel.uk/assets/images/create_mid_request.png" alt="Create MID Request" style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+<video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+ <source src="https://docs.fidel.uk/assets/videos/onboard-mid-walkthrough.mov" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
-A form will appear on the right. Select the brand and location from your program where you want to onboard the MID, then click **Next**.
+**Step-by-step:**
 
-<img src="https://docs.fidel.uk/assets/images/create_mid_request_mid_info.png" alt="MID information screen" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+1. **Navigate to Programs** - Select your program from the Programs page to open the Merchant IDs tab
+2. **Initiate onboarding** - Click **+ Onboard MID** in the upper right
+3. **Select location** - Choose the brand and location where you want to onboard the MID, then click **Next**
+4. **Choose MID origin** - Select the appropriate origin from the dropdown (see table below for descriptions)
+5. **Enter MID details** - Select the card network and enter the MID value
+6. **Submit** - Click **Done** to create the request
 
-Select the MID origin from the dropdown menu:
+#### MID Origin Types
 
-<table style="border-collapse: collapse; width: 100%;margin-bottom:16px;">
+<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
 <thead>
   <tr style="background-color: #f8f9fa;">
     <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Origin</th>
@@ -59,51 +67,55 @@ Select the MID origin from the dropdown menu:
 </tbody>
 </table>
 
-<img src="https://docs.fidel.uk/assets/images/create_mid_request_mid_value.png" alt="MID values by network" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
-
-Select the card network, enter the relevant MID, and click **Done**.
-
 > **⏱️ Processing Time:** MID requests are processed asynchronously and typically take up to 7 days to complete due to card network constraints.
 
 ---
 
 ### Offboard MID
 
-Offboard a MID via the [Create MID Request API](https://reference.fidel.uk/reference/create-mid-request#/) with the action 'offboard', or via the Fidel Dashboard by clicking the three dots next to the relevant MID:
+Offboard a MID via the [Create MID Request API](https://reference.fidel.uk/reference/create-mid-request#/) with the action 'offboard', or via the Fidel Dashboard.
 
-<img src="https://docs.fidel.uk/assets/images/mids_before_actions.png" alt="MIDs" style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+#### Dashboard Walkthrough
 
-<img src="https://docs.fidel.uk/assets/images/mids_after_actions.png" alt="MIDs actions" style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+<video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+ <source src="https://docs.fidel.uk/assets/videos/offboard-mid-walkthrough.mov" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
-Select **Offboard MID** to open the form:
+**Step-by-step:**
 
-<img src="https://docs.fidel.uk/assets/images/offboard_mids_intro.png" alt="Offboard MIDs" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+1. **Locate MID** - Find the MID you want to offboard in the Merchant IDs list
+2. **Open actions menu** - Click the three dots next to the relevant MID
+3. **Select offboard** - Choose **Offboard MID** from the dropdown menu
+4. **Choose reason** - Select the reason for offboarding from the dropdown
+5. **Acknowledge impact** - Confirm that you understand you will no longer receive transactions for this MID
+6. **Submit** - Click **Confirm** to create the offboard request
 
-Select the reason for offboarding from the dropdown menu and confirm that you understand you will no longer receive transactions for this MID. Click **Confirm**.
-
-<img src="https://docs.fidel.uk/assets/images/offboard_mid_reason.png" alt="Offboard MIDs reason" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
-
-<img src="https://docs.fidel.uk/assets/images/offboard_mids_terms.png" alt="Offboard MIDs terms" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
-
-This creates a new MID request. See the [MID Requests](#mid-requests) section for next steps.
+> **📋 Next Steps:** This creates a new MID request. See the [MID Requests](#mid-requests) section to track the status.
 
 ---
 
 ### Reassign MID
 
-Reassign a MID to a different location via the [Create MID Request API](https://reference.fidel.uk/reference/create-mid-request#/) with the action 'reassign', or via the Fidel Dashboard by clicking the three dots next to the relevant MID and selecting **Reassign MID**:
+Reassign a MID to a different location via the [Create MID Request API](https://reference.fidel.uk/reference/create-mid-request#/) with the action 'reassign', or via the Fidel Dashboard.
 
-<img src="https://docs.fidel.uk/assets/images/mid_reassign_action.png" alt="Reassign MID action" style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+#### Dashboard Walkthrough
 
-The form will open on the right:
+<video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+ <source src="https://docs.fidel.uk/assets/videos/reassign-mid-walkthrough.mov" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
 
-<img src="https://docs.fidel.uk/assets/images/reassign_mids_intro.png" alt="Reassign MIDs" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+**Step-by-step:**
 
-Select the reason for reassigning the MID, then choose the brand and location where the MID should be assigned:
+1. **Locate MID** - Find the MID you want to reassign in the Merchant IDs list
+2. **Open actions menu** - Click the three dots next to the relevant MID
+3. **Select reassign** - Choose **Reassign MID** from the dropdown menu
+4. **Choose reason** - Select the reason for reassigning the MID
+5. **Select new location** - Choose the brand and location where the MID should be assigned
+6. **Submit** - Click **Done** to create the reassignment request
 
-<img src="https://docs.fidel.uk/assets/images/reassign_mids_location.png" alt="Select location for reassignment" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
-
-Click **Done** to create the request.
+> **📋 Next Steps:** This creates a new MID request. See the [MID Requests](#mid-requests) section to track the status.
 
 ---
 
@@ -123,7 +135,7 @@ A MID request is a workflow instruction to the Fidel platform to source, remove,
 
 MID requests are displayed under the 'Requests' tab on the Dashboard. All MID requests you create to onboard, offboard, or reassign MIDs will be visible on this tab or can be retrieved via these endpoints: [Get MID Request](https://reference.fidel.uk/reference/get-mid-request#/) | [List MID Requests](https://reference.fidel.uk/reference/list-mid-requests#/)
 
-<img src="https://docs.fidel.uk/assets/images/mid_requests.png" alt="MID requests" style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+<img src="https://docs.fidel.uk/assets/images/mid_requests.png" alt="MID requests" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
 
 The different statuses of MID requests are defined below:
 
@@ -138,7 +150,7 @@ Subscribe to webhooks to receive real-time notifications when a MID request succ
 
 You can also view the status on the Dashboard. To understand why a MID request failed, inspect the raw data by clicking on the failed request:
 
-<img src="https://docs.fidel.uk/assets/images/mid_request_detail.png" alt="MID request detail" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+<img src="https://docs.fidel.uk/assets/images/mid_request_detail.png" alt="MID request detail" style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
 
 ### Error Codes
 
