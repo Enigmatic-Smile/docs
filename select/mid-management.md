@@ -6,6 +6,23 @@ Manage the full lifecycle of Merchant IDs (MIDs) for your card-linked programs. 
 
 ## Merchant IDs (MIDs)
 
+### What is a MID
+
+A Merchant ID (MID) is a unique identifier assigned to a physical or online merchant location by their payment processor. This identification number is crucial for the payment ecosystem to function properly.
+
+**Key functions of a MID:**
+
+- **🏪 Location identifier**: Each MID is associated with a specific merchant location, not the brand as a whole
+- **💰 Payment routing**: Enables payment processors to route funds to the correct merchant account
+- **📍 Transaction attribution**: Transmitted with cardholder information to ensure accurate transaction reconciliation
+- **🔍 Data tracking**: Allows card-linked programs to identify and track transactions at specific merchant locations
+
+> **💡 Think of it as an address:** Without a MID, the payment networks wouldn't know where to send the merchant's money. In card-linked programs, MIDs enable you to receive transaction data from specific merchant locations enrolled in your program.
+
+For more information, see the [Locations/Merchant Onboarding FAQs](https://www.fidelapi.com/faq).
+
+---
+
 View and manage Merchant IDs (MIDs) onboarded for your program by selecting a Program from the Programs page. This opens the 'Merchant IDs' tab in the Fidel Dashboard.
 
 <img src="https://docs.fidel.uk/assets/images/merchantids.png" alt="Merchant IDs" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
@@ -16,12 +33,12 @@ All onboarded MIDs for the selected program are displayed on this page. You can 
 
 ### Onboard MID
 
-Onboard MIDs to existing locations via the [Create MID Request API](https://reference.fidel.uk/reference/create-mid-request#/) or the Fidel Dashboard. Learn more about [what is a MID request](#what-is-a-mid-request?).
+Onboard MIDs to existing locations via the [Create MID Request API](https://reference.fidel.uk/reference/create-mid-request#/) or the Fidel Dashboard. Learn more about [what is a MID request](#what-is-a-mid-request).
 
 #### Dashboard Walkthrough
 
 <video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
- <source src="https://docs.fidel.uk/assets/videos/onboard-mid-walkthrough.mov" type="video/mp4" />
+ <source src="https://docs.fidel.uk/assets/videos/mid-onboard-voiceover.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -78,7 +95,7 @@ Offboard a MID via the [Create MID Request API](https://reference.fidel.uk/refer
 #### Dashboard Walkthrough
 
 <video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
- <source src="https://docs.fidel.uk/assets/videos/offboard-mid-walkthrough.mov" type="video/mp4" />
+ <source src="https://docs.fidel.uk/assets/videos/mid-offboard-voiceover.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -102,7 +119,7 @@ Reassign a MID to a different location via the [Create MID Request API](https://
 #### Dashboard Walkthrough
 
 <video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
- <source src="https://docs.fidel.uk/assets/videos/reassign-mid-walkthrough.mov" type="video/mp4" />
+ <source src="https://docs.fidel.uk/assets/videos/mid-reassign-voiceover.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
@@ -121,7 +138,7 @@ Reassign a MID to a different location via the [Create MID Request API](https://
 
 ## MID Requests
 
-### What is a MID Request?
+### What is a MID Request
 
 A MID request is a workflow instruction to the Fidel platform to source, remove, or re-link a card-network MID for a specific merchant location within a program.
 
@@ -139,7 +156,32 @@ MID requests are displayed under the 'Requests' tab on the Dashboard. All MID re
 
 The different statuses of MID requests are defined below:
 
-<img src="https://docs.fidel.uk/assets/images/mid_request_status_definition.png" alt="MID requests status definition" style="width: 100%; max-width: 400px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<thead>
+  <tr style="background-color: #f8f9fa;">
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Status</th>
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><img src="https://docs.fidel.uk/assets/images/mid-request-pending.png" alt="Pending" style="height: 40px; vertical-align: middle;" /></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The request has been received and is queued for processing.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><img src="https://docs.fidel.uk/assets/images/mid-request-processing.png" alt="Processing" style="height: 40px; vertical-align: middle;" /></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The request is currently being processed by the card networks.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><img src="https://docs.fidel.uk/assets/images/mid-request-successful.png" alt="Successful" style="height: 40px; vertical-align: middle;" /></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The request has been successfully completed and the MID has been onboarded, offboarded, or reassigned.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px;"><img src="https://docs.fidel.uk/assets/images/mid-request-failed.png" alt="Failed" style="height: 30px; vertical-align: middle;" /></td>
+    <td style="padding: 12px;">The request could not be completed. Check the error details for more information.</td>
+  </tr>
+</tbody>
+</table>
 
 ### Webhooks
 
@@ -150,7 +192,31 @@ Subscribe to webhooks to receive real-time notifications when a MID request succ
 
 You can also view the status on the Dashboard. To understand why a MID request failed, inspect the raw data by clicking on the failed request:
 
-<img src="https://docs.fidel.uk/assets/images/mid_request_detail.png" alt="MID request detail" style="width: 100%; max-width: 600px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+```json
+fileName:mid-request.json
+{
+  "accountId": "f7a83b85-2452-4715-806c-35be51b6515b",
+  "action": "onboard",
+  "brandId": "50c28205-ff3c-440e-8e27-42b7770d8dd9",
+  "created": "2025-10-06T16:57:44.230Z",
+  "estimatedCompletionDate": "2025-10-07T16:57:44.230Z",
+  "id": "317e0700-2a9e-44d3-9380-6c06c6ef3593",
+  "live": true,
+  "locationId": "ed8ef30e-5e33-4bf8-93eb-aaa8ee8c2de4",
+  "origin": "missing-transaction-lookup",
+  "programId": "a7ce6bed-efad-4582-b9c2-a583185fa39e",
+  "result": {
+    "error": {
+      "code": "card-scheme-mid-not-found",
+      "message": "Merchant not valid"
+    }
+  },
+  "scheme": "amex",
+  "seNumber": "3022430235",
+  "status": "failed",
+  "updated": "2025-10-06T16:57:55.033Z"
+}
+```
 
 ### Error Codes
 
