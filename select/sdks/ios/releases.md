@@ -1,5 +1,9 @@
 # iOS SDK v2 Releases
 
+## 3.0.1
+
+- Fix API resource not being exposed to client on card linking
+
 ## 3.0.0
 
 - Remove transaction stream related logic

@@ -1,5 +1,9 @@
 # Android SDK v2 Releases
 
+## 3.1.2
+
+- Fix API resource not being exposed to client on card linking
+
 ## 3.1.1
 
 - Upgrade to API 36
