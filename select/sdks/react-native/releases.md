@@ -1,5 +1,10 @@
 # React Native SDK v2 Releases
 
+## 3.0.5
+
+- Update Fidel and iOS SDK versions.
+- Fix EnrollmentError on ResultsAdapter causing the app to not load
+
 ## 3.0.4
 
 - Update Fidel and iOS SDK versions.
