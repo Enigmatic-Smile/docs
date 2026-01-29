@@ -88,6 +88,80 @@ Onboard MIDs to existing locations via the [Create MID Request API](https://refe
 
 ---
 
+### Bulk Onboard MIDs
+
+For onboarding multiple MIDs at once, use the CSV bulk upload feature in the Fidel Dashboard. This is ideal when you have a large number of MIDs to onboard across multiple locations.
+
+#### Dashboard Walkthrough
+
+<video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+ <source src="https://docs.fidel.uk/assets/videos/bulk_upload_mids.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+**Step-by-step:**
+
+1. **Navigate to Programs** - Select your program from the Programs page to open the Merchant IDs tab
+2. **Initiate bulk upload** - Click **Bulk Upload** in the upper right.
+3. **Download template** - Click **Download CSV Template** to get the required file format
+4. **Prepare your CSV** - Fill in the template with your MID data (see format requirements below)
+5. **Upload file** - Drag and drop your CSV file or click to browse and select it
+6. **Review entries** - Verify the parsed MID entries are correct
+7. **Submit** - Click **Upload** to create the onboard requests for all MIDs
+
+#### CSV Format Requirements
+
+Your CSV file must include the following columns:
+
+<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<thead>
+  <tr style="background-color: #f8f9fa;">
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Column</th>
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Required</th>
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>action</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Yes</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The MID request action. Accepted values: <code>onboard</code>, <code>offboard</code>, <code>reassign</code>.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>locationId</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Yes</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The unique identifier of the location where the MID should be onboarded.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>scheme</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Yes</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The card network for the MID. Accepted values: <code>visa</code>, <code>mastercard</code>, <code>amex</code>.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px;"><code>origin</code></td>
+    <td style="padding: 12px;">Onboard only</td>
+    <td style="padding: 12px;">The source of the MID. Required for onboard actions. See <a href="#mid-origin-types">MID Origin Types</a> for accepted values.</td>
+  </tr>
+</tbody>
+</table>
+
+**Example CSV:**
+
+```csv
+action,locationId,origin,scheme,seNumber,mcAcquiringMid,mcLocationId,visaAcquiringMid,visaBin,vmid,vsid,midId,newLocationId,reason
+onboard,f6200ed2-8a2d-4a6b-beb1-bf411539a1a8,third-party-provided-mid,mastercard,,214875,891234,,,,,,,
+onboard,f6200ed2-8a2d-4a6b-beb1-bf411539a1a8,brand-provided-mid,visa,,,,567890,412345,,,,,
+onboard,bdfe8b39-9e12-4e3b-bb97-1ee8c3043f7b,manual-mid-lookup,visa,,,,,,789012,65432110,,,
+```
+
+> **💡 Tip:** Use the downloadable CSV template to ensure your file has the correct format and column headers.
+
+> **⚠️ Limits:** Each bulk upload supports up to 250 MIDs per file. For larger batches, split your data into multiple CSV files.
+
+> **⏱️ Processing Time:** Each MID in the bulk upload creates an individual MID request. Processing times remain the same (up to 7 days per request). You can track the status of all requests in the [MID Requests](#mid-requests) tab.
+
+---
+
 ### Offboard MID
 
 Offboard a MID via the [Create MID Request API](https://reference.fidel.uk/reference/create-mid-request#/) with the action 'offboard', or via the Fidel Dashboard.
