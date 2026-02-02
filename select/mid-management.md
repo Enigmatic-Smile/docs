@@ -88,9 +88,9 @@ Onboard MIDs to existing locations via the [Create MID Request API](https://refe
 
 ---
 
-### Bulk Onboard MIDs
+### Bulk MID action (onboard, offboard or re-assign)
 
-For onboarding multiple MIDs at once, use the CSV bulk upload feature in the Fidel Dashboard. This is ideal when you have a large number of MIDs to onboard across multiple locations.
+For Bulk MID requests like onboarding, reassigning or offboarding multiple MIDs at once, use the CSV bulk upload feature in the Fidel Dashboard. This is ideal when you have a large number of MIDs to onboard across multiple locations.
 
 #### Dashboard Walkthrough
 
