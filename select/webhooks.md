@@ -1,6 +1,6 @@
 # Webhooks
 
-Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund.match.qualified` and `transaction.refund`.
+Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `mid-request.succeeded`, `mid-request.failed`, `missing-transaction-request.succeeded`, `missing-transaction-request.failed`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund.match.qualified` and `transaction.refund`.
 
 Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload.
 
@@ -501,7 +501,7 @@ curl -X POST \
 
 In order to help clients understand which refund they can debit back to their customers, Fidel has created the `transaction.refund.match.qualified` webhook, which is only triggered if Fidel is able to find a refund for a previously qualified transaction and match it to the originalTransactionId.
 
-This means that partial refunds will not be identified as the cashback amount is one of the triggers for Fidel to match the refund to the original transaction. This webhook provides the cashback amount, which the client can then debit to the cardholder. You can read more about refund matching in the [Refunds](https://fidelapi.com/docs/select/transactions/#refund) documentation. Please see the full payload below: 
+This means that partial refunds will not be identified as the cashback amount is one of the triggers for Fidel to match the refund to the original transaction. This webhook provides the cashback amount, which the client can then debit to the cardholder. You can read more about refund matching in the [Refunds](https://fidelapi.com/docs/select/transactions/#refund) documentation. Please see the full payload below:
 
 ```json
 {
