@@ -22,7 +22,7 @@ When a transaction occurs at an enrolled merchant but isn't automatically tracke
 
 Use this endpoint to initiate a search for a transaction that was not automatically tracked.
 
-**Endpoint:** `POST /missing-transaction-requests`
+**Endpoint:** `POST /missing-transaction-requests` | [API Reference](https://reference.fidel.uk/reference/create-missing-transaction-request)
 
 #### Required Parameters
 
@@ -63,10 +63,39 @@ Use this endpoint to initiate a search for a transaction that was not automatica
 If successful, the API returns a Transaction Object containing:
 
 - **Transaction data** shared by the card network
-- **Transaction Type**: Indicates if the transaction is `clearing` or `authorisation`
+- **Transaction Type** (Visa only): Indicates if the transaction is `settlement` or `authorization`
 - **Merchant ID (MID)**: The card network's identifier for that merchant
 
+> **💡 Note:** For Visa transactions, the `vmid` and `vsid` fields may be missing if the MID has not been assigned yet. In this case, the `networkStatus` will be `MID-NOT-ASSIGNED`.
+
 > **🏪 Next Step for Onboarding:** If you discover a new Merchant ID through a missing transaction lookup, use the [MID Request endpoint](https://reference.fidel.uk/reference/get_programsprogramidmidsmidid-3) or the Dashboard's MID Management tab to onboard it.
+
+#### Transaction Date Limits
+
+The transaction date must be within a certain time window, which varies by card network:
+
+<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<thead>
+  <tr style="background-color: #f8f9fa;">
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Card Network</th>
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Maximum Days in the Past</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Visa</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">90 days</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Mastercard</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">90 days</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px;">Amex</td>
+    <td style="padding: 12px;">30 days</td>
+  </tr>
+</tbody>
+</table>
 
 ---
 
@@ -74,7 +103,7 @@ If successful, the API returns a Transaction Object containing:
 
 Retrieve the details and current status of a specific request.
 
-**Endpoint:** `GET /missing-transaction-requests/{id}`
+**Endpoint:** `GET /missing-transaction-requests/{id}` | [API Reference](https://reference.fidel.uk/reference/get_missing-transaction-requests-missingtransactionrequestid)
 
 ---
 
@@ -82,7 +111,7 @@ Retrieve the details and current status of a specific request.
 
 View all requests created within your program.
 
-**Endpoint:** `GET /missing-transaction-requests`
+**Endpoint:** `GET /missing-transaction-requests` | [API Reference](https://reference.fidel.uk/reference/list-missing-transaction-request)
 
 ---
 
@@ -216,3 +245,61 @@ fileName:missing-transaction-request-failed.json
 ## Dashboard Support
 
 > **🚀 Coming Soon:** Dashboard support for Missing Transaction Requests is currently in development. Please watch this space for updates on the dashboard extension.
+
+---
+
+## Test Mode
+
+In test mode (non-live environment), Missing Transaction Requests are processed immediately without contacting card networks and without the 4-day pending period. You can use specific amount values to simulate different outcomes:
+
+### Success Pattern
+
+Any amount **not listed below** will result in an **immediate success** with mock transaction data.
+
+### Failure Patterns
+
+Use these specific amounts to simulate **immediate failure** scenarios:
+
+<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<thead>
+  <tr style="background-color: #f8f9fa;">
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Amount</th>
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Error Code</th>
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>10.01</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>transaction-not-found</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">There were no transactions on the card network for the request.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>10.02</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>card-not-found</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Card does not exist on the card network.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>10.03</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>card-not-linked-to-program</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Card does not exist on the program.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>10.04</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>program-not-found</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The program does not exist on the card network.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>10.05</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>network-request-failed</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The request to the network has failed.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px;"><code>10.06</code></td>
+    <td style="padding: 12px;"><code>unexpected-error</code></td>
+    <td style="padding: 12px;">An unexpected error occurred during processing.</td>
+  </tr>
+</tbody>
+</table>
+
+> **💡 Tip:** Test mode is useful for integration testing and validating your webhook handlers without waiting for the 4-day pending period or card network responses.
