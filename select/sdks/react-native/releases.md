@@ -1,5 +1,13 @@
 # React Native SDK v2 Releases
 
+## 3.0.7
+
+- Fix RN 0.75 compatibility issues
+
+## 3.0.6
+
+- Fix Gradle AGP version mismatch
+
 ## 3.0.5
 
 - Update Fidel and iOS SDK versions.
