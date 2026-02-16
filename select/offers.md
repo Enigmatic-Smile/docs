@@ -4,9 +4,9 @@ Fidel Offers help you create and manage card-linked offers with various retailer
 
 ## Offer Lifecycle
 
-Offers can be accessed via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending). They are grouped into four categories: Requests, Upcoming, Live and Expired.
+Offers can be accessed via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending). They are grouped into five categories: Requests, Upcoming, Live, Expiring soon and Expired.
 
-![Fidel Dashboard with Offers](https://docs.fidel.uk/assets/images/dashboard-offers.png "Fidel Dashboard with Offers")
+![Fidel Dashboard with Offers](https://docs.fidel.uk/assets/images/dashboard_offers.png "Fidel Dashboard with Offers")
 
 ### Requests
 
@@ -19,6 +19,16 @@ The Offer has at least one Location linked, but the `startDate` is in the future
 ### Live
 
 The current date is between the Offer `startDate` and `endDate`. The Offers in this category are qualifying Transactions at the locations linked to them.
+
+If no `endDate` is provided when creating an Offer, it will have a default end date of 12 months from its `startDate`. The Offer can be extended at any time during its lifetime to another 12 months from the current date.
+
+### Expiring soon
+
+The Offer is currently live and qualifying Transactions, but is approaching its `endDate`. Offers in this category will automatically move to "Expired" when the `endDate` is reached.
+
+The Dashboard includes an "expires in" filter that allows you to view Offers expiring within a specific number of days. The filter provides preset values for quick filtering and also accepts custom day values. By default, it displays Offers expiring within 30 days.
+
+![Expires in filter in Fidel Dashboard](https://docs.fidel.uk/assets/images/dashboard-expires-in-filter.png "Expires in filter in Fidel Dashboard")
 
 ### Expired
 
@@ -77,7 +87,7 @@ There are a range of optional parameters available, which influence how the Offe
 - `activation: enabled`: Boolean showing if the Offer needs to be activated on Cards or not. If it's `true`, the `activation` object also has a `qualifiedTransactionsLimit` property. **Please read the section below on Offer Activation before using this parameter.**
 - `activation: qualifiedTransactionsLimit`: Number of Transactions to qualify for each Offer activation. Default is 1.
 - `daysOfWeek`: Array of numbers, with possible values from 0 to 6, to indicate the days of the week. 0 = Sunday, 1 = Monday, etc.
-- `endDate`: The date to automatically end the Offer. Same as `startDate`, the time will be a local time relative to the Location where the Offer was active.
+- `endDate`: The date to automatically end the Offer. Same as `startDate`, the time will be a local time relative to the Location where the Offer was active. As a default 12 months lifeline is added to the endDate if no endDate is provided. This can be extended at any time to further 12 months.
 - `funded: id`: Unique identifier for the account that funds the Offer. For self-funded Offers, this is not required. In the test environment, all Offers are self-funded, so this will always be the same as your `accountId`.
 - `funded: type`: Type of Offer funding. Possible values are `"merchant"`, `"card-linking"` and `"affiliate"`. In the test environment, you can only create card-linked Offers, so the funding type will always be `"card-linking"`.
 - `maxTransactionAmount`: Deprecated in favor of `type: maxRewardAmount`. For example, a 10% reward with a max transaction amount of £100 can't generate a reward larger than £10, even if the transaction amount is higher than £100. The new value for maxRewardAmount will be 10 since we want to limit the reward to £10.
@@ -432,7 +442,7 @@ fileName:offer.json
       <span><code>endDate</code></span>
       <em>date</em>
     </dt>
-    <dd>Date and time, in the <code>YYYY-MM-DDThh:mm:ss</code> format, for when the Offer expires. Note: Time is local to the Location. Defaluts to <code>null</code> for Offers that do not expire.</dd>
+    <dd>Date and time, in the <code>YYYY-MM-DDThh:mm:ss</code> format, for when the Offer expires. Note: Time is local to the Location. Defaults to 12 months for Offers that do not have an end date passed at creation phase.</dd>
   </div>
   <div>
     <dt>
@@ -537,7 +547,7 @@ fileName:offer.json
       <span><code>status</code></span>
       <em>string</em>
     </dt>
-    <dd>Offer status corresponding to the state in the <a class="content" href="/offers/#offer-lifecycle">Offer Lifecycle</a>. Can be one of <code>requests</code>, <code>upcoming</code>, <code>live</code> or <code>expired</code>.</dd>
+    <dd>Offer status corresponding to the state in the <a class="content" href="#offer-lifecycle">Offer Lifecycle</a>. Can be one of <code>requests</code>, <code>upcoming</code>, <code>live</code> or <code>expired</code>.</dd>
   </div>
   <div>
     <dt>
@@ -562,6 +572,38 @@ fileName:offer.json
     <dd><a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a> date and time in UTC representing the last time the Offer object was updated.</dd>
   </div>
 </dl>
+
+## Extending Offers
+
+If you need to extend an Offer beyond its original `endDate`, you can update the Offer to set a new end date. This is useful when you want to continue running a successful campaign or need to accommodate changes in your promotion schedule.
+
+### Extending an Offer via API
+
+You can extend an Offer by using the [Update Offer endpoint](https://reference.fidel.uk/reference/update-offer) from the Offers API. Simply provide a new `endDate` value that is later than the current end date.
+
+Here's a cURL example of extending an Offer:
+
+```sh
+curl -X PATCH \
+  https://api.fidel.uk/v1/offers/feb9af3c-9b4e-49df-bb8f-13ae4ad8cd22 \
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>' \
+  -d '{
+        "endDate": "2020-12-31T23:59:59"
+      }'
+```
+
+### Extending an Offer via Dashboard
+
+To extend an Offer using the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending), navigate to the Offers section, select the Offer you want to extend, and click the edit button. You can then update the end date field to your desired date.
+
+![Extend Offer in Fidel Dashboard](https://docs.fidel.uk/assets/images/extending_offer.png "Extend Offer in Fidel Dashboard")
+
+### Important Considerations
+
+- The new `endDate` must be in the future from the current date.
+- Offers can only be extended by a maximum of 12 months at a time. If you need to extend an Offer beyond 12 months from its current end date, you will need to make multiple extension requests.
+- Extending an Offer does not affect any Transactions that have already been qualified.
 
 ## Deleting Offers
 
