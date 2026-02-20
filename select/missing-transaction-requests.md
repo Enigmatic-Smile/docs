@@ -244,7 +244,244 @@ fileName:missing-transaction-request-failed.json
 
 ## Dashboard Support
 
-> **🚀 Coming Soon:** Dashboard support for Missing Transaction Requests is currently in development. Please watch this space for updates on the dashboard extension.
+The Missing Transaction Requests feature is fully available in the Fidel Dashboard, providing a user-friendly interface for creating, tracking, and managing your transaction lookup requests without writing code.
+
+### Video Walkthrough
+
+<video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+ <source src="https://docs.fidel.uk/assets/videos/mtr_dashboard_walkthrough.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+
+---
+
+### Dashboard Features
+
+The dashboard interface provides several powerful capabilities:
+
+#### 🔍 **Direct Network Lookup**
+Submit requests directly from the dashboard UI to query card networks for missing transactions.
+
+#### 📊 **Real-time Status Tracking**
+Monitor the progress of all your requests with clear visual status indicators in a centralized list view.
+
+#### ✅ **Automatic Validation**
+The creation form validates card IDs and location IDs in real-time, showing matched card and location details as you type.
+
+#### 🎯 **Matched Transaction Display**
+When transactions are found, click on successful requests to view detailed results including merchant identifiers (MIDs), amounts, dates, and network settlement data.
+
+#### 📤 **Bulk Export**
+Export your missing transaction requests and results in CSV or JSON format for reporting and analysis.
+
+#### 🔄 **MID Onboarding Integration**
+Directly onboard merchant identifiers (MIDs) from matched transactions to streamline your location setup—no need to switch between tools.
+
+#### 🕐 **90-Day Retention**
+Requests are automatically retained for transactions within the past 90 days, ensuring clean and relevant data.
+
+---
+
+### How to Access the Dashboard
+
+1. **Navigate**: From the main dashboard menu, click on **Transactions** → **Missing Requests**
+2. **Direct URL**: Navigate to `/missing-transactions` in your dashboard
+3. **Sidebar**: The feature appears as a nested item under the Transactions section when viewing transaction-related pages
+
+![Missing Transaction Requests List View](https://docs.fidel.uk/assets/images/mtr-list.png "MTR List view")
+
+*Screenshot: Missing Transaction Requests list page showing requests with status indicators, filters, and action buttons*
+
+---
+
+### Creating a Request in the Dashboard
+
+#### Prerequisites
+Before creating a request, you'll need:
+- ✅ Valid **Card ID** (must be a card linked to your program)
+- ✅ **Transaction date** (within the past 3 months for Visa/Mastercard, 30 days for Amex)
+- ✅ **Transaction amount** (exact amount in the card's currency)
+- ✅ **Location ID** (Fidel location where the transaction occurred)
+
+#### Step-by-Step Guide
+
+**1. Open the Create Form**
+
+Click the **"Create Missing Transaction Request"** button in the top-right corner of the Missing Transaction Requests page.
+
+![Create Request Form](https://docs.fidel.uk/assets/images/mtr-create.png "Create Request Form")
+
+*Screenshot: Create Missing Transaction Request drawer form with card ID, transaction date, amount, and location ID fields*
+
+**2. Enter Card Details**
+
+- **Card ID**: Paste or type the full Card ID (UUID format)
+- **Real-time validation**: As you type, the system validates the card
+- **Visual confirmation**: When valid, you'll see card details (scheme icon and last 4 digits)
+- **Error handling**: Invalid card IDs display an error message immediately
+
+**3. Select Transaction Date**
+
+- **Date picker**: Choose the date when the transaction occurred
+- **Constraint**: Only dates within the allowed timeframe are selectable (see Transaction Date Limits above)
+- **Format**: DD/MM/YYYY
+- **Help text**: "Lookup is available only for transactions from the past 3 months"
+
+> **Important:** The transaction must be at least 4 days old. Newer transactions will remain in "Pending" status until the 4-day window passes.
+
+**4. Enter Transaction Amount**
+
+- **Format**: Numerical value (e.g., 45.99 or 100)
+- **Currency**: Automatically determined based on the card's country
+- **Validation**: Amount must be ≥ 0
+
+**5. Provide Location ID**
+
+- **Location ID**: Enter the Fidel Location ID where the transaction took place
+- **Real-time validation**: System checks if the location exists in your program
+- **Visual confirmation**: When valid, displays:
+  - Brand name
+  - Location address
+  - City, postal code, and country
+
+**6. Submit the Request**
+
+Click **"Submit"** to create the request. You'll see a success notification, and the request will appear in your list.
+
+---
+
+### Viewing and Managing Requests
+
+#### Understanding the Request List
+
+The main page displays all your missing transaction requests in a table with the following columns:
+
+| Column | Description |
+|--------|-------------|
+| **Date Added** | When the request was created |
+| **Status** | Current state of the request (see statuses below) |
+| **Last 4** | Last 4 digits of the card |
+| **Transaction Date** | Date of the transaction being searched |
+| **Amount** | Transaction amount |
+| **Brand** | Brand associated with the location |
+| **Location** | Location where the transaction occurred |
+
+#### Status Indicators
+
+Each request displays a color-coded status tag. Click **"View status definitions"** in the top-right corner for a comprehensive reference.
+
+![Status Definition Helper](https://docs.fidel.uk/assets/images/mtr-status-def.png "Status Definition Helper")
+*Screenshot: Status definitions popup showing explanations for Pending, Processing, Successful, and Failed statuses*
+
+---
+
+### Viewing Matched Transactions
+
+When a request reaches **Successful** status:
+
+**1. View Match Count**
+
+The status tag displays the number of matched transactions (e.g., "Successful - 2 matches").
+
+**2. Open Matched Transactions Modal**
+
+Click on the **Successful status tag** to open a detailed modal showing all found transactions.
+
+![Matched Transactions Modal](https://docs.fidel.uk/assets/images/mtr-matched.png "Matched Transactions Modal")
+*Screenshot: Matched transactions modal displaying found transactions with MID details and onboarding options*
+
+**3. Transaction Details**
+
+For each matched transaction, you'll see:
+- **Transaction date and time**
+- **Transaction amount** (in the card's currency)
+- **Merchant information** (name and city, if available)
+- **Network status** (succeeded, mid-not-assigned)
+- **Merchant Identifiers** by card scheme:
+  - **Mastercard**: Location ID, Acquiring MID, SE Number
+  - **Visa**: MID, SID, Acquiring MID, BIN, Store Name
+  - **Amex**: SE Number
+
+**4. Onboard MIDs**
+
+Select individual transactions using checkboxes, then click **"Onboard Selected MIDs"** to:
+- Create MID requests for the selected merchant identifiers
+- Automatically link them to the location
+- Navigate to the MID requests page to track onboarding progress
+
+> **Tip:** You can select multiple transactions across different card schemes and onboard them in a single action.
+
+---
+
+### Filtering and Search
+
+Quickly find specific requests using the **Filter Box**:
+
+#### Available Filters
+- **Request ID**: Search by exact request ID
+- **Brand**: Filter by brand
+- **Location**: Filter by specific location
+- **Card**: Filter by card ID
+
+#### Filter Controls
+- **Apply filters**: Type or select values, then click outside the filter box to apply
+- **Clear filters**: Click "Clear All" to reset and view all requests
+- **Empty state**: When no results match, you'll see "No missing transaction requests matched your current filters"
+
+---
+
+### Exporting Data
+
+Export your missing transaction requests for reporting, compliance, or analysis:
+
+#### How to Export
+
+**1. Click Export Button**
+
+Located in the top-right corner, next to the Status Definitions link.
+
+**2. Configure Export**
+
+- **File Type**: Choose CSV or JSON format
+- **Email Addresses** (Optional): Enter up to 5 email addresses to receive the export
+  - If blank, the file is sent to your account's primary email
+  - Each email address on a new line
+
+**3. Submit Export Job**
+
+Click **"Export"** to queue the export job.
+
+#### What Gets Exported
+
+All missing transaction requests matching your current filters, including:
+- Request details (ID, status, created/updated dates)
+- Card information (ID, last 4 digits, scheme)
+- Transaction details (date, amount)
+- Location and brand information
+- Matched transaction results (for successful requests)
+- Error messages (for failed requests)
+
+#### Receiving the Export
+
+- ✉️ You'll receive an email with a download link when the export is ready
+- 📋 The Job ID is automatically copied to your clipboard for tracking
+- ⏱️ Large exports may take a few minutes to process
+
+---
+
+### Dashboard Best Practices
+
+#### For Successful Lookups:
+- ✅ Use exact transaction amounts (including decimals)
+- ✅ Verify the transaction date is correct
+- ✅ Ensure the card was active at the time of the transaction
+- ✅ Confirm the location ID matches where the transaction occurred
+
+#### Troubleshooting Failed Requests:
+- ❌ Double-check all transaction details for accuracy
+- ❌ Verify the card was linked to your program on the transaction date
+- ❌ Consider that the transaction might not have been processed by the network
+- ❌ Review the error message on the Failed status tag for specific guidance
 
 ---
 
