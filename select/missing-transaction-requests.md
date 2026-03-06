@@ -201,6 +201,7 @@ fileName:missing-transaction-request-succeeded.json
         "networkStatus": "SUCCEED",
         "merchantCity": "London",
         "merchantName": "Test Merchant",
+        "matchScore": 85,
         "type": "settlement",
         "vmid": "789012",
         "vsid": "6543211012",
@@ -210,6 +211,8 @@ fileName:missing-transaction-request-succeeded.json
   }
 }
 ```
+
+> **💡 Note:** The `matchScore` field is a calculated value between 0 and 100 that indicates how likely the returned transaction is the one you're looking for. A higher score means a stronger match based on the provided details.
 
 ### Example Webhook Payload (Failed)
 
