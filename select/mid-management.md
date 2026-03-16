@@ -326,6 +326,11 @@ These are the error codes for failed MID requests:
     <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The MID provided as part of the MID request does not exist at the card network/scheme.</td>
   </tr>
   <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>visa-invalid-input</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Invalid input provided for Visa</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">One or more Visa-specific MID fields (e.g., VMID, VSID, Visa BIN, or Visa Acquiring MID) contain invalid values.</td>
+  </tr>
+  <tr>
     <td style="padding: 12px;"><code>unexpected-error</code></td>
     <td style="padding: 12px;">Unexpected error</td>
     <td style="padding: 12px;">An unexpected exception occurred during processing.</td>
