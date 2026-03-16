@@ -212,7 +212,7 @@ fileName:missing-transaction-request-succeeded.json
 }
 ```
 
-> **💡 Note:** The `matchScore` field is a calculated value between 0 and 100 that indicates how likely the returned transaction is the one you're looking for. A higher score means a stronger match based on the provided details.
+> **💡 Note:** See the [Match Score](#match-score) section below for details on how the `matchScore` field works and how to use it to select the best match.
 
 ### Example Webhook Payload (Failed)
 
@@ -245,6 +245,85 @@ fileName:missing-transaction-request-failed.json
 
 ---
 
+## Match Score
+
+When you submit a request for a missing transaction, the API evaluates the transaction details you provided against the data received from the card network. Each result includes a `matchScore` to quantify that relationship.
+
+![Match Score in Matched Transactions](https://docs.fidel.uk/assets/images/mtr-match-score.png "Match Score displayed on matched transactions")
+
+*Screenshot: Matched transactions modal showing match score percentages for each result, helping identify the best match*
+
+- **Ranking**: Results are ranked in descending order, with the most likely match appearing first.
+- **Use Case**: This is particularly useful for automating the selection of a **Merchant ID** when multiple similar transactions are found for a single request.
+
+### Field Specification
+
+The `matchScore` field is included in the response object for each transaction result:
+
+<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<thead>
+  <tr style="background-color: #f8f9fa;">
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Property</th>
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Detail</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><strong>Type</strong></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Number</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><strong>Range</strong></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">0–100</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px;"><strong>Description</strong></td>
+    <td style="padding: 12px;">A score indicating the likelihood that the returned transaction is the one you're looking for. A higher score means a stronger match based on the provided details.</td>
+  </tr>
+</tbody>
+</table>
+
+### Implementation Example
+
+In a scenario where a single request yields two potential matches, your integration can use the `matchScore` to decide which record to process based on the higher score.
+
+```json
+{
+  "result": {
+    "transactions": [
+      {
+        "amount": 10.17,
+        "date": "2026-02-09",
+        "networkStatus": "SUCCEED",
+        "merchantCity": "Goleta",
+        "merchantName": "Cake Corporation",
+        "matchScore": 98,
+        "type": "authorization",
+        "vmid": "14246971590487O",
+        "vsid": "27315004037738S",
+        "visaStoreName": "Jeannine's Baking Co."
+      },
+      {
+        "amount": 10.17,
+        "date": "2026-02-09",
+        "networkStatus": "SUCCEED",
+        "merchantCity": "Goleta",
+        "merchantName": "Cake Corporation",
+        "matchScore": 26,
+        "type": "settlement",
+        "vmid": "17132168905952S",
+        "vsid": "22361983717297O",
+        "visaStoreName": "Jeannine's Baking Co."
+      }
+    ]
+  }
+}
+```
+
+In this example, the authorization transaction with a score of **98** is the most likely match and should be prioritized over the settlement transaction scoring **26**.
+
+---
+
 ## Dashboard Support
 
 The Missing Transaction Requests feature is fully available in the Fidel Dashboard, providing a user-friendly interface for creating, tracking, and managing your transaction lookup requests without writing code.
@@ -252,7 +331,7 @@ The Missing Transaction Requests feature is fully available in the Fidel Dashboa
 ### Video Walkthrough
 
 <video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
- <source src="https://docs.fidel.uk/assets/videos/mtr_dashboard_walkthrough.mp4" type="video/mp4" />
+ <source src="https://docs.fidel.uk/assets/videos/mtr_dashboard_walkthrough-match-score.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
 
