@@ -1,5 +1,9 @@
 # Android SDK v2 Releases
 
+## 3.1.5
+
+- Bump dependencies to support 16KB alignment
+
 ## 3.1.2
 
 - Fix API resource not being exposed to client on card linking
