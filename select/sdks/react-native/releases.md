@@ -1,5 +1,9 @@
 # React Native SDK v2 Releases
 
+## 3.1.0
+
+- Bump React Native and dependencies to support 16KB alignment
+
 ## 3.0.7
 
 - Fix RN 0.75 compatibility issues
