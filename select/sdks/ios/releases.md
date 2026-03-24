@@ -1,5 +1,9 @@
 # iOS SDK v2 Releases
 
+## 3.1.0
+
+- Migrate UIWebView to WKWebView per Apple's recomendation
+
 ## 3.0.1
 
 - Fix API resource not being exposed to client on card linking
