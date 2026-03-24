@@ -1,5 +1,9 @@
 # React Native SDK v2 Releases
 
+## 3.2.0
+
+- Update Fidel iOS SDK version.
+
 ## 3.1.1
 
 - Update Fidel Android SDK version.
