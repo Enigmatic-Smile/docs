@@ -1,6 +1,6 @@
 # Webhooks
 
-Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `mid-request.succeeded`, `mid-request.failed`, `missing-transaction-request.succeeded`, `missing-transaction-request.failed`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund.match.qualified` and `transaction.refund`.
+Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `mid-request.succeeded`, `mid-request.failed`, `missing-transaction-request.succeeded`, `missing-transaction-request.failed`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund.match.qualified` and `transaction.refund`.
 
 Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload.
 
@@ -137,24 +137,6 @@ A maximum of 5 custom headers per webhook can be defined, and they need to follo
   "X-Fidel-Signature",
   "X-Fidel-Timestamp"
 ]
-```
-
-### Brand
-
-A `brand.consent` event is triggered when Brand consent is “Approved”. In the `test` environment, it will immediately trigger after you create a Brand. In the `live` environment, it will trigger when the Brand User approves the consent request.
-
-```json
-fileName:brand.consent
-{
-  "id": "e44a9220-5b46-42cf-a944-31f0674bf8f8",
-  "accountId": "1a269963-de11-4ab5-b82d-638a324ff09e",
-  "consent": true,
-  "created": "2018-10-19T13:29:40.922Z",
-  "live": true,
-  "name": "Starbucks",
-  "updated": "2018-01-20T13:29:40.922Z",
-  "logoURL": "https://example.com/"
-}
 ```
 
 ### Program
