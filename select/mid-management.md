@@ -326,6 +326,11 @@ These are the error codes for failed MID requests:
     <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The MID provided as part of the MID request does not exist at the card network/scheme.</td>
   </tr>
   <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>card-scheme-mid-being-processed</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">MID is being processed</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The MID is already being processed by the card scheme.</td>
+  </tr>
+  <tr>
     <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>visa-invalid-input</code></td>
     <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Invalid input provided for Visa</td>
     <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">One or more Visa-specific MID fields (e.g., VMID, VSID, Visa BIN, or Visa Acquiring MID) contain invalid values.</td>
@@ -334,6 +339,67 @@ These are the error codes for failed MID requests:
     <td style="padding: 12px;"><code>unexpected-error</code></td>
     <td style="padding: 12px;">Unexpected error</td>
     <td style="padding: 12px;">An unexpected exception occurred during processing.</td>
+  </tr>
+</tbody>
+</table>
+
+### Validation Error Codes
+
+These error codes are returned synchronously when creating a MID request:
+
+<table style="border-collapse: collapse; width: 100%;">
+<thead>
+  <tr style="background-color: #f8f9fa;">
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Error Code</th>
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Message</th>
+    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>mid-already-exists</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">This request already has a corresponding MID</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">A MID matching this request already exists. The response metadata includes the <code>existingMidId</code>.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>multiple-mids-already-exist</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">This request has multiple corresponding MIDs</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Multiple MIDs matching this request already exist.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>mid-request-already-pending</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">There is already a pending or processing MID request for this MID</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">A MID request for this MID is already being processed.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>account-scheme-disabled</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Scheme is disabled for this account</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The card scheme is disabled for the account associated with this request.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>program-scheme-disabled</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Scheme is disabled for this program</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The card scheme is disabled for the program.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>program-scheme-not-configured</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Scheme is not configured for this program</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The card scheme has not been configured for the program.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>program-visa-group-type-not-supported</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The program does not support vmid/vsid requests</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The program's Visa group type does not support merchant MID (vmid/vsid) requests.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>mid-already-assigned-to-given-location</code></td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">MID is already assigned to the given location</td>
+    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The MID is already assigned to the location specified in the reassignment request.</td>
+  </tr>
+  <tr>
+    <td style="padding: 12px;"><code>mid-request-not-found</code></td>
+    <td style="padding: 12px;">MID Request does not exist</td>
+    <td style="padding: 12px;">The specified MID request could not be found.</td>
   </tr>
 </tbody>
 </table>
