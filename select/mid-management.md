@@ -25,7 +25,7 @@ For more information, see the [Locations/Merchant Onboarding FAQs](https://www.f
 
 View and manage Merchant IDs (MIDs) onboarded for your program by selecting a Program from the Programs page. This opens the 'Merchant IDs' tab in the Fidel Dashboard.
 
-<img src="https://docs.fidel.uk/assets/images/merchantids.png" alt="Merchant IDs" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+<img src="https://docs.fidel.uk/assets/images/merchantids.png" alt="Merchant IDs" style={{'width': '100%', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', marginBottom: '1rem'}} />
 
 All onboarded MIDs for the selected program are displayed on this page. You can also retrieve this information via the API: [Get MID](https://reference.fidel.uk/reference/get-mid#/) | [List MIDs](https://reference.fidel.uk/reference/list-mids#/)
 
@@ -37,7 +37,7 @@ Onboard MIDs to existing locations via the [Create MID Request API](https://refe
 
 #### Dashboard Walkthrough
 
-<video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+<video controls style={{'width': '100%', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', marginBottom: '1rem'}}>
  <source src="https://docs.fidel.uk/assets/videos/mid-onboard-voiceover.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -53,33 +53,33 @@ Onboard MIDs to existing locations via the [Create MID Request API](https://refe
 
 #### MID Origin Types
 
-<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<table style={{borderCollapse: 'collapse', 'width': '100%', marginBottom: '16px'}}>
 <thead>
-  <tr style="background-color: #f8f9fa;">
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Origin</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+  <tr style={{backgroundColor: '#f8f9fa'}}>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Origin</th>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><strong>Missing transaction lookup</strong></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">A transaction was made at an onboarded location and the MID was identified from the transaction data (most accurate).</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><strong>Missing transaction lookup</strong></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>A transaction was made at an onboarded location and the MID was identified from the transaction data (most accurate).</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><strong>Manual lookup</strong></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Fidel support manually looked up the card network MID for an onboarded location through the card networks.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><strong>Manual lookup</strong></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Fidel support manually looked up the card network MID for an onboarded location through the card networks.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><strong>Brand provided</strong></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The MID was provided directly by the brand/merchant.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><strong>Brand provided</strong></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The MID was provided directly by the brand/merchant.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><strong>Processor provided</strong></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The MID was provided by the payment processor or acquirer (e.g., Stripe, Adyen).</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><strong>Processor provided</strong></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The MID was provided by the payment processor or acquirer (e.g., Stripe, Adyen).</td>
   </tr>
   <tr>
-    <td style="padding: 12px;"><strong>Third-party provided</strong></td>
-    <td style="padding: 12px;">A third-party service (e.g., Incubit) sourced the MID for the location.</td>
+    <td style={{'padding': '12px'}}><strong>Third-party provided</strong></td>
+    <td style={{'padding': '12px'}}>A third-party service (e.g., Incubit) sourced the MID for the location.</td>
   </tr>
 </tbody>
 </table>
@@ -94,7 +94,7 @@ For Bulk MID requests like onboarding, reassigning or offboarding multiple MIDs 
 
 #### Dashboard Walkthrough
 
-<video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+<video controls style={{'width': '100%', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', marginBottom: '1rem'}}>
  <source src="https://docs.fidel.uk/assets/videos/bulk_upload_mids.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -113,34 +113,34 @@ For Bulk MID requests like onboarding, reassigning or offboarding multiple MIDs 
 
 Your CSV file must include the following columns:
 
-<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<table style={{borderCollapse: 'collapse', 'width': '100%', marginBottom: '16px'}}>
 <thead>
-  <tr style="background-color: #f8f9fa;">
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Column</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Required</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+  <tr style={{backgroundColor: '#f8f9fa'}}>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Column</th>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Required</th>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>action</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Yes</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The MID request action. Accepted values: <code>onboard</code>, <code>offboard</code>, <code>reassign</code>.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>action</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Yes</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The MID request action. Accepted values: <code>onboard</code>, <code>offboard</code>, <code>reassign</code>.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>locationId</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Yes</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The unique identifier of the location where the MID should be onboarded.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>locationId</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Yes</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The unique identifier of the location where the MID should be onboarded.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>scheme</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Yes</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The card network for the MID. Accepted values: <code>visa</code>, <code>mastercard</code>, <code>amex</code>.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>scheme</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Yes</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The card network for the MID. Accepted values: <code>visa</code>, <code>mastercard</code>, <code>amex</code>.</td>
   </tr>
   <tr>
-    <td style="padding: 12px;"><code>origin</code></td>
-    <td style="padding: 12px;">Onboard only</td>
-    <td style="padding: 12px;">The source of the MID. Required for onboard actions. See <a href="#mid-origin-types">MID Origin Types</a> for accepted values.</td>
+    <td style={{'padding': '12px'}}><code>origin</code></td>
+    <td style={{'padding': '12px'}}>Onboard only</td>
+    <td style={{'padding': '12px'}}>The source of the MID. Required for onboard actions. See <a href="#mid-origin-types">MID Origin Types</a> for accepted values.</td>
   </tr>
 </tbody>
 </table>
@@ -168,7 +168,7 @@ Offboard a MID via the [Create MID Request API](https://reference.fidel.uk/refer
 
 #### Dashboard Walkthrough
 
-<video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+<video controls style={{'width': '100%', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', marginBottom: '1rem'}}>
  <source src="https://docs.fidel.uk/assets/videos/mid-offboard-voiceover.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -192,7 +192,7 @@ Reassign a MID to a different location via the [Create MID Request API](https://
 
 #### Dashboard Walkthrough
 
-<video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+<video controls style={{'width': '100%', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', marginBottom: '1rem'}}>
  <source src="https://docs.fidel.uk/assets/videos/mid-reassign-voiceover.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -226,33 +226,33 @@ A MID request is a workflow instruction to the Fidel platform to source, remove,
 
 MID requests are displayed under the 'Requests' tab on the Dashboard. All MID requests you create to onboard, offboard, or reassign MIDs will be visible on this tab or can be retrieved via these endpoints: [Get MID Request](https://reference.fidel.uk/reference/get-mid-request#/) | [List MID Requests](https://reference.fidel.uk/reference/list-mid-requests#/)
 
-<img src="https://docs.fidel.uk/assets/images/mid_requests.png" alt="MID requests" style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;" />
+<img src="https://docs.fidel.uk/assets/images/mid_requests.png" alt="MID requests" style={{'width': '100%', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', marginBottom: '1rem'}} />
 
 The different statuses of MID requests are defined below:
 
-<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<table style={{borderCollapse: 'collapse', 'width': '100%', marginBottom: '16px'}}>
 <thead>
-  <tr style="background-color: #f8f9fa;">
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Status</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+  <tr style={{backgroundColor: '#f8f9fa'}}>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Status</th>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><img src="https://docs.fidel.uk/assets/images/mid-request-pending.png" alt="Pending" style="height: 40px; vertical-align: middle;" /></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The request has been received and is queued for processing.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><img src="https://docs.fidel.uk/assets/images/mid-request-pending.png" alt="Pending" style={{'height': '40px', verticalAlign: 'middle'}} /></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The request has been received and is queued for processing.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><img src="https://docs.fidel.uk/assets/images/mid-request-processing.png" alt="Processing" style="height: 40px; vertical-align: middle;" /></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The request is currently being processed by the card networks.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><img src="https://docs.fidel.uk/assets/images/mid-request-processing.png" alt="Processing" style={{'height': '40px', verticalAlign: 'middle'}} /></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The request is currently being processed by the card networks.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><img src="https://docs.fidel.uk/assets/images/mid-request-successful.png" alt="Successful" style="height: 40px; vertical-align: middle;" /></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The request has been successfully completed and the MID has been onboarded, offboarded, or reassigned.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><img src="https://docs.fidel.uk/assets/images/mid-request-successful.png" alt="Successful" style={{'height': '40px', verticalAlign: 'middle'}} /></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The request has been successfully completed and the MID has been onboarded, offboarded, or reassigned.</td>
   </tr>
   <tr>
-    <td style="padding: 12px;"><img src="https://docs.fidel.uk/assets/images/mid-request-failed.png" alt="Failed" style="height: 30px; vertical-align: middle;" /></td>
-    <td style="padding: 12px;">The request could not be completed. Check the error details for more information.</td>
+    <td style={{'padding': '12px'}}><img src="https://docs.fidel.uk/assets/images/mid-request-failed.png" alt="Failed" style={{'height': '30px', verticalAlign: 'middle'}} /></td>
+    <td style={{'padding': '12px'}}>The request could not be completed. Check the error details for more information.</td>
   </tr>
 </tbody>
 </table>
@@ -296,44 +296,44 @@ fileName:mid-request.json
 
 These are the error codes for failed MID requests:
 
-<table style="border-collapse: collapse; width: 100%;">
+<table style={{borderCollapse: 'collapse', 'width': '100%'}}>
 <thead>
-  <tr style="background-color: #f8f9fa;">
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Error Code</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Message</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+  <tr style={{backgroundColor: '#f8f9fa'}}>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Error Code</th>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Message</th>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>card-scheme-mid-not-found</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Merchant not valid</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The card scheme could not locate a valid MID for this merchant.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>card-scheme-mid-not-found</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Merchant not valid</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The card scheme could not locate a valid MID for this merchant.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>program-not-configured</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Client program not configured with card scheme</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The client program has not been configured with the card scheme, so the MID cannot be onboarded.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>program-not-configured</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Client program not configured with card scheme</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The client program has not been configured with the card scheme, so the MID cannot be onboarded.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>card-scheme-shared-mid</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Shared MID</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The MID provided for onboarding is a 'shared MID'. See 'Shared MIDs' in the FAQs for more information.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>card-scheme-shared-mid</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Shared MID</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The MID provided for onboarding is a 'shared MID'. See 'Shared MIDs' in the FAQs for more information.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>no-mids-found</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">No MIDs were found at the card scheme</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The MID provided as part of the MID request does not exist at the card network/scheme.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>no-mids-found</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>No MIDs were found at the card scheme</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The MID provided as part of the MID request does not exist at the card network/scheme.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>visa-invalid-input</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Invalid input provided for Visa</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">One or more Visa-specific MID fields (e.g., VMID, VSID, Visa BIN, or Visa Acquiring MID) contain invalid values.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>visa-invalid-input</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Invalid input provided for Visa</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>One or more Visa-specific MID fields (e.g., VMID, VSID, Visa BIN, or Visa Acquiring MID) contain invalid values.</td>
   </tr>
   <tr>
-    <td style="padding: 12px;"><code>unexpected-error</code></td>
-    <td style="padding: 12px;">Unexpected error</td>
-    <td style="padding: 12px;">An unexpected exception occurred during processing.</td>
+    <td style={{'padding': '12px'}}><code>unexpected-error</code></td>
+    <td style={{'padding': '12px'}}>Unexpected error</td>
+    <td style={{'padding': '12px'}}>An unexpected exception occurred during processing.</td>
   </tr>
 </tbody>
 </table>

@@ -148,7 +148,7 @@ The original transaction has a `refundTransactionId` property set to the `transa
 
 If you need the updated information about the original transaction, you can retrieve it using the [Get Transaction endpoint](https://reference.fidel.uk/reference/get-transaction), with the originalTransactionId from the refunded transaction object.
 
-<div class="info-box">
+<div className="info-box">
   <small>Void Transactions</small><br/>
   Voids are treated as refunds. So they will be processed as a refund transaction and trigger the <code>transaction.refund</code> webhook
 </div>

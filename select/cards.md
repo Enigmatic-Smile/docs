@@ -52,7 +52,7 @@ We recommend you use the secure and PCI compliant [SDKs](/select/sdks/web/v3) to
 
 All our SDKs require a user to enter their card number and expiry date, along with the country of issue for the card. The SDKs won't require the CVV number, and will not make any active card checks against the cards. The SDKs will pre-populate the `countryCode` and the `programId` of the Program you want to link the card to. The card numbers are tokenised and transmitted directly from our secure pre-built SDKs to our API on submission. This way, your servers are never exposed to sensitive information, removing all PCI compliance requirements for you.
 
-<div class="info-box">
+<div className="info-box">
   <small>Linking Multiple Cards</small><br/>
   To facilitate users linking multiple cards, add identifying key:value pairs from your system in the metadata field. You can read more in the <a href="/cards#Metadata">Metadata</a> section below.
 </div>
@@ -80,7 +80,7 @@ curl -X POST \
 }'
 ```
 
-<div class="info-box">
+<div className="info-box">
     <small>Important note</small><br/>
     To use the <strong>Create Card</strong> endpoint, you must use the SDK key. Using the <strong>Create Card</strong> API endpoint with the Fidel live environment requires your company to be PCI Compliant.
 </div>

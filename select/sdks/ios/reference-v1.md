@@ -1,4 +1,4 @@
-# iOS SDK reference <a style="border-bottom: 2px solid #0048ff;" class="improve-docs" href="/select/sdks/ios/reference-v1">v1</a> <a style="margin-right: auto; color: #111;" class="improve-docs" href="/select/sdks/ios/reference-v2">v2</a>
+# iOS SDK reference <a style={{borderBottom: '2px solid #0048ff'}} className="improve-docs" href="/select/sdks/ios/reference-v1">v1</a> <a style={{marginRight: 'auto', 'color': '#111'}} className="improve-docs" href="/select/sdks/ios/reference-v2">v2</a>
 
 1. [Fidel class](#class-fidel)
 2. [Properties](#properties)
