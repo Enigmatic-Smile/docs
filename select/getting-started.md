@@ -49,7 +49,7 @@ To switch between **Live** and **Test** keys, use the **Live Mode toggle** locat
 3. Click the **Revoke** button next to it.
 4. Confirm the revocation in the dialog by entering your password (for security reasons).
 
-<div style="border-left: 4px solid #f0ad4e; padding: 0.75em 1em; background-color: #fff8e1; margin: 1em 0;">
+<div style={{'border-left': '4px solid #f0ad4e', 'padding': '0.75em 1em', 'background-color': '#fff8e1', 'margin': '1em 0'}}>
 <strong>Note:</strong> You can have a maximum of <strong>two keys per key type</strong> (e.g., <strong>API</strong> and <strong>SDK</strong>).<br />
 To <strong>revoke</strong> a key, you must have at least <strong>one other active key</strong> of the same type.
 </div>
@@ -73,16 +73,16 @@ You can use the web and mobile SDKs to capture your user’s card number and lin
 
 Click on the links below to see how to use the web and mobile SDKs in your applications.
 
-<div class="row">
-  <div class="column">
-    <a href="/select/sdks/web/v3" class="content">
+<div className="row">
+  <div className="column">
+    <a href="/select/sdks/web/v3" className="content">
       <img src="https://docs.fidel.uk/assets/images/svgs/web_sdk.svg" />
       <h2 data-no-link>Web</h2>
       <h3>Customizable and secure iframe to link cards on your website</h3>
     </a>
   </div>
-  <div class="column">
-    <a href="/select/sdks/ios/guide-v2" class="content">
+  <div className="column">
+    <a href="/select/sdks/ios/guide-v2" className="content">
       <img src="https://docs.fidel.uk/assets/images/svgs/mobile_sdk.svg" />
       <h2  data-no-link>Mobile</h2>
       <h3>PCI compliant SDKs for iOS, Android and React Native</h3>

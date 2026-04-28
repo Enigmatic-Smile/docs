@@ -26,34 +26,34 @@ Use this endpoint to initiate a search for a transaction that was not automatica
 
 #### Required Parameters
 
-<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<table style={{'border-collapse': 'collapse', 'width': '100%', 'margin-bottom': '16px'}}>
 <thead>
-  <tr style="background-color: #f8f9fa;">
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Parameter</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Type</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+  <tr style={{'background-color': '#f8f9fa'}}>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Parameter</th>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Type</th>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>cardId</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">String</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The unique identifier of the enrolled card.</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>cardId</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>String</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>The unique identifier of the enrolled card.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>locationId</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">String</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The ID of the location where the transaction occurred.</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>locationId</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>String</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>The ID of the location where the transaction occurred.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>transactionDate</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">String</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The date the transaction took place (ISO 8601 format).</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>transactionDate</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>String</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>The date the transaction took place (ISO 8601 format).</td>
   </tr>
   <tr>
-    <td style="padding: 12px;"><code>amount</code></td>
-    <td style="padding: 12px;">Number</td>
-    <td style="padding: 12px;">The exact value of the transaction.</td>
+    <td style={{'padding': '12px'}}><code>amount</code></td>
+    <td style={{'padding': '12px'}}>Number</td>
+    <td style={{'padding': '12px'}}>The exact value of the transaction.</td>
   </tr>
 </tbody>
 </table>
@@ -74,25 +74,25 @@ If successful, the API returns a Transaction Object containing:
 
 The transaction date must be within a certain time window, which varies by card network:
 
-<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<table style={{'border-collapse': 'collapse', 'width': '100%', 'margin-bottom': '16px'}}>
 <thead>
-  <tr style="background-color: #f8f9fa;">
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Card Network</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Maximum Days in the Past</th>
+  <tr style={{'background-color': '#f8f9fa'}}>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Card Network</th>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Maximum Days in the Past</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Visa</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">90 days</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>Visa</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>90 days</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Mastercard</td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">90 days</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>Mastercard</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>90 days</td>
   </tr>
   <tr>
-    <td style="padding: 12px;">Amex</td>
-    <td style="padding: 12px;">30 days</td>
+    <td style={{'padding': '12px'}}>Amex</td>
+    <td style={{'padding': '12px'}}>30 days</td>
   </tr>
 </tbody>
 </table>
@@ -119,29 +119,29 @@ View all requests created within your program.
 
 When a request is created, it moves through several stages based on timing and network feedback:
 
-<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<table style={{'border-collapse': 'collapse', 'width': '100%', 'margin-bottom': '16px'}}>
 <thead>
-  <tr style="background-color: #f8f9fa;">
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Status</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+  <tr style={{'background-color': '#f8f9fa'}}>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Status</th>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><strong>Pending</strong></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The transaction occurred less than 4 days ago. Processing is paused until the 4-day window passes.</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><strong>Pending</strong></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>The transaction occurred less than 4 days ago. Processing is paused until the 4-day window passes.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><strong>Processing</strong></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The request has been submitted to the card network and is awaiting a response.</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><strong>Processing</strong></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>The request has been submitted to the card network and is awaiting a response.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><strong>Successful</strong></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Transactions were found and the data has been returned.</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><strong>Successful</strong></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>Transactions were found and the data has been returned.</td>
   </tr>
   <tr>
-    <td style="padding: 12px;"><strong>Failed</strong></td>
-    <td style="padding: 12px;">The card network could not find a matching transaction for the details provided.</td>
+    <td style={{'padding': '12px'}}><strong>Failed</strong></td>
+    <td style={{'padding': '12px'}}>The card network could not find a matching transaction for the details provided.</td>
   </tr>
 </tbody>
 </table>
@@ -154,21 +154,21 @@ When a request is created, it moves through several stages based on timing and n
 
 To avoid constant polling, subscribe to these webhook events to receive real-time updates when a request reaches a terminal state:
 
-<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<table style={{'border-collapse': 'collapse', 'width': '100%', 'margin-bottom': '16px'}}>
 <thead>
-  <tr style="background-color: #f8f9fa;">
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Event</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+  <tr style={{'background-color': '#f8f9fa'}}>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Event</th>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>missing-transaction-request.succeeded</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Triggered when transaction results are found by the card network.</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>missing-transaction-request.succeeded</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>Triggered when transaction results are found by the card network.</td>
   </tr>
   <tr>
-    <td style="padding: 12px;"><code>missing-transaction-request.failed</code></td>
-    <td style="padding: 12px;">Triggered when no results are found by the card network.</td>
+    <td style={{'padding': '12px'}}><code>missing-transaction-request.failed</code></td>
+    <td style={{'padding': '12px'}}>Triggered when no results are found by the card network.</td>
   </tr>
 </tbody>
 </table>
@@ -260,25 +260,25 @@ When you submit a request for a missing transaction, the API evaluates the trans
 
 The `matchScore` field is included in the response object for each transaction result:
 
-<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<table style={{'border-collapse': 'collapse', 'width': '100%', 'margin-bottom': '16px'}}>
 <thead>
-  <tr style="background-color: #f8f9fa;">
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Property</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Detail</th>
+  <tr style={{'background-color': '#f8f9fa'}}>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Property</th>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Detail</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><strong>Type</strong></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Number</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><strong>Type</strong></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>Number</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><strong>Range</strong></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">0–100</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><strong>Range</strong></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>0–100</td>
   </tr>
   <tr>
-    <td style="padding: 12px;"><strong>Description</strong></td>
-    <td style="padding: 12px;">A score indicating the likelihood that the returned transaction is the one you're looking for. A higher score means a stronger match based on the provided details.</td>
+    <td style={{'padding': '12px'}}><strong>Description</strong></td>
+    <td style={{'padding': '12px'}}>A score indicating the likelihood that the returned transaction is the one you're looking for. A higher score means a stronger match based on the provided details.</td>
   </tr>
 </tbody>
 </table>
@@ -330,7 +330,7 @@ The Missing Transaction Requests feature is fully available in the Fidel Dashboa
 
 ### Video Walkthrough
 
-<video controls style="width: 100%; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); margin-bottom: 1rem;">
+<video controls style={{'width': '100%', 'border-radius': '8px', 'box-shadow': '0 2px 8px rgba(0,0,0,0.1)', 'margin-bottom': '1rem'}}>
  <source src="https://docs.fidel.uk/assets/videos/mtr_dashboard_walkthrough-match-score.mp4" type="video/mp4" />
   Your browser does not support the video tag.
 </video>
@@ -579,44 +579,44 @@ Any amount **not listed below** will result in an **immediate success** with moc
 
 Use these specific amounts to simulate **immediate failure** scenarios:
 
-<table style="border-collapse: collapse; width: 100%; margin-bottom: 16px;">
+<table style={{'border-collapse': 'collapse', 'width': '100%', 'margin-bottom': '16px'}}>
 <thead>
-  <tr style="background-color: #f8f9fa;">
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Amount</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Error Code</th>
-    <th style="padding: 12px; text-align: left; border-bottom: 2px solid #dee2e6;">Description</th>
+  <tr style={{'background-color': '#f8f9fa'}}>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Amount</th>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Error Code</th>
+    <th style={{'padding': '12px', 'text-align': 'left', 'border-bottom': '2px solid #dee2e6'}}>Description</th>
   </tr>
 </thead>
 <tbody>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>10.01</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>transaction-not-found</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">There were no transactions on the card network for the request.</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>10.01</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>transaction-not-found</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>There were no transactions on the card network for the request.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>10.02</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>card-not-found</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Card does not exist on the card network.</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>10.02</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>card-not-found</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>Card does not exist on the card network.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>10.03</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>card-not-linked-to-program</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">Card does not exist on the program.</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>10.03</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>card-not-linked-to-program</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>Card does not exist on the program.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>10.04</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>program-not-found</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The program does not exist on the card network.</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>10.04</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>program-not-found</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>The program does not exist on the card network.</td>
   </tr>
   <tr>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>10.05</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;"><code>network-request-failed</code></td>
-    <td style="padding: 12px; border-bottom: 1px solid #dee2e6;">The request to the network has failed.</td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>10.05</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}><code>network-request-failed</code></td>
+    <td style={{'padding': '12px', 'border-bottom': '1px solid #dee2e6'}}>The request to the network has failed.</td>
   </tr>
   <tr>
-    <td style="padding: 12px;"><code>10.06</code></td>
-    <td style="padding: 12px;"><code>unexpected-error</code></td>
-    <td style="padding: 12px;">An unexpected error occurred during processing.</td>
+    <td style={{'padding': '12px'}}><code>10.06</code></td>
+    <td style={{'padding': '12px'}}><code>unexpected-error</code></td>
+    <td style={{'padding': '12px'}}>An unexpected error occurred during processing.</td>
   </tr>
 </tbody>
 </table>

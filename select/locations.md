@@ -28,7 +28,7 @@ curl -X POST \
 
 The information required for each location is the Brand (with approved consent), address, postcode, city and country. If your location has been assigned Merchant IDs (MIDs) from the card networks, you may add them now. Adding MIDs during Location creation will speed up the onboarding process.
 
-<div class="info-box">
+<div className="info-box">
     <small>Payment Facilitators</small><br/>
     If you need to onboard payment facilitators (Square, iZettle, SumUp, etc.), they may be using shared merchant IDs that have an impact on how transactions are monitored. Reach out to Fidel if you work with merchants that use payment facilitators.
 </div>
@@ -39,7 +39,7 @@ Once you have added your locations to Fidel, we can begin the process of Locatio
 
 Location status is reported separately for each card scheme. Each location/scheme combination can have one of four statuses: **Idle, Syncing, Active or Not found**.
 
-<div class="info-box">
+<div className="info-box">
 In the test environment, every added Location skips the Location Sync process and is automatically set to Active.
 </div>
 

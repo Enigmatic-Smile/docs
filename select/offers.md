@@ -198,7 +198,7 @@ Note that when you link Locations to an Offer with activation, you will only rec
 
 It is not possible to run an activation offer and a non-activation offer at the same time for the same brand. Should you wish to run two offers at the same time for the same brand, they must both be activation offers or both be non-activation offers. If you are running two offers at once, only one transaction webhook will be sent for whichever offer has the highest award.
 
-<div class="info-box">
+<div className="info-box">
     <small>Test and Live environments</small><br/>
     It is important to note that when testing Offers with activation in the test environmentm all test transactions created will be visible for testing purposes. In the live environment only Transactions for activated Offers on Cards will be received and qualified.
 </div>
@@ -547,7 +547,7 @@ fileName:offer.json
       <span><code>status</code></span>
       <em>string</em>
     </dt>
-    <dd>Offer status corresponding to the state in the <a class="content" href="#offer-lifecycle">Offer Lifecycle</a>. Can be one of <code>requests</code>, <code>upcoming</code>, <code>live</code> or <code>expired</code>.</dd>
+    <dd>Offer status corresponding to the state in the <a className="content" href="#offer-lifecycle">Offer Lifecycle</a>. Can be one of <code>requests</code>, <code>upcoming</code>, <code>live</code> or <code>expired</code>.</dd>
   </div>
   <div>
     <dt>
