@@ -1,4 +1,4 @@
-# Android SDK reference <a style={{'color': '#111'}} className="improve-docs" href="/select/sdks/android/reference-v1">v1</a> <a style={{'margin-right': 'auto', 'border-bottom': '2px solid #0048ff'}} className="improve-docs" href="/select/sdks/android/reference-v2">v2</a>
+# Android SDK reference <a style={{'color': '#111'}} className="improve-docs" href="/select/sdks/android/reference-v1">v1</a> <a style={{marginRight: 'auto', borderBottom: '2px solid #0048ff'}} className="improve-docs" href="/select/sdks/android/reference-v2">v2</a>
 
 1. [Fidel class](#class-fidel)
 2. [Properties](#properties)

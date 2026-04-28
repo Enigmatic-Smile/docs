@@ -49,7 +49,7 @@ To switch between **Live** and **Test** keys, use the **Live Mode toggle** locat
 3. Click the **Revoke** button next to it.
 4. Confirm the revocation in the dialog by entering your password (for security reasons).
 
-<div style={{'border-left': '4px solid #f0ad4e', 'padding': '0.75em 1em', 'background-color': '#fff8e1', 'margin': '1em 0'}}>
+<div style={{borderLeft: '4px solid #f0ad4e', 'padding': '0.75em 1em', backgroundColor: '#fff8e1', 'margin': '1em 0'}}>
 <strong>Note:</strong> You can have a maximum of <strong>two keys per key type</strong> (e.g., <strong>API</strong> and <strong>SDK</strong>).<br />
 To <strong>revoke</strong> a key, you must have at least <strong>one other active key</strong> of the same type.
 </div>

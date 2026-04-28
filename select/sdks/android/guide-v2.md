@@ -1,4 +1,4 @@
-# A guide for card enrollment with the Android SDK <a style={{'color': '#111'}} className="improve-docs" href="/select/sdks/android/guide-v1">v1</a> <a style={{'margin-right': 'auto', 'border-bottom': '2px solid #0048ff'}} className="improve-docs" href="/select/sdks/android/guide-v2">v2</a>
+# A guide for card enrollment with the Android SDK <a style={{'color': '#111'}} className="improve-docs" href="/select/sdks/android/guide-v1">v1</a> <a style={{marginRight: 'auto', borderBottom: '2px solid #0048ff'}} className="improve-docs" href="/select/sdks/android/guide-v2">v2</a>
 
 Please take the following steps to integrate and configure the SDK for your Loyalty use case application.
 

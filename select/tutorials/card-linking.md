@@ -177,7 +177,7 @@ Your application is still going to fail to compile, but with a new error. And th
   width="802px"
   height="407.6px"
   viewBox="0 0 802 407.6"
-  style={{'enable-background': 'new 0 0 802 407.6'}}
+  style="enable-background:new 0 0 802 407.6;"
   xml:space="preserve"
 >
   <style type="text/css"></style>
