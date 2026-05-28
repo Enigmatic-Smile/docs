@@ -10,9 +10,9 @@ First step is to [create a Fidel API developer account](https://dashboard.fidel.
 
 ## 2. Managing API Keys
 
-After you created an account, in your account page on the dashboard, you will need to create an API or SDK key. **This will be a necessary step for integrating with Fidel**.
+After you created an account, in your account page on the dashboard, you will need to create an API key. **This will be a necessary step for integrating with Fidel**.
 
-The SDK keys are used to link the web and mobile SDKs to your account and the API keys to access the API endpoints directly. [Get Marketplace Offers](/oaas/offers#get-marketplace-offers). To access the test environment data you must use the test keys and to access the live environment data use the live keys.
+The API keys are used to access the API endpoints directly. To access the test environment data you must use the test keys and to access the live environment data use the live keys.
 
 ### Accessing API Key Settings
 

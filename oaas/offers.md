@@ -1,20 +1,18 @@
 # Offers
 
-Fidel's Offers platform enables brands and merchants to create card-linked offers, including cashback, discounts, and rewards. These offers are distributed through Publisher Programs and are automatically redeemed when consumers pay with a linked card, creating a seamless user experience.
-
-The Fidel Marketplace acts as a shared catalogue where Content Providers (suppliers) can publish offers. Publishers can then easily discover, select, and integrate these offers into their own programs without the need for complex setup or negotiation.
-
-Developers can create and update offers via the API or dashboard, link and unlink locations to offers, activate and deactivate offers on specific cards, and submit offers for brand approval.
+Fidel's Offers marketplace is available on the **Offers** tab, where you can see all available offers to your reward programs.
 
 ## Offer Lifecycle
 
-Offers can be accessed via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending). They are grouped into five categories: Requests, Upcoming, Live, Expiring soon and Expired.
+Offers can be accessed via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending). They are grouped into six categories: Marketplace, Requests, Upcoming, Live, Expiring soon and Expired.
 
-![Fidel Dashboard with Offers](https://docs.fidel.uk/assets/images/dashboard_offers.png "Fidel Dashboard with Offers")
+### Marketplace
+
+All Fidel marketplace offers available to your reward programs will be visible here. These have not yet been added to your program.
 
 ### Requests
 
-The Offer `startDate` is set in the future, and/or there are no linked Locations.
+The Offers which require approval from the content provider will be available here until the Content Provider has accepted or declined the offer request.
 
 ### Upcoming
 
@@ -22,25 +20,40 @@ The Offer has at least one Location linked, but the `startDate` is in the future
 
 ### Live
 
-The current date is between the Offer `startDate` and `endDate`. The Offers in this category are qualifying Transactions at the locations linked to them.
+The current date is between the Offer `startDate` and `endDate`. The Offers in this category have been added to one of your reward programs and you are tracking live transactions against them.
 
-If no `endDate` is provided when creating an Offer, it will have a default end date of 12 months from its `startDate`. The Offer can be extended at any time during its lifetime to another 12 months from the current date.
+If no `endDate` is provided when creating an Offer, it will have a default end date of 12 months from its `startDate`. The Offer can be extended at any time during its lifetime to another 12 months from the current date by the Content Provider and you will be notified with the relevant webhook. Please see [webhooks](/docs/oaas/webhooks) for more details. Your own sourced offers are exempt from this requirement.
 
 ### Expiring soon
 
-The Offer is currently live and qualifying Transactions, but is approaching its `endDate`. Offers in this category will automatically move to "Expired" when the `endDate` is reached.
+The Offer is currently live on your reward program, but is approaching its `endDate`. Offers in this category will automatically move to "Expired" when the `endDate` is reached.
 
 The Dashboard includes an "expires in" filter that allows you to view Offers expiring within a specific number of days. The filter provides preset values for quick filtering and also accepts custom day values. By default, it displays Offers expiring within 30 days.
 
-![Expires in filter in Fidel Dashboard](https://docs.fidel.uk/assets/images/dashboard-expires-in-filter.png "Expires in filter in Fidel Dashboard")
-
 ### Expired
 
-The current date is after the Offer `endDate`. The Offers in this category have stopped qualifying Transactions.
+The current date is after the Offer `endDate`. The Offers in this category have expired and you should not be tracking transactions against them past the `endDate`.
 
-## Creating an Offer
+## Self-sourced Offers
 
-There are multiple options for creating a new Offer. You can create an Offer via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending), in the Offers section. Alternatively, Developers can use the [Create Offer endpoint](https://fidel-oaas.readme.io/reference/create-offer) from the Offers API to create an Offer.
+The following sections are for any self-sourced offers which you want to add to your reward program. Fidel will only do the reconciliation and billing for Fidel marketplace offers. Any self-sourced offers will need to be created, maintained, reconciled and billed by the Publisher.
+
+## Get Marketplace Offers
+
+Retrieves all available offers from the Fidel Marketplace. Publishers use this endpoint to browse and discover offers from content providers and adopt them into their programs.
+
+Filter by brand, channel, country, or network to surface the most relevant offers. By default, only available offers are returned, with pagination and sorting supported for easy browsing.
+
+```sh
+curl --request GET \
+     --url 'https://api.fidel.uk/v1/marketplace-offers?order=asc' \
+     --header 'Content-Type: application/json' \
+     --header 'accept: application/json'
+```
+
+## Creating a Self-sourced Offer
+
+There are multiple options for creating a new self-sourced Offer. You can create an Offer via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending), in the Offers section. Alternatively, Developers can use the [Create Offer endpoint](https://fidel-oaas.readme.io/reference/create-offer) from the Offers API to create an Offer.
 
 ### Create an Offer via Dashboard
 
@@ -328,9 +341,9 @@ The Offer object looks similar to the following and will be returned by the API 
 - **`type`** object: Represents the type of Offer: a fixed amount or a percentage of the original transaction. The `name` property can have one of the following two values: `amount` and `discount`. The `value` property has either the fixed amount of currency to be rewarded or the percentage value, depending on the Offer type. The `maxRewardAmount` property has a maximum fixed amount of currency to be rewarded for percentage typed Offers. `maxRewardAmount` only applies to `discount` Offers, and will be `null` for `amount` Offers.
 - **`updated`** date: ISO 8601 date and time in UTC representing the last time the Offer object was updated.
 
-## Extending Offers
+## Extending Self-sourced Offers
 
-If you need to extend an Offer beyond its original `endDate`, you can update the Offer to set a new end date. This is useful when you want to continue running a successful campaign or need to accommodate changes in your promotion schedule.
+If you need to extend a self-sourced Offer beyond its original `endDate`, you can update the Offer to set a new end date. This is useful when you want to continue running a successful campaign or need to accommodate changes in your promotion schedule.
 
 ### Extending an Offer via API
 
@@ -357,8 +370,6 @@ To extend an Offer using the Fidel Dashboard, navigate to the Offers section, se
 ### Important Considerations
 
 - The new `endDate` must be in the future from the current date.
-- Offers can only be extended by a maximum of 12 months at a time. If you need to extend an Offer beyond 12 months from its current end date, you will need to make multiple extension requests.
-- Extending an Offer does not affect any Transactions that have already been qualified.
 
 ## Deleting Offers
 

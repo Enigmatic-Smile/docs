@@ -1,6 +1,6 @@
 # Webhooks
 
-Fidel API uses webhooks to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `brand.consent`, `marketplace.offer.live`, `marketplace.offer.updated`, `mid-request.succeeded`, `mid-request.failed`, `program.status`.
+Fidel API uses webhooks to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `marketplace.offer.live`, `marketplace.offer.updated`.
 
 Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload.
 
@@ -14,28 +14,9 @@ As requirements for creation, Fidel API only accepts **HTTPS URLs** for webhook 
 
 Fidel API sends the data via HTTP POST in JSON format. It will send test events if your Dashboard is in test mode or if you are using test API keys when registering the webhook URLs. To receive live events, flip your switch on the Dashboard to go live, or create the webhooks using a live API key.
 
-Fidel API has two types of webhooks (brand and program-related), both of which work similarly, but have slightly different requirements to be registered. For customization, we also allow additional HTTP headers to be added to help integrating with your systems.
-
-## Brand-related webhooks
-
-The `brand.consent` webhook only requires a URL to register. You can use the [Hooks endpoint](https://fidel-oaas.readme.io/reference/create-hook) for registering brand webhooks.
-
-Here's an example on how to create one using the Fidel API, with `example.com` as the URL:
-
-```sh
-curl -X POST \
-  https://api.fidel.uk/v1/hooks \
-  -H 'Content-Type: application/json' \
-  -H 'Fidel-Key: <KEY>' \
-  -d '{
-    "event": "brand.consent",
-    "url": "https://example.com"
-  }'
-```
-
 ## Program-related webhooks
 
-Program webhooks require a `programId` to be associated with and a URL to register. You can register up to 10 webhook URLs per event type for each program. You can use the [Program Hooks endpoint](https://fidel-oaas.readme.io/reference/create-program-hook) for registering program webhooks. The events that can be registered for a given program are `program.status`, `marketplace.offer.live`, `marketplace.offer.updated`.
+Program webhooks require a `programId` to be associated with and a URL to register. You can register up to 10 webhook URLs per event type for each program. You can use the [Program Hooks endpoint](https://fidel-oaas.readme.io/reference/create-program-hook) for registering program webhooks. The events that can be registered for a given program are `marketplace.offer.live`, `marketplace.offer.updated`.
 
 Here's an example on how to create a webhook on a Program for the `marketplace.offer.live` event, with `example.com` as the URL:
 
@@ -68,7 +49,7 @@ curl -X POST \
   -H 'Content-Type: application/json' \
   -H 'Fidel-Key: <KEY>' \
   -d '{
-    "event": "transaction.auth",
+    "event": "marketplace.offer.updated",
     "url": "https://example.com",
     "headers": {
       "Custom-Header": "my-custom-header"

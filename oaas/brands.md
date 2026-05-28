@@ -1,5 +1,7 @@
 # Brands
 
+In order for you to create self-sourced offers, you will need to create the Brand (Merchant name) first.
+
 After creating an account and getting access to the dashboard, the next step is to create a test Brand (Merchant). This lets you create locations and add them to a Program so you can start tracking transactions.
 
 The Brand object is used to aggregate locations.

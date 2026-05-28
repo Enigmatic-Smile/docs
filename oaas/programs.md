@@ -8,13 +8,9 @@ A **Program** is a set of locations that uniquely represent an offline or online
 
 ## Create Program
 
-To create a new program on the Fidel Dashboard, go to the [**Programs**](https://dashboard.fidel.uk/programs) page, click the **New program** button and enter a name. The Program will be created with the name provided without any initial locations.
+To create a new program on the Fidel Dashboard, go to the [**Programs**](https://dashboard.fidel.uk/programs) page, click the **New program** button, add the Reward program name and select **'Transaction Distro Only'** as the Program type, then click **Create**. The Program will be created with the name provided.
 
-##### Go to the Programs page on the dashboard to create a new program.
-
-![Create program](https://docs.fidel.uk/assets/images/create-program.png "Create program")
-
-The same can be done with the [API](https://fidel-oaas.readme.io/reference/create-program). Using curl, we can add 'Program X' as follows:
+The same can be done with the [API](https://fidel-oaas.readme.io/reference/create-program). Using curl:
 
 ```sh
 curl -X POST https://api.fidel.uk/v1/programs \
@@ -29,4 +25,8 @@ curl -X POST https://api.fidel.uk/v1/programs \
   }'
 ```
 
-A `programId` will be generated and is used as a data property when using the SDKs to link Cards to this Program. Cards are linked to Programs and consequently are able to track all purchases at locations in the program.
+A `programId` will be generated and can be used to add marketplace offers to your program via the endpoint:
+
+```
+https://api.fidel.uk/v1/marketplace-offers/{marketplaceOfferId}/offers
+```
