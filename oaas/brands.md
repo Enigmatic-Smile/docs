@@ -2,9 +2,7 @@
 
 In order for you to create self-sourced offers, you will need to create the Brand (Merchant name) first.
 
-After creating an account and getting access to the dashboard, the next step is to create a test Brand (Merchant). This lets you create locations and add them to a Program so you can start tracking transactions.
-
-The Brand object is used to aggregate locations.
+The Brand object is used to aggregate locations, any brand related data such as website, logos etc.
 
 ## Create Brand
 
@@ -12,7 +10,7 @@ The Brand object is used to aggregate locations.
 
 ![Create brand](https://docs.fidel.uk/assets/images/gifs/create-brand.gif "Create brand")
 
-To add a new Brand, go to the [Brands page](https://dashboard.fidel.uk/brands) on the Fidel Dashboard, click the **Add a brand** button and enter a name. If you can't find the brand in the Fidel Dashboard, you can create a new one. Optionally, you can add a link to the brand website and logo (Note: the links cannot be added later using the Dashboard). You can also create a Brand with the [API](https://fidel-oaas.readme.io/reference/create-brand):
+To add a new Brand, go to the [Brands page](https://dashboard.fidel.uk/brands) on the Fidel Dashboard and click **Add a brand**, then enter a brand name. If the brand you need doesn't exist, you can create a new one. Optionally, you can add a link to the brand website and logo (note: these links cannot be added later through the Dashboard). You can also create a Brand using the [API](https://fidel-oaas.readme.io/reference/create-brand):
 
 ```sh
 curl -X POST \

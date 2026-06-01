@@ -10,7 +10,7 @@ All transaction data must be anonymised and exclude any personally identifiable 
 
 Publishers are also responsible for defining and managing offer targeting, such as distinguishing between new and existing cardholders. This is typically based on historical transaction data (e.g., the past 3–6 months). It is important to ensure that offers are only presented to eligible and enrolled consumers who meet the defined criteria.
 
-To enable transaction processing, Publishers must share 'verified' transactions with Fidel by matching them to the offer ID to the transaction (as well as MID, descriptor, brand name, address, lat/lang if provided in offer details)
+To enable transaction processing, Publishers must submit verified transactions to Fidel, associating each transaction with the relevant offer ID, MID, descriptor, brand name, address, and latitude/longitude (if provided in the offer details).
 
 Transactions must be submitted to Fidel using batch files via the SFTP server. Publishers should transmit batch processing files to Fidel on a consistent basis. Those files can be submitted to Fidel in any of the following intervals:
 
@@ -30,7 +30,7 @@ New and established publishers that want to offer a rewards program to the cardh
 - **File Format:** CSV
 - **Property Delimiter:** `|`
 
-Detailed file structures for both the Inbound Transaction Record and Inbound Cardholder Record are documented in the Fidel API documentation, available Publisher to Fidel Files (Inbound)
+Detailed file structures for both the Inbound Transaction Record and Inbound Cardholder Record are documented in the Fidel API documentation, in the Publisher to Fidel Files (Inbound) section.
 
 ## Metabase transaction reporting
 
@@ -38,12 +38,10 @@ Once connected to Fidel's SFTP, publishers gain access to the **Data Analytics P
 
 Fidel performs validation on submitted transactions (typically within a few hours). The following reports are generated:
 
-- **Approved Transactions** (transaction distro-only value)
-- **Rejected Transactions** (transaction distro-only invalid)
+- **Approved Transactions**: Transactions that have passed validation and qualified for the offer
+- **Rejected Transactions**: Transactions that failed validation and did not qualify
 
 ### Rejection Error Codes
-
-If a transaction fails validation, it will be marked as rejected and include an associated error code to help identify the issue. Common rejection reasons include:
 
 If a transaction fails validation, it will be marked as rejected and include an associated error code to help identify the issue. Common rejection reasons include:
 

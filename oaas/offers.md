@@ -12,27 +12,27 @@ All Fidel marketplace offers available to your reward programs will be visible h
 
 ### Requests
 
-The Offers which require approval from the content provider will be available here until the Content Provider has accepted or declined the offer request.
+Offers that require approval from the Content Provider will be available here until they have been accepted or declined.
 
 ### Upcoming
 
-The Offer has at least one Location linked, but the `startDate` is in the future. Offers in this category will automatically become "live" when the `startDate` is reached.
+Offers with at least one Location linked, but with a `startDate` in the future. Offers in this category will automatically become "live" when the `startDate` is reached.
 
 ### Live
 
 The current date is between the Offer `startDate` and `endDate`. The Offers in this category have been added to one of your reward programs and you are tracking live transactions against them.
 
-If no `endDate` is provided when creating an Offer, it will have a default end date of 12 months from its `startDate`. The Offer can be extended at any time during its lifetime to another 12 months from the current date by the Content Provider and you will be notified with the relevant webhook. Please see [webhooks](/docs/oaas/webhooks) for more details. Your own sourced offers are exempt from this requirement.
+If no `endDate` is provided when creating an Offer, it will have a default end date of 12 months from its `startDate`. The Offer can be extended at any time for another 12 months from the current date by the Content Provider, and you will be notified via the relevant webhook. Please see [webhooks](/docs/oaas/webhooks) for more details. Self-sourced offers are exempt from this requirement.
 
 ### Expiring soon
 
-The Offer is currently live on your reward program, but is approaching its `endDate`. Offers in this category will automatically move to "Expired" when the `endDate` is reached.
+Offers currently live on your reward program that are approaching their `endDate`. Offers in this category will automatically move to "Expired" when the `endDate` is reached.
 
-The Dashboard includes an "expires in" filter that allows you to view Offers expiring within a specific number of days. The filter provides preset values for quick filtering and also accepts custom day values. By default, it displays Offers expiring within 30 days.
+The Dashboard includes an "expires in" filter to view offers expiring within a specific number of days. The filter provides preset values for quick filtering and also accepts custom day values. By default, it displays offers expiring within 30 days.
 
 ### Expired
 
-The current date is after the Offer `endDate`. The Offers in this category have expired and you should not be tracking transactions against them past the `endDate`.
+Offers with an `endDate` that has passed. You should not be tracking transactions against expired offers.
 
 ## Self-sourced Offers
 
@@ -53,7 +53,7 @@ curl --request GET \
 
 ## Creating a Self-sourced Offer
 
-There are multiple options for creating a new self-sourced Offer. You can create an Offer via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending), in the Offers section. Alternatively, Developers can use the [Create Offer endpoint](https://fidel-oaas.readme.io/reference/create-offer) from the Offers API to create an Offer.
+There are multiple options for creating a new self-sourced Offer. You can create an Offer via the [Fidel Dashboard](https://dashboard.fidel.uk/offers/pending) in the Offers section, or use the [Create Offer API endpoint](https://fidel-oaas.readme.io/reference/create-offer).
 
 ### Create an Offer via Dashboard
 
@@ -100,9 +100,6 @@ Offers with the type `amount` will use the indicated country's currency and appl
 
 There are a range of optional parameters available, which influence how the Offer behaves on the Fidel platform. You can read more about the endpoint's full specification on our [API Reference](https://fidel-oaas.readme.io/reference/create-offer).
 
-- **`activation`**: An object, showing if the Offer needs activation or not. Default is `{ enabled: false }`.
-- **`activation: enabled`**: Boolean showing if the Offer needs to be activated on Cards or not. If it's `true`, the activation object also has a `qualifiedTransactionsLimit` property. Please read the section below on [Offer Activation](#offers-with-activation) before using this parameter.
-- **`activation: qualifiedTransactionsLimit`**: Number of Transactions to qualify for each Offer activation. Default is `1`.
 - **`daysOfWeek`**: Array of numbers, with possible values from `0` to `6`, to indicate the days of the week. `0` = Sunday, `1` = Monday, etc.
 - **`endDate`**: The date to automatically end the Offer. Same as `startDate`, the time will be a local time relative to the Location where the Offer was active. A default 12 months lifeline is added to the `endDate` if no `endDate` is provided. This can be extended at any time to further 12 months.
 - **`funded: id`**: Unique identifier for the account that funds the Offer. For self-funded Offers, this is not required. In the test environment, all Offers are self-funded, so this will always be the same as your `accountId`.
@@ -188,82 +185,16 @@ This includes changes to:
 
 This ensures Publishers remain synchronised with the latest eligibility rules applied to active offers.
 
-## Multiple Offers on the same Brand and Location
-
-Each Transaction can be rewarded only once. If there is more than one Offer for the same Brand in the same Location for which a Transaction qualifies, the Fidel API platform has to select one of them which will provide the reward.
-
-The platform uses the following rules to select the Offer that will reward the cardholder:
-
-1. In case both Offers generate different cashback values, the platform selects and qualifies the most valuable offer.
-2. In case both Offers generate the same cashback values, the platform selects and qualifies the most recent offer.
-
-**Example:**
-Let's suppose the following offers are on the same brand and a cardholder made a transaction of £100 at a brand's location.
-
-| Offer 15% Off | Offer £50 Off |
-|---|---|
-| `name: "discount"` | `name: "amount"` |
-| `value: 15` | `value: 50` |
-
-Applying the stacking rules, the above transaction will qualify for "Offer £50 Off" according to the first rule.
-
-## Linking Locations to Offers
-
-Before an Offer goes live and starts qualifying transactions, you will need to link Locations to the Offer. Developers can use the [Link Location to Offer API endpoint](https://fidel-oaas.readme.io/reference/link-location-to-offer) to link any Location to an Offer. Similarly, the Fidel API has an endpoint to [unlink a Location from an Offer](https://fidel-oaas.readme.io/reference/unlink-location-from-offer).
-
-Here's a cURL example of using the endpoint, with two path parameters, for the `offerId` and `locationId`:
-
-```sh
-curl -X POST \
-  https://api.fidel.uk/v1/offers/feb9af3c-9b4e-49df-bb8f-13ae4ad8cd22/locations/1af3b7a0-4bfd-4b5e-a285-fab1c8a8421d \
-  -H 'Content-Type: application/json' \
-  -H 'Fidel-Key: <KEY>'
-```
-
-### Linking Offers in the Dashboard
-
-When you create an Offer in the Fidel Dashboard, the second step of the creation dialogue allows you to link Locations to the newly created Offer.
-
-![Link Locations in Offer Creation](https://docs.fidel.uk/assets/images/gifs/create-offer-location.gif "Link Locations in Offer Creation")
-
-If you need to link more Locations after you've created an Offer, the Locations list in the Dashboard has a menu button next to each Location, which opens a contextual menu. Selecting 'Link to offer' in the context menu will open a drawer that lets you select a possible Offer to link.
-
-![Link to offer in Fidel Dashboard](https://docs.fidel.uk/assets/images/dashboard-link-location.png "Link to offer in Fidel Dashboard")
-
-Alternatively, you can edit an Offer in the Fidel Dashboard, which will allow you to link more Locations in the second step of the Offer drawer.
-
-![Edit Offer Link Locations](https://docs.fidel.uk/assets/images/gifs/dashboard-edit-offer.gif "Edit Offer Link Locations")
-
-### Test and Live environments
-
-It is important to note that when testing Offers with activation in the test environment, all test transactions created will be visible for testing purposes. In the live environment only Transactions for activated Offers on Cards will be received and qualified.
-
-### Offers with Activation in the Dashboard
-
-You can create Offers with activation in the Fidel Dashboard as well. When creating an Offer, check the **"Enable offer activation"** checkbox. That will reveal a "1" transactions field, which you can use to change the number for the qualified transactions limit.
-
-![Create Offer with Activation](https://docs.fidel.uk/assets/images/gifs/create-offers.gif "Create Offer with Activation")
-
-To activate an Offer on a Card using the Fidel Dashboard, you'll want to go to the Cards list. Each Card has a menu button next to them, which opens a contextual menu. Selecting 'Activate offer' in the context menu will open a drawer that lets you select a possible Offer to activate on the Card.
-
-![Activate offer on Card in Fidel Dashboard](https://docs.fidel.uk/assets/images/dashboard-activate-offer.png "Activate offer on Card in Fidel Dashboard")
-
-Once an offer is live, when a consumer makes a payment with a linked card at a participating location, the transaction is evaluated against the offer parameters to determine qualification. If the offer includes a return period, the transaction will only be qualified after that period has passed.
-
 ## Offer Object
 
-The Offers API's central piece of data is the Fidel Offer object, which holds all the details about a card-linked Offer. The card-linked Offer has a set of parameters used to qualify any Card Transaction made at a participating Brand's linked Location.
+The Offers API's central piece of data is the Fidel Offer object, which holds all the details about a card-linked Offer. The Offer object will be returned by the API in a multitude of situations.
 
-The Offer object looks similar to the following and will be returned by the API in a multitude of situations. Transaction objects will also have a smaller version of the object inside, making it easier to retrieve the full Offer object if necessary.
+The Offer object looks similar to the following:
 
 ```json
 {
   "id": "feb9af3c-9b4e-49df-bb8f-13ae4ad8cd22",
   "accepted": true,
-  "activation": {
-    "enabled": true,
-    "qualifiedTransactionsLimit": 1
-  },
   "additionalTerms": null,
   "brandId": "f8bdb5e7-85c3-4acb-8a59-1b7e9218e412",
   "brandName": "API Reference",
@@ -277,8 +208,7 @@ The Offer object looks similar to the following and will be returned by the API 
     "id": "3693ac7e-3e2b-432c-8c60-2b786453ca9b",
     "type": "card-linking"
   },
-  "fees":
-  {
+  "fees": {
     "publisherFee": 5,
     "fidelFee": 5
   },
@@ -292,12 +222,16 @@ The Offer object looks similar to the following and will be returned by the API 
     "id": "3693ac7e-3e2b-432c-8c60-2b786453ca9b",
     "type": "card-linking"
   },
-  "priority": 1,
   "publisherId": "3693ac7e-3e2b-432c-8c60-2b786453ca9b",
   "returnPeriod": 15,
   "schemes": ["amex", "mastercard", "visa"],
   "startDate": "2020-06-30T00:00:00",
   "supplier": null,
+  "targeting": {
+    "name": "new",
+    "from": 0,
+    "to": 90
+  },
   "type": {
     "name": "discount",
     "maxRewardAmount": 10,
@@ -312,8 +246,7 @@ The Offer object looks similar to the following and will be returned by the API 
 ### Parameters
 
 - **`id`** string: Unique identifier for the object.
-- **`accepted`** boolean: Whether the Offer was accepted by the Brand. To send the Offer to a Brand for funding, see the [Send Offer to Brand API endpoint](https://fidel-oaas.readme.io/reference/send-offer-to-brand).
-- **`activation`** object: Has an `enabled` boolean property, showing if the Offer needs activation or not. If the `enabled` flag is set to `true`, the activation object also has a `qualifiedTransactionsLimit` property, specifying the number of transactions to qualify for each Offer activation.
+- **`accepted`** boolean: Whether the Offer was accepted by the Brand.
 - **`additionalTerms`** string: Support for additional Terms & Conditions related to the Offer. `null` by default.
 - **`brandId`** string: Unique identifier of the associated Brand.
 - **`brandName`** string: Name of the associated Brand.
@@ -324,21 +257,23 @@ The Offer object looks similar to the following and will be returned by the API 
 - **`daysOfWeek`** array of numbers: Array of numbers between `0` and `6` representing the days of the week for which the Offer is active. Starting with Sunday.
 - **`endDate`** date: Date and time, in the `YYYY-MM-DDThh:mm:ss` format, for when the Offer expires. Note: Time is local to the Location. Defaults to 12 months for Offers that do not have an end date passed at creation phase.
 - **`funded`** object: Contains an `id` property, with the unique identifier for the account that is funding the Offer. Also contains a string `type` property, for the type of account that is funding the Offer. The type can have one of the values `"merchant"` | `"card-linking"` | `"affiliate"`.
+- **`fees`** object: Contains `publisherFee` and `fidelFee` properties representing the fee values.
 - **`live`** boolean: Whether the Offer should be created in the live or test Fidel environment.
-- **`locationsTotal`** number: Total number of Locations linked to the Offer. (always -1 as we won't have locations in OaaS)
+- **`locationsTotal`** number: Total number of Locations linked to the Offer. Always `-1` in OaaS.
 - **`maxTransactionAmount`** number: Maximum transaction amount generating a proportional reward.
 - **`minTransactionAmount`** number: Minimum amount needed for a Transaction to qualify for the Offer.
 - **`name`** string: Name of the Offer.
 - **`metadata`** object: Metadata to be associated with the Offer. Defaults to `null`.
 - **`origin`** object: Contains an `id` property, with the unique identifier for the account that created the Offer. Also contains a string `type` property, for the type of account that created the Offer. The type can have one of the values `"merchant"` | `"card-linking"` | `"affiliate"`.
-- **`priority`** number: Not in use. Its value is always `1`.
 - **`publisherId`** string: Unique identifier of the Publisher. Refers to `accountId`.
 - **`returnPeriod`** number: Number of days before a Transaction qualifies for the Offer.
 - **`schemes`** array of strings: Card Schemes for which the Offer is valid. Possible values in the array are `visa`, `mastercard` and `amex`.
 - **`startDate`** date: Date and time, in the `YYYY-MM-DDThh:mm:ss` format, for when the Offer is activated and starts qualifying transactions.
 - **`status`** string: Offer status corresponding to the state in the Offer Lifecycle. Can be one of `requests`, `upcoming`, `live` or `expired`.
 - **`supplier`** object: Contains an `id` property, with the unique identifier for the account that supplies the Offer. Also contains a string `type` property, for the type of account that supplies the Offer. The type can have one of the values `"merchant"` | `"card-linking"` | `"affiliate"`. Defaults to `null`.
+- **`targeting`** object: Contains `name` (customer segment type: `new`, `lapsed`, or `existing`), `from` (start of lookback window in days), and `to` (end of lookback window in days). `null` if no targeting is configured.
 - **`type`** object: Represents the type of Offer: a fixed amount or a percentage of the original transaction. The `name` property can have one of the following two values: `amount` and `discount`. The `value` property has either the fixed amount of currency to be rewarded or the percentage value, depending on the Offer type. The `maxRewardAmount` property has a maximum fixed amount of currency to be rewarded for percentage typed Offers. `maxRewardAmount` only applies to `discount` Offers, and will be `null` for `amount` Offers.
+- **`transactionSource`** string: The source of transaction data. For OaaS offers, this will be `"oaas"`.
 - **`updated`** date: ISO 8601 date and time in UTC representing the last time the Offer object was updated.
 
 ## Extending Self-sourced Offers
@@ -380,19 +315,6 @@ curl -X DELETE \
   https://api.fidel.uk/v1/offers/ec80c3a1-0899-4e10-abdf-2dfb699b509c \
   -H 'Content-Type: application/json' \
   -H 'Fidel-Key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
-```
-
-## Get Marketplace Offers
-
-Retrieves all available offers from the Fidel Marketplace. Publishers use this endpoint to browse and discover offers from content providers and adopt them into their programs.
-
-Filter by brand, channel, country, or network to surface the most relevant offers. By default, only available offers are returned, with pagination and sorting supported for easy browsing.
-
-```sh
-curl --request GET \
-     --url 'https://api.fidel.uk/v1/marketplace-offers?order=asc' \
-     --header 'Content-Type: application/json' \
-     --header 'accept: application/json'
 ```
 
 ## API Reference

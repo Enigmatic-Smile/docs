@@ -2,17 +2,17 @@
 
 Fidel lets you connect with the Fidel Marketplace via our Fidel Dashboard or API.
 
-You can add any offers you find relevant for your reward programs and start generating transactions against the offers.
+You can discover and adopt any offers you find relevant for your reward programs and start submitting transactions against them.
 
 ## 1. Create an account
 
-First step is to [create a Fidel API developer account](https://dashboard.fidel.uk/sign-up) that will give you access to the developers' dashboard, program configuration, sandbox environment, marketplace configuration and test API keys.
+The first step is to [create a Fidel API developer account](https://dashboard.fidel.uk/sign-up), which will give you access to the developer dashboard, program configuration, sandbox environment, marketplace configuration, and test API keys.
 
 ## 2. Managing API Keys
 
-After you created an account, in your account page on the dashboard, you will need to create an API key. **This will be a necessary step for integrating with Fidel**.
+After you've created an account, you'll need to create an API key in your account settings on the dashboard. **This will be a necessary step for integrating with Fidel.**
 
-The API keys are used to access the API endpoints directly. To access the test environment data you must use the test keys and to access the live environment data use the live keys.
+The API keys are used to access the API endpoints directly. Use test keys to access the test environment and live keys to access the live environment.
 
 ### Accessing API Key Settings
 

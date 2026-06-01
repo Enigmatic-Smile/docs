@@ -35,6 +35,6 @@
 
 Fidel's **Offers as a Service** is a one-stop shop designed for Publishers—banks, financial institutions, FinTechs and airlines—who want to provide high-value card-linked offers to their cardholders. Unlike our Select product, OaaS puts the power of transaction verification in your hands, allowing you to leverage your own transaction data while we handle the merchant/brand relationships.
 
-> **Offers as a Service**: Offers platform provided by Fidel marketplace. Connect your Card-Linked Reward program with global offers, sourced by Fidel & Fidel Content Providers and start earning commission from brands worldwide.
+> **Offers as a Service**: Offers platform powered by Fidel's marketplace. Connect your card-linked reward program with global offers sourced by Fidel and Fidel Content Providers, and start earning commission from brands worldwide.
 
 Check out the [API Reference](https://fidel-oaas.readme.io/reference) to see all available requests, code examples and response payloads.
