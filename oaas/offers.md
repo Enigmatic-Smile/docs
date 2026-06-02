@@ -75,6 +75,7 @@ curl -X POST https://api.fidel.uk/v1/offers \
         "publisherId":"3693ac7e-3e2b-432c-8c60-2b786453ca9b",
         "brandId":"f8bdb5e7-85c3-4acb-8a59-1b7e9218e412",
         "startDate":"2020-04-25T00:00:00",
+        "transactionSource": "oaas",
         "type":{
           "name":"discount",
           "value":20
@@ -103,8 +104,6 @@ There are a range of optional parameters available, which influence how the Offe
 - **`daysOfWeek`**: Array of numbers, with possible values from `0` to `6`, to indicate the days of the week. `0` = Sunday, `1` = Monday, etc.
 - **`endDate`**: The date to automatically end the Offer. Same as `startDate`, the time will be a local time relative to the Location where the Offer was active. A default 12 months lifeline is added to the `endDate` if no `endDate` is provided. This can be extended at any time to further 12 months.
 - **`funded: id`**: Unique identifier for the account that funds the Offer. For self-funded Offers, this is not required. In the test environment, all Offers are self-funded, so this will always be the same as your `accountId`.
-- **`funded: type`**: Type of Offer funding. Possible values are `"merchant"`, `"card-linking"` and `"affiliate"`. In the test environment, you can only create card-linked Offers, so the funding type will always be `"card-linking"`.
-- **`maxTransactionAmount`**: Deprecated in favor of `type: maxRewardAmount`. For example, a 10% reward with a max transaction amount of £100 can't generate a reward larger than £10, even if the transaction amount is higher than £100. The new value for `maxRewardAmount` will be `10` since we want to limit the reward to £10.
 - **`minTransactionAmount`**: Minimum transaction amount to qualify for the offer. For example, if your offer is to save 25% on purchases over £50, then the Offer should have a `minTransactionAmount` of `£50`.
 - **`metadata`**: Object with your own metadata, will be returned on the Offer object.
 - **`returnPeriod`**: Number of days between when a Transaction was created and when a Transaction qualifies for the Offer. The qualified Transaction will have the `offer.qualificationDate` set to the creation date plus the number of days in the return period.
@@ -309,6 +308,8 @@ To extend an Offer using the Fidel Dashboard, navigate to the Offers section, se
 ## Deleting Offers
 
 You can delete offers in the [Fidel API Dashboard](https://dashboard.fidel.uk/offers/pending), or using the API's [Delete Offer endpoint](https://fidel-oaas.readme.io/reference/delete-offer).
+
+> **Note:** Only self-sourced offers created by Publishers can be deleted. Offers from Content Providers or the Fidel Marketplace cannot be deleted.
 
 ```sh
 curl -X DELETE \
