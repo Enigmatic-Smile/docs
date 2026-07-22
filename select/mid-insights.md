@@ -416,7 +416,7 @@ The `origin` field describes how each MID was discovered or sourced for a locati
   </tr>
   <tr>
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Missing transaction lookup</td>
-    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>missing-transaction-lookup-mid</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>missing-transaction-lookup</code></td>
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>A transaction was made at an onboarded location and the MID was identified from the transaction data (most accurate).</td>
   </tr>
   <tr>
