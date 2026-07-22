@@ -26,23 +26,17 @@ The List MID Insights endpoint allows you to query and monitor the full lifecycl
 
 ---
 
-## Endpoint Specification
+## API Endpoints
 
-**HTTP Request:** `GET https://api.fidel.uk/v1/programs/{programId}/mid-insights`
+### List MID Insights
 
-**Authorization:** Standard Bearer Token authentication via your secret API key is required in the request header.
+Retrieve a paginated list of MID insights for a program, including health, status, and validation details across card networks.
 
-```
-Authorization: Bearer clsk_live_...
-```
+**Endpoint:** `GET /programs/{programId}/mid-insights` | [API Reference](https://reference.fidel.uk/reference/list-mid-insights)
 
-[API Reference](https://reference.fidel.uk/reference/list-mid-insights)
+#### Request Parameters
 
----
-
-## Request Parameters
-
-### Headers
+##### Headers
 
 <table style={{borderCollapse: 'collapse', 'width': '100%', marginBottom: '16px'}}>
 <thead>
@@ -69,7 +63,7 @@ Authorization: Bearer clsk_live_...
 </tbody>
 </table>
 
-### Path Parameters
+##### Path Parameters
 
 <table style={{borderCollapse: 'collapse', 'width': '100%', marginBottom: '16px'}}>
 <thead>
@@ -90,7 +84,7 @@ Authorization: Bearer clsk_live_...
 </tbody>
 </table>
 
-### Query Parameters
+##### Query Parameters
 
 <table style={{borderCollapse: 'collapse', 'width': '100%', marginBottom: '16px'}}>
 <thead>
@@ -451,9 +445,9 @@ The `origin` field describes how each MID was discovered or sourced for a locati
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>A third-party service (e.g., Incubit) sourced the MID for the location.</td>
   </tr>
   <tr>
-    <td style={{'padding': '12px'}}}>System MID look-up</td>
+    <td style={{'padding': '12px'}}>System MID look-up</td>
     <td style={{'padding': '12px'}}><code>system-mid-look-up</code></td>
-    <td style={{'padding': '12px'}}}>A Mastercard CAID (Card Acceptor ID) triggered the system to look up the Visa MIDs/CAIDs through the Mastercard CAID.</td>
+    <td style={{'padding': '12px'}}>A Mastercard CAID (Card Acceptor ID) triggered the system to look up the Visa MIDs/CAIDs through the Mastercard CAID.</td>
   </tr>
 </tbody>
 </table>
@@ -494,7 +488,7 @@ Depending on the card network (`scheme`) of a MID insight, different identifier 
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Visa Acquiring Merchant ID (CAID).</td>
   </tr>
   <tr>
-    <td style={{padding: '12px', borderBottom: '1px solid #dee2e6'}}><code>visaBin</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>visaBin</code></td>
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Visa</td>
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Visa Bank Identification Number.</td>
   </tr>
