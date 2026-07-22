@@ -446,7 +446,7 @@ The `origin` field describes how each MID was discovered or sourced for a locati
   </tr>
   <tr>
     <td style={{'padding': '12px'}}>System MID look-up</td>
-    <td style={{'padding': '12px'}}><code>system-mid-look-up</code></td>
+    <td style={{'padding': '12px'}}><code>system-mid-lookup</code></td>
     <td style={{'padding': '12px'}}>A Mastercard CAID (Card Acceptor ID) triggered the system to look up the Visa MIDs/CAIDs through the Mastercard CAID.</td>
   </tr>
 </tbody>
