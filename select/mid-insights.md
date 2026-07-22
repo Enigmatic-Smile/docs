@@ -415,16 +415,6 @@ The `origin` field describes how each MID was discovered or sourced for a locati
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>MID was identified as part of searching the address automatically on the card network and matching MIDs based on brand name and address details provided by the client on location level.</td>
   </tr>
   <tr>
-    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Missing transaction lookup</td>
-    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>missing-transaction-lookup</code></td>
-    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>A transaction was made at an onboarded location and the MID was identified from the transaction data (most accurate).</td>
-  </tr>
-  <tr>
-    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Manual lookup</td>
-    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>manual-mid-lookup</code></td>
-    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Fidel support manually looked up the card network MID for an onboarded location through the card networks.</td>
-  </tr>
-  <tr>
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Brand provided</td>
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>brand-provided-mid</code></td>
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The MID was provided directly by the brand or merchant.</td>
@@ -435,19 +425,34 @@ The `origin` field describes how each MID was discovered or sourced for a locati
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The client added the MID to the location or to a MID request for onboarding.</td>
   </tr>
   <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Manual lookup</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>manual-mid-lookup</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Fidel support manually looked up the card network MID for an onboarded location through the card networks.</td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Missing transaction lookup</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>missing-transaction-lookup</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>A transaction was made at an onboarded location and the MID was identified from the transaction data (most accurate).</td>
+  </tr>
+  <tr>
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Processor provided</td>
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>processor-provided-mid</code></td>
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The MID was provided by the payment processor or acquirer (e.g., Stripe, Adyen).</td>
   </tr>
   <tr>
-    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Third-party provided</td>
-    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>third-party-provided-mid</code></td>
-    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>A third-party service (e.g., Incubit) sourced the MID for the location.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>System MID lookup</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>system-mid-lookup</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>A Mastercard CAID (Card Acceptor ID) triggered the system to look up the Visa MIDs/CAIDs through the Mastercard CAID.</td>
   </tr>
   <tr>
-    <td style={{'padding': '12px'}}>System MID look-up</td>
-    <td style={{'padding': '12px'}}><code>system-mid-lookup</code></td>
-    <td style={{'padding': '12px'}}>A Mastercard CAID (Card Acceptor ID) triggered the system to look up the Visa MIDs/CAIDs through the Mastercard CAID.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>System provided</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>system-provided-mid</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The MID was automatically identified and provided by the Fidel system.</td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px'}}>Third-party provided</td>
+    <td style={{'padding': '12px'}}><code>third-party-provided-mid</code></td>
+    <td style={{'padding': '12px'}}>A third-party service (e.g., Incubit) sourced the MID for the location.</td>
   </tr>
 </tbody>
 </table>
