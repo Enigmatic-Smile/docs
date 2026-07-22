@@ -421,7 +421,7 @@ The `origin` field describes how each MID was discovered or sourced for a locati
   </tr>
   <tr>
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Manual lookup</td>
-    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>manual-look-up-mid</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>manual-mid-lookup</code></td>
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Fidel support manually looked up the card network MID for an onboarded location through the card networks.</td>
   </tr>
   <tr>
