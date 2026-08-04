@@ -299,6 +299,10 @@ fileName:transaction.auth
   "cleared": false,
   "amount": 100,
   "currency": "GBP",
+  "descriptor": {
+    "merchantName": "Bob's Cafe London",
+    "storeName": "Bob's Cafe"
+  },
   "wallet": null,
   "card": {
     "id": "bc538b71-31c5-4699-840a-6d4a08693314",
@@ -363,6 +367,10 @@ fileName:transaction.clearing
     "updated": "2020-07-08T17:20:44.134Z",
     "programId": "06471dbe-a3c7-429e-8a18-16dc97e5cf35",
     "datetime": "2020-07-08T18:05:52",
+    "descriptor": {
+      "merchantName": "Bob's Cafe Bristol",
+      "storeName": "Bob's Cafe"
+    },
     "card": {
         "id": "62744670-f935-4ba3-8e89-be23e31292cf",
         "firstNumbers": "444400",
@@ -406,6 +414,10 @@ fileName:transaction.refund
     "authCode": "A73H890",
     "originalTransactionId": "8bbbf56b-3819-473b-877d-cf2175f268f4",
     "currency": "GBP",
+    "descriptor": {
+      "merchantName": "Bob's Cafe Bristol",
+      "storeName": "Bob's Cafe"
+    },
     "id": "5ec08ca8-38c6-42e1-9fa5-32c67e4135b2",
     "amount": -10,
     "wallet": null,
@@ -491,6 +503,10 @@ This means that partial refunds will not be identified as the cashback amount is
   "auth": false,
   "authCode": "A73H890",
   "currency": "GBP",
+  "descriptor": {
+    "merchantName": "Bob's Cafe Bristol",
+    "storeName": "Bob's Cafe"
+  },
   "id": "5ec08ca8-38c6-42e1-9fa5-32c67e4135b2",
   "amount": -10,
   "wallet": null,
