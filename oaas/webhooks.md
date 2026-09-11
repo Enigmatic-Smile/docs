@@ -1,26 +1,18 @@
 # Webhooks
 
-Fidel API uses webhooks to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `marketplace.offer.live`, `marketplace.offer.updated`.
+Fidel API uses webhooks to notify your application when events happen in your account. For Offer Marketplace, available events include `marketplace.offer.live` and `marketplace.offer.updated`.
 
-Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload.
+When an event occurs, Fidel API sends an HTTP POST request containing the event payload to each subscribed endpoint.
 
 For example, once transactions are received via the SFTP server and successfully qualified, webhooks are triggered to notify the publisher and, where applicable, reports are generated and sent to affiliate networks.
 
-## Management and behavior
+## Managing webhook subscriptions
 
-There are two ways you can manage your webhooks—view, create, update, delete—with the Fidel API. You can create them in the [Fidel Dashboard](https://dashboard.fidel.uk/webhooks), under the **"Webhooks"** page, or make HTTP requests using the [Webhooks API](https://fidel-oaas.readme.io/reference/create-hook).
+You can view, create, update and delete webhook subscriptions in the [Fidel API Dashboard](https://dashboard.fidel.uk/webhooks) or through the [Webhooks API](https://fidel-oaas.readme.io/reference/create-hook).
 
-As requirements for creation, Fidel API only accepts **HTTPS URLs** for webhook endpoints, thus your server must support HTTPS and have a valid certificate.
+Webhook endpoints must use HTTPS and have a valid certificate. Webhooks created in test mode, or with a test API key, receive test events. Switch the Dashboard to live mode, or use a live API key, to receive live events.
 
-Fidel API sends the data via HTTP POST in JSON format. It will send test events if your Dashboard is in test mode or if you are using test API keys when registering the webhook URLs. To receive live events, flip your switch on the Dashboard to go live, or create the webhooks using a live API key.
-
-Fidel API has two types of webhooks (brand and program-related), both of which work similarly, but have slightly different requirements to be registered. For customization, we also allow additional HTTP headers to be added to help integrating with your systems.
-
-## Program-related webhooks
-
-Program webhooks require a `programId` to be associated with and a URL to register. You can register up to 10 webhook URLs per event type for each program. You can use the [Program Hooks endpoint](https://fidel-oaas.readme.io/reference/create-program-hook) for registering program webhooks. The events that can be registered for a given program are `marketplace.offer.live`, `marketplace.offer.updated`.
-
-Here's an example on how to create a webhook on a Program for the `marketplace.offer.live` event, with `example.com` as the URL:
+Program webhooks require a `programId`. You can register up to 10 URLs per event type for each program.
 
 ```sh
 curl -X POST \
@@ -33,17 +25,64 @@ curl -X POST \
   }'
 ```
 
-## Acknowledging reception
+## Receiving webhook deliveries
 
-To confirm receipt of a webhook event, your server endpoint should return a `200 OK` HTTP status code. Any other response, or not providing any response within 20 seconds will be treated as a failure and our system will retry sending the request twice (i.e. three tries in total), with one-minute wait on the second request and two-minute wait on the third (last) attempt.
+Return any `2xx` HTTP status code within 20 seconds to acknowledge a delivery. A timeout or any non-`2xx` response is treated as a failed attempt.
 
-To avoid timeouts, it is recommended to not run complex and time-consuming logic upon reception of the webhook in order to provide a response back and thus avoid unnecessary retries and potentially duplicate processing of the events.
+Fidel API makes up to three attempts for each delivery:
+
+1. The first attempt is made immediately.
+2. The second attempt is made one minute after the first attempt fails.
+3. The third and final attempt is made two minutes after the second attempt fails.
+
+Your endpoint might receive the same event more than once. Acknowledge the request before starting long-running work and process events asynchronously. Use the `fidel-message-id` header as an idempotency key so repeated attempts do not cause duplicate processing.
+
+Each request includes these delivery headers:
+
+| Header | Description |
+|---|---|
+| `fidel-message-id` | Identifies the logical event. It remains the same across automatic attempts and manual replays. |
+| `fidel-attempt-number` | The attempt number for the delivery, starting at `1`. |
+| `Fidel-Request-Id` | Identifies the individual HTTP request. |
+| `x-fidel-signature` | Signature used to verify that Fidel API sent the request. |
+| `x-fidel-timestamp` | Unix timestamp in milliseconds used to generate the signature. |
+
+## Viewing delivery history
+
+Open **Webhooks > Deliveries** in the Fidel API Dashboard to inspect webhook deliveries from the last 90 days. Test and live deliveries are separated by the Dashboard mode.
+
+Delivery history is available for event types that have been migrated to Webhooks 2.0. Other event types will appear as the rollout progresses.
+
+The delivery list shows the status, event, program, destination and creation time. You can:
+
+- filter by status, event, program or time range;
+- search for a specific `fidel-message-id`;
+- group deliveries that share a `fidel-message-id`;
+- sort deliveries by creation time.
+
+Delivery statuses are `processing`, `succeeded` and `failed`.
+
+<img src="https://docs.fidel.uk/assets/images/list_webhooks_deliveries.png" alt="Webhook Deliveries list with status, event, program and time-range filters" />
+
+Select a delivery to inspect its payload and metadata. The details panel shows every delivery attempt, including its timing, status code, masked request headers and response body.
+
+<img src="https://docs.fidel.uk/assets/images/webhooks_delivery_detail.png" alt="Webhook delivery details showing the payload and request and response attempt details" />
+
+## Replaying a delivery
+
+You can manually replay any completed delivery that is less than 90 days old, whether its original status is `succeeded` or `failed`.
+
+1. Open **Webhooks > Deliveries** in the Dashboard.
+2. Select the delivery.
+3. Select **Replay delivery** and confirm the action.
+
+A replay creates a new delivery using the stored payload and the webhook subscription's current URL and configuration. It retains the original `fidel-message-id`, starts again at attempt `1` and appears separately in delivery history. Replays are delivered through a separate queue so they do not delay live webhook traffic.
+
+<img src="https://docs.fidel.uk/assets/images/webhooks_replay_prompt.png" alt="Webhook delivery replay confirmation" />
 
 ## Custom request headers
 
-Fidel API allows you to define custom HTTP headers when you register a webhook URL. The custom headers are included in the HTTP POST request headers that are sent to your application.
-
-Custom headers can be defined when creating a new webhook in the Dashboard or by using the Webhooks API and setting the optional `headers` object with a key-value pair (see example below).
+You can define up to five custom HTTP headers when creating or updating a webhook. Header names must contain 1 to 64 letters, numbers, dashes or underscores. Values must contain 1 to 1000 characters. Fidel API-managed and other reserved HTTP headers cannot be overridden.
 
 ```sh
 curl -X POST \
@@ -59,116 +98,51 @@ curl -X POST \
   }'
 ```
 
-To delete custom headers from a registered webhook, use the [Update Hooks endpoint](https://fidel-oaas.readme.io/reference/update-hook) and send an empty `headers` object.
+To remove all custom headers, use the [Update Hook endpoint](https://fidel-oaas.readme.io/reference/update-hook) and send an empty `headers` object.
 
-```sh
-curl -X PUT \
-  https://api.fidel.uk/v1/hooks/3b4be60b-6596-4b40-ae3d-89b9fdaf132a \
-  -H 'Content-Type: application/json' \
-  -H 'Fidel-Key: <KEY>' \
-  -d '{
-    "programId": "06471dbe-a3c7-429e-8a18-16dc97e5cf35",
-    "event": "marketplace.offer.updated",
-    "url": "https://example.com",
-    "headers": {}
-  }'
-```
+## Verifying signatures
 
-A maximum of 5 custom headers per webhook can be defined, and they need to follow strict character validation patterns. The key name must be between 1 and 64 characters and only accepts the Roman alphabet, numbers, dashes and underscores. The value must be between 1 and 1000 characters. Additionally, the HTTP reserved headers are blocklisted and cannot be used for the key name. The full list of blocklisted key names:
+Fidel API generates a unique `secretKey` for each webhook subscription. The API returns it when the webhook is created, and you can reveal it from the Dashboard's Webhooks page.
 
-```json
-[
-  "Accept-Charset",
-  "Accept-Datetime",
-  "Accept-Encoding",
-  "Accept-Language",
-  "Accept",
-  "Access-Control-Request-Headers",
-  "Access-Control-Request-Method",
-  "Cache-Control",
-  "Connection",
-  "Content-Length",
-  "Content-Type",
-  "Cookie",
-  "Date",
-  "Expect",
-  "Fidel-Account",
-  "Fidel-Key",
-  "Fidel-Live",
-  "Fidel-Request-Id",
-  "Fidel-User",
-  "Forwarded",
-  "From",
-  "Host",
-  "If-Match",
-  "If-Modified-Since",
-  "If-None-Match",
-  "If-Range",
-  "If-Unmodified-Since",
-  "Max-Forwards",
-  "Origin",
-  "Pragma",
-  "Proxy-Authorization",
-  "Range",
-  "Referer",
-  "TE",
-  "Transfer-Encoding",
-  "Upgrade",
-  "User-Agent",
-  "Via",
-  "Warning",
-  "X-Fidel-Signature",
-  "X-Fidel-Timestamp"
-]
-```
+To verify a request:
 
-## Signatures
+1. Concatenate the raw request body, webhook URL and `x-fidel-timestamp` value.
+2. Hash the result twice with HMAC-SHA256 using the webhook's `secretKey`, then Base64-encode each digest.
+3. Compare the result with `x-fidel-signature` using a constant-time comparison.
 
-If you want to confirm that incoming requests on your webhook URL are coming from the Fidel API, we recommend verifying webhook signatures. We send the `x-fidel-signature` and `x-fidel-timestamp` HTTP headers for each request we make to a webhook URL.
-
-Fidel API generates a unique secret key for each webhook you register. The key is returned in the response's `secretKey` property if you are using the Webhooks API. You can also copy the key from the Fidel Dashboard's Webhooks page by clicking in the Show Key button next to your webhook endpoint. To verify a webhook request, generate a signature using the same key that the Fidel API uses and compare that to the value of the `x-fidel-signature` header.
-
-Replay attacks are a common MITM attack vector where a valid payload and its signature is intercepted and re-transmitted. If you want to safeguard against them, you can use the `x-fidel-timestamp` header and confirm that the timestamp is not too old. We recommend you validate the requests in a 5-minute gap. In the case of retries, a new signature and timestamp are generated for each retry request.
-
-The verification can be conducted as follows:
-
-1. Create a string concatenating the body of the request, the webhook URL and the timestamp value from the `x-fidel-timestamp` header.
-2. Double hash the resulting string using the webhook `secretKey` with HMAC-SHA256 and encode it in Base-64.
-3. Compare the signature you generated with the signature provided in the `x-fidel-signature` header.
-
-Example JavaScript implementation:
+Reject timestamps outside your accepted tolerance to reduce the risk of replay attacks. A five-minute tolerance is recommended.
 
 ```js
-/**
-  fidelHeaders - x-fidel-signature and x-fidel-timestamp headers
-  payload - request payload (body)
-  secret - webhook secretKey
-  url - webhook URL
-*/
-function isSignatureValid(fidelHeaders, payload, secret, url) {
-  function base64Digest(s) {
-    return crypto.createHmac("sha256", secret).update(s).digest("base64");
+function isSignatureValid(fidelHeaders, rawBody, secret, url) {
+  function base64Digest(value) {
+    return crypto.createHmac("sha256", secret).update(value).digest("base64");
   }
-  /** You can check how much time has passed since the request has been sent */
-  /** timestamp - UTC Unix Timestamp (milliseconds) */
+
   const timestamp = fidelHeaders["x-fidel-timestamp"];
-  const content = JSON.stringify(payload) + url + timestamp;
+  const content = rawBody + url + timestamp;
   const signature = base64Digest(base64Digest(content));
-  return fidelHeaders["x-fidel-signature"] === signature;
+
+  const received = Buffer.from(fidelHeaders["x-fidel-signature"]);
+  const expected = Buffer.from(signature);
+
+  return received.length === expected.length &&
+    crypto.timingSafeEqual(received, expected);
 }
 ```
 
-## Deleting Webhooks
+Use the exact raw request body when calculating the signature. Parsing and re-serializing JSON can change the content and cause verification to fail.
 
-You can delete webhooks in the [Fidel API Dashboard](https://dashboard.fidel.uk/webhooks), or using the API's [Delete Webhook endpoint](https://fidel-oaas.readme.io/reference/delete-hook).
+## Deleting a webhook
+
+Delete webhook subscriptions in the [Fidel API Dashboard](https://dashboard.fidel.uk/webhooks) or through the [Delete Webhook endpoint](https://fidel-oaas.readme.io/reference/delete-hook).
 
 ```sh
 curl -X DELETE \
   https://api.fidel.uk/v1/hooks/b9ef3795-a38f-4ef2-8d8d-293dd7fbe1a7 \
-  -H 'content-type: application/json' \
-  -H 'fidel-key: sk_test_50ea90b6-2a3b-4a56-814d-1bc592ba4d63'
+  -H 'Content-Type: application/json' \
+  -H 'Fidel-Key: <KEY>'
 ```
 
-## API Reference
+## API reference
 
-If you're looking to find out more about our Webhooks API and how to use it with your application, please visit the [Fidel API Reference](https://fidel-oaas.readme.io/reference).
+See the [Fidel API Reference](https://fidel-oaas.readme.io/reference) for Webhooks API endpoints and schemas.
