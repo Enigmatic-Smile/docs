@@ -50,11 +50,41 @@ curl -X POST \
   }'
 ```
 
-## Acknowledging reception
+## Receiving webhook deliveries
 
-To confirm receipt of a webhook event, your server endpoint should return a <code>200 OK</code> HTTP status code. Any other response, or not providing any response within 20 seconds will be treated as a failure and our system will retry sending the request twice (i.e. three tries in total), with one-minute wait on the second request and two-minute wait on the third (last) attempt.
+Return any `2xx` HTTP status code within 20 seconds to acknowledge a delivery. A timeout or any non-`2xx` response is treated as a failed attempt.
 
-To avoid timeouts, it is recommended to not run complex and time-consuming logic upon reception of the webhook in order to provide a response back and thus avoid unnecessary retries and potentially duplicate processing of the events.
+Fidel API makes up to three attempts for each delivery: the first immediately, the second one minute after the first failure, and the third two minutes after the second failure.
+
+Your endpoint might receive the same event more than once. Acknowledge the request before starting long-running work and process events asynchronously. Use `fidel-message-id` as an idempotency key so repeated attempts do not cause duplicate processing.
+
+Each request includes `fidel-message-id`, `fidel-attempt-number`, `Fidel-Request-Id`, `x-fidel-signature` and `x-fidel-timestamp` headers. The message ID identifies the logical event and remains the same across automatic attempts and manual replays. The attempt number starts at `1`.
+
+## Viewing delivery history
+
+Open **Webhooks > Deliveries** in the [Fidel API Dashboard](https://dashboard.fidel.uk/webhooks/deliveries) to inspect webhook deliveries from the last 90 days. Test and live deliveries are separated by the Dashboard mode.
+
+Delivery history is available for event types that have been migrated to Webhooks 2.0. Other event types will appear as the rollout progresses.
+
+You can filter deliveries by status, event, program or time range; search by `fidel-message-id`; group related deliveries; and sort by creation time. Delivery statuses are `processing`, `succeeded` and `failed`.
+
+<img src="https://docs.fidel.uk/assets/images/list_webhooks_deliveries.png" alt="Webhook Deliveries list with status, event, program and time-range filters" />
+
+Select a delivery to inspect its payload, metadata and individual attempts. Each attempt includes timing, status code, masked request headers and the response body.
+
+<img src="https://docs.fidel.uk/assets/images/webhooks_delivery_detail.png" alt="Webhook delivery details showing the payload and request and response attempt details" />
+
+## Replaying a delivery
+
+You can replay any completed delivery that is less than 90 days old, whether its original status is `succeeded` or `failed`.
+
+1. Open **Webhooks > Deliveries**.
+2. Select the delivery.
+3. Select **Replay delivery** and confirm the action.
+
+A replay creates a new delivery using the stored payload and the webhook subscription's current URL and configuration. It retains the original `fidel-message-id`, starts again at attempt `1` and appears separately in delivery history. Replays do not delay live webhook traffic.
+
+<img src="https://docs.fidel.uk/assets/images/webhooks_replay_prompt.png" alt="Webhook delivery replay confirmation" />
 
 ## Custom request headers
 
@@ -112,6 +142,8 @@ A maximum of 5 custom headers per webhook can be defined, and they need to follo
   "Fidel-Account",
   "Fidel-Key",
   "Fidel-Live",
+  "Fidel-Message-Id",
+  "Fidel-Attempt-Number",
   "Fidel-Request-Id",
   "Fidel-User",
   "Forwarded",
@@ -567,43 +599,52 @@ This means that partial refunds will not be identified as the cashback amount is
 ```
 
 
-## Signatures
+## Verifying signatures
 
 If you want to confirm that incoming requests on your webhook URL are coming from the Fidel API, we recommend verifying webhook signatures. We send the `x-fidel-signature` and `x-fidel-timestamp` HTTP headers for each request we make to a webhook URL.
 
 Fidel API generates a unique secret key for each webhook you register. The key is returned in the response's `secretKey` property if you are using the Webhooks API. You can also copy the key from the Fidel Dashboard's Webhooks page by clicking in the **Show Key** button next to your webhook endpoint. To verify a webhook request, generate a signature using the same key that the Fidel API uses and compare that to the value of the `x-fidel-signature` header.
 
-Replay attacks are a common MITM attack vector where a valid payload and its signature is intercepted and re-transmitted. If you want to safeguard against them, you can use the `x-fidel-timestamp` header and confirm that the timestamp is not too old. We recommend you validate the requests in a 5-minute gap. In the case of retries, a new signature and timestamp are generated for each retry request.
+Replay attacks are a common MITM attack vector where a valid payload and its signature is intercepted and re-transmitted. If you want to safeguard against them, use the `x-fidel-timestamp` header and reject requests outside your accepted tolerance. We recommend a five-minute tolerance.
 
-The valuation/verification can be conducted as follows:
+To verify a request:
 
-1. Create a string concatenating the body of the request, the webhook URL and the timestamp value from the `x-fidel-timestamp` header.
+1. Concatenate the raw request body, webhook URL and timestamp value from the `x-fidel-timestamp` header.
 2. Double hash the resulting string using the webhook `secretKey` with HMAC-SHA256 and encode it in Base-64.
-3. Compare the signature you generated with the signature provided in the `x-fidel-signature` header.
+3. Compare the signature you generated with the signature provided in the `x-fidel-signature` header using a constant-time comparison.
 
 ### Example JavaScript implementation
 
 ```javascript
 /**
   fidelHeaders - x-fidel-signature and x-fidel-timestamp headers
-  payload - request payload (body)
+  rawBody - raw request body
   secret - webhook secretKey
   url - webhook URL
 */
-function isSignatureValid(fidelHeaders, payload, secret, url) {
+function isSignatureValid(fidelHeaders, rawBody, secret, url) {
   function base64Digest(s) {
     return crypto.createHmac("sha256", secret).update(s).digest("base64");
   }
 
-  /** You can check how much time has passed since the request has been sent */
-  /** timestamp - UTC Unix Timestamp (milliseconds) */
   const timestamp = fidelHeaders["x-fidel-timestamp"];
-  const content = JSON.stringify(payload) + url + timestamp;
+  const timestampAge = Math.abs(Date.now() - Number(timestamp));
 
+  if (!Number.isFinite(timestampAge) || timestampAge > 5 * 60 * 1000) {
+    return false;
+  }
+
+  const content = rawBody + url + timestamp;
   const signature = base64Digest(base64Digest(content));
-  return fidelHeaders["x-fidel-signature"] === signature;
+  const received = Buffer.from(fidelHeaders["x-fidel-signature"]);
+  const expected = Buffer.from(signature);
+
+  return received.length === expected.length &&
+    crypto.timingSafeEqual(received, expected);
 }
 ```
+
+Use the exact raw request body when calculating the signature. Parsing and re-serializing JSON can change the content and cause verification to fail.
 
 ## Deleting Webhooks
 

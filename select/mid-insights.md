@@ -1,28 +1,69 @@
-# List MID Insights
+# MID Insights
 
-The List MID Insights endpoint provides programmatic clarity into the health, status, and validation details of your onboarded Merchant Identification Numbers (MIDs) across card networks. As part of our Phase 2 rollout, this endpoint enables advanced programmatic querying to proactively monitor your transaction ingestion pipelines.
+MID Insights provides visibility into the status and activity of your onboarded Merchant Identification Numbers (MIDs) across card networks. You can investigate MIDs in the Fidel API Dashboard or query them programmatically with the List MID Insights endpoint.
 
 ---
 
 ## Overview
 
-The List MID Insights endpoint allows you to query and monitor the full lifecycle of your onboarded MIDs. Key capabilities include:
+MID Insights allows you to monitor the lifecycle of your onboarded MIDs. Key capabilities include:
 
 - **🔍 Health monitoring**: Track the current status of every onboarded MID across card networks
 - **📊 Network activation details**: View scheme-specific identifiers (Visa, Mastercard, Amex) for each MID
 - **🔗 Transaction linkage**: Identify the first and last transactions seen on each MID for your program
 - **📅 Date filtering**: Filter MID insights by last seen transaction date ranges
 - **🏷️ Origin tracing**: Understand how each MID was discovered or sourced
-- **📄 Paginated results**: Efficiently retrieve large sets of MID insights using cursor-based pagination
+- **📄 Dashboard and API access**: Investigate MID insights in the Dashboard or retrieve paginated results through the API
 
 ---
 
 ## Availability & Requirements
 
-> **⚠️ Important Eligibility Notice:** This endpoint is exclusively available to **Premium Tier** customers.
+> **⚠️ Important Eligibility Notice:** MID Insights is exclusively available to **Premium Tier** customers.
 
-- **Activation**: This feature is not enabled by default. It is only available to Premium Tier clients. To unlock access for your program, please reach out directly to your assigned Customer Success Manager (CSM).
-- **Dashboard Support**: This release represents the programmatic API phase. Full self-service visualization and dashboard functionality for MID Insights will be available in the Fidel Dashboard by August 2026.
+- **Activation**: This feature is not enabled by default. To request access, contact your assigned Customer Success Manager (CSM).
+- **Dashboard access**: Once MID Insights is enabled for your account, select a program and open **Insights** in the Fidel API Dashboard.
+
+---
+
+## Using MID Insights in the Dashboard
+
+The **MID Insights** page provides a program-level view of your MIDs. The table shows the card network, status, MID, network-specific identifiers, origin, onboarding and offboarding dates, last transaction date and creation date.
+
+You can sort supported columns, adjust the table density and select a row to inspect the MID insight.
+
+<img src="https://docs.fidel.uk/assets/images/mid-insights-list.png" alt="MID Insights list in the Fidel API Dashboard" />
+
+### Filtering MID insights
+
+Use **Filter** to narrow the list by fields such as card network, status, origin, brand, location, MID identifiers and last transaction date. Active filters apply to the table and to exports.
+
+<img src="https://docs.fidel.uk/assets/images/mid-insights-filters.png" alt="MID Insights filters in the Fidel API Dashboard" />
+
+### Viewing MID insight details
+
+Select a MID insight to open its details drawer. The drawer includes:
+
+- the associated brand and location;
+- card-network merchant data and identifiers;
+- a timeline of sourcing, onboarding, offboarding and transaction activity;
+- links to associated transactions and MID requests, when available.
+
+<img src="https://docs.fidel.uk/assets/images/mid-insights-detail.png" alt="MID Insight details drawer showing network data, identifiers and timeline" />
+
+### Exporting MID insights
+
+Select **Export** to request the current MID Insights dataset as a CSV or JSON file. The export uses the active filters. You can send the file to your account email address or specify up to five recipient email addresses.
+
+<img src="https://docs.fidel.uk/assets/images/mid-insights-export.png" alt="Export MID Insights dialog" />
+
+### Offboarding a MID
+
+For an onboarded MID, open the details drawer and select **Offboard MID**. Choose a reason and confirm the action. This creates an offboard request; it does not immediately remove the MID from the card network.
+
+Some MIDs cannot be offboarded in the Dashboard. If the action is unavailable, contact Fidel API support.
+
+<img src="https://docs.fidel.uk/assets/images/mid-insights-offboard.png" alt="Offboard MID confirmation dialog" />
 
 ---
 
