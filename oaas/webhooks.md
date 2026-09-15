@@ -119,6 +119,12 @@ function isSignatureValid(fidelHeaders, rawBody, secret, url) {
   }
 
   const timestamp = fidelHeaders["x-fidel-timestamp"];
+  const timestampAge = Math.abs(Date.now() - Number(timestamp));
+
+  if (!Number.isFinite(timestampAge) || timestampAge > 5 * 60 * 1000) {
+    return false;
+  }
+
   const content = rawBody + url + timestamp;
   const signature = base64Digest(base64Digest(content));
 
