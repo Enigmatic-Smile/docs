@@ -51,8 +51,6 @@ Each request includes these delivery headers:
 
 Open **Webhooks > Deliveries** in the Fidel API Dashboard to inspect webhook deliveries from the last 90 days. Test and live deliveries are separated by the Dashboard mode.
 
-Delivery history is available for event types that have been migrated to Webhooks 2.0. Other event types will appear as the rollout progresses.
-
 The delivery list shows the status, event, program, destination and creation time. You can:
 
 - filter by status, event, program or time range;
