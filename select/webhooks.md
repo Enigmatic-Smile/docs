@@ -64,8 +64,6 @@ Each request includes `fidel-message-id`, `fidel-attempt-number`, `Fidel-Request
 
 Open **Webhooks > Deliveries** in the [Fidel API Dashboard](https://dashboard.fidel.uk/webhooks/deliveries) to inspect webhook deliveries from the last 90 days. Test and live deliveries are separated by the Dashboard mode.
 
-Delivery history is available for event types that have been migrated to Webhooks 2.0. Other event types will appear as the rollout progresses.
-
 You can filter deliveries by status, event, program or time range; search by `fidel-message-id`; group related deliveries; and sort by creation time. Delivery statuses are `processing`, `succeeded` and `failed`.
 
 <img src="https://docs.fidel.uk/assets/images/list_webhooks_deliveries.png" alt="Webhook Deliveries list with status, event, program and time-range filters" />
