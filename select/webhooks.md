@@ -264,7 +264,9 @@ The `offer.location.linked` and `offer.location.unlinked` events are account-sco
 fileName:offer.location.linked
 {
   "offerId": "cf22478e-c700-4f31-b75b-38016605e2a3",
-  "locationId": "298d9c88-cabe-4583-a54b-574e29b57c84"
+  "locationId": "298d9c88-cabe-4583-a54b-574e29b57c84",
+  "brandId": "9cd32c61-43ca-4bb7-8aca-0cf491112c28",
+  "address": "Lemonades Stand Av Liberdade"
 }
 ```
 
