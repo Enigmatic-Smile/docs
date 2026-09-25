@@ -1,6 +1,6 @@
 # Webhooks
 
-Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `mid-request.succeeded`, `mid-request.failed`, `missing-transaction-request.succeeded`, `missing-transaction-request.failed`, `offer.location.linked`, `offer.location.unlinked`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund.match.qualified` and `transaction.refund`.
+Fidel API uses [webhooks](https://en.wikipedia.org/wiki/Webhook) to notify your application when relevant events happen in your account across multiple resources, namely with event types such as `card.failed`, `card.linked`, `location.status`, `marketplace.offer.live`, `marketplace.offer.updated`, `mid-request.succeeded`, `mid-request.failed`, `missing-transaction-request.succeeded`, `missing-transaction-request.failed`, `offer-location.linked`, `offer-location.unlinked`, `program.status`, `transaction.auth.qualified`, `transaction.auth`, `transaction.clearing.qualified`, `transaction.clearing`, `transaction.refund.qualified`, `transaction.refund.match.qualified` and `transaction.refund`.
 
 Fidel API will notify your registered webhook URLs as the event happens, via a HTTP POST request with a signature header for verification, which needs to be received and acknowledged in a timely manner. The HTTP request contains the event object as payload.
 
@@ -258,10 +258,10 @@ fileName:location.status
 
 ### Offer
 
-The `offer.location.linked` and `offer.location.unlinked` events are account-scoped and are triggered when a Location is linked to, or unlinked from, an Offer in your account.
+The `offer-location.linked` and `offer-location.unlinked` events are account-scoped and are triggered when a Location is linked to, or unlinked from, an Offer in your account.
 
 ```json
-fileName:offer.location.linked
+fileName:offer-location.linked
 {
   "offerId": "cf22478e-c700-4f31-b75b-38016605e2a3",
   "locationId": "298d9c88-cabe-4583-a54b-574e29b57c84",

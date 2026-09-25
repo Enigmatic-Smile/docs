@@ -1,6 +1,6 @@
 # Webhooks
 
-Fidel API uses webhooks to notify your application when events happen in your account. For Offer Marketplace, available events include `marketplace.offer.live`, `marketplace.offer.updated`, `offer.location.linked` and `offer.location.unlinked`.
+Fidel API uses webhooks to notify your application when events happen in your account. For Offer Marketplace, available events include `marketplace.offer.live`, `marketplace.offer.updated`, `offer-location.linked` and `offer-location.unlinked`.
 
 When an event occurs, Fidel API sends an HTTP POST request containing the event payload to each subscribed endpoint.
 
@@ -27,10 +27,10 @@ curl -X POST \
 
 ### Offer-related webhooks
 
-The `offer.location.linked` and `offer.location.unlinked` events are account-scoped and are triggered when a Location is linked to, or unlinked from, an Offer in your account.
+The `offer-location.linked` and `offer-location.unlinked` events are account-scoped and are triggered when a Location is linked to, or unlinked from, an Offer in your account.
 
 ```json
-fileName:offer.location.linked
+fileName:offer-location.linked
 {
   "offerId": "cf22478e-c700-4f31-b75b-38016605e2a3",
   "locationId": "298d9c88-cabe-4583-a54b-574e29b57c84",
