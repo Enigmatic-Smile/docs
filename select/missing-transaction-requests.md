@@ -22,7 +22,7 @@ When a transaction occurs at an enrolled merchant but isn't automatically tracke
 
 Use this endpoint to initiate a search for a transaction that was not automatically tracked.
 
-**Endpoint:** `POST /cards/{cardId}/missing-transaction-requests` | [API Reference](https://reference.fidel.uk/reference/create-missing-transaction-request)
+**Endpoint:** `POST /cards/{cardId}/missing-transaction-requests` | [API Reference](https://reference.fidel.uk/reference/post_cards-cardid-missing-transaction-requests)
 
 #### Required Parameters
 
@@ -111,7 +111,7 @@ Retrieve the details and current status of a specific request.
 
 View all requests created within your program.
 
-**Endpoint:** `GET /programs/{programId}/missing-transaction-requests` | [API Reference](https://reference.fidel.uk/reference/list-missing-transaction-request)
+**Endpoint:** `GET /programs/{programId}/missing-transaction-requests` | [API Reference](https://reference.fidel.uk/reference/get_programs-programid-missing-transaction-requests)
 
 ---
 
