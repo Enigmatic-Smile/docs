@@ -1,5 +1,9 @@
 # React Native SDK v2 Releases
 
+## 3.2.3
+
+- Security updates to the example reference app dependencies (runs with a fully patched JS and CocoaPods dependency tree). No SDK API changes.
+
 ## 3.2.0
 
 - Update Fidel iOS SDK version.
