@@ -210,6 +210,220 @@ Reassign a MID to a different location via the [Create MID Request API](https://
 
 ---
 
+### Block MID (Block-list)
+
+Block a MID when it must not be used for a program — for example a MID that belongs to another brand, a location that was onboarded in error, or a MID that has to be excluded from a card-linked campaign. Blocking refuses the MID for the program, offboards any copy that is already onboarded, and can be undone later.
+
+<img src="https://docs.fidel.uk/assets/images/mid-block-list.png" alt="Block-list page in the Fidel Dashboard" style={{'width': '100%', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', marginBottom: '1rem'}} />
+
+The **Block-list** page lists every blocked MID for the selected program: the card scheme, the MID, the network identifiers attached to the block, the scope, and when it was blocked. Rows open the raw MID block record.
+
+#### Scope: Exact or Parent
+
+A block targets either one merchant location or the MID as a whole. The scope is derived from the identifiers you provide.
+
+<table style={{borderCollapse: 'collapse', 'width': '100%', marginBottom: '16px'}}>
+<thead>
+  <tr style={{backgroundColor: '#f8f9fa'}}>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Scope</th>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>What is blocked</th>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Identifiers</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><strong>Exact</strong></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>A single merchant location.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Parent identifier plus the child identifier (VSID, BIN or LID).</td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px'}}><strong>Parent</strong></td>
+    <td style={{'padding': '12px'}}>The MID and every location currently or later associated with it.</td>
+    <td style={{'padding': '12px'}}>Parent identifier only; the child identifier is omitted.</td>
+  </tr>
+</tbody>
+</table>
+
+The identifiers available depend on the card scheme:
+
+<table style={{borderCollapse: 'collapse', 'width': '100%', marginBottom: '16px'}}>
+<thead>
+  <tr style={{backgroundColor: '#f8f9fa'}}>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Scheme</th>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Parent identifier</th>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Child identifier (optional)</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Visa (merchant)</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>vmid</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>vsid</code></td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Visa (acquirer)</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>visaAcquiringMid</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>visaBin</code></td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Mastercard</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>mcAcquiringMid</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>mcLocationId</code></td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px'}}>Amex</td>
+    <td style={{'padding': '12px'}}><code>seNumber</code></td>
+    <td style={{'padding': '12px'}}>Not applicable</td>
+  </tr>
+</tbody>
+</table>
+
+#### Block a MID
+
+**Step-by-step:**
+
+1. **Open the Block-list** - Select the program, then choose **Block-list** in the sidebar, or use **Block MID** from the Merchant IDs page
+2. **Start a block** - Click **Block MID** in the upper right
+3. **Choose the scheme** - Select the Visa, Mastercard or Amex tab
+4. **Enter the parent identifier** - Provide the VMID, acquiring MID or SE number, depending on the scheme
+5. **Set the scope** - Add the child identifier to block one location, or leave it blank to block the whole MID
+6. **Submit** - Review the parent-MID warning and click **Block MID**. When the drawer is opened from the Merchant IDs page, tick the acknowledgement first to enable the button
+
+<img src="https://docs.fidel.uk/assets/images/mid-block-drawer.png" alt="Block MID drawer" style={{'width': '100%', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', marginBottom: '1rem'}} />
+
+> **📋 Offboarding:** Blocking a MID that is currently onboarded creates the offboard requests for the copies in the program. Track their progress in the [MID Requests](#mid-requests) section. Blocking a MID that is already covered by a parent block returns the `mid-already-block-listed` error.
+
+#### Filter the block-list
+
+The block-list filters by card scheme and by the identifiers stored with each block. Identifier filters are scheme-specific and build on the parent identifier: a VSID filter also needs the VMID, a BIN filter the Visa acquiring MID, and an LID filter the Mastercard acquiring MID.
+
+<img src="https://docs.fidel.uk/assets/images/mid-block-filters.png" alt="Block-list filters for scheme and identifiers" style={{'width': '100%', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0,0,0,0.1)', marginBottom: '1rem'}} />
+
+#### Unblock a MID
+
+1. **Open the row actions** - Find the blocked MID and open its actions menu
+2. **Select unblock** - Choose **Unblock MID**
+3. **Confirm** - Review the scheme, MID and scope, then click **Unblock**
+
+Unblocking removes the entry from the block-list. It does not re-onboard the MID — create a new MID request if the merchant needs to receive transaction data again.
+
+#### API
+
+The block-list is also available through the API:
+
+- `POST /programs/{programId}/mid-block` — create a block
+- `GET /programs/{programId}/mid-block` — list blocks
+- `DELETE /programs/{programId}/mid-block/{midBlockId}` — remove a block
+
+The request body accepts one scheme-specific shape. Send the child identifier to block a single location, or omit it to block the parent MID.
+
+```json
+{
+  "scheme": "visa",
+  "vmid": "412345678901",
+  "vsid": "0012345"
+}
+```
+
+```json
+{
+  "scheme": "visa",
+  "visaAcquiringMid": "654321",
+  "visaBin": "400000"
+}
+```
+
+```json
+{
+  "scheme": "mastercard",
+  "mcAcquiringMid": "549988771234567",
+  "mcLocationId": "98765"
+}
+```
+
+```json
+{
+  "scheme": "amex",
+  "seNumber": "3022430235"
+}
+```
+
+A successful create returns `201` with the new entry:
+
+```json
+{
+  "items": [
+    {
+      "id": "a1b2c3d4-0000-0000-0000-000000000000",
+      "accountId": "00000000-0000-0000-0000-000000000000",
+      "programId": "00000000-0000-0000-0000-000000000000",
+      "scheme": "visa",
+      "level": "exact",
+      "vmid": "412345678901",
+      "vsid": "0012345",
+      "live": true,
+      "created": "2026-11-19T10:00:00.000Z",
+      "updated": "2026-11-19T10:00:00.000Z"
+    }
+  ]
+}
+```
+
+List filters:
+
+<table style={{borderCollapse: 'collapse', 'width': '100%', marginBottom: '16px'}}>
+<thead>
+  <tr style={{backgroundColor: '#f8f9fa'}}>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Parameter</th>
+    <th style={{'padding': '12px', textAlign: 'left', borderBottom: '2px solid #dee2e6'}}>Description</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>scheme</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Filters by card scheme.</td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>seNumber</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Amex SE number.</td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>mcAcquiringMid</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Mastercard acquiring MID.</td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>mcLocationId</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Mastercard location ID. Requires <code>mcAcquiringMid</code>.</td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>vmid</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Visa merchant ID.</td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>vsid</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Visa store ID. Requires <code>vmid</code>.</td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>visaAcquiringMid</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Visa acquiring MID.</td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>visaBin</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Visa acquirer BIN. Requires <code>visaAcquiringMid</code>.</td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>limit</code>, <code>start</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Pagination. <code>start</code> is the <code>last</code> value from the previous page.</td>
+  </tr>
+</tbody>
+</table>
+
+Deleting a block returns `204 No Content`. Removing a block that does not exist returns the `mid-block-not-found` error.
+
+The complete API reference is available at [reference.fidel.uk](https://reference.fidel.uk/).
+
+---
+
 ## MID Requests
 
 ### What is a MID Request
