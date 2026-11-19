@@ -321,7 +321,7 @@ The request body accepts one scheme-specific shape. Send the child identifier to
 {
   "scheme": "visa",
   "vmid": "412345678901",
-  "vsid": "0012345"
+  "vsid": "00123456"
 }
 ```
 
@@ -360,7 +360,7 @@ A successful create returns `201` with the new entry:
       "scheme": "visa",
       "level": "exact",
       "vmid": "412345678901",
-      "vsid": "0012345",
+      "vsid": "00123456",
       "live": true,
       "created": "2026-11-19T10:00:00.000Z",
       "updated": "2026-11-19T10:00:00.000Z"
