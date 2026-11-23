@@ -51,9 +51,14 @@ Use this endpoint to initiate a search for a transaction that was not automatica
     <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The date the transaction took place (ISO 8601 format).</td>
   </tr>
   <tr>
-    <td style={{'padding': '12px'}}><code>amount</code></td>
-    <td style={{'padding': '12px'}}>Number</td>
-    <td style={{'padding': '12px'}}>The exact value of the transaction.</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}><code>amount</code></td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>Number</td>
+    <td style={{'padding': '12px', borderBottom: '1px solid #dee2e6'}}>The exact value of the transaction.</td>
+  </tr>
+  <tr>
+    <td style={{'padding': '12px'}}><code>metadata</code></td>
+    <td style={{'padding': '12px'}}>Object (optional)</td>
+    <td style={{'padding': '12px'}}>Custom key/value pairs stored with the request. Read-only after creation and limited to 2,000 bytes. Returned by all Missing Transaction Request endpoints and webhooks.</td>
   </tr>
 </tbody>
 </table>
@@ -69,6 +74,17 @@ If successful, the API returns a Transaction Object containing:
 > **💡 Note:** For Visa transactions, the `vmid` and `vsid` fields may be missing if the MID has not been assigned yet. In this case, the `networkStatus` will be `MID-NOT-ASSIGNED`.
 
 > **🏪 Next Step for Onboarding:** If you discover a new Merchant ID through a missing transaction lookup, use the [MID Request endpoint](https://reference.fidel.uk/reference/get_programsprogramidmidsmidid-3) or the Dashboard's MID Management tab to onboard it.
+
+#### Metadata
+
+You can attach an optional `metadata` object when creating a request. Fidel stores it verbatim and returns it, when present, in the create response, the Get and List endpoints, and the `missing-transaction-request.succeeded` / `missing-transaction-request.failed` webhooks.
+
+- Metadata is read-only after creation.
+- The field is omitted from responses and webhooks when no metadata was supplied.
+- The maximum size is 2,000 bytes.
+- Keys may contain letters, numbers, underscores, dots, hyphens, and spaces.
+- Values can be strings, numbers, booleans, null, or nested objects and arrays using safe characters.
+- Metadata does not affect duplicate detection: a request with the same card, location, amount, and date is still a duplicate even if its metadata differs.
 
 #### Transaction Date Limits
 
@@ -186,6 +202,9 @@ fileName:missing-transaction-request-succeeded.json
   "cardId": "bc538b71-31c5-4699-820a-6d4a08693314",
   "cardLastNumbers": "4242",
   "amount": 50.99,
+  "metadata": {
+    "externalOrderId": "order-123"
+  },
   "transactionDate": "2025-10-02",
   "scheme": "visa",
   "live": true,
@@ -227,6 +246,9 @@ fileName:missing-transaction-request-failed.json
   "cardId": "bc538b71-31c5-4699-820a-6d4a08693314",
   "cardLastNumbers": "4242",
   "amount": 50.99,
+  "metadata": {
+    "externalOrderId": "order-123"
+  },
   "transactionDate": "2025-10-02",
   "scheme": "visa",
   "live": true,
